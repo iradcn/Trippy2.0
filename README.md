@@ -1,9 +1,9 @@
-# Databases15bFinalProj
+# Databases Project, 2015b
 
-##Prequesities:
+###Prequesities:
 Maven,Git
 
-##Instructions:
+###Instructions:
 
 ###1. Compilation:
   From within Repository:
