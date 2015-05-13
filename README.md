@@ -14,5 +14,6 @@ Maven,Git
   2. *`mvn clean install`*
 
 #####2.Run
+  From within project root:
   1. *`java -jar target/final-project-0.0.1-SNAPSHOT.jar`*
   2. open browser, navigate to *`http://localhost:8080`*, server should be running
