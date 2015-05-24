@@ -1,0 +1,8 @@
+{
+	"hostName":"localhost",
+	"port":"3306",
+	"dbName":"DbMysql11",
+	"protocol":"jdbc:mysql",
+	"userName":"DbMysql11",
+	"password":"DbMysql11"
+}
