@@ -41,7 +41,7 @@ public class Progress {
 			e.printStackTrace();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		}finally{
 			lock.unlock();
 		

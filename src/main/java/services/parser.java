@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class parser {
     private BufferedReader br;
-    public int chunkSize = 100;
+    public int chunkSize = 50000;
     private List<Category> allCategories;
     private final String PATH = "Resources//yagoGeonamesTypes.tsv";
     public void init() throws FileNotFoundException {

@@ -22,7 +22,7 @@ define(
                     url:'service'
                     }).done(function(data){
                         this.showProgressBar();
-                        this.fetchProgress();
+                        setTimeout(function(){this.fetchProgress();}.bind(this),10000);
                     }.bind(this));
             },
             render: function () {
@@ -36,8 +36,8 @@ define(
                     if (data){
                         this.updateProgressBar(data);
                     }
-                    if (!data || data.read != data.total)
-                        setTimeout(function(){this.fetchProgress();},60000);
+                    if (data.read != data.total)
+                        setTimeout(function(){this.fetchProgress();}.bind(this),10000);
                 }.bind(this));
             },
             showProgressBar: function(){
@@ -46,7 +46,7 @@ define(
             },
             updateProgressBar: function(data){
                 if (data && data.read && data.total)
-                    $('.progress-bar').css('width',data.read/data.total +'%');
+                    $('.progress-bar').css('width',100*data.read/data.total +'%');
             }
         })
 
