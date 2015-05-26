@@ -3,7 +3,7 @@ package model;
 /**
  * Created by nimrod on 5/24/15.
  */
-public abstract class AbstractGeoEntity {
+public abstract class AbstractEntity {
     private int id;
     private String name;
     private String yagoId;
@@ -13,7 +13,7 @@ public abstract class AbstractGeoEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        AbstractGeoEntity that = (AbstractGeoEntity) o;
+        AbstractEntity that = (AbstractEntity) o;
 
         if (id != that.id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;

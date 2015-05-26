@@ -18,11 +18,9 @@ define(
             },
             formSubmitted: function () {
                 $.ajax({
-                    url:'service?name='+$('.form-control').val()
+                    url:'service'
                     }).done(function(data){
-                    $('.form-control').popover('destroy');
-                        $('.form-control').popover({content:data,animation:false});
-                        $('.form-control').popover('show');
+
                     }.bind(this));
             },
             render: function () {

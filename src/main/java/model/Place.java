@@ -4,10 +4,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import DAO.PlaceDAO;
+
 /**
  * Created by nimrod on 5/24/15.
  */
-public class Place extends AbstractGeoEntity {
+public class Place extends AbstractEntity {
     public Place(String yagoId) {
         super.setYagoId(yagoId);
         super.myType = typeOf.Place;
@@ -39,7 +41,11 @@ public class Place extends AbstractGeoEntity {
         this.categories.add(ca);
     }
 
-
+    public static boolean saveAll(List<Place> places){
+    	boolean res = PlaceDAO.SavePlacesAndPlaceCats(places);
+    	return res;
+    	
+    }
     private double lat;
     private double lon;
     private Set<Category> categories;

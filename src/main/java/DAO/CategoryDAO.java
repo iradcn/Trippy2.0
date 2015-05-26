@@ -1,14 +1,47 @@
 package DAO;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.PreparedStatement;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.simple.parser.ParseException;
+
+import services.JDBCConnection;
+import model.Category;
 
 /**
  * Created by nimrod on 5/24/15.
  */
 public class CategoryDAO {
+	public List<Category> selectAll() {
+		List<Category> categoryList = new ArrayList<Category>();
+		try{
+			Connection conn = JDBCConnection.getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM categories");
+			
+			while (rs.next() == true){
+				String yagoId = rs.getNString("yagoid");
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				categoryList.add(new Category(yagoId,id,name));
+				
+			}
+		}catch(Exception e){
+			System.out.println("ERROR executeQuery - " + e.getMessage());
+		}
+
+		return categoryList;
+	}
+	
+	
+	
 }
 /*
 

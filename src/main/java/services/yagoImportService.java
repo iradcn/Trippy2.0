@@ -4,6 +4,9 @@ import model.Place;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,7 +21,8 @@ public class yagoImportService {
         Map<String, Place> chunkOfPlaces  = yagoTsvParser.getChunkOfPlaces();
         yagoTsvParser.updatePlaceLocation(chunkOfPlaces);
         yagoTsvParser.parseYagoIds(chunkOfPlaces);
-
+        List<Place> places = new ArrayList<Place>(chunkOfPlaces.values());
+        Place.saveAll(places);
     }
 
     //private static List<>

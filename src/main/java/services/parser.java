@@ -16,9 +16,11 @@ import java.util.Map;
 public class parser {
     private BufferedReader br;
     public int chunkSize = 100;
-
+    private List<Category> allCategories;
+    
     public void init() throws FileNotFoundException {
          br = new BufferedReader(new FileReader("Resources//yagoSimpleTypes.tsv"));
+         allCategories = Category.loadAll();
     }
 
     public Map<String,Place> getChunkOfPlaces() throws IOException {
@@ -31,13 +33,15 @@ public class parser {
             }
 
             String[] values = str.split("\\t");
-            if (values[3] != null)
-                if (checkCategoryMatch(values[3])) {
+            if (values[3] != null){
+                Category placeMatchingCat = Category.isYagoIdInCatList(allCategories, values[3]);
+                
+                if (placeMatchingCat != null) {
                     Place newPlace = new Place(values[1]);
-                    Category newCat = new Category(values[3]);
-                    newPlace.addCategory(newCat);
+                    newPlace.addCategory(placeMatchingCat);
                     chunkList.put(values[1],newPlace);
                 }
+            }
         }
         return chunkList;
     }
@@ -81,10 +85,12 @@ public class parser {
     }
 
     public boolean checkCategoryMatch(String str) {
-        if (str.equalsIgnoreCase("<wordnet_place_of_worship_103953416>") ||
-                str.equalsIgnoreCase("<wordnet_plaza_103965456>") ||
-                str.equalsIgnoreCase("<wordnet_museum_103800563>"))
-            return true;
+    	for (Category cat : allCategories){
+    		if (cat.getYagoId().equalsIgnoreCase(str)){
+                return true;
+    		}
+    		
+    	}
         return false;
     }
 }
