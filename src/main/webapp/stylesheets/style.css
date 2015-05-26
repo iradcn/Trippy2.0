@@ -5,3 +5,9 @@
 .body-container{
 	margin: 50px 50px 50px 50px;
 }
+.progress{
+	display:none;
+	position:absolute;
+	top: 30%;
+	width:500px;
+}

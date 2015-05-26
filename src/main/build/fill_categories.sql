@@ -1,4 +1,9 @@
 insert into dbmysql11.categories (`name`,`yagoid`) 
-values("place of worship","<wordnet_place_of_worship_103953416>"),
-	("shopping malls","<wordnet_plaza_103965456>"),
-    ("museums","<wordnet_museum_103800563>")
+values("religious sites","<geoclass_religious_site>"),
+	("shopping malls","<geoclass_mall>"),
+    ("museums","<geoclass_museum>"),
+    ("lakes","<geoclass_lakes>"),
+    ("markets","<geoclass_market>"),
+    ("parks","<geoclass_park>"),
+    ("bars","<geoclass_bar>"),
+    ("zoo","<geoclass_zoo>")
