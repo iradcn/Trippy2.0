@@ -17,13 +17,16 @@ define(
 
             },
             onYagoUpdate: function () {
-                $('.submit').attr('disabled','disabled');
+                this.startLoading();
                 $.ajax({
                     url:'service'
-                    }).done(function(data){
-                        this.showProgressBar();
+                    }).success(function(data){
+                        this.startLoading();
                         setTimeout(function(){this.fetchProgress();}.bind(this),10000);
-                    }.bind(this));
+                    }.bind(this))
+                    .fail(function(){
+                        alert('cannot update at this time. this can happen if there is a connection problem, or if there is already an ongoing update');
+                    });
             },
             render: function () {
                 var template = _.template(LandingPageTemplate);
@@ -33,20 +36,41 @@ define(
                 $.ajax({
                     url:'status'
                 }).done(function(data){
+
                     if (data){
+                        if (data.error==true){
+                            alert('failure!');
+                            this.doneLoading();
+                            return;
+                        }
+                        else if(data.local_status_instance==false){
+                            alert('success!');
+                            this.doneLoading();
+                            return;
+                        }
                         this.updateProgressBar(data);
+
                     }
-                    if (data.read != data.total)
-                        setTimeout(function(){this.fetchProgress();}.bind(this),10000);
-                }.bind(this));
+                    setTimeout(function(){this.fetchProgress();}.bind(this),3000);
+                }.bind(this))
+                    .fail(function(){
+                        alert('failure');
+                    }.bind(this));
             },
-            showProgressBar: function(){
+            startLoading: function(){
+                $('.progress-bar').css('width','0%');
                 $('.progress').show();
+                $('.submit').attr('disabled',true);
+
+            },
+            doneLoading: function(){
+                $('.progress').hide();
+                $('.submit').attr('disabled',false);
 
             },
             updateProgressBar: function(data){
-                if (data && data.read && data.total)
-                    $('.progress-bar').css('width',100*data.read/data.total +'%');
+                if (data && data.local_total_read && data.local_status_instance && data.local_read)
+                    $('.progress-bar').css('width',100*data.local_read/data.local_total_read +'%');
             }
         })
 

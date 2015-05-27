@@ -1,6 +1,12 @@
 package model;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
+
+import org.json.simple.parser.ParseException;
 
 import DAO.CategoryDAO;
 
@@ -14,9 +20,9 @@ public class Category extends AbstractEntity {
         super.myType = typeOf.Category;
         super.setId(id);
     }
-    public static List<Category> loadAll(){
+    public static Map<String,Category> loadAll() throws FileNotFoundException, IOException, ParseException, SQLException{
 		CategoryDAO catDao = new CategoryDAO();
-		List<Category> categories = catDao.selectAll();
+		Map<String,Category> categories = catDao.selectAll();
     	return categories;
     }
     public static Category isYagoIdInCatList(List<Category> categories,String yagoId){

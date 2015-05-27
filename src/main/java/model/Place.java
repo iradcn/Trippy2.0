@@ -1,8 +1,13 @@
 package model;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import org.json.simple.parser.ParseException;
 
 import DAO.PlaceDAO;
 
@@ -41,9 +46,8 @@ public class Place extends AbstractEntity {
         this.categories.add(ca);
     }
 
-    public static boolean saveAll(List<Place> places){
-    	boolean res = PlaceDAO.SavePlacesAndPlaceCats(places);
-    	return res;
+    public static void saveAll(List<Place> places) throws FileNotFoundException, IOException, ParseException, SQLException{
+    	PlaceDAO.SavePlacesAndPlaceCats(places);
     	
     }
     private double lat;

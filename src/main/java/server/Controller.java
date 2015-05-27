@@ -1,34 +1,31 @@
 package server;
 
-import model.Progress;
+import java.io.IOException;
 
-import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import DAO.CategoryDAO;
-import services.JDBCConnection;
-import services.yagoImportService;
-
-import java.io.IOException;
+import services.Progress;
+import services.YagoImportService;
 
 @RestController
 public class Controller {
 	@RequestMapping("/service")
-	public String greeting() {
-		
-		//run import on another thread
-		yagoImportService yagoIS = new yagoImportService();
-		new Thread(yagoIS).start();
-		
-		return null;
+	public ResponseEntity<String> yagoImport() {
+    	boolean status = Progress.startTrackingLoading();
+    	if (status == true){
+    		YagoImportService yagoIS = new YagoImportService();
+    		new Thread(yagoIS).start();
+			return new ResponseEntity<String>(HttpStatus.OK);
+    	}
+		return new ResponseEntity<String>(HttpStatus.PRECONDITION_FAILED);
 	}
 	@RequestMapping("/status")
-	public @ResponseBody JSONObject sendStatusJSON() throws IOException, ParseException {
-		JSONObject obj = Progress.Load();
-		return obj;
+	public Progress sendStatusJSON() throws IOException, ParseException {
+		Progress progrs = Progress.getStatus();
+		return progrs;
 	}
 }

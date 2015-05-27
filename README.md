@@ -14,10 +14,15 @@ Maven,Git
   2. *`mvn clean install`*
 
 #####2. Build DB:
-  1. Run /build/build.sql on mysql client
-
+  Start your MySQL Server
+  1. Run /build/add_db_user.sql on mysql client
+  2. Run /build/build_schema.sql on mysql client
+  3. Run /build/fill_categories.sql on mysql client
+  
 #####3. Yago Dependencies
-  1. Make sure you have all Yago dependencies on /Resources
+  1. Make sure you have all the following Yago dependencies under /Resources:
+	1.1 yagoGeonamesOnlyData.tsv
+	1.2 yagoGeonamesTypes.tsv
 	 
 #####4.Run
   From within project root:

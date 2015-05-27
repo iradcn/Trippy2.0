@@ -1,43 +1,35 @@
 package services;
 
-import model.Place;
-import model.Progress;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+
+import model.Place;
 
 /**
  * Created by nimrod on 5/24/15.
  */
-public class yagoImportService implements Runnable {
+public class YagoImportService implements Runnable {
 	
 
 	@Override
 	public void run() {
-    	Progress progrs;
-        parser yagoTsvParser = new parser();
+        Parser yagoTsvParser = new Parser();
         Map<String, Place> chunkOfPlaces;
-        int totalNumPlaces;
-        
+    	Progress progrs = Progress.getStatus();
         try{
-	        yagoTsvParser.init();
-	        totalNumPlaces = yagoTsvParser.countOverallItems();
-	        progrs = new Progress(totalNumPlaces);
+	        yagoTsvParser.init(progrs);
 	        chunkOfPlaces  = yagoTsvParser.getChunkOfPlaces(progrs);
 	        while (!chunkOfPlaces.isEmpty()){
 	            //parse chunk & save
 	        	yagoTsvParser.updatePlaceLocation(chunkOfPlaces);
-	            //yagoTsvParser.parseYagoIds(chunkOfPlaces);
 	            List<Place> places = new ArrayList<Place>(chunkOfPlaces.values());
 	            Place.saveAll(places);
-	            //save progress
 	            chunkOfPlaces  = yagoTsvParser.getChunkOfPlaces(progrs);
 	        }
+        	progrs.setFinish();
         }catch(Exception e){
+        	progrs.setError();
         	System.out.println("Error has occured:"+e.getStackTrace());
         }
 	}
