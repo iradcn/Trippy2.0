@@ -29,7 +29,6 @@ CREATE TABLE IF NOT EXISTS `dbmysql11`.`categories` (
   `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NULL DEFAULT NULL,
   `YagoId` VARCHAR(200) NOT NULL,
-  `categoriescol` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE INDEX `Id_UNIQUE` (`Id` ASC),
   UNIQUE INDEX `YagoId_UNIQUE` (`YagoId` ASC))
@@ -48,7 +47,6 @@ CREATE TABLE IF NOT EXISTS `dbmysql11`.`places` (
   `Lat` DOUBLE NOT NULL,
   `Lon` DOUBLE NOT NULL,
   `Id` VARCHAR(200) NOT NULL,
-  `placescol` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE INDEX `YagoId_UNIQUE` (`Id` ASC))
 ENGINE = InnoDB
@@ -62,12 +60,12 @@ DROP TABLE IF EXISTS `dbmysql11`.`placescategories` ;
 
 CREATE TABLE IF NOT EXISTS `dbmysql11`.`placescategories` (
   `PlaceId` VARCHAR(200) NOT NULL,
-  `CategoryId` INT(10) UNSIGNED NOT NULL,
+  `CategoryId` VARCHAR(200) NOT NULL,
   INDEX `IX_CATEGORY_ID` (`CategoryId` ASC),
   INDEX `FK_PLACE_ID_idx` (`PlaceId` ASC),
   CONSTRAINT `FK_CATEGORY_ID_`
     FOREIGN KEY (`CategoryId`)
-    REFERENCES `dbmysql11`.`categories` (`Id`)
+    REFERENCES `dbmysql11`.`categories` (`YagoId`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK_PLACE_ID_`
@@ -120,3 +118,53 @@ DEFAULT CHARACTER SET = utf8;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+DELIMITER $$
+CREATE DEFINER=`DbMysql11`@`localhost` PROCEDURE `CreateForeignKeys`()
+BEGIN
+
+    ALTER TABLE placesprops
+	ADD CONSTRAINT FK_PLACE_ID
+	FOREIGN KEY (PlaceId)
+	REFERENCES places(Id);
+
+    ALTER TABLE placesprops
+	ADD CONSTRAINT FK_PROP_ID
+	FOREIGN KEY (PropId)
+	REFERENCES properties(Id);
+
+    ALTER TABLE placescategories
+	ADD CONSTRAINT FK_CATEGORY_ID_
+	FOREIGN KEY (CategoryId)
+	REFERENCES categories(YagoId);
+
+    ALTER TABLE placescategories
+	ADD CONSTRAINT FK_PLACE_ID_
+	FOREIGN KEY (PlaceId)
+	REFERENCES places(Id);
+
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`DbMysql11`@`localhost` PROCEDURE `RemoveForeignKeys`()
+BEGIN
+
+    ALTER TABLE placesprops
+	  DROP FOREIGN KEY FK_PLACE_ID;
+
+
+    ALTER TABLE placesprops
+	  DROP FOREIGN KEY FK_PROP_ID;
+
+
+    ALTER TABLE placescategories
+	  DROP FOREIGN KEY FK_CATEGORY_ID_;
+
+    ALTER TABLE placescategories
+	  DROP FOREIGN KEY FK_PLACE_ID_;
+
+END$$
+DELIMITER ;
+
+

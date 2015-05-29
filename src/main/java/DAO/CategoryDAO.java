@@ -13,8 +13,6 @@ import model.Category;
 
 import org.json.simple.parser.ParseException;
 
-import services.JDBCConnection;
-
 /**
  * Created by nimrod on 5/24/15.
  */

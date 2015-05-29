@@ -2,9 +2,11 @@ package DAO;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import java.util.List;
 
 import model.Category;
@@ -12,97 +14,71 @@ import model.Place;
 
 import org.json.simple.parser.ParseException;
 
-import services.JDBCConnection;
-
 /**
  * Created by nimrod on 5/24/15.
  */
 public class PlaceDAO {
-	
-    public static void SavePlacesAndPlaceCats(List<Place> places) throws FileNotFoundException, IOException, ParseException, SQLException {
+
+	private static final String DROP_FOREIGN_KEYS_STORED_PROC = "{call RemoveForeignKeys()}";
+	private static final String CREATE_FOREIGN_KEYS_STORED_PROC = "{call CreateForeignKeys()}";
+
+	private static String insertPlacesSQL = "INSERT INTO places"
+			+ " (`id`,`name`,`lat`,`lon`) VALUES"
+			+ "(?,?,?,?) ON DUPLICATE KEY UPDATE `id`=`id`";
+
+	private static String insertCategoriesSQL = "INSERT INTO placescategories"
+			+ " (`placeid`,`categoryid`) VALUES"
+			+ "(?,?) ON DUPLICATE KEY UPDATE `PlaceId`=`PlaceId`";
+
+	private static String deletePlacesSQL = "DELETE from places";
+	private static String deletePlacesCatsSQL = "DELETE from placescategories";
+
+	public static void SavePlacesAndPlaceCats(List<Place> places) throws SQLException {
 		//perform update, if fails rollback and throw sql exception	
     	Connection conn = JDBCConnection.getConnection();
-			try {
-				conn.setAutoCommit(false);
-				SavePlaces(places, conn);
-				conn.commit();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				if (conn != null){
-					try {
-						conn.rollback();
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-					}
-				}
-				throw new SQLException();
-			}finally{
-				conn.setAutoCommit(true);
+		if (conn == null)  throw new SQLException();
+		PreparedStatement insertPlaceState = conn.prepareStatement(insertPlacesSQL);
+		PreparedStatement insertPlaceCategoryState = conn.prepareStatement(insertCategoriesSQL);
+		for (Place place : places) {
+			insertPlaceState.setString(1, place.getYagoId());
+			insertPlaceState.setString(2, place.getName());
+			insertPlaceState.setDouble(3, place.getLat());
+			insertPlaceState.setDouble(4, place.getLon());
+			insertPlaceState.addBatch();
+
+			for (Category cat : place.getCaegories()) {
+				insertPlaceCategoryState.setString(1, place.getYagoId());
+				insertPlaceCategoryState.setString(2, cat.getYagoId());
+				insertPlaceCategoryState.addBatch();
 			}
-    }
-
-	private static void SavePlaces(List<Place> places, Connection conn)
-			throws SQLException {
-		//perform update
-
-		Statement stmt = conn.createStatement();
-		StringBuilder sb_places = new StringBuilder();
-		StringBuilder sb_place_categories = new StringBuilder();
-
-		sb_places.append("INSERT INTO places (`id`,`name`,`lat`,`lon`) VALUES");
-		sb_place_categories.append("INSERT INTO placescategories (`placeid`,`categoryid`) VALUES");
-
-		boolean isFirstPlaceEntry = true;
-		boolean isFirstPlaceCatEntry = true;
-		
-		for (Place place:places){
-			if (!isFirstPlaceEntry){
-				sb_places.append(",");
-			}
-			else{
-				isFirstPlaceEntry=false;
-			}
-			buildNextPlaceEntry(sb_places, place);
-			
-			for (Category cat:place.getCaegories()){
-				if (!isFirstPlaceCatEntry){
-					sb_place_categories.append(",");
-				}
-				else{
-					isFirstPlaceCatEntry=false;
-				}
-				buildNextPlaceCatEntry(sb_place_categories, place, cat);
-				
-			}
-
-		
 		}
-		sb_places.append(" ON DUPLICATE KEY UPDATE `id`=`id`");
-		//System.out.println(sb_places.toString());
-		//System.out.println(sb_place_categories.toString());
-		stmt.executeUpdate(sb_places.toString());
-		stmt.executeUpdate(sb_place_categories.toString());
-		
-		//System.out.println("Num of places rows inserted:"+rs_places);
-		//System.out.println("Num of place-cats rows inserted:"+rs_places_cats);
-		
-		JDBCConnection.closeConnection(conn);
+		List<PreparedStatement> statements = new ArrayList<PreparedStatement>();
+		statements.add(insertPlaceState);
+		statements.add(insertPlaceCategoryState);
+		JDBCConnection.executeBatch(statements,conn);
+    }
+	public static void deleteAllPlaces() throws SQLException {
+		Connection conn = JDBCConnection.getConnection();
+		if (conn == null)  throw new SQLException();
+		PreparedStatement deletePlacesSttmnt = conn.prepareStatement(deletePlacesSQL);
+		PreparedStatement deletePlacesCatsSttmnt = conn.prepareStatement(deletePlacesCatsSQL);
+		List<PreparedStatement> statements = new ArrayList<PreparedStatement>();
+		statements.add(deletePlacesCatsSttmnt);
+		statements.add(deletePlacesSttmnt);
+		JDBCConnection.executeUpdate(statements,conn);
 	}
 
-	private static void buildNextPlaceCatEntry(
-			StringBuilder sb_place_categories, Place place, Category cat) {
-		sb_place_categories.append("(");
-		sb_place_categories.append('"').append(place.getYagoId()).append('"').append(',');
-		sb_place_categories.append(cat.getId());
-		sb_place_categories.append(")");
+	public static void dropForeignKeys() throws SQLException {
+		Connection conn = JDBCConnection.getConnection();
+		CallableStatement cs = conn.prepareCall(DROP_FOREIGN_KEYS_STORED_PROC);
+		JDBCConnection.executeStoredProcedures(cs, conn);
 	}
 
-	private static void buildNextPlaceEntry(StringBuilder sb_places, Place place) {
-		sb_places.append("(");
-		sb_places.append('"').append(place.getYagoId()).append('"').append(',');
-		sb_places.append(place.getName()).append(',');
-		sb_places.append(String.format("%.4f",place.getLat())).append(',');
-		sb_places.append(String.format("%.4f",place.getLon()));
-		sb_places.append(")");
+
+	public static void createForeignKeys() throws SQLException {
+		Connection conn = JDBCConnection.getConnection();
+		CallableStatement cs = conn.prepareCall(CREATE_FOREIGN_KEYS_STORED_PROC);
+		JDBCConnection.executeStoredProcedures(cs, conn);
 	}
+
 }

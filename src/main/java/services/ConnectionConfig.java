@@ -24,7 +24,7 @@ public class ConnectionConfig{
 	private static String password;
 
 
-	public static void init() throws FileNotFoundException, IOException, ParseException{
+	public static void init() throws IOException, ParseException {
 		JSONParser parser = new JSONParser();
 		Object obj = parser.parse(new FileReader("Config/local.json"));
 		JSONObject configJSON = (JSONObject) obj;
