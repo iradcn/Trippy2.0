@@ -1,18 +1,14 @@
 package DAO;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import model.Category;
 import model.Place;
-
-import org.json.simple.parser.ParseException;
 
 /**
  * Created by nimrod on 5/24/15.
@@ -30,6 +26,8 @@ public class PlaceDAO {
 			+ " (`placeid`,`categoryid`) VALUES"
 			+ "(?,?) ON DUPLICATE KEY UPDATE `PlaceId`=`PlaceId`";
 
+	
+	
 	private static String deletePlacesSQL = "DELETE from places";
 	private static String deletePlacesCatsSQL = "DELETE from placescategories";
 

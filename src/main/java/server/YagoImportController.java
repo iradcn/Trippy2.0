@@ -12,8 +12,9 @@ import services.Progress;
 import services.YagoImportService;
 
 @RestController
-public class Controller {
-	@RequestMapping("/service")
+public class YagoImportController {
+	
+	@RequestMapping("/import")
 	public ResponseEntity<String> yagoImport() {
     	boolean status = Progress.startTrackingLoading();
     	if (status == true){
@@ -21,11 +22,13 @@ public class Controller {
     		new Thread(yagoIS).start();
 			return new ResponseEntity<String>(HttpStatus.OK);
     	}
-		return new ResponseEntity<String>(HttpStatus.PRECONDITION_FAILED);
+		return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	
 	@RequestMapping("/status")
 	public Progress sendStatusJSON() throws IOException, ParseException {
 		Progress progrs = Progress.getStatus();
 		return progrs;
 	}
+	
 }

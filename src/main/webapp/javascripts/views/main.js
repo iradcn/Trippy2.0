@@ -19,7 +19,7 @@ define(
             onYagoUpdate: function () {
                 this.startLoading();
                 $.ajax({
-                    url:'service'
+                    url:'import'
                     }).success(function(data){
                         this.startLoading();
                         setTimeout(function(){this.fetchProgress();}.bind(this),10000);

@@ -1,15 +1,17 @@
 package DAO;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.sql.*;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import org.json.simple.parser.ParseException;
 import services.ConnectionConfig;
 
 public class JDBCConnection {
@@ -141,13 +143,12 @@ public class JDBCConnection {
 		ResultSet rs = null;
 		try {
 			rs = statement.executeQuery();
-
+			return rs;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw e;
 		} finally{
 			JDBCConnection.closeConnection(conn);
-			return rs;
 		}
 	}
 
