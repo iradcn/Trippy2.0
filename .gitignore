@@ -1,6 +1,5 @@
 target/*
 Resources/*.tsv
-Resources
 .idea/
 src/main/webapp/.idea/
 src/main/webapp/WEB-INF/
