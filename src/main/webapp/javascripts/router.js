@@ -9,12 +9,14 @@ define([
     'YagoLoadView',
 	'PlacesView',
     'MapDisplayView',
-], function($, _, Backbone, YagoLoadView, PlacesView, MapDisplayView){
+	'AreasView',
+], function($, _, Backbone, YagoLoadView, PlacesView, MapDisplayView, AreasView){
     var AppRouter = Backbone.Router.extend({
         routes: {
             "map_display": "mapDisplayRoute",
 			"places": "placesRoute",
 			"dbload": "dbloadRoute",
+			"areas": "areasRoute",
 			"*actions": "placesRoute",
         },
         initialize: function (options) {
@@ -34,6 +36,9 @@ define([
         },
         dbloadRoute: function(){
             this.currView = new YagoLoadView();
+        },
+        areasRoute: function(){
+            this.currView = new AreasView();
         },
     });
     return AppRouter;

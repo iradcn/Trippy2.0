@@ -12,6 +12,7 @@ require.config({
        YagoLoadView: 'views/yagoload',
        MapDisplayView: 'views/map_display',
 	   PlacesView: 'views/places',
+		AreasView: 'views/areas',
 
        //routers
        MainRouter: 'router'
