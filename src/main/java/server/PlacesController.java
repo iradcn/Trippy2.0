@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PlacesController {
-	@RequestMapping(value="/get_all_categories", method=RequestMethod.GET)
+	@RequestMapping(value="/get_all_places", method=RequestMethod.GET)
 	public ResponseEntity<String> createProperty() {//TODO:
 		return new ResponseEntity<String>(HttpStatus.OK);
 	}
