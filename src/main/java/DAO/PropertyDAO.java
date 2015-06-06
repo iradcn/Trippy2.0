@@ -20,6 +20,7 @@ public class PropertyDAO {
     private static String syncProperties = "DELETE FROM placesprops"
             + " WHERE PlaceId NOT IN (SELECT Id from places)";
     private static String deleteProperty = "DELETE FROM property WHERE `id`=?";
+    private static String deletePropPlaces = "DELETE FROM placesporps WHERE 'PropId'=?";
 
     public static void Insert(Property prop) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
@@ -49,10 +50,13 @@ public class PropertyDAO {
     }
     public static void Delete(Property prop) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
+        PreparedStatement deletePropPlace = conn.prepareStatement(deletePropPlaces);
         PreparedStatement deleteState = conn.prepareStatement(deleteProperty);
         List<PreparedStatement> statements = new ArrayList<>();
+        deletePropPlace.setInt(1, prop.getId());
         deleteState.setInt(1, prop.getId());
         statements.add(deleteState);
+        statements.add(deletePropPlace);
         JDBCConnection.executeUpdate(statements, conn);
     }
     
