@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import DAO.PropertyDAO;
 
@@ -30,6 +31,8 @@ public class Property  extends AbstractEntity {
 		return false;
 		
 	}
-	
+	public static List<Property> getAll() throws SQLException {
+		return PropertyDAO.getAll();
+	}
 
 }

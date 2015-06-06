@@ -1,6 +1,7 @@
 package server;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import model.Property;
 
@@ -40,7 +41,7 @@ public class PropertyController {
 		}
 	}
 	
-	@RequestMapping(value="/delete_property", method=RequestMethod.POST)
+	@RequestMapping(value="/delete_property", method=RequestMethod.DELETE)
 	public ResponseEntity<String> deleteProperty(@RequestParam("name") String name,@RequestParam("id") int id) {
 		Property property = new Property();
 		property.setName(name);
@@ -52,5 +53,11 @@ public class PropertyController {
 			System.out.println(e.getMessage());
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	}
+
+	@RequestMapping(value="/get_all_properties", method=RequestMethod.GET)
+	public List<Property> getAllProperties() throws SQLException {
+			Property.getAll();
+			return Property.getAll();
 	}
 }
