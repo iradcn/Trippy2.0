@@ -17,7 +17,13 @@ define([
         },
         initialize: function (options){
             Backbone.history.start();
+			this.initNavBar();
         },
+		initNavBar: function () {
+			$('.myTab a').click(function () {
+			  $(this).tab('show')
+			})
+		},
         placesRoute: function(){
             this.currView = new PlacesView();
         },
