@@ -8,14 +8,16 @@ define([
     'backbone',
     'YagoLoadView',
 	'PlacesView'
-], function($, _, Backbone, YagoLoadView, PlacesView){
+    'MapDisplayView'
+], function($, _, Backbone, YagoLoadView, PlacesView, MapDisplayView){
     var AppRouter = Backbone.Router.extend({
         routes: {
+            "map_display": "mapDisplayRoute",
 			"places": "placesRoute",
 			"dbload": "dbloadRoute",
 			"*actions": "placesRoute",
         },
-        initialize: function (options){
+        initialize: function (options) {
             Backbone.history.start();
 			this.initNavBar();
         },
@@ -24,6 +26,9 @@ define([
 			  $(this).tab('show')
 			})
 		},
+        mapDisplayRoute: function() {
+            this.currView = new MapDisplayView();
+        }
         placesRoute: function(){
             this.currView = new PlacesView();
         },

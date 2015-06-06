@@ -8,3 +8,5 @@ src/main/webapp/WEB-INF/
 .settings/
 final-project.iml
 *.swp
+/bin/
+/target/
