@@ -6,18 +6,24 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'MainIndexView'
-], function($, _, Backbone, MainIndexView){
+    'MainIndexView',
+	'PlacesView'
+], function($, _, Backbone, MainIndexView, PlacesView){
     var AppRouter = Backbone.Router.extend({
         routes: {
-            "*actions": "defaultRoute"
+			"places": "placesRoute",
+			"dbload": "dbloadRoute",
+			"*actions": "placesRoute",
         },
         initialize: function (options){
             Backbone.history.start();
         },
-        defaultRoute: function(){
+        placesRoute: function(){
+            this.currView = new PlacesView();
+        },
+        dbloadRoute: function(){
             this.currView = new MainIndexView();
-        }
+        },
     });
     return AppRouter;
 });

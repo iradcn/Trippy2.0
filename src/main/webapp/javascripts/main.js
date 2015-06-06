@@ -9,6 +9,7 @@ require.config({
 
        //views
        MainIndexView: 'views/main',
+		PlacesView: 'views/places',
 
        //routers
        MainRouter: 'router'
