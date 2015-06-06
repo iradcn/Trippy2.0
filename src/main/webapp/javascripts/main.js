@@ -8,7 +8,7 @@ require.config({
        async: 'libs/requirejs-plugins/src/async',
 
        //views
-       MainIndexView: 'views/main',
+       YagoLoadView: 'views/yagoload',
 		PlacesView: 'views/places',
 
        //routers

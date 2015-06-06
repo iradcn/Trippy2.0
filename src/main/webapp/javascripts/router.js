@@ -6,9 +6,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'MainIndexView',
+    'YagoLoadView',
 	'PlacesView'
-], function($, _, Backbone, MainIndexView, PlacesView){
+], function($, _, Backbone, YagoLoadView, PlacesView){
     var AppRouter = Backbone.Router.extend({
         routes: {
 			"places": "placesRoute",
@@ -22,7 +22,7 @@ define([
             this.currView = new PlacesView();
         },
         dbloadRoute: function(){
-            this.currView = new MainIndexView();
+            this.currView = new YagoLoadView();
         },
     });
     return AppRouter;

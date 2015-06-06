@@ -4,10 +4,10 @@
 define(
     ["backbone",
         "jquery",
-        "text!templates/landing-page-template.html",
+        "text!templates/yago-load-template.html",
         "bootstrap",
-    ], function (Backbone, $, LandingPageTemplate) {
-        var MainIndexView = Backbone.View.extend({
+    ], function (Backbone, $, YagoLoadTemplate) {
+        var YagoLoadView = Backbone.View.extend({
             el: ".body-container",
             events: {
                 'click .submit': 'onYagoUpdate',
@@ -18,7 +18,6 @@ define(
 
             },
 			startUpdateModal: function () {
-				console.log("working!");
 				$('.modal').modal();
 			},
             onYagoUpdate: function () {
@@ -34,7 +33,7 @@ define(
                     });
             },
             render: function () {
-                var template = _.template(LandingPageTemplate);
+                var template = _.template(YagoLoadTemplate);
                 this.$el.html(template());
             },
             fetchProgress: function(){
@@ -71,7 +70,6 @@ define(
             doneLoading: function(){
                 $('.progress').hide();
                 $('.submit').attr('disabled',false);
-
             },
             updateProgressBar: function(data){
                 if (data && data.local_total_read && data.local_status_instance && data.local_read)
@@ -79,5 +77,5 @@ define(
             }
         })
 
-        return MainIndexView;
+        return YagoLoadView;
     });
