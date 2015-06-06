@@ -6,17 +6,22 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'MainIndexView'
-], function($, _, Backbone, MainIndexView){
+    'MainIndexView',
+    'MapDisplayView'
+], function($, _, Backbone, MainIndexView, MapDisplayView){
     var AppRouter = Backbone.Router.extend({
         routes: {
+            "map_display": "mapDisplayRoute",
             "*actions": "defaultRoute"
         },
-        initialize: function (options){
+        initialize: function (options) {
             Backbone.history.start();
         },
-        defaultRoute: function(){
+        defaultRoute: function() {
             this.currView = new MainIndexView();
+        },
+        mapDisplayRoute: function() {
+            this.currView = new MapDisplayView();
         }
     });
     return AppRouter;

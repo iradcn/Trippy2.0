@@ -6,9 +6,11 @@ require.config({
        bootstrap: 'libs/bootstrap.min',
        text: 'libs/text',
        async: 'libs/requirejs-plugins/src/async',
+       ol: 'libs/ol',
 
        //views
        MainIndexView: 'views/main',
+       MapDisplayView: 'views/map_display',
 
        //routers
        MainRouter: 'router'
@@ -25,14 +27,15 @@ require.config({
         },
         'bootstrap':{
             deps:['jquery']
+        },
+        'ol':{
+            exports: 'ol'
         }
 
     }
 
 
 });
-
-//TODO - get API key from config var
 
 require([
     'MainRouter'
