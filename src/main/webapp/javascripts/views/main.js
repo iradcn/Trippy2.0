@@ -10,12 +10,17 @@ define(
         var MainIndexView = Backbone.View.extend({
             el: ".body-container",
             events: {
-                'click .submit': 'onYagoUpdate'
+                'click .submit': 'onYagoUpdate',
+				'click .refresh-yago-data': 'startUpdateModal'
             },
             initialize: function () {
                 this.render();
 
             },
+			startUpdateModal: function () {
+				console.log("working!");
+				$('.modal').modal();
+			},
             onYagoUpdate: function () {
                 this.startLoading();
                 $.ajax({

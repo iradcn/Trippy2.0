@@ -1,0 +1,7 @@
+Query One:
+Request: lat,long,radius,List<category>,List<property>
+Response: [{lat,long,List<cats>,List<places>}]
+
+Query Two:
+Request: {[{lat,long,radius}],category,property}
+Response: [{lat,long,radius,number}]

@@ -11,6 +11,7 @@ require.config({
        //views
        MainIndexView: 'views/main',
        MapDisplayView: 'views/map_display',
+	   PlacesView: 'views/places',
 
        //routers
        MainRouter: 'router'

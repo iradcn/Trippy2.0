@@ -19,6 +19,7 @@ public class Category extends AbstractEntity {
         super.setYagoId(yagoId);
         super.myType = typeOf.Category;
         super.setId(id);
+        super.setName(name);
     }
     public static Map<String,Category> loadAll() throws FileNotFoundException, IOException, ParseException, SQLException{
 		CategoryDAO catDao = new CategoryDAO();

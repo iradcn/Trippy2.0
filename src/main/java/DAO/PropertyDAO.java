@@ -2,6 +2,7 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ public class PropertyDAO {
             + " WHERE PlaceId NOT IN (SELECT Id from places)";
     private static String deleteProperty = "DELETE FROM property WHERE `id`=?";
     private static String deletePropPlaces = "DELETE FROM placesporps WHERE 'PropId'=?";
+    private static String getAllProperties = "SELECT * FROM properties";
 
     public static void Insert(Property prop) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
@@ -58,6 +60,19 @@ public class PropertyDAO {
         statements.add(deleteState);
         statements.add(deletePropPlace);
         JDBCConnection.executeUpdate(statements, conn);
+    }
+    public static List<Property> getAll() throws SQLException {
+        Connection conn = JDBCConnection.getConnection();
+        PreparedStatement deletePropPlace = conn.prepareStatement(getAllProperties);
+        ResultSet rs = JDBCConnection.executeQuery(deletePropPlace, conn);
+        List<Property> props = new ArrayList<>();
+        while (rs.next()) {
+            Property prop = new Property();
+            prop.setId(rs.getInt("Id"));
+            prop.setName(rs.getString("Name"));
+            props.add(prop);
+        }
+        return props;
     }
     
 }

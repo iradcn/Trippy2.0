@@ -12,7 +12,9 @@ define([
     var AppRouter = Backbone.Router.extend({
         routes: {
             "map_display": "mapDisplayRoute",
-            "*actions": "defaultRoute"
+			"places": "placesRoute",
+			"dbload": "dbloadRoute",
+			"*actions": "placesRoute",
         },
         initialize: function (options) {
             Backbone.history.start();
@@ -23,6 +25,12 @@ define([
         mapDisplayRoute: function() {
             this.currView = new MapDisplayView();
         }
+        placesRoute: function(){
+            this.currView = new PlacesView();
+        },
+        dbloadRoute: function(){
+            this.currView = new MainIndexView();
+        },
     });
     return AppRouter;
 });
