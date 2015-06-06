@@ -8,7 +8,7 @@ define(
         "text!templates/map-display-template.html",
         "bootstrap"
     ], function (Backbone, $, ol, MapDisplayTemplate) {
-        var MapDisplayView = Backbone.View.extend({
+        var MapCirclesView = Backbone.View.extend({
             el: ".body-container",
             events: {
                 'click .test': 'printFeatures'
@@ -50,11 +50,11 @@ define(
 
                 draw = new ol.interaction.Draw({
                     features: featureOverlay.getFeatures(),
-                    type: "Point"
+                    type: "Circle"
                 });
                 map.addInteraction(draw);
 
-                MyGlobal.point_locations = featureOverlay;
+                MyGlobal.circle_locations = featureOverlay;
             },
 
             render: function() {
@@ -63,12 +63,13 @@ define(
             },
 
             printFeatures: function() {
-                var locationsArr = MyGlobal.point_locations.getFeatures().getArray();
+                var locationsArr = MyGlobal.circle_locations.getFeatures().getArray();
                 for (i = 0; i < MyGlobal.circle_locations.getFeatures().getLength(); i++) {
-                    console.log(ol.proj.transform(locationsArr[i].getGeometry().getCoordinates(), 'EPSG:3857', 'EPSG:4326'));
+                    console.log(ol.proj.transform(locationsArr[i].getGeometry().getCenter(), 'EPSG:3857', 'EPSG:4326'));
+                    console.log(locationsArr[i].getGeometry().getRadius());
                 }
             },
         })
 
-        return MapDisplayView;
+        return MapCirclesView;
     });

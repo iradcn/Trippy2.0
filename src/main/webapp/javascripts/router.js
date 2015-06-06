@@ -7,10 +7,12 @@ define([
     'underscore',
     'backbone',
     'MainIndexView',
+    'MapCirclesView',
     'MapDisplayView'
-], function($, _, Backbone, MainIndexView, MapDisplayView){
+], function($, _, Backbone, MainIndexView, MapCirclesView, MapDisplayView){
     var AppRouter = Backbone.Router.extend({
         routes: {
+            "map_circles": "mapCirclesRoute",
             "map_display": "mapDisplayRoute",
 			"places": "placesRoute",
 			"dbload": "dbloadRoute",
@@ -22,9 +24,12 @@ define([
         defaultRoute: function() {
             this.currView = new MainIndexView();
         },
+        mapCirclesRoute: function() {
+            this.currView = new MapCirclesView();
+        },
         mapDisplayRoute: function() {
             this.currView = new MapDisplayView();
-        }
+        },
         placesRoute: function(){
             this.currView = new PlacesView();
         },

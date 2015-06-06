@@ -10,8 +10,9 @@ require.config({
 
        //views
        MainIndexView: 'views/main',
+       MapCirclesView: 'views/map_circles',
        MapDisplayView: 'views/map_display',
-	   PlacesView: 'views/places',
+	     PlacesView: 'views/places',
 
        //routers
        MainRouter: 'router'
