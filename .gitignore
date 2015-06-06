@@ -8,3 +8,5 @@ src/main/webapp/WEB-INF/
 .project
 .settings/
 final-project.iml
+/bin/
+/target/
