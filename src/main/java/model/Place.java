@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.sun.java.swing.plaf.windows.TMSchema;
 import org.json.simple.parser.ParseException;
 
 import DAO.PlaceDAO;
@@ -21,23 +22,6 @@ public class Place extends AbstractEntity {
         categories = new HashSet<Category>();
     }
 
-
-    public double getLat() {
-        return lat;
-    }
-
-    public void setLat(double lat) {
-        this.lat = lat;
-    }
-
-    public double getLon() {
-        return lon;
-    }
-
-    public void setLon(double lon) {
-        this.lon = lon;
-    }
-
     public Set<Category> getCaegories() {
         return this.categories;
     }
@@ -50,8 +34,25 @@ public class Place extends AbstractEntity {
     	PlaceDAO.SavePlacesAndPlaceCats(places);
     	
     }
-    private double lat;
-    private double lon;
+
+    public Location getLoc() {
+        return loc;
+    }
+
+    public void setLoc(Location loc) {
+        this.loc = loc;
+    }
+
+    public Set<Property> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(Set<Property> properties) {
+        this.properties = properties;
+    }
+
+    private Location loc;
     private Set<Category> categories;
+    private Set<Property> properties;
 
 }
