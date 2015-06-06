@@ -11,7 +11,8 @@ define(
         var MapDisplayView = Backbone.View.extend({
             el: ".body-container",
             events: {
-                'click .test': 'printFeatures'
+                'click .test': 'printFeatures',
+                'click .find': 'findLocation'
             },
             initialize: function () {
                 this.render();
@@ -64,10 +65,19 @@ define(
 
             printFeatures: function() {
                 var locationsArr = MyGlobal.point_locations.getFeatures().getArray();
-                for (i = 0; i < MyGlobal.circle_locations.getFeatures().getLength(); i++) {
+                for (i = 0; i < MyGlobal.point_locations.getFeatures().getLength(); i++) {
                     console.log(ol.proj.transform(locationsArr[i].getGeometry().getCoordinates(), 'EPSG:3857', 'EPSG:4326'));
                 }
             },
+
+            findLocation: function() {
+                var location = new ol.Feature({
+                    geometry: new ol.geom.Point(ol.proj.transform([parseInt($('#lat').val()), parseInt($('#lon').val())], 'EPSG:4326', 'EPSG:3857')),
+                });
+                MyGlobal.point_locations.addFeature(location);
+
+                this.printFeatures();
+            }
         })
 
         return MapDisplayView;
