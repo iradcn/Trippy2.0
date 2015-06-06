@@ -7,8 +7,8 @@ define([
     'underscore',
     'backbone',
     'YagoLoadView',
-	'PlacesView'
-    'MapDisplayView'
+	'PlacesView',
+    'MapDisplayView',
 ], function($, _, Backbone, YagoLoadView, PlacesView, MapDisplayView){
     var AppRouter = Backbone.Router.extend({
         routes: {
@@ -28,7 +28,7 @@ define([
 		},
         mapDisplayRoute: function() {
             this.currView = new MapDisplayView();
-        }
+        },
         placesRoute: function(){
             this.currView = new PlacesView();
         },
