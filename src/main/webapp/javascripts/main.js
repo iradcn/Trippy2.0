@@ -9,10 +9,12 @@ require.config({
        ol: 'libs/ol',
 
        //views
-       YagoLoadView: 'views/yagoload',
+       MainIndexView: 'views/main',
+       MapCirclesView: 'views/map_circles',
        MapDisplayView: 'views/map_display',
+       YagoLoadView: 'views/yagoload',
 	   PlacesView: 'views/places',
-		AreasView: 'views/areas',
+	   AreasView: 'views/areas',
 
        //routers
        MainRouter: 'router'
