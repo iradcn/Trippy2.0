@@ -8,16 +8,18 @@ define(
         var AreasView = Backbone.View.extend({
             el: ".body-container",
             events: {
-                'click .submit': 'onSubmit',
+                'click .areas-submit': 'areasSubmit',
             },
             initialize: function () {
+				this.catView = MyGlobal.views.select_categories_view;
                 this.render();
-				this.initMap();
-				this.initCategories();
             },
             render: function () {
                 var template = _.template(Areas);
                 this.$el.html(template());
+				this.initMap();
+				this.initProperties();
+				this.catView.render();
             },
 			initMap: function () {
                 var raster = new ol.layer.Tile({
@@ -60,18 +62,7 @@ define(
 
                 MyGlobal.circle_locations = featureOverlay;
 			},
-			initCategories: function () {
-                $.ajax({
-                    url:'get_all_categories'
-                    }).done(function(data){
-						MyGlobal.categories = data;
-						this.appendCollectionNameToSelect(data, '#categories');
-                    }.bind(this))
-                    .fail(function(){
-                        alert('Unable to fetch categories!');
-                    });
-			},
-			getProperties: function () {
+			initProperties: function () {
                 $.ajax({
                     url:'get_all_properties'
                     }).done(function(data){
@@ -90,39 +81,14 @@ define(
 						
 						});
 			},
-            onSubmit: function() {
+            areasSubmit: function() {
                 var locationsArr = MyGlobal.circle_locations.getFeatures().getArray();
                 for (i = 0; i < MyGlobal.circle_locations.getFeatures().getLength(); i++) {
                     console.log(ol.proj.transform(locationsArr[i].getGeometry().getCenter(), 'EPSG:3857', 'EPSG:4326'));
                     console.log(locationsArr[i].getGeometry().getRadius());
                 }
             },
-				/*
-            onSubmit: function () {
-				var req_json = this.constructRequest();
-				console.log(req_json);
-				$.post({
-                    url: 'get_all_properties',
-					data: req_json,
-                    }).done(function(data) {
-						console.log(data);
-                    }.bind(this))
-                    .fail(function(){
-                        alert('Unable to fetch places!');
-                    });
-            },
-			constructRequest: function () {
-				return {
-					"loc": {
-						"lat": $('#lat').val(),
-						"lon": $('#lon').val(),
-						"radius": $('#radius').val(),
-					},
-					"categories": $('#categories').val(),
-					"properties": [],
-				};
-			}
-				*/
+			
         })
 
         return AreasView;

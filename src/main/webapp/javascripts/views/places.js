@@ -3,32 +3,23 @@ define(
         "jquery",
         "text!templates/places.html",
         "bootstrap",
-    ], function (Backbone, $, Places) {
+    ], function (Backbone, $, PlacesTemplate) {
         var PlacesView = Backbone.View.extend({
             el: ".body-container",
             events: {
-                'click .submit': 'onSubmit',
+                'click .places-submit': 'placesSubmit',
             },
             initialize: function () {
+				this.catView = MyGlobal.views.select_categories_view;
                 this.render();
             },
             render: function () {
-                var template = _.template(Places);
+                var template = _.template(PlacesTemplate);
                 this.$el.html(template());
-				this.getCategories();
+				this.catView.render();
+				this.initProperties();
             },
-			getCategories: function () {
-                $.ajax({
-                    url:'get_all_categories'
-                    }).done(function(data){
-						MyGlobal.categories = data;
-						this.appendCollectionNameToSelect(data, '#categories');
-                    }.bind(this))
-                    .fail(function(){
-                        alert('Unable to fetch categories!');
-                    });
-			},
-			getProperties: function () {
+			initProperties: function () {
                 $.ajax({
                     url:'get_all_properties'
                     }).done(function(data){
@@ -47,7 +38,7 @@ define(
 						
 						});
 			},
-            onSubmit: function () {
+            placesSubmit: function () {
 				var req_json = this.constructRequest();
 				console.log(req_json);
 				$.post({

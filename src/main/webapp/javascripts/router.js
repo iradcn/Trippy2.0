@@ -11,7 +11,8 @@ define([
     'MapCirclesView',
     'MapDisplayView',
 	'AreasView',
-], function($, _, Backbone, YagoLoadView, PlacesView, MapCirclesView, MapDisplayView, AreasView){
+	'SelectCategoriesView',
+], function($, _, Backbone, YagoLoadView, PlacesView, MapCirclesView, MapDisplayView, AreasView, SelectCategoriesView){
     var AppRouter = Backbone.Router.extend({
         routes: {
             "map_circles": "mapCirclesRoute",
@@ -22,8 +23,12 @@ define([
 			"*actions": "placesRoute",
         },
         initialize: function (options) {
-            Backbone.history.start();
 			this.initNavBar();
+			MyGlobal.views = {};
+			MyGlobal.views.select_categories_view = new SelectCategoriesView();
+			this.places_view = new PlacesView();
+			this.areas_view = new AreasView();
+            Backbone.history.start();
         },
         defaultRoute: function() {
             this.currView = new MainIndexView();
@@ -40,13 +45,13 @@ define([
             this.currView = new MapDisplayView();
         },
         placesRoute: function(){
-            this.currView = new PlacesView();
+            this.places_view.render();
         },
         dbloadRoute: function(){
             this.currView = new YagoLoadView();
         },
         areasRoute: function(){
-            this.currView = new AreasView();
+            this.areas_view.render();
         },
     });
     return AppRouter;
