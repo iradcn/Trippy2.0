@@ -164,5 +164,20 @@ public class JDBCConnection {
 			JDBCConnection.closeConnection(conn);
 		}
 	}
+
+	public static String preparePlaceHolders(int length) {
+		StringBuilder builder = new StringBuilder(length * 2 - 1);
+		for (int i = 0; i < length; i++) {
+			if (i > 0) builder.append(',');
+			builder.append('?');
+		}
+		return builder.toString();
+	}
+
+	public static void setValues(PreparedStatement preparedStatement, Object... values) throws SQLException {
+		for (int i = 0; i < values.length; i++) {
+			preparedStatement.setObject(i + 1, values[i]);
+		}
+	}
 	
 }

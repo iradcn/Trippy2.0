@@ -10,23 +10,15 @@ import java.util.List;
  * Created by nimrod on 6/6/15.
  */
 public class SearchByLocation {
-    public Location getLot() {
-        return lot;
+    public Location getLoc() {
+        return loc;
     }
 
-    public void setLot(Location lot) {
-        this.lot = lot;
+    public void setLoc(Location loc) {
+        this.loc = loc;
     }
 
-    Location lot;
-
-    public int getRadius() {
-        return Radius;
-    }
-
-    public void setRadius(int radius) {
-        Radius = radius;
-    }
+    Location loc;
 
     public List<Category> getCategories() {
         return categories;
@@ -44,9 +36,6 @@ public class SearchByLocation {
         this.properties = properties;
     }
 
-    private double lat;
-    private double Lon;
-    private int Radius;
     private List<Category> categories;
     private List<Property> properties;
 }

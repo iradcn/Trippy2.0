@@ -4,7 +4,16 @@ package model;
  * Created by nimrod on 6/6/15.
  */
 public class Location {
-    double lan;
+    double lat;
+    int radius;
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
 
     public double getLon() {
         return lon;
@@ -14,12 +23,12 @@ public class Location {
         this.lon = lon;
     }
 
-    public double getLan() {
-        return lan;
+    public double getLat() {
+        return lat;
     }
 
-    public void setLan(double lan) {
-        this.lan = lan;
+    public void setLat(double lat) {
+        this.lat = lat;
     }
 
     double lon;

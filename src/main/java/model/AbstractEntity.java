@@ -16,18 +16,14 @@ public abstract class AbstractEntity {
         AbstractEntity that = (AbstractEntity) o;
 
         if (id != that.id) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (yagoId != null ? !yagoId.equals(that.yagoId) : that.yagoId != null) return false;
-        return myType == that.myType;
+        return yagoId.equals(that.yagoId);
 
     }
 
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (yagoId != null ? yagoId.hashCode() : 0);
-        result = 31 * result + (myType != null ? myType.hashCode() : 0);
+        result = 31 * result + yagoId.hashCode();
         return result;
     }
 

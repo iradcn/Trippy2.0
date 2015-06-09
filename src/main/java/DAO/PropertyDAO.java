@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Place;
 import model.Property;
 
 /**
@@ -23,6 +24,8 @@ public class PropertyDAO {
     private static String deleteProperty = "DELETE FROM property WHERE `id`=?";
     private static String deletePropPlaces = "DELETE FROM placesporps WHERE 'PropId'=?";
     private static String getAllProperties = "SELECT * FROM properties";
+    private static String InsertPropToPlace = "INSERT INTO placesprops (PlaceId,PropId) Values(?,?)";
+    private static String DeletePropFromPlace = "DELETE FROM placesprops WHERE PlaceId=? AND PropId=?";
 
     public static void Insert(Property prop) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
@@ -67,12 +70,31 @@ public class PropertyDAO {
         ResultSet rs = JDBCConnection.executeQuery(deletePropPlace, conn);
         List<Property> props = new ArrayList<>();
         while (rs.next()) {
-            Property prop = new Property();
-            prop.setId(rs.getInt("Id"));
+            Property prop = new Property(rs.getInt("Id"));
             prop.setName(rs.getString("Name"));
             props.add(prop);
         }
         return props;
+    }
+
+    public static void AddPropToPlace(Place placeToAdd) throws SQLException {
+        Connection conn = JDBCConnection.getConnection();
+        PreparedStatement addPropPlace = conn.prepareStatement(InsertPropToPlace);
+        addPropPlace.setString(1, placeToAdd.getYagoId());
+        addPropPlace.setInt(2, placeToAdd.getProperties().iterator().next().getId());
+        List<PreparedStatement> statements = new ArrayList<>();
+        statements.add(addPropPlace);
+        JDBCConnection.executeUpdate(statements,conn);
+    }
+
+    public static void RemovePropFromPlace(Place placeToAdd) throws SQLException {
+        Connection conn = JDBCConnection.getConnection();
+        PreparedStatement addPropPlace = conn.prepareStatement(DeletePropFromPlace);
+        addPropPlace.setString(1, placeToAdd.getYagoId());
+        addPropPlace.setInt(2, placeToAdd.getProperties().iterator().next().getId());
+        List<PreparedStatement> statements = new ArrayList<>();
+        statements.add(addPropPlace);
+        JDBCConnection.executeUpdate(statements,conn);
     }
     
 }

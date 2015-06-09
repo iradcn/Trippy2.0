@@ -7,10 +7,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.sun.java.swing.plaf.windows.TMSchema;
 import org.json.simple.parser.ParseException;
 
 import DAO.PlaceDAO;
+import protocol_model.SearchByLocation;
 
 /**
  * Created by nimrod on 5/24/15.
@@ -20,6 +20,8 @@ public class Place extends AbstractEntity {
         super.setYagoId(yagoId);
         super.myType = typeOf.Place;
         categories = new HashSet<Category>();
+        properties = new HashSet<>();
+        loc = new Location();
     }
 
     public Set<Category> getCaegories() {
@@ -33,6 +35,11 @@ public class Place extends AbstractEntity {
     public static void saveAll(List<Place> places) throws FileNotFoundException, IOException, ParseException, SQLException{
     	PlaceDAO.SavePlacesAndPlaceCats(places);
     	
+    }
+
+    public static List<Place> getPlacesByLocation(SearchByLocation query) throws SQLException {
+        return (PlaceDAO.getPlacesByLocation(query));
+
     }
 
     public Location getLoc() {

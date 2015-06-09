@@ -74,9 +74,9 @@ public class Parser {
                 		(values[2].equals("<hasLongitude>"))|| (values[2].equals("rdfs:label") && values[3].endsWith("@eng")))) {
 
                     if ((values[2].equals("<hasLatitude>")))
-                        entities.get(values[1]).setLat( Double.parseDouble(values[4]));
+                        entities.get(values[1]).getLoc().setLat(Double.parseDouble(values[4]));
                     else if ((values[2].equals("<hasLongitude>")))
-                    	 entities.get(values[1]).setLon(Double.parseDouble(values[4]));
+                    	 entities.get(values[1]).getLoc().setLon(Double.parseDouble(values[4]));
                     else
                     	entities.get(values[1]).setName(values[3].split("@eng")[0]);
                 }
