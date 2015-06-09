@@ -11,7 +11,6 @@ define(
 				this.collection.on("all", this.render, this);
             },
             render: function () {
-				console.log("rendering cats");
                 this.$el.html("");
 				this.populateCategories();
             },
