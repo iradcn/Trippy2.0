@@ -24,6 +24,7 @@ define([
         },
         initialize: function (options) {
 			this.initNavBar();
+            MyGlobal.collections = {};
 			MyGlobal.views = {};
 			MyGlobal.views.select_categories_view = new SelectCategoriesView();
 			this.places_view = new PlacesView();

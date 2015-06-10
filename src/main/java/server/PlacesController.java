@@ -24,12 +24,12 @@ public class PlacesController {
 	}
 
 	@RequestMapping(value="/get_places_by_loc", method=RequestMethod.POST)
-	public List<Place> SearchPlacesByLocation(@RequestParam("searchQuery") SearchByLocation searchQueryJson) throws SQLException {
+	public List<Place> SearchPlacesByLocation(@RequestBody SearchByLocation searchQueryJson) throws SQLException {
 		return Place.getPlacesByLocation(searchQueryJson);
 	}
 
 	@RequestMapping(value="/get_places_aggregation", method=RequestMethod.POST)
-	public ResultMultipleSearch SearchAggByMultipleLocation(@RequestParam("searchQuery") SearchByMultipleLocation searchQueryJson) throws SQLException {
+	public ResultMultipleSearch SearchAggByMultipleLocation(@RequestBody SearchByMultipleLocation searchQueryJson) throws SQLException {
 		return null;
 	}
 }

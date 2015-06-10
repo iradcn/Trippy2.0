@@ -9,6 +9,7 @@ define(
             initialize: function () {
 				this.collection = new Categories();
 				this.collection.on("all", this.render, this);
+                MyGlobal.collections.categories = this.collection;
             },
             render: function () {
                 this.$el.html("");

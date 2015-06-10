@@ -15,6 +15,10 @@ import DAO.CategoryDAO;
  */
 public class Category extends AbstractEntity {
 
+	public Category() {
+		
+	}
+	
     public Category(String yagoId, int id, String name) {
         super.setYagoId(yagoId);
         super.myType = typeOf.Category;
