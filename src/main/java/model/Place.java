@@ -24,7 +24,7 @@ public class Place extends AbstractEntity {
         loc = new Location();
     }
 
-    public Set<Category> getCaegories() {
+    public Set<Category> getCategories() {
         return this.categories;
     }
 

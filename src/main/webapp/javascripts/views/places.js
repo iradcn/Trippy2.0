@@ -83,6 +83,7 @@ define(
 			},
             placesSubmit: function () {
 				var req_json = this.constructRequest();
+				console.log(req_json);
 				$.ajax({
                     method: "POST",
                     url: 'get_places_by_loc',
@@ -101,19 +102,23 @@ define(
                 var location_circle = MyGlobal.circle_locations.getFeatures().getArray()[0];
                 var location_coordinates = ol.proj.transform(location_circle.getGeometry().getCenter(), 'EPSG:3857', 'EPSG:4326');
 
-                var cat_yago_id = $('#categories').val();
+                var cat_yago_ids = $('#categories').val(); // array of yagoId
+				var filtered_cats = MyGlobal.collections.categories.filter(function(c) {
+					return _.contains(cat_yago_ids, c.id);
+				});
+
 				return {
 					"loc": {
                         "lat": location_coordinates[0],
                         "lon": location_coordinates[1],
 						"radius": location_circle.getGeometry().getRadius(),
 					},
-					"categories": [
-                        MyGlobal.collections.categories.get(cat_yago_id).attributes
-                    ],
+					"categories": filtered_cats.map(function (c) {
+						return c.attributes; 
+					}),
 					"properties": [],
 				};
-			}
+			},
         })
 
         return PlacesView;
