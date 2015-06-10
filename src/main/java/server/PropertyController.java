@@ -60,4 +60,24 @@ public class PropertyController {
 			Property.getAll();
 			return Property.getAll();
 	}
+
+	@RequestMapping(value="/AddPropToPlace", method=RequestMethod.GET)
+	public void AddPropertyToPlace(@RequestParam("propId") int propId,@RequestParam("placeId") String placeId) {
+		try {
+			Property.AddPropToPlace(placeId, propId);
+		}
+		catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@RequestMapping(value="/DelPropFromPlace", method=RequestMethod.GET)
+	public void RemovePropertyFromPlace(@RequestParam("propId") int propId,@RequestParam("placeId") String placeId) {
+		try {
+			Property.RemovePropFromPlace(placeId, propId);
+		}
+		catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

@@ -10,6 +10,7 @@ import java.util.Set;
 import org.json.simple.parser.ParseException;
 
 import DAO.PlaceDAO;
+import protocol_model.SearchByLocation;
 
 /**
  * Created by nimrod on 5/24/15.
@@ -19,23 +20,8 @@ public class Place extends AbstractEntity {
         super.setYagoId(yagoId);
         super.myType = typeOf.Place;
         categories = new HashSet<Category>();
-    }
-
-
-    public double getLat() {
-        return lat;
-    }
-
-    public void setLat(double lat) {
-        this.lat = lat;
-    }
-
-    public double getLon() {
-        return lon;
-    }
-
-    public void setLon(double lon) {
-        this.lon = lon;
+        properties = new HashSet<>();
+        loc = new Location();
     }
 
     public Set<Category> getCaegories() {
@@ -50,8 +36,30 @@ public class Place extends AbstractEntity {
     	PlaceDAO.SavePlacesAndPlaceCats(places);
     	
     }
-    private double lat;
-    private double lon;
+
+    public static List<Place> getPlacesByLocation(SearchByLocation query) throws SQLException {
+        return (PlaceDAO.getPlacesByLocation(query));
+
+    }
+
+    public Location getLoc() {
+        return loc;
+    }
+
+    public void setLoc(Location loc) {
+        this.loc = loc;
+    }
+
+    public Set<Property> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(Set<Property> properties) {
+        this.properties = properties;
+    }
+
+    private Location loc;
     private Set<Category> categories;
+    private Set<Property> properties;
 
 }
