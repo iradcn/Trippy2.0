@@ -54,7 +54,7 @@ public class PlaceDAO {
 			insertPlaceState.setDouble(4, place.getLoc().getLon());
 			insertPlaceState.addBatch();
 
-			for (Category cat : place.getCaegories()) {
+			for (Category cat : place.getCategories()) {
 				insertPlaceCategoryState.setString(1, place.getYagoId());
 				insertPlaceCategoryState.setString(2, cat.getYagoId());
 				insertPlaceCategoryState.addBatch();
@@ -140,7 +140,7 @@ public class PlaceDAO {
 				newPlace.setName(rs.getString("name"));
 				places.put(newPlace.getYagoId(), newPlace);
 			}
-			places.get(rs.getString("id")).getCaegories().add(new Category(rs.getString("Categoryid"), 0, ""));
+			places.get(rs.getString("id")).getCategories().add(new Category(rs.getString("Categoryid"), 0, ""));
 			if (rs.getInt("PropId") != 0)
 				places.get(rs.getString("id")).getProperties().add(new Property(rs.getInt("PropId")));
 		}
