@@ -7,7 +7,6 @@ define(
 	   var Categories = Backbone.Collection.extend({
 		   model: Category,
 	   	   initialize: function() {
-			   console.log("initializing categories");
 			   this.fetchFromServer();
 		   },
 	   	   fetchFromServer: function() {
