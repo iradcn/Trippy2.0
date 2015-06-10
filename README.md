@@ -18,6 +18,7 @@ Maven,Git
   1. Run /build/add_db_user.sql on mysql client
   2. Run /build/build_schema.sql on mysql client
   3. Run /build/fill_categories.sql on mysql client
+  4. Run /build/fill_properties.sql on mysql client
   
 #####3. Yago Dependencies
   1. Make sure you have all the following Yago dependencies under /Resources:
