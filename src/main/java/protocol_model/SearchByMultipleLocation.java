@@ -5,6 +5,7 @@ import model.Location;
 import model.Property;
 
 import java.beans.PropertyEditor;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +13,23 @@ import java.util.List;
  */
 public class SearchByMultipleLocation  {
     private List<Location> locs;
-    private Category cat;
+    private String category;
+
+    public int getProperty() {
+        return property;
+    }
+
+    public void setProperty(int property) {
+        this.property = property;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public List<Location> getLocs() {
         return locs;
@@ -22,12 +39,10 @@ public class SearchByMultipleLocation  {
         this.locs = locs;
     }
 
-    public Category getCat() {
-        return cat;
-    }
+    private int property;
 
-    public void setCat(Category cat) {
-        this.cat = cat;
+    public SearchByMultipleLocation() {
+        locs = new ArrayList<>();
     }
 
 }

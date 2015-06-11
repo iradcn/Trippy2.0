@@ -10,7 +10,9 @@ import java.util.Set;
 import org.json.simple.parser.ParseException;
 
 import DAO.PlaceDAO;
+import protocol_model.ResultMultipleSearch;
 import protocol_model.SearchByLocation;
+import protocol_model.SearchByMultipleLocation;
 
 /**
  * Created by nimrod on 5/24/15.
@@ -62,4 +64,7 @@ public class Place extends AbstractEntity {
     private Set<Category> categories;
     private Set<Property> properties;
 
+    public static List<ResultMultipleSearch> gePlacesAggregation(SearchByMultipleLocation searchQueryJson) throws SQLException {
+        return (PlaceDAO.getPlacesAggregation(searchQueryJson));
+    }
 }

@@ -7,7 +7,9 @@ import model.Category;
 import model.Location;
 import model.Place;
 import model.Property;
+import protocol_model.ResultMultipleSearch;
 import protocol_model.SearchByLocation;
+import protocol_model.SearchByMultipleLocation;
 
 /**
  * Created by nimrod on 5/24/15.
@@ -36,7 +38,14 @@ public class PlaceDAO {
 													"AND (pc.CategoryId IN (%s) %s) " +
 													"AND (pp.PropId IN (%s) %s)";
 
-
+	private static String countPlacesByLoc = "SELECT COUNT(DISTiNCT(p.name)) AS cms " +
+											 "FROM places p,  placescategories pc, placesprops pp" +
+											 " WHERE " +
+												"3956 * 2 * ASIN(SQRT(POWER(SIN((? - p.lat) * PI() / 180 / 2), " +
+												"2) + COS(? * PI() / 180) * COS(p.lat * PI() / 180) * " +
+												"POWER(SIN((? - p.lon) * PI() / 180 / 2),2))) < ? " +
+												"AND p.id = pc.placeid AND pc.CategoryId = ?";
+	private static String addPropQuery = " AND pp.placeId = p.ID AND pp.PropId = ?";
 
 	private static String deletePlacesSQL = "DELETE from places";
 	private static String deletePlacesCatsSQL = "DELETE from placescategories";
@@ -147,5 +156,38 @@ public class PlaceDAO {
 
 		return new ArrayList<>(places.values());
 
+	}
+
+	public static List<ResultMultipleSearch> getPlacesAggregation(SearchByMultipleLocation query) throws SQLException {
+		Connection conn = JDBCConnection.getConnection();
+		List<ResultMultipleSearch> result = new ArrayList<ResultMultipleSearch>();
+		PreparedStatement selectPlaces = null;
+
+		if (query.getProperty() == 0) {
+			selectPlaces = conn.prepareStatement(countPlacesByLoc);
+
+		} else {
+			selectPlaces = conn.prepareStatement(countPlacesByLoc+addPropQuery);
+		}
+
+		for (Location loc : query.getLocs()) {
+			selectPlaces.setDouble(1,loc.getLat());
+			selectPlaces.setDouble(2,loc.getLat());
+			selectPlaces.setDouble(3, loc.getLon());
+			selectPlaces.setInt(4, (int) (loc.getRadius() / 1.609));
+			selectPlaces.setString(5, query.getCategory());
+
+			if (query.getProperty() != 0)
+				selectPlaces.setInt(6, query.getProperty());
+
+			ResultSet rs = JDBCConnection.executeQuery(selectPlaces, conn);
+			ResultMultipleSearch rms = new ResultMultipleSearch();
+			rs.next();
+			rms.setLoc(loc);
+			rms.setCountPlaces(rs.getInt("cms"));
+			result.add(rms);
+		}
+
+		return  result;
 	}
 }

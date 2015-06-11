@@ -29,7 +29,7 @@ public class PlacesController {
 	}
 
 	@RequestMapping(value="/get_places_aggregation", method=RequestMethod.POST)
-	public ResultMultipleSearch SearchAggByMultipleLocation(@RequestBody SearchByMultipleLocation searchQueryJson) throws SQLException {
-		return null;
+	public List<ResultMultipleSearch> SearchAggByMultipleLocation(@RequestBody SearchByMultipleLocation searchQueryJson) throws SQLException {
+		return Place.gePlacesAggregation(searchQueryJson);
 	}
 }

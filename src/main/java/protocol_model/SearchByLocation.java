@@ -4,6 +4,7 @@ import model.Category;
 import model.Location;
 import model.Property;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,6 +13,11 @@ import java.util.List;
 public class SearchByLocation {
     public Location getLoc() {
         return loc;
+    }
+
+    public void SearchByLocation() {
+        categories = new ArrayList<>();
+        properties = new ArrayList<>();
     }
 
     public void setLoc(Location loc) {
