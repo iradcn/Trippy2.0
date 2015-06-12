@@ -15,14 +15,14 @@ import model.Property;
  */
 public class PropertyDAO {
 
-    private static String insertProperty = "INSERT property (`name`) VALUES(?)";
+    private static String insertProperty = "INSERT INTO properties (`name`) VALUES(?)";
     //private static String selectProperty = "SELECT * FROM property WHERE name=?";
     //private static String selectPropertyById = "SELECT * FROM property WHERE id=?";
-    private static String updateProperty = "UPDATE property SET (`name`=?) WHERE `id`=?";
+    private static String updateProperty = "UPDATE properties SET `name`=? WHERE `id`=?";
     private static String syncProperties = "DELETE FROM placesprops"
             + " WHERE PlaceId NOT IN (SELECT Id from places)";
-    private static String deleteProperty = "DELETE FROM property WHERE `id`=?";
-    private static String deletePropPlaces = "DELETE FROM placesporps WHERE 'PropId'=?";
+    private static String deleteProperty = "DELETE FROM properties WHERE `id`=?";
+    private static String deletePropPlaces = "DELETE FROM placesprops WHERE 'PropId'=?";
     private static String getAllProperties = "SELECT * FROM properties";
     private static String InsertPropToPlace = "INSERT INTO placesprops (PlaceId,PropId) Values(?,?)";
     private static String DeletePropFromPlace = "DELETE FROM placesprops WHERE PlaceId=? AND PropId=?";
@@ -49,7 +49,7 @@ public class PropertyDAO {
         PreparedStatement updateState = conn.prepareStatement(updateProperty);
         List<PreparedStatement> statements = new ArrayList<>();
         updateState.setString(1, prop.getName());
-        updateState.setInt(1, prop.getId());
+        updateState.setInt(2, prop.getId());
         statements.add(updateState);
         JDBCConnection.executeUpdate(statements, conn);
     }

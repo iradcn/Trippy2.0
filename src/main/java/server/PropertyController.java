@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PropertyController {
-	@RequestMapping(value="/create_property", method=RequestMethod.POST)
+	@RequestMapping(value="/create_property", method=RequestMethod.GET)
 	public ResponseEntity<String> createProperty(@RequestParam("name") String name) {
 		Property property = new Property();
 		property.setName(name);
@@ -26,7 +26,7 @@ public class PropertyController {
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	@RequestMapping(value="/modify_property", method=RequestMethod.POST)
+	@RequestMapping(value="/modify_property", method=RequestMethod.GET)
 	public ResponseEntity<String> modifyProperty(@RequestParam("name") String name,@RequestParam("id") int id) {
 		Property property = new Property();
 		property.setName(name);
@@ -41,7 +41,7 @@ public class PropertyController {
 		}
 	}
 	
-	@RequestMapping(value="/delete_property", method=RequestMethod.DELETE)
+	@RequestMapping(value="/delete_property", method=RequestMethod.GET)
 	public ResponseEntity<String> deleteProperty(@RequestParam("name") String name,@RequestParam("id") int id) {
 		Property property = new Property();
 		property.setName(name);
