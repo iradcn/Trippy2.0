@@ -16,8 +16,8 @@ define(
 				this.populateCategories();
             },
 			populateCategories: function () {
-				this.collection.each(function (cat) {
-					$('#categories').append( "<option value='" + cat.id + "'>" + cat.get('name') +  "</option>");
+				this.collection.each(function (prop) {
+					$('#properties').append( "<option value='" + prop.id + "'>" + prop.get('name') +  "</option>");
 				}, this);
 			},
         });

@@ -10,9 +10,11 @@ require.config({
 
 	   // Models
 	   Category: 'models/category',
+       Property: 'models/property',
 
 	   // Collections
 	   Categories: 'collections/categories',
+       Properties: 'collections/properties',
 
        //views
        MainIndexView: 'views/main',
@@ -21,13 +23,12 @@ require.config({
        YagoLoadView: 'views/yagoload',
 	   PlacesView: 'views/places',
 	   AreasView: 'views/areas',
-		SelectCategoriesView: 'views/select-categories',
-		
+       SelectCategoriesView: 'views/select-categories',
+       SelectPropertiesView: 'views/select-properties',
+       ManagePropertiesView: 'views/manage-properties',
 
        //routers
        MainRouter: 'router',
-
-    	   
    },
 
     shim:{
