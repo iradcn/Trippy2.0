@@ -12,9 +12,10 @@ define([
     'MapDisplayView',
 	'AreasView',
 	'SelectCategoriesView',
+	'ResponsePlaces',
     'SelectPropertiesView',
     'ManagePropertiesView',
-], function($, _, Backbone, YagoLoadView, PlacesView, MapCirclesView, MapDisplayView, AreasView, SelectCategoriesView,
+], function($, _, Backbone, YagoLoadView, PlacesView, MapCirclesView, MapDisplayView, AreasView, SelectCategoriesView, ResponsePlaces,
             SelectPropertiesView, ManagePropertiesView){
     var AppRouter = Backbone.Router.extend({
         routes: {
@@ -29,6 +30,7 @@ define([
         initialize: function (options) {
 			this.initNavBar();
             MyGlobal.collections = {};
+			MyGlobal.collections.ResponsePlaces = new ResponsePlaces();
 			MyGlobal.views = {};
 			MyGlobal.views.select_categories_view = new SelectCategoriesView();
             MyGlobal.views.select_properties_view = new SelectPropertiesView();

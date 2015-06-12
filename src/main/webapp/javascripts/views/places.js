@@ -35,7 +35,9 @@ define(
                     })
                 });
 
-                var featureOverlay = new ol.FeatureOverlay({
+				this.map = map;
+
+                var circlesOverlay = new ol.FeatureOverlay({
                     style: new ol.style.Style({
                         fill: new ol.style.Fill({
                             color: 'rgba(255, 255, 255, 0.2)'
@@ -52,15 +54,42 @@ define(
                         })
                     })
                 });
-                featureOverlay.setMap(map);
+                circlesOverlay.setMap(map);
 
                 draw = new ol.interaction.Draw({
-                    features: featureOverlay.getFeatures(),
+                    features: circlesOverlay.getFeatures(),
                     type: "Circle"
                 });
+				draw.on('drawstart', function() { // make sure only 1 circle
+					circlesCollection = circlesOverlay.getFeatures();
+					if (circlesCollection.getLength() > 0) {
+						circlesOverlay.removeFeature(circlesCollection.item(0));
+					}
+				});
                 map.addInteraction(draw);
 
-                MyGlobal.circle_locations = featureOverlay;
+                this.circlesOverlay = circlesOverlay;
+
+
+                var pointsOverlay = new ol.FeatureOverlay({
+                    style: new ol.style.Style({
+                        fill: new ol.style.Fill({
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        }),
+                        stroke: new ol.style.Stroke({
+                            color: '#ffcc33',
+                            width: 2
+                        }),
+                        image: new ol.style.Circle({
+                            radius: 7,
+                            fill: new ol.style.Fill({
+                                color: '#ffcc33'
+                            })
+                        })
+                    })
+                });
+				this.pointsOverlay = pointsOverlay;
+
             },
 			initProperties: function () {
                 $.ajax({
@@ -83,7 +112,6 @@ define(
 			},
             placesSubmit: function () {
 				var req_json = this.constructRequest();
-				console.log(req_json);
 				$.ajax({
                     method: "POST",
                     url: 'get_places_by_loc',
@@ -91,7 +119,8 @@ define(
                     contentType: 'application/json',
                     data: JSON.stringify(req_json)
                 }).done(function(data) {
-						console.log(data);
+						MyGlobal.collections.ResponsePlaces.reset(data);
+						this.overlayResponse();
                     }.bind(this))
                     .fail(function(){
                         alert('Unable to fetch places!');
@@ -99,7 +128,7 @@ define(
 
             },
 			constructRequest: function () {
-                var location_circle = MyGlobal.circle_locations.getFeatures().getArray()[0];
+                var location_circle = this.circlesOverlay.getFeatures().getArray()[0];
                 var location_coordinates = ol.proj.transform(location_circle.getGeometry().getCenter(), 'EPSG:3857', 'EPSG:4326');
 
                 var cat_yago_ids = $('#categories').val(); // array of yagoId
@@ -111,13 +140,21 @@ define(
 					"loc": {
                         "lat": location_coordinates[0],
                         "lon": location_coordinates[1],
-						"radius": location_circle.getGeometry().getRadius(),
+						"radius": location_circle.getGeometry().getRadius() / 1000,
 					},
 					"categories": filtered_cats.map(function (c) {
 						return c.attributes; 
 					}),
 					"properties": [],
 				};
+			},
+			overlayResponse: function () {
+				var pointsArray = MyGlobal.collections.ResponsePlaces.map(function(respPlace) {return respPlace.toOLFeature();});
+
+
+				this.pointsOverlay.setFeatures(new ol.Collection(pointsArray));
+				this.pointsOverlay.setMap(this.map);
+
 			},
         })
 

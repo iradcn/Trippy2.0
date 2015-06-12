@@ -11,10 +11,12 @@ require.config({
 	   // Models
 	   Category: 'models/category',
        Property: 'models/property',
+		ResponsePlace: 'models/response-place',
 
 	   // Collections
 	   Categories: 'collections/categories',
        Properties: 'collections/properties',
+		ResponsePlaces: 'collections/response-places',
 
        //views
        MainIndexView: 'views/main',
