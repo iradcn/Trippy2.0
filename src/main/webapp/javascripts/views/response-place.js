@@ -9,6 +9,7 @@ define(
             el: "#response-place",
             events: {
                 'click .places-new-property-submit': 'newPropertySubmit',
+				'click .places-remove-property-submit': 'deletePropertySubmit',
             },
             render: function () {
 				var template = _.template(ResponsePlaceTemplate);
@@ -32,7 +33,7 @@ define(
 				var propsArr = this.model.attributes.properties;
 				_.each(propsArr, function (p) {
 					var propModel = MyGlobal.collections.properties.get(p.id);
-					$('#response-place-properties').append("<option>" + propModel.get('name') +  "</option>");
+					$('#response-place-properties').append("<option value='" + propModel.id + "'>" + propModel.get('name') +  "</option>");
 				});
 			},
 			populateNewProperties: function () {
@@ -70,6 +71,21 @@ define(
                     });
 
             },
+			deletePropertySubmit: function () {
+				var propId = $('#response-place-properties').val();
+				var placeId = this.model.id;
+
+				$.ajax({
+					method: "GET",
+					url: 'DelPropFromPlace',
+					data: {'propId': propId,
+						'placeId': placeId}
+				}).done(function(data) {
+					console.log("success");
+				}.bind(this)).fail(function(){
+					alert('Unable to add property to place!');
+				});
+			}
    
         });
 
