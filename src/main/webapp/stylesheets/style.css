@@ -14,3 +14,39 @@
     height: 600px;
     width: 100%;
 }
+
+.curr-properties-col {
+	margin: 40px auto;
+}
+
+.add-property-col {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.add-property-col > input {
+	width: 100%;
+}
+
+.add-property-col > button {
+	width: 100%;
+}
+
+.manage-property-col {
+	text-align: center;
+	padding: 20px;
+}
+
+.manage-property-col > button {
+	margin-top: 20px;
+	width: 150px;
+}
+
+.manage-property-col > input {
+	margin: 20px auto auto auto;
+	width: 50%;
+}
+
+.rename-property-col {
+	border-right: dotted darkgray 1px;
+}

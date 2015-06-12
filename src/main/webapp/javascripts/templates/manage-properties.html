@@ -1,24 +1,26 @@
 <div class="row">
-    <div class="col-xs-10">
+    <div class="col-xs-10 add-property-col">
         <input id="new-property" class="form-control"/>
     </div>
-    <div class="col-xs-2">
-        <button class="btn btn-default add-property-submit" type="button">Add Property</button>
+    <div class="col-xs-2 add-property-col">
+        <button class="btn btn-success add-property-submit" type="button" disabled="true">Add Property</button>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12" id="query-form">
-        Current Properties:
-        <select id="select-curr-properties" multiple size=6 class="form-control">
+    <div class="col-xs-12 curr-properties-col" id="query-form">
+        <b>Current Properties:</b>
+        <select id="select-curr-properties" size=6 class="form-control">
         </select>
     </div>
-    <div class="col-xs-8">
-        <input id="renamed-property" class="form-control"/>
+</div>
+<div class="row">
+    <div class="col-xs-6 manage-property-col rename-property-col">
+        <label for="renamed-property">Enter new name for chosen property</label>
+        <input id="renamed-property" class="form-control" disabled="true"/>
+        <button class="btn btn-info rename-property-submit" type="button" disabled="true">Rename</button>
     </div>
-    <div class="col-xs-2">
-        <button class="btn btn-default rename-property-submit" type="button">Rename</button>
-    </div>
-    <div class="col-xs-2">
-        <button class="btn btn-default delete-property-submit" type="button">Delete</button>
+    <div class="col-xs-6 manage-property-col delete-property-col">
+        <label>Click to delete property</label><br>
+        <button class="btn btn-danger delete-property-submit" type="button" disabled="true">Delete</button>
     </div>
 </div>

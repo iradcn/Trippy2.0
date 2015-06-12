@@ -13,15 +13,45 @@ define(
                 'click .add-property-submit': 'create',
                 'click .rename-property-submit': 'update',
                 'click .delete-property-submit': 'delete',
+                'keydown #new-property': 'toggleAddOption',
+                'change #select-curr-properties': 'toggleDeleteOption',
+                'keydown #renamed-property': 'toggleRenameOption',
             },
             initialize: function () {
                 this.props = MyGlobal.collections.properties;
                 this.render();
-
             },
             render: function () {
                 var template = _.template(ManagePropertiesTemplate);
                 this.$el.html(template());
+            },
+            toggleAddOption: function (e) {
+                var key = e.keyCode || e.charCode;
+                var addition = 1;
+                if (key == 8 || key == 46) {
+                    addition = -1;
+                }
+                if ($.trim($('#new-property').val()).length + addition == 0) {
+                    $('.add-property-submit').prop('disabled', true);
+                } else {
+                    $('.add-property-submit').prop('disabled', false);
+                }
+            },
+            toggleDeleteOption: function () {
+                $('#renamed-property').prop('disabled', false);
+                $('.delete-property-submit').prop('disabled', false);
+            },
+            toggleRenameOption: function (e) {
+                var key = e.keyCode || e.charCode;
+                var addition = 1;
+                if (key == 8 || key == 46) {
+                    addition = -1;
+                }
+                if ($.trim($('#renamed-property').val()).length + addition == 0) {
+                    $('.rename-property-submit').prop('disabled', true);
+                } else {
+                    $('.rename-property-submit').prop('disabled', false);
+                }
             },
             create: function() {
                 $.ajax({
