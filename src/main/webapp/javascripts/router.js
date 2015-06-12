@@ -13,7 +13,10 @@ define([
 	'AreasView',
 	'SelectCategoriesView',
 	'ResponsePlaces',
-], function($, _, Backbone, YagoLoadView, PlacesView, MapCirclesView, MapDisplayView, AreasView, SelectCategoriesView, ResponsePlaces){
+    'SelectPropertiesView',
+    'ManagePropertiesView',
+], function($, _, Backbone, YagoLoadView, PlacesView, MapCirclesView, MapDisplayView, AreasView, SelectCategoriesView, ResponsePlaces,
+            SelectPropertiesView, ManagePropertiesView){
     var AppRouter = Backbone.Router.extend({
         routes: {
             "map_circles": "mapCirclesRoute",
@@ -21,6 +24,7 @@ define([
 			"places": "placesRoute",
 			"dbload": "dbloadRoute",
 			"areas": "areasRoute",
+            "manage_properties": "managePropertiesRoute",
 			"*actions": "placesRoute",
         },
         initialize: function (options) {
@@ -29,8 +33,10 @@ define([
 			MyGlobal.collections.ResponsePlaces = new ResponsePlaces();
 			MyGlobal.views = {};
 			MyGlobal.views.select_categories_view = new SelectCategoriesView();
+            MyGlobal.views.select_properties_view = new SelectPropertiesView();
 			this.places_view = new PlacesView();
 			this.areas_view = new AreasView();
+            this.manage_properties_view = new ManagePropertiesView();
             Backbone.history.start();
         },
         defaultRoute: function() {
@@ -56,6 +62,9 @@ define([
         areasRoute: function(){
             this.areas_view.render();
         },
+        managePropertiesRoute: function(){
+            this.manage_properties_view.render();
+        }
     });
     return AppRouter;
 });

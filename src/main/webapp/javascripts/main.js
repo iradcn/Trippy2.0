@@ -10,10 +10,12 @@ require.config({
 
 	   // Models
 	   Category: 'models/category',
+       Property: 'models/property',
 		ResponsePlace: 'models/response-place',
 
 	   // Collections
 	   Categories: 'collections/categories',
+       Properties: 'collections/properties',
 		ResponsePlaces: 'collections/response-places',
 
        //views
@@ -23,13 +25,12 @@ require.config({
        YagoLoadView: 'views/yagoload',
 	   PlacesView: 'views/places',
 	   AreasView: 'views/areas',
-		SelectCategoriesView: 'views/select-categories',
-		
+       SelectCategoriesView: 'views/select-categories',
+       SelectPropertiesView: 'views/select-properties',
+       ManagePropertiesView: 'views/manage-properties',
 
        //routers
        MainRouter: 'router',
-
-    	   
    },
 
     shim:{
