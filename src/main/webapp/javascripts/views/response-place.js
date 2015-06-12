@@ -38,13 +38,10 @@ define(
 			populateNewProperties: function () {
 				var propsArr = this.model.attributes.properties;
 				var diffPropsArr = MyGlobal.collections.properties.reject(function (p) {
-					console.log(propsArr);
-					console.log(p);
 					return _.contains(_.map(propsArr, function(prop) {
 						return prop.id;
 					}), p.id);	
 				});
-				console.log(diffPropsArr);
 				_.each(diffPropsArr, function (p) {
 					$('#response-place-new-property').append("<option value='" + p.id + "'>" + p.get('name') +  "</option>");
 				});
@@ -52,18 +49,14 @@ define(
 		   newPropertySubmit: function () {
 			   propId = $('#response-place-new-property').val();
 			   placeId = this.model.id;
-			   console.log(propId);
-			   console.log(placeId);
 				$.ajax({
                     method: "GET",
                     url: 'AddPropToPlace',
                     data: {'propId': propId,
 							'placeId': placeId}
                 }).done(function(data) {
-					console.log("success");
-
-//						MyGlobal.collections.ResponsePlaces.reset(data);
-//						this.overlayResponse();
+					this.model.attributes.properties.push({'id': parseInt(propId)});
+					this.render();
                     }.bind(this))
                     .fail(function(){
                         alert('Unable to fetch places!');
