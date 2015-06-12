@@ -24,6 +24,7 @@ define(
             render: function () {
                 var template = _.template(ManagePropertiesTemplate);
                 this.$el.html(template());
+                MyGlobal.views.select_properties_view.render();
             },
             toggleAddOption: function (e) {
                 var key = e.keyCode || e.charCode;
