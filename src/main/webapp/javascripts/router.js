@@ -28,7 +28,6 @@ define([
 			"*actions": "placesRoute",
         },
         initialize: function (options) {
-			this.initNavBar();
             MyGlobal.collections = {};
 			MyGlobal.collections.ResponsePlaces = new ResponsePlaces();
 			MyGlobal.views = {};
@@ -39,14 +38,6 @@ define([
             this.manage_properties_view = new ManagePropertiesView();
             Backbone.history.start();
         },
-        defaultRoute: function() {
-            this.currView = new MainIndexView();
-        },
-		initNavBar: function () {
-			$('.myTab a').click(function () {
-			  $(this).tab('show')
-			})
-		},
         mapCirclesRoute: function() {
             this.currView = new MapCirclesView();
         },
@@ -54,15 +45,19 @@ define([
             this.currView = new MapDisplayView();
         },
         placesRoute: function(){
+            $('#places-tab').tab('show');
             this.places_view.render();
         },
         dbloadRoute: function(){
+            $('#dbload-tab').tab('show');
             this.currView = new YagoLoadView();
         },
         areasRoute: function(){
+            $('#areas-tab').tab('show');
             this.areas_view.render();
         },
         managePropertiesRoute: function(){
+            $('#manage-properties-tab').tab('show');
             this.manage_properties_view.render();
         }
     });
