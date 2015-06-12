@@ -3,8 +3,9 @@ define(
         "jquery",
         "ol",
         "text!templates/places.html",
+		"ResponsePlaceView",
         "bootstrap",
-    ], function (Backbone, $, ol, PlacesTemplate) {
+    ], function (Backbone, $, ol, PlacesTemplate, ResponsePlaceView) {
         var PlacesView = Backbone.View.extend({
             el: ".body-container",
             events: {
@@ -22,12 +23,63 @@ define(
 				this.initProperties();
             },
             initMap: function () {
+				// The actual map layer
                 var raster = new ol.layer.Tile({
                     source: new ol.source.MapQuest({layer: 'osm'})
                 });
 
+				// Drawing circles layer
+				var circlesVectorStyle = new ol.style.Style({
+                        fill: new ol.style.Fill({
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        }),
+                        stroke: new ol.style.Stroke({
+                            color: '#ffcc33',
+                            width: 2
+                        }),
+                        image: new ol.style.Circle({
+                            radius: 7,
+                            fill: new ol.style.Fill({
+                                color: '#ffcc33'
+                            })
+                        })
+                    });
+				var circlesVectorSource = new ol.source.Vector();
+				this.circlesVectorSource = circlesVectorSource;
+				var circlesVectorLayer = new ol.layer.Vector({
+					source: circlesVectorSource,
+					style: circlesVectorStyle,
+				});
+
+
+
+				pointsVectorStyle = new ol.style.Style({
+                        fill: new ol.style.Fill({
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        }),
+                        stroke: new ol.style.Stroke({
+                            color: '#ffcc33',
+                            width: 2
+                        }),
+                        image: new ol.style.Circle({
+                            radius: 7,
+                            fill: new ol.style.Fill({
+                                color: '#ffcc33'
+                            })
+                        })
+                    });
+
+				var pointsVectorSource = new ol.source.Vector();
+				this.pointsVectorSource = pointsVectorSource;
+				var pointsVectorLayer = new ol.layer.Vector({
+					source: pointsVectorSource,
+					style: pointsVectorStyle,
+				});
+
+
+
                 var map = new ol.Map({
-                    layers: [raster],
+                    layers: [raster, circlesVectorLayer, pointsVectorLayer],
                     target: 'map',
                     view: new ol.View({
                         center: ol.proj.transform([31, 37], 'EPSG:4326', 'EPSG:3857'),
@@ -37,58 +89,41 @@ define(
 
 				this.map = map;
 
-                var circlesOverlay = new ol.FeatureOverlay({
-                    style: new ol.style.Style({
-                        fill: new ol.style.Fill({
-                            color: 'rgba(255, 255, 255, 0.2)'
-                        }),
-                        stroke: new ol.style.Stroke({
-                            color: '#ffcc33',
-                            width: 2
-                        }),
-                        image: new ol.style.Circle({
-                            radius: 7,
-                            fill: new ol.style.Fill({
-                                color: '#ffcc33'
-                            })
-                        })
-                    })
-                });
-                circlesOverlay.setMap(map);
-
                 draw = new ol.interaction.Draw({
-                    features: circlesOverlay.getFeatures(),
+                    source: circlesVectorSource,
                     type: "Circle"
                 });
 				draw.on('drawstart', function() { // make sure only 1 circle
-					circlesCollection = circlesOverlay.getFeatures();
-					if (circlesCollection.getLength() > 0) {
-						circlesOverlay.removeFeature(circlesCollection.item(0));
-					}
+					circlesCollection = circlesVectorSource.getFeatures();
+					if (circlesCollection.length > 0) {
+						circlesVectorSource.removeFeature(circlesCollection[0]);
+					}  
 				});
                 map.addInteraction(draw);
 
-                this.circlesOverlay = circlesOverlay;
 
+				map.on('click', function(evt) {
+				  var feature = map.forEachFeatureAtPixel(evt.pixel,
+					  function(feature, layer) {
+						  if (layer) { 
+							return feature;
+						  }
+					  });
+				  if (feature) {
+					this.map.removeInteraction(draw);
 
-                var pointsOverlay = new ol.FeatureOverlay({
-                    style: new ol.style.Style({
-                        fill: new ol.style.Fill({
-                            color: 'rgba(255, 255, 255, 0.2)'
-                        }),
-                        stroke: new ol.style.Stroke({
-                            color: '#ffcc33',
-                            width: 2
-                        }),
-                        image: new ol.style.Circle({
-                            radius: 7,
-                            fill: new ol.style.Fill({
-                                color: '#ffcc33'
-                            })
-                        })
-                    })
-                });
-				this.pointsOverlay = pointsOverlay;
+					var geometry = feature.getGeometry();
+					var coord = geometry.getCoordinates();
+					placeView = new ResponsePlaceView({
+						model: feature.get('model')
+					});
+					placeView.render();
+
+					this.map.addInteraction(draw);
+				  } 
+				}, this);   
+				
+
 
             },
 			initProperties: function () {
@@ -128,7 +163,7 @@ define(
 
             },
 			constructRequest: function () {
-                var location_circle = this.circlesOverlay.getFeatures().getArray()[0];
+                var location_circle = this.circlesVectorSource.getFeatures()[0];
                 var location_coordinates = ol.proj.transform(location_circle.getGeometry().getCenter(), 'EPSG:3857', 'EPSG:4326');
 
                 var cat_yago_ids = $('#categories').val(); // array of yagoId
@@ -149,14 +184,12 @@ define(
 				};
 			},
 			overlayResponse: function () {
+				this.circlesVectorSource.clear();
+
 				var pointsArray = MyGlobal.collections.ResponsePlaces.map(function(respPlace) {return respPlace.toOLFeature();});
 
-
-				this.pointsOverlay.setFeatures(new ol.Collection(pointsArray));
-				this.pointsOverlay.setMap(this.map);
-
+				this.pointsVectorSource.addFeatures(pointsArray);
 			},
-        })
-
+        });
         return PlacesView;
     });

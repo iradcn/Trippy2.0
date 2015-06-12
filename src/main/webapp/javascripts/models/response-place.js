@@ -9,14 +9,11 @@ define(
 			toOLFeature: function () {
 		   		var lat = this.attributes.loc.lat;
 	  			var lon = this.attributes.loc.lon;
-//				console.log(this);
-
-//				console.log(lat);
-//				console.log(ol.proj.transform([lat, lon], 'EPSG:4326', 'EPSG:3857'));
-			
 				var point = new ol.geom.Point(ol.proj.transform([lat, lon], 'EPSG:4326', 'EPSG:3857'));
-//				console.log(point.getCoordinates());
-				return new ol.Feature(point);
+				return new ol.Feature({
+					geometry: point,
+					model: this,
+				});
 			},
 		});
 	   return ResponsePlace;

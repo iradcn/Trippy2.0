@@ -28,6 +28,7 @@ require.config({
        SelectCategoriesView: 'views/select-categories',
        SelectPropertiesView: 'views/select-properties',
        ManagePropertiesView: 'views/manage-properties',
+	   ResponsePlaceView: 'views/response-place',
 
        //routers
        MainRouter: 'router',
