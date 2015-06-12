@@ -10,9 +10,14 @@ define(
             render: function () {
 				var template = _.template(ResponsePlaceTemplate);
                 this.$el.html(template());
+				this.renderName();
 				this.populateCategories();
 				this.populateProperties();
+				this.populateNewProperties();
             },
+			renderName: function () {
+				$('#place-name').html(this.model.attributes.name);
+			},
 			populateCategories: function () {
 				var catsArr = this.model.attributes.categories;
 				_.each(catsArr, function (cat) {
@@ -26,6 +31,17 @@ define(
 					$('#response-place-properties').append("<option>" + p.name +  "</option>");
 				});
 			},
+			populateNewProperties: function () {
+				var propsArr = this.model.attributes.properties;
+				var diffPropsArr = MyGlobal.collections.properties.reject(function (p) {
+					return _.contains(propsArr, p);	
+				});
+				console.log(diffPropsArr);
+				_.each(diffPropsArr, function (p) {
+					$('#response-place-new-property').append("<option value='" + p.id + "'>" + p.get('name') +  "</option>");
+				});
+			},
+   
    
         });
 

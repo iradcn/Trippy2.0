@@ -12,15 +12,16 @@ define(
                 'click .places-submit': 'placesSubmit',
             },
             initialize: function () {
-				this.propView = MyGlobal.views.select_categories_view;
+				this.catView = MyGlobal.views.select_categories_view;
+				this.propView = MyGlobal.views.select_properties_view;
                 this.render();
             },
             render: function () {
                 var template = _.template(PlacesTemplate);
                 this.$el.html(template());
                 this.initMap();
+				this.catView.render();
 				this.propView.render();
-				this.initProperties();
             },
             initMap: function () {
 				// The actual map layer
@@ -171,6 +172,11 @@ define(
 					return _.contains(cat_yago_ids, c.id);
 				});
 
+                var prop_yago_ids = $('#select-curr-properties').val(); // array of yagoId
+				var filtered_props = MyGlobal.collections.properties.filter(function(p) {
+					return _.contains(prop_yago_ids, p.id + '');
+				});
+
 				return {
 					"loc": {
                         "lat": location_coordinates[0],
@@ -180,7 +186,9 @@ define(
 					"categories": filtered_cats.map(function (c) {
 						return c.attributes; 
 					}),
-					"properties": [],
+					"properties": filtered_props.map(function (p) {
+						return p.attributes; 
+					}),
 				};
 			},
 			overlayResponse: function () {
