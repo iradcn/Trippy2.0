@@ -11,7 +11,7 @@ define(
                 'click .areas-submit': 'areasSubmit',
             },
             initialize: function () {
-				this.catView = MyGlobal.views.select_categories_view;
+				this.propView = MyGlobal.views.select_categories_view;
                 this.render();
             },
             render: function () {
@@ -19,7 +19,7 @@ define(
                 this.$el.html(template());
 				this.initMap();
 				this.initProperties();
-				this.catView.render();
+				this.propView.render();
             },
 			initMap: function () {
                 var raster = new ol.layer.Tile({

@@ -6,7 +6,7 @@ define(
         "jquery",
         "text!templates/manage-properties.html",
         "bootstrap",
-    ], function (Backbone, $, PropertiesTemplate) {
+    ], function (Backbone, $, ManagePropertiesTemplate) {
         var ManagePropertiesView = Backbone.View.extend({
             el: ".body-container",
             events: {
@@ -15,14 +15,13 @@ define(
                 'click .delete-property-submit': 'delete',
             },
             initialize: function () {
-                this.catView = MyGlobal.views.select_categories_view;
+                this.props = MyGlobal.collections.properties;
                 this.render();
 
             },
             render: function () {
-                var template = _.template(PropertiesTemplate);
+                var template = _.template(ManagePropertiesTemplate);
                 this.$el.html(template());
-                this.catView.render();
             },
             create: function() {
                 $.ajax({
@@ -31,18 +30,17 @@ define(
                     data: {
                         name: $('#new-property').val(),
                     }
-                }).done(function(data) {
-                    console.log(data);
+                }).done(function() {
+                    $('#new-property').val('');
+                    this.props.fetchFromServer();
                 }.bind(this))
                     .fail(function(){
                         alert('Unable to Create New Property!');
                     });
             },
             update: function() {
-                var prop_id = parseInt($('#properties').val()[0]); // should only enable one deletion at a time
+                var prop_id = parseInt($('#select-curr-properties').val()[0]); // should only enable one deletion at a time
                 // TODO validate, or add support in multiple deletion
-
-                console.log(MyGlobal.collections.properties.get(prop_id));
 
                 $.ajax({
                     method: "GET",
@@ -51,18 +49,19 @@ define(
                         id: prop_id,
                         name: $('#renamed-property').val(),
                     }
-                }).done(function(data) {
-                    console.log(data);
+                }).done(function() {
+                    $('#renamed-property').val('');
+                    this.props.fetchFromServer();
                 }.bind(this))
                     .fail(function(){
                         alert('Unable to Rename Selected Property!');
                     });
             },
             delete: function() {
-                var prop_id = parseInt($('#properties').val()[0]); // should only enable one deletion at a time
+                var prop_id = parseInt($('#select-curr-properties').val()[0]); // should only enable one deletion at a time
                 // TODO validate, or add support in multiple deletion
 
-                var prop = MyGlobal.collections.properties.get(prop_id);
+                var prop = this.props.get(prop_id);
 
                 $.ajax({
                     method: "GET",
@@ -71,8 +70,8 @@ define(
                         id: prop.id,
                         name: prop.get('name'),
                     }
-                }).done(function(data) {
-                    console.log(data);
+                }).done(function() {
+                    this.props.fetchFromServer();
                 }.bind(this))
                     .fail(function(){
                         alert('Unable to Delete Selected Property!');

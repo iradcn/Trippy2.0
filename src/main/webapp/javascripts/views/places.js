@@ -11,14 +11,14 @@ define(
                 'click .places-submit': 'placesSubmit',
             },
             initialize: function () {
-				this.catView = MyGlobal.views.select_categories_view;
+				this.propView = MyGlobal.views.select_categories_view;
                 this.render();
             },
             render: function () {
                 var template = _.template(PlacesTemplate);
                 this.$el.html(template());
                 this.initMap();
-				this.catView.render();
+				this.propView.render();
 				this.initProperties();
             },
             initMap: function () {
