@@ -161,7 +161,7 @@ define(
 					return _.contains(cat_yago_ids, c.id);
 				});
 
-                var prop_yago_ids = $('#select-curr-properties').val(); // array of yagoId
+                var prop_yago_ids = $('#places-select-curr-properties').val(); // array of yagoId
 				var filtered_props = MyGlobal.collections.properties.filter(function(p) {
 					return _.contains(prop_yago_ids, p.id + '');
 				});
