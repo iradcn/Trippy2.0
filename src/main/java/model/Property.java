@@ -18,7 +18,7 @@ public class Property  extends AbstractEntity {
 
 	public void Save() throws SQLException {
 
-		if (this.getId()>0){
+		if (this.getId()<=0){
 			PropertyDAO.Insert(this);
 		}
 		else{
@@ -27,13 +27,12 @@ public class Property  extends AbstractEntity {
 	}
 	public boolean Delete() throws SQLException{
 		
-		if (this.getId() <= 0)
+		if (this.getId() <= 0) {
 			return false;
-		
-		if (this.Delete())
+		} else {
+			PropertyDAO.Delete(this);
 			return true;
-		return false;
-		
+		}
 	}
 	public static List<Property> getAll() throws SQLException {
 		return PropertyDAO.getAll();
