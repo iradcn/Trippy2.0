@@ -127,17 +127,6 @@ define(
 
 
             },
-			initProperties: function () {
-                $.ajax({
-                    url:'get_all_properties'
-                    }).done(function(data){
-						MyGlobal.properties = data;
-						this.appendCollectionNameToSelect(data, '#properties');
-                    }.bind(this))
-                    .fail(function(){
-                        alert('Unable to fetch properties!');
-                    });
-			},
 			appendCollectionNameToSelect: function (collection, select) {
 				_.each(collection, function (elem) {
 							$(select).append(
