@@ -35,6 +35,8 @@ define(
                     })
                 });
 
+				this.map = map;
+
                 var featureOverlay = new ol.FeatureOverlay({
                     style: new ol.style.Style({
                         fill: new ol.style.Fill({
@@ -91,7 +93,10 @@ define(
                     contentType: 'application/json',
                     data: JSON.stringify(req_json)
                 }).done(function(data) {
-						console.log(data);
+						MyGlobal.collections.ResponsePlaces.reset(data);
+						console.log(MyGlobal.collections.ResponsePlaces);
+						this.overlayResponse();
+
                     }.bind(this))
                     .fail(function(){
                         alert('Unable to fetch places!');
@@ -107,17 +112,43 @@ define(
 					return _.contains(cat_yago_ids, c.id);
 				});
 
+				console.log("radius: " +  location_circle.getGeometry().getRadius() / 1000);
 				return {
 					"loc": {
                         "lat": location_coordinates[0],
                         "lon": location_coordinates[1],
-						"radius": location_circle.getGeometry().getRadius(),
+						"radius": location_circle.getGeometry().getRadius() / 1000,
 					},
 					"categories": filtered_cats.map(function (c) {
 						return c.attributes; 
 					}),
 					"properties": [],
 				};
+			},
+			overlayResponse: function () {
+				var featuresArray = MyGlobal.collections.ResponsePlaces.map(function(respPlace) {return respPlace.toOLFeature();});
+
+                var featureOverlay = new ol.FeatureOverlay({
+                    style: new ol.style.Style({
+                        fill: new ol.style.Fill({
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        }),
+                        stroke: new ol.style.Stroke({
+                            color: '#ffcc33',
+                            width: 2
+                        }),
+                        image: new ol.style.Circle({
+                            radius: 7,
+                            fill: new ol.style.Fill({
+                                color: '#ffcc33'
+                            })
+                        })
+                    })
+                });
+
+				featureOverlay.setFeatures(new ol.Collection(featuresArray));
+				featureOverlay.setMap(this.map);
+
 			},
         })
 

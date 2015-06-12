@@ -12,7 +12,8 @@ define([
     'MapDisplayView',
 	'AreasView',
 	'SelectCategoriesView',
-], function($, _, Backbone, YagoLoadView, PlacesView, MapCirclesView, MapDisplayView, AreasView, SelectCategoriesView){
+	'ResponsePlaces',
+], function($, _, Backbone, YagoLoadView, PlacesView, MapCirclesView, MapDisplayView, AreasView, SelectCategoriesView, ResponsePlaces){
     var AppRouter = Backbone.Router.extend({
         routes: {
             "map_circles": "mapCirclesRoute",
@@ -25,6 +26,7 @@ define([
         initialize: function (options) {
 			this.initNavBar();
             MyGlobal.collections = {};
+			MyGlobal.collections.ResponsePlaces = new ResponsePlaces();
 			MyGlobal.views = {};
 			MyGlobal.views.select_categories_view = new SelectCategoriesView();
 			this.places_view = new PlacesView();
