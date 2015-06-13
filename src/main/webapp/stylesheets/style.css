@@ -26,6 +26,10 @@
 	padding: 15px;
 }
 
+.response-property-col > label {
+	margin-bottom: 0px !important;
+}
+
 .response-property-col > select {
 	margin: 15px auto auto auto;
 	width: 100%;
