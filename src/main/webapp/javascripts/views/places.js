@@ -50,7 +50,7 @@ define(
 					style: circlesVectorStyle,
 				});
 
-				pointsVectorStyle = new ol.style.Style({
+				var pointsVectorStyle = new ol.style.Style({
                         fill: new ol.style.Fill({
                             color: 'rgba(255, 255, 255, 0.2)'
                         }),
@@ -86,7 +86,7 @@ define(
 
 				this.map = map;
 
-                draw = new ol.interaction.Draw({
+                var draw = new ol.interaction.Draw({
                     source: circlesVectorSource,
                     type: "Circle",
 					 style: circlesVectorStyle
@@ -102,7 +102,7 @@ define(
                 }, this);
                 map.addInteraction(draw);
 
-				selectedFeatureStyle = new ol.style.Style({
+				var selectedFeatureStyle = new ol.style.Style({
                         image: new ol.style.Circle({
                             radius: 6,
                             fill: new ol.style.Fill({
@@ -141,9 +141,7 @@ define(
 				  if (feature) {
 					this.map.removeInteraction(draw);
 
-					var geometry = feature.getGeometry();
-					var coord = geometry.getCoordinates();
-					placeView = new ResponsePlaceView({
+					var placeView = new ResponsePlaceView({
 						model: feature.get('model')
 					});
 					placeView.render();
@@ -151,9 +149,6 @@ define(
 					this.map.addInteraction(draw);
 				  } 
 				}, this);   
-				
-
-
             },
 			appendCollectionNameToSelect: function (collection, select) {
 				_.each(collection, function (elem) {
