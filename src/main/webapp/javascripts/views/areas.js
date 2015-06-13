@@ -10,7 +10,7 @@ define(
             events: {
                 'click .areas-submit': 'areasSubmit',
                 'click .areas-reset-submit': 'areasReset',
-                'change #categories': 'toggleApplyFilterOption',
+                'change #areas-select-curr-categories': 'toggleApplyFilterOption',
                 'change #areas-select-curr-properties': 'toggleApplyFilterOption',
             },
             initialize: function () {
@@ -79,7 +79,6 @@ define(
                     contentType: 'application/json',
                     data: JSON.stringify(req_json)
                 }).done(function(data) {
-                    console.log(data);
                     MyGlobal.collections.ResponseAreas.reset(data);
                     this.overlayResponse();
                 }.bind(this))
@@ -89,19 +88,19 @@ define(
             },
             areasResetSubmit: function () {
                 if (this.circlesVectorSource.getFeatures().length === 0) {
-                    $('.places-submit').prop('disabled', true);
+                    $('.areas-submit').prop('disabled', true);
                 }
 
-                $('#categories').val('');
-                $('#places-select-curr-properties').val('');
-                $('.places-reset-submit').prop('disabled', true);
+                $('#areas-select-curr-categories').val('');
+                $('#areas-select-curr-properties').val('');
+                $('.areas-reset-submit').prop('disabled', true);
             },
             toggleApplyFilterOption: function (e) {
                 if ((this.circlesVectorSource.getFeatures().length != 0) || e.feature) {
                     $('.areas-submit').prop('disabled', false);
                 }
 
-                if ($('#categories').val() || $('#areas-select-curr-properties').val()) {
+                if ($('#areas-select-curr-categories').val() || $('#areas-select-curr-properties').val()) {
                     $('.areas-reset-submit').prop('disabled', false);
                 }
             },
@@ -116,7 +115,7 @@ define(
 					};
 				});
 
-                var cat_yago_id = $('#categories').val();
+                var cat_yago_id = $('#areas-select-curr-categories').val();
                 var prop_id = $('#areas-select-curr-properties').val(); 
 
 				return {
@@ -126,9 +125,6 @@ define(
 				};
 			},
 			overlayResponse: function () {
-                console.log("in overlay response");
-                console.log(MyGlobal.collections.ResponseAreas);
-
 				this.circlesVectorSource.clear();
 
 				var circlesArray = MyGlobal.collections.ResponseAreas.map(function(respPlace) {return respPlace.toOLFeature();});
