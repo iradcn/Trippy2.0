@@ -54,10 +54,10 @@ define(
                         image: new ol.style.Circle({
                             radius: 6,
                             fill: new ol.style.Fill({
-                                color: '#ffcc33'
+                                color: 'rgba(0, 0, 255, 0.3)'
                             }),
 							stroke: new ol.style.Stroke({
-								color: '#ffffff',
+								color: 'blue',
 								width: 1
 							}),
 
@@ -102,8 +102,12 @@ define(
                         image: new ol.style.Circle({
                             radius: 6,
                             fill: new ol.style.Fill({
-                                color: '#000000'
-                            })
+                                color: '#ffcc33'
+                            }),
+                            stroke: new ol.style.Stroke({
+                                color: 'rgba(0, 0, 0, 0.8)',
+                                width: 2
+                            }),
                         })
                     });
 
@@ -151,7 +155,7 @@ define(
                     contentType: 'application/json',
                     data: JSON.stringify(req_json)
                 }).done(function(data) {
-                    if (!data) {
+                    if (data.length != 0) {
                         MyGlobal.collections.ResponsePlaces.reset(data);
                         this.overlayResponse();
                     } else {
