@@ -12,6 +12,7 @@ define(
                 'click .areas-reset-submit': 'areasReset',
                 'change #areas-select-curr-categories': 'toggleApplyFilterOption',
                 'change #areas-select-curr-properties': 'toggleApplyFilterOption',
+                'click .alert-resize-map': 'resizeMap'
             },
             initialize: function () {
 				this.catView = MyGlobal.views.select_categories_view;
@@ -70,7 +71,8 @@ define(
                 map.addInteraction(draw);
 
 			 },
-			 areasSubmit: function () {
+            areasSubmit: function () {
+                $('.alert-resize-map').click();
 				var req_json = this.constructRequest();
 				$.ajax({
                     method: "POST",
@@ -86,10 +88,13 @@ define(
                     $('#areas-map').css('height', $('#areas-map').height() - 70);
                     $('.alerts-row').html(
                         '<div class="alert alert-danger alert-dismissable" role="alert">' +
-                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                        '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
                         '<span aria-hidden="true">&times;</span></button>' +
                         '<strong>Unable to fetch places count!</strong> See console log for more details.</div>');
                 });
+            },
+            resizeMap: function () {
+                $('#areas-map').css('height', $('#areas-map').height() + 70);
             },
             areasReset: function () {
                 this.circlesVectorSource.clear();

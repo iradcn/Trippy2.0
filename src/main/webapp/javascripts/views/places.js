@@ -13,6 +13,7 @@ define(
                 'click .places-reset-submit': 'resetSubmit',
                 'change #places-select-curr-categories': 'toggleApplyFilterOption',
                 'change #places-select-curr-properties': 'toggleApplyFilterOption',
+                'click .alert-resize-map': 'resizeMap'
             },
             initialize: function () {
 				this.catView = MyGlobal.views.select_categories_view;
@@ -140,7 +141,8 @@ define(
 				});
 				map.addInteraction(pointClick);
             },
-			 placesSubmit: function () {
+            placesSubmit: function () {
+                $('.alert-resize-map').click();
 				var req_json = this.constructRequest();
 				$.ajax({
                     method: "POST",
@@ -149,18 +151,30 @@ define(
                     contentType: 'application/json',
                     data: JSON.stringify(req_json)
                 }).done(function(data) {
-						MyGlobal.collections.ResponsePlaces.reset(data);
-						this.overlayResponse();
-                    }.bind(this))
-                    .fail(function() {
+                    if (!data) {
+                        MyGlobal.collections.ResponsePlaces.reset(data);
+                        this.overlayResponse();
+                    } else {
                         $('#places-map').css('height', $('#places-map').height() - 70);
                         $('.alerts-row').html(
-                            '<div class="alert alert-danger alert-dismissable" role="alert">' +
-                            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                            '<div class="alert alert-warning alert-dismissable" role="alert">' +
+                            '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
                             '<span aria-hidden="true">&times;</span></button>' +
-                            '<strong>Unable to fetch places!</strong> See console log for more details.</div>');
-                    });
+                            '<strong>No places were found!</strong> No places matching chosen filter criterias were found.</div>');
+                    }
+                }.bind(this))
+                .fail(function() {
+                    $('#places-map').css('height', $('#places-map').height() - 70);
+                    $('.alerts-row').html(
+                        '<div class="alert alert-danger alert-dismissable" role="alert">' +
+                        '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
+                        '<span aria-hidden="true">&times;</span></button>' +
+                        '<strong>Unable to fetch places!</strong> See console log for more details.</div>');
+                });
 
+            },
+            resizeMap: function () {
+                $('#places-map').css('height', $('#places-map').height() + 70);
             },
             resetSubmit: function () {
                 if (this.circlesVectorSource.getFeatures().length === 0) {
