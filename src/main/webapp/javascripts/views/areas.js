@@ -107,7 +107,7 @@ define(
 			constructRequest: function () {
 				locs = _.map(this.circlesVectorSource.getFeatures(), function (f) {
 					var coords = ol.proj.transform(f.getGeometry().getCenter(), 'EPSG:3857', 'EPSG:4326');
-					var radius = f.getGeometry().getRadius() / 1000;
+					var radius = f.getGeometry().getRadius() * 0.621 / 1000;
 					return {
 						'lat': coords[0],
 						'lon': coords[1],
