@@ -11,6 +11,8 @@ define(
             events: {
                 'click .places-submit': 'placesSubmit',
                 'click .places-reset-submit': 'resetSubmit',
+                'change #categories': 'toggleApplyFilterOption',
+                'change #places-select-curr-properties': 'toggleApplyFilterOption',
             },
             initialize: function () {
 				this.catView = MyGlobal.views.select_categories_view;
@@ -93,8 +95,11 @@ define(
 					circlesCollection = circlesVectorSource.getFeatures();
 					if (circlesCollection.length > 0) {
 						circlesVectorSource.removeFeature(circlesCollection[0]);
-					}  
+					}
 				});
+                draw.on('drawend', function(e) {
+                    this.toggleApplyFilterOption(e);
+                }, this);
                 map.addInteraction(draw);
 
 				selectedFeatureStyle = new ol.style.Style({
@@ -176,8 +181,22 @@ define(
 
             },
             resetSubmit: function () {
+                if (this.circlesVectorSource.getFeatures().length === 0) {
+                    $('.places-submit').prop('disabled', true);
+                }
+
                 $('#categories').val('');
                 $('#places-select-curr-properties').val('');
+                $('.places-reset-submit').prop('disabled', true);
+            },
+            toggleApplyFilterOption: function (e) {
+                if ((this.circlesVectorSource.getFeatures().length != 0) || e.feature) {
+                    $('.places-submit').prop('disabled', false);
+                }
+
+                if ($('#categories').val() || $('#places-select-curr-properties').val()) {
+                    $('.places-reset-submit').prop('disabled', false);
+                }
             },
 			constructRequest: function () {
                 var location_circle = this.circlesVectorSource.getFeatures()[0];
