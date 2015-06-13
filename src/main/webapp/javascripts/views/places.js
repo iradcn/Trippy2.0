@@ -147,8 +147,8 @@ define(
 					placeView.render();
 
 					this.map.addInteraction(draw);
-				  } 
-				}, this);   
+				  }
+				}, this);
             },
 			appendCollectionNameToSelect: function (collection, select) {
 				_.each(collection, function (elem) {

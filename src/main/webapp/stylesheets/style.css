@@ -3,7 +3,7 @@
 	height:100px;
 }
 .body-container {
-	margin: 7px 30px;
+	margin-top: 7px;
 }
 .progress {
 	display:none;
@@ -27,6 +27,7 @@ label {
 	border-bottom: dotted lightgray 1px;
 	padding-bottom: 5px;
 	margin-bottom: 14px;
+	color: slategray;
 }
 
 .panel-heading {
