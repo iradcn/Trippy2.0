@@ -50,7 +50,7 @@ define(
 
                 var map = new ol.Map({
                     layers: [raster, circlesVectorLayer],
-                    target: 'map',
+                    target: 'areas-map',
                     view: new ol.View({
                         center: ol.proj.transform([31, 37], 'EPSG:4326', 'EPSG:3857'),
                         zoom: 4,
@@ -82,8 +82,13 @@ define(
                     MyGlobal.collections.ResponseAreas.reset(data);
                     this.overlayResponse();
                 }.bind(this))
-                .fail(function(){
-                    alert('Unable to fetch place counts!');
+                .fail(function() {
+                    $('#areas-map').css('height', $('#areas-map').height() - 70);
+                    $('.alerts-row').html(
+                        '<div class="alert alert-danger alert-dismissable" role="alert">' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                        '<span aria-hidden="true">&times;</span></button>' +
+                        '<strong>Unable to fetch places count!</strong> See console log for more details.</div>');
                 });
             },
             areasReset: function () {

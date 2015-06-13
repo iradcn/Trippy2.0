@@ -72,7 +72,7 @@ define(
 
                 var map = new ol.Map({
                     layers: [raster, circlesVectorLayer, pointsVectorLayer],
-                    target: 'map',
+                    target: 'places-map',
                     view: new ol.View({
                         center: ol.proj.transform([37, 31], 'EPSG:4326', 'EPSG:3857'),
                         zoom: 4,
@@ -152,8 +152,13 @@ define(
 						MyGlobal.collections.ResponsePlaces.reset(data);
 						this.overlayResponse();
                     }.bind(this))
-                    .fail(function(){
-                        alert('Unable to fetch places!');
+                    .fail(function() {
+                        $('#places-map').css('height', $('#places-map').height() - 70);
+                        $('.alerts-row').html(
+                            '<div class="alert alert-danger alert-dismissable" role="alert">' +
+                            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                            '<span aria-hidden="true">&times;</span></button>' +
+                            '<strong>Unable to fetch places!</strong> See console log for more details.</div>');
                     });
 
             },
