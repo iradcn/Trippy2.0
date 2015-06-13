@@ -16,7 +16,6 @@ define(
                 this.render();
             },
             render: function () {
-                console.log("in yago reload render");
                 var template = _.template(YagoLoadTemplate);
                 this.$el.html(template());
             },

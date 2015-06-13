@@ -19,7 +19,6 @@ define(
 				this.propView = MyGlobal.views.select_properties_view;
             },
             render: function () {
-                console.log("in render places");
                 var template = _.template(PlacesTemplate);
                 this.$el.html(template());
                 this.initMap();
