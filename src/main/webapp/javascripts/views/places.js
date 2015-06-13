@@ -114,14 +114,11 @@ define(
 				var pointerMove = new ol.interaction.Select({
 					condition: ol.events.condition.pointerMove,
 					style: selectedFeatureStyle,
-					filter: function (feature, layer) {
-						return layer == pointsVectorLayer;
-					}
+					layers: [pointsVectorLayer],
 				});
 				pointerMove.on('select', function(e) {
 					if (e.target.getFeatures().getLength() > 0) {
 						$('.map').css('cursor', 'hand');
-						// remove blue circle
 					} else {
 						$('.map').css('cursor', 'default');
 					}
