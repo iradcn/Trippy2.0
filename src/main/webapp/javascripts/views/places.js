@@ -119,10 +119,10 @@ define(
 				});
 				pointerMove.on('select', function(e) {
 					if (e.selected.length > 0 && e.selected[0].getGeometryName() == 'pointGeom' && circlesVectorSource.getFeatures().length > 0) {
-						$('.map').css('cursor', 'hand');
+						$('#places-map').css('cursor', 'hand');
 						draw.setActive(false);
 					} else {
-						$('.map').css('cursor', 'default');
+						$('#places-map').css('cursor', 'default');
 						draw.setActive(true);
 					}
 				});
@@ -150,7 +150,7 @@ define(
 				var req_json = this.constructRequest();
 				$.ajax({
                     method: "POST",
-                    url: 'get_places_by_loc',
+                    url: 'get_places_by_lo',
                     dataType: 'json',
                     contentType: 'application/json',
                     data: JSON.stringify(req_json)
