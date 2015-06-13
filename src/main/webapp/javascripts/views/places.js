@@ -83,7 +83,7 @@ define(
 
 				this.map = map;
 
-                draw = new ol.interaction.Draw({
+                var draw = new ol.interaction.Draw({
                     source: circlesVectorSource,
                     type: "Circle",
 					 style: circlesVectorStyle
@@ -99,7 +99,7 @@ define(
                 }, this);
                 map.addInteraction(draw);
 
-				selectedFeatureStyle = new ol.style.Style({
+				var selectedFeatureStyle = new ol.style.Style({
                         image: new ol.style.Circle({
                             radius: 6,
                             fill: new ol.style.Fill({
@@ -141,8 +141,6 @@ define(
 					} 
 				});
 				map.addInteraction(pointClick);
-
-
             },
 			appendCollectionNameToSelect: function (collection, select) {
 				_.each(collection, function (elem) {

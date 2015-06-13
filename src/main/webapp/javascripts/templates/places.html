@@ -1,14 +1,40 @@
+<div class="row header-row">
+    <div class="col-xs-2">
+        <div class="row">
+            <h4>Filter By</h4>
+            Choose multiple filters
+        </div>
+    </div>
+    <div class="col-xs-7">
+        <h4>Map Display</h4>
+        Mark desired area for finding places
+    </div>
+    <div class="col-xs-3">
+        <div class="row">
+            <h4>Results and Details</h4>
+            Click on a place found on map
+        </div>
+    </div>
+</div>
 <div class="row">
 	<div class="col-xs-2" id="query-form">
 		<div class="row filter-row">
-			<label for="categories">Categories:</label>
-			<select id="categories" multiple size=8 class="form-control">
-			</select>
+            <div class="panel panel-success">
+                <div class="panel-heading">
+			        <label for="categories">Categories</label>
+                </div>
+                <select id="categories" multiple size=8 class="form-control panel-body">
+                </select>
+            </div>
 		</div>
 		<div class="row filter-row">
-			<label for="places-select-curr-properties">Properties:</label>
-			<select id="places-select-curr-properties" multiple size=8 class="form-control select-curr-properties">
-			</select>
+            <div class="panel panel-success">
+                <div class="panel-heading">
+			        <label for="places-select-curr-properties">Properties</label>
+                </div>
+                <select id="places-select-curr-properties" multiple size=8 class="form-control panel-body select-curr-properties">
+                </select>
+            </div>
 		</div>
 		<div class="row filter-row">
 			<button class="btn btn-info places-reset-submit" type="button" disabled="true">Reset</button>
@@ -19,5 +45,8 @@
 		<div id="map" class="map"></div>
 	</div>
 	<div class="col-xs-3" id="response-place">
+        <div class="row">
+            <div class="well well-lg no-display-placeholder">No place was selected to display</div>
+        </div>
 	</div>
 </div>
