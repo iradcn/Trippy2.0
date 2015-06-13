@@ -12,11 +12,13 @@ require.config({
 	   Category: 'models/category',
        Property: 'models/property',
        ResponsePlace: 'models/response-place',
+       ResponseArea: 'models/response-area',
 
 	   // Collections
 	   Categories: 'collections/categories',
        Properties: 'collections/properties',
        ResponsePlaces: 'collections/response-places',
+       ResponseAreas: 'collections/response-areas',
 
        //views
        YagoLoadView: 'views/yagoload',

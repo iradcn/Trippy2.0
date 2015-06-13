@@ -16,7 +16,6 @@ define(
             initialize: function () {
 				this.catView = MyGlobal.views.select_categories_view;
 				this.propView = MyGlobal.views.select_properties_view;
-                this.render();
             },
             render: function () {
                 var template = _.template(AreasTemplate);
@@ -33,17 +32,14 @@ define(
 
 				// Drawing circles layer
 				var circlesVectorStyle = new ol.style.Style({
-                        fill: new ol.style.Fill({
-                            color: 'rgba(255, 255, 255, 0.2)'
-                        }),
-                        stroke: new ol.style.Stroke({
-                            color: '#ffcc33',
-                            width: 2
-                        }),
-						text: new ol.style.Text({
-							text: 'ahhhh!',
-						}),
-                    });
+                    fill: new ol.style.Fill({
+                        color: 'rgba(255, 255, 255, 0.2)'
+                    }),
+                    stroke: new ol.style.Stroke({
+                        color: '#ffcc33',
+                        width: 2
+                    }),
+                });
 
 				var circlesVectorSource = new ol.source.Vector();
 				this.circlesVectorSource = circlesVectorSource;
@@ -66,7 +62,7 @@ define(
                 var draw = new ol.interaction.Draw({
                     source: circlesVectorSource,
                     type: "Circle",
-					 style: circlesVectorStyle
+                    style: circlesVectorStyle
                 });
 				 draw.on('drawend', function(e) {
                     this.toggleApplyFilterOption(e);
@@ -76,7 +72,6 @@ define(
 			 },
 			 areasSubmit: function () {
 				var req_json = this.constructRequest();
-				console.log(req_json);
 				$.ajax({
                     method: "POST",
                     url: 'get_places_aggregation',
@@ -84,13 +79,13 @@ define(
                     contentType: 'application/json',
                     data: JSON.stringify(req_json)
                 }).done(function(data) {
-						console.log(data);
-//						MyGlobal.collections.ResponsePlaces.reset(data);
-//						this.overlayResponse();
-                    }.bind(this))
-                    .fail(function(){
-                        alert('Unable to fetch place counts!');
-                    });
+                    console.log(data);
+                    MyGlobal.collections.ResponseAreas.reset(data);
+                    this.overlayResponse();
+                }.bind(this))
+                .fail(function(){
+                    alert('Unable to fetch place counts!');
+                });
             },
             areasResetSubmit: function () {
                 if (this.circlesVectorSource.getFeatures().length === 0) {
@@ -119,38 +114,26 @@ define(
 						'lon': coords[1],
 						'radius': radius,
 					};
-					
 				});
 
-                var cat_yago_id = $('#categories').val(); 
-//				var filtered_cats = MyGlobal.collections.categories.filter(function(c) {
-//					return _.contains(cat_yago_ids, c.id);
-//				});
-
+                var cat_yago_id = $('#categories').val();
                 var prop_id = $('#areas-select-curr-properties').val(); 
-//				var filtered_props = MyGlobal.collections.properties.filter(function(p) {
-//					return _.contains(prop_yago_ids, p.id + '');
-//				});
 
 				return {
 					"locs": locs,
 					"category": cat_yago_id,
 					"property": prop_id
-/*					"categories": filtered_cats.map(function (c) {
-						return c.attributes; 
-					}),
-					"properties": filtered_props.map(function (p) {
-						return p.attributes; 
-					}),
-					*/
 				};
 			},
 			overlayResponse: function () {
-				this.pointsVectorSource.clear();
+                console.log("in overlay response");
+                console.log(MyGlobal.collections.ResponseAreas);
 
-				var pointsArray = MyGlobal.collections.ResponsePlaces.map(function(respPlace) {return respPlace.toOLFeature();});
+				this.circlesVectorSource.clear();
 
-				this.pointsVectorSource.addFeatures(pointsArray);
+				var circlesArray = MyGlobal.collections.ResponseAreas.map(function(respPlace) {return respPlace.toOLFeature();});
+
+				this.circlesVectorSource.addFeatures(circlesArray);
 			},
         });
         return AreasView;

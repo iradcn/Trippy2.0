@@ -10,11 +10,12 @@ define([
 	'PlacesView',
 	'AreasView',
 	'SelectCategoriesView',
-	'ResponsePlaces',
     'SelectPropertiesView',
     'ManagePropertiesView',
-], function($, _, Backbone, YagoLoadView, PlacesView, AreasView, SelectCategoriesView, ResponsePlaces,
-            SelectPropertiesView, ManagePropertiesView){
+    'ResponsePlaces',
+    'ResponseAreas',
+], function($, _, Backbone, YagoLoadView, PlacesView, AreasView, SelectCategoriesView,
+            SelectPropertiesView, ManagePropertiesView, ResponsePlaces, ResponseAreas) {
     var AppRouter = Backbone.Router.extend({
         routes: {
 			"places": "placesRoute",
@@ -26,6 +27,7 @@ define([
         initialize: function (options) {
             MyGlobal.collections = {};
 			MyGlobal.collections.ResponsePlaces = new ResponsePlaces();
+            MyGlobal.collections.ResponseAreas = new ResponseAreas();
 
 			MyGlobal.views = {};
 			MyGlobal.views.select_categories_view = new SelectCategoriesView();
