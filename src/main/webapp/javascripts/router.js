@@ -8,14 +8,12 @@ define([
     'backbone',
     'YagoLoadView',
 	'PlacesView',
-    'MapCirclesView',
-    'MapDisplayView',
 	'AreasView',
 	'SelectCategoriesView',
 	'ResponsePlaces',
     'SelectPropertiesView',
     'ManagePropertiesView',
-], function($, _, Backbone, YagoLoadView, PlacesView, MapCirclesView, MapDisplayView, AreasView, SelectCategoriesView, ResponsePlaces,
+], function($, _, Backbone, YagoLoadView, PlacesView, AreasView, SelectCategoriesView, ResponsePlaces,
             SelectPropertiesView, ManagePropertiesView){
     var AppRouter = Backbone.Router.extend({
         routes: {

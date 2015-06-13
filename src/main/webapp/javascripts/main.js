@@ -20,8 +20,6 @@ require.config({
 
        //views
        MainIndexView: 'views/main',
-       MapCirclesView: 'views/map_circles',
-       MapDisplayView: 'views/map_display',
        YagoLoadView: 'views/yagoload',
 	   PlacesView: 'views/places',
 	   AreasView: 'views/areas',
