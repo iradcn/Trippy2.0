@@ -8,19 +8,15 @@ define([
     'backbone',
     'YagoLoadView',
 	'PlacesView',
-    'MapCirclesView',
-    'MapDisplayView',
 	'AreasView',
 	'SelectCategoriesView',
 	'ResponsePlaces',
     'SelectPropertiesView',
     'ManagePropertiesView',
-], function($, _, Backbone, YagoLoadView, PlacesView, MapCirclesView, MapDisplayView, AreasView, SelectCategoriesView, ResponsePlaces,
+], function($, _, Backbone, YagoLoadView, PlacesView, AreasView, SelectCategoriesView, ResponsePlaces,
             SelectPropertiesView, ManagePropertiesView){
     var AppRouter = Backbone.Router.extend({
         routes: {
-            "map_circles": "mapCirclesRoute",
-            "map_display": "mapDisplayRoute",
 			"places": "placesRoute",
 			"dbload": "dbloadRoute",
 			"areas": "areasRoute",
@@ -52,7 +48,7 @@ define([
         },
         managePropertiesRoute: function(){
             $('#manage-properties-tab').tab('show');
-            //this.manage_properties_view;
+            this.manage_properties_view.render();
         },
         dbloadRoute: function() {
             $('#dbload-tab').tab('show');

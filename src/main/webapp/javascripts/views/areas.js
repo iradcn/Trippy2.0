@@ -14,13 +14,9 @@ define(
                 'change #areas-select-curr-properties': 'toggleApplyFilterOption',
             },
             initialize: function () {
-<<<<<<< HEAD
-				this.propView = MyGlobal.views.select_categories_view;
-=======
 				this.catView = MyGlobal.views.select_categories_view;
 				this.propView = MyGlobal.views.select_properties_view;
                 this.render();
->>>>>>> 5765e49d272d0c45cb73fde77c49b4ad47ce2c2b
             },
             render: function () {
                 var template = _.template(AreasTemplate);
