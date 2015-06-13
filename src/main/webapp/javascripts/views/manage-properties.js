@@ -19,7 +19,6 @@ define(
             },
             initialize: function () {
                 this.props = MyGlobal.collections.properties;
-                this.render();
             },
             render: function () {
                 var template = _.template(ManagePropertiesTemplate);

@@ -17,9 +17,9 @@ define(
             initialize: function () {
 				this.catView = MyGlobal.views.select_categories_view;
 				this.propView = MyGlobal.views.select_properties_view;
-                this.render();
             },
             render: function () {
+                console.log("in render places");
                 var template = _.template(PlacesTemplate);
                 this.$el.html(template());
                 this.initMap();

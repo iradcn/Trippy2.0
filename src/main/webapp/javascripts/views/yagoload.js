@@ -14,7 +14,11 @@ define(
             },
             initialize: function () {
                 this.render();
-
+            },
+            render: function () {
+                console.log("in yago reload render");
+                var template = _.template(YagoLoadTemplate);
+                this.$el.html(template());
             },
             onYagoUpdate: function () {
                 $('.alerts-row').html('');
@@ -32,10 +36,6 @@ define(
                             '<strong>Cannot update at this time!</strong> Either there is a connection problem, ' +
                             'or there is already an ongoing update</div>');
                     });
-            },
-            render: function () {
-                var template = _.template(YagoLoadTemplate);
-                this.$el.html(template());
             },
             fetchProgress: function(){
                 $.ajax({

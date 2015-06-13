@@ -12,7 +12,6 @@ define(
             },
             initialize: function () {
 				this.propView = MyGlobal.views.select_categories_view;
-                this.render();
             },
             render: function () {
                 var template = _.template(Areas);
