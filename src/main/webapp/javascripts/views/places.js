@@ -11,7 +11,7 @@ define(
             events: {
                 'click .places-submit': 'placesSubmit',
                 'click .places-reset-submit': 'resetSubmit',
-                'change #categories': 'toggleApplyFilterOption',
+                'change #places-select-curr-categories': 'toggleApplyFilterOption',
                 'change #places-select-curr-properties': 'toggleApplyFilterOption',
             },
             initialize: function () {
@@ -49,7 +49,7 @@ define(
 					style: circlesVectorStyle,
 				});
 
-				pointsVectorStyle = new ol.style.Style({
+				var pointsVectorStyle = new ol.style.Style({
                         image: new ol.style.Circle({
                             radius: 6,
                             fill: new ol.style.Fill({
@@ -64,12 +64,11 @@ define(
                     });
 
 				var pointsVectorSource = new ol.source.Vector();
-				this.circlesVectorSource = pointsVectorSource;
+				this.pointsVectorSource = pointsVectorSource;
 				var pointsVectorLayer = new ol.layer.Vector({
 					source: pointsVectorSource,
 					style: pointsVectorStyle,
 				});
-				this.pointsVectorLayer = pointsVectorLayer;
 
                 var map = new ol.Map({
                     layers: [raster, circlesVectorLayer, pointsVectorLayer],
@@ -85,10 +84,10 @@ define(
                 var draw = new ol.interaction.Draw({
                     source: circlesVectorSource,
                     type: "Circle",
-					 style: circlesVectorStyle
+                    style: circlesVectorStyle
                 });
 				draw.on('drawstart', function() { // make sure only 1 circle
-					circlesCollection = circlesVectorSource.getFeatures();
+					var circlesCollection = circlesVectorSource.getFeatures();
 					if (circlesCollection.length > 0) {
 						circlesVectorSource.removeFeature(circlesCollection[0]);
 					}
@@ -163,7 +162,7 @@ define(
                     $('.places-submit').prop('disabled', true);
                 }
 
-                $('#categories').val('');
+                $('#places-select-curr-categories').val('');
                 $('#places-select-curr-properties').val('');
                 $('.places-reset-submit').prop('disabled', true);
             },
@@ -172,7 +171,7 @@ define(
                     $('.places-submit').prop('disabled', false);
                 }
 
-                if ($('#categories').val() || $('#places-select-curr-properties').val()) {
+                if ($('#places-select-curr-categories').val() || $('#places-select-curr-properties').val()) {
                     $('.places-reset-submit').prop('disabled', false);
                 }
             },
@@ -180,7 +179,7 @@ define(
                 var location_circle = this.circlesVectorSource.getFeatures()[0];
                 var location_coordinates = ol.proj.transform(location_circle.getGeometry().getCenter(), 'EPSG:3857', 'EPSG:4326');
 
-                var cat_yago_ids = $('#categories').val(); // array of yagoId
+                var cat_yago_ids = $('#places-select-curr-categories').val(); // array of yagoId
 				var filtered_cats = MyGlobal.collections.categories.filter(function(c) {
 					return _.contains(cat_yago_ids, c.id);
 				});
@@ -207,11 +206,11 @@ define(
 				};
 			},
 			overlayResponse: function () {
-				this.circlesVectorSource.clear();
+				this.pointsVectorSource.clear();
 
 				var pointsArray = MyGlobal.collections.ResponsePlaces.map(function(respPlace) {return respPlace.toOLFeature();});
 
-				this.circlesVectorSource.addFeatures(pointsArray);
+				this.pointsVectorSource.addFeatures(pointsArray);
 			},
         });
         return PlacesView;
