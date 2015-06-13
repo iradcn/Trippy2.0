@@ -15,7 +15,7 @@ define(
 
                 var lat = this.attributes.loc.lat;
                 var lon = this.attributes.loc.lon;
-                var radius = this.attributes.loc.radius * 1000;
+                var radius = this.attributes.loc.radius * 1000 / 0.621;
                 var places_count = this.attributes.countPlaces;
                 var circle = new ol.geom.Circle(ol.proj.transform([lat, lon], 'EPSG:4326', 'EPSG:3857'), radius);
 
@@ -35,12 +35,12 @@ define(
                     text: new ol.style.Text({
                         textAlign: 'center',
                         textBaseline: 'aplhabetic',
-                        font: 'normal 12px Arial',
+                        font: 'normal 30px Arial',
                         text: places_count,
                         fill: new ol.style.Fill({color: 'green'}),
-                        stroke: new ol.style.Stroke({color: 'black', width: 3}),
+                        stroke: new ol.style.Stroke({color: 'black', width: 2}),
                         offsetX: 0,
-                        offsetY: 0,
+                        offsetY: 16,
                         rotation: 0.0
                     })
                 }));
