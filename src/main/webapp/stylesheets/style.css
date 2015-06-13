@@ -3,7 +3,7 @@
 	height:100px;
 }
 .body-container{
-	margin: 50px 50px 50px 50px;
+	margin: 30px;
 }
 .progress{
 	display:none;
@@ -11,9 +11,56 @@
 	width:500px;
 }
 .map {
-    height: 600px;
+    height: calc(100% - 180px);
     width: 100%;
+	padding: 0px 5px;
 }
+
+/* --- Filter Bar --- */
+
+.filter-row {
+	margin-bottom: 15px;
+}
+
+.filter-row > button {
+	margin-top: 3px;
+	width: calc(50% - 5px);
+}
+
+.filter-row > .places-reset-submit {
+	margin-right: 5px;
+}
+
+/* --- Response Display Bar --- */
+
+.response-elem-row {
+	margin-bottom: 15px;
+}
+
+.response-property-col {
+	text-align: center;
+	padding: 15px;
+}
+
+.response-property-col > label {
+	margin-bottom: 0px !important;
+}
+
+.response-property-col > select {
+	margin: 15px auto auto auto;
+	width: 100%;
+}
+
+.response-property-col > button {
+	margin-top: 15px;
+	width: 80px;
+}
+
+.add-property-to-place-col {
+	border-right: dotted darkgray 1px;
+}
+
+/* --- Manage Properties --- */
 
 .curr-properties-col {
 	margin: 40px auto;

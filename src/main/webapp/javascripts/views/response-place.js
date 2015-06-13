@@ -10,6 +10,7 @@ define(
             events: {
                 'click .places-new-property-submit': 'newPropertySubmit',
 				'click .places-remove-property-submit': 'deletePropertySubmit',
+				'change #response-place-properties': 'toggleDeleteOption',
             },
             render: function () {
 				var template = _.template(ResponsePlaceTemplate);
@@ -26,7 +27,7 @@ define(
 				var catsArr = this.model.attributes.categories;
 				_.each(catsArr, function (cat) {
 					var catModel = MyGlobal.collections.categories.get(cat.yagoId);
-					$('#response-place-categories').append("<option>" + catModel.get('name') +  "</option>");
+					$('#response-place-categories').append("<li>" + catModel.get('name') +  "</li>");
 				});
 			},
 			populateProperties: function () {
@@ -46,16 +47,24 @@ define(
 				_.each(diffPropsArr, function (p) {
 					$('#response-place-new-property').append("<option value='" + p.id + "'>" + p.get('name') +  "</option>");
 				});
+				if ($('#response-place-new-property:not(:has(option))').length != 0) {
+					$('#response-place-new-property').prop('disabled', true);
+					$('.places-new-property-submit').prop('disabled', true);
+				//} else {
+				//	$('#response-place-new-property').prop('disabled', false);
+				//	$('.places-new-property-submit').prop('disabled', false);
+				}
 			},
 		   newPropertySubmit: function () {
-			   propId = $('#response-place-new-property').val();
-			   placeId = this.model.id;
+			   var propId = $('#response-place-new-property').val();
+			   var placeId = this.model.id;
+
 				$.ajax({
                     method: "GET",
                     url: 'AddPropToPlace',
                     data: {'propId': propId,
 							'placeId': placeId}
-                }).done(function(data) {
+                }).done(function() {
 					this.model.attributes.properties.push({'id': parseInt(propId)});
 					this.render();
                     }.bind(this))
@@ -73,17 +82,18 @@ define(
 					url: 'DelPropFromPlace',
 					data: {'propId': propId,
 						'placeId': placeId}
-				}).done(function(data) {
+				}).done(function() {
 					this.model.attributes.properties = _.reject(this.model.attributes.properties, function (p) {
 						return p.id == parseInt(propId);	
 					}, this);
-
 					this.render();
 				}.bind(this)).fail(function(){
 					alert('Unable to remove property from place!');
 				});
-			}
-   
+			},
+			toggleDeleteOption: function () {
+				$('.places-remove-property-submit').prop('disabled', false);
+			},
         });
 
         return ResponsePlaceView;
