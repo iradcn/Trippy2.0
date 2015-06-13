@@ -47,7 +47,7 @@ define(
                                 '<div class="alert alert-danger alert-dismissable" role="alert">' +
                                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
                                 '<span aria-hidden="true">&times;</span></button>' +
-                                '<strong>Failed updating!</strong> See console for elaboration.</div>');
+                                '<strong>Failed updating!</strong> See console log for more details.</div>');
                             console.log(data);
                             this.doneLoading();
                             return;
