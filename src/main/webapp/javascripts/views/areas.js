@@ -91,22 +91,20 @@ define(
                         '<strong>Unable to fetch places count!</strong> See console log for more details.</div>');
                 });
             },
-            areasResetSubmit: function () {
-                if (this.circlesVectorSource.getFeatures().length === 0) {
-                    $('.areas-submit').prop('disabled', true);
-                }
-
+            areasReset: function () {
+                this.circlesVectorSource.clear();
+				$('.areas-submit').prop('disabled', true);
                 $('#areas-select-curr-categories').val('');
                 $('#areas-select-curr-properties').val('');
                 $('.areas-reset-submit').prop('disabled', true);
             },
             toggleApplyFilterOption: function (e) {
-                if ((this.circlesVectorSource.getFeatures().length != 0) || e.feature) {
-                    $('.areas-submit').prop('disabled', false);
-                }
 
-                if ($('#areas-select-curr-categories').val() || $('#areas-select-curr-properties').val()) {
+                if ($('#areas-select-curr-categories').val() || $('#areas-select-curr-properties').val() || this.circlesVectorSource.getFeatures().length != 0 || e.feature) {
                     $('.areas-reset-submit').prop('disabled', false);
+                }
+                if (($('#areas-select-curr-categories').val() || $('#areas-select-curr-properties').val()) && (this.circlesVectorSource.getFeatures().length != 0 || e.feature) ) {
+                    $('.areas-submit').prop('disabled', false);
                 }
             },
 			constructRequest: function () {
