@@ -17,7 +17,6 @@ define(
             initialize: function () {
 				this.catView = MyGlobal.views.select_categories_view;
 				this.propView = MyGlobal.views.select_properties_view;
-                this.render();
             },
             render: function () {
                 var template = _.template(PlacesTemplate);
@@ -65,7 +64,7 @@ define(
                     });
 
 				var pointsVectorSource = new ol.source.Vector();
-				this.pointsVectorSource = pointsVectorSource;
+				this.circlesVectorSource = pointsVectorSource;
 				var pointsVectorLayer = new ol.layer.Vector({
 					source: pointsVectorSource,
 					style: pointsVectorStyle,
@@ -208,11 +207,11 @@ define(
 				};
 			},
 			overlayResponse: function () {
-				this.pointsVectorSource.clear();
+				this.circlesVectorSource.clear();
 
 				var pointsArray = MyGlobal.collections.ResponsePlaces.map(function(respPlace) {return respPlace.toOLFeature();});
 
-				this.pointsVectorSource.addFeatures(pointsArray);
+				this.circlesVectorSource.addFeatures(pointsArray);
 			},
         });
         return PlacesView;

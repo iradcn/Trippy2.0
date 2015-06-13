@@ -11,15 +11,16 @@ require.config({
 	   // Models
 	   Category: 'models/category',
        Property: 'models/property',
-		ResponsePlace: 'models/response-place',
+       ResponsePlace: 'models/response-place',
+       ResponseArea: 'models/response-area',
 
 	   // Collections
 	   Categories: 'collections/categories',
        Properties: 'collections/properties',
-		ResponsePlaces: 'collections/response-places',
+       ResponsePlaces: 'collections/response-places',
+       ResponseAreas: 'collections/response-areas',
 
        //views
-       MainIndexView: 'views/main',
        YagoLoadView: 'views/yagoload',
 	   PlacesView: 'views/places',
 	   AreasView: 'views/areas',
@@ -32,15 +33,15 @@ require.config({
        MainRouter: 'router',
    },
 
-    shim:{
-        'backbone':{
+    shim: {
+        'backbone': {
             deps:['underscore','jquery'],
             exports: 'Backbone'
         },
-        'underscore':{
+        'underscore': {
             exports: '_'
         },
-        'bootstrap':{
+        'bootstrap': {
             deps:['jquery']
         },
         'ol':{
@@ -55,7 +56,7 @@ require.config({
 require([
     'MainRouter'
 
-], function(MainRouter){
+], function(MainRouter) {
     MyGlobal.routers = {};
     MyGlobal.routers.mainRouter = new MainRouter();
 });
