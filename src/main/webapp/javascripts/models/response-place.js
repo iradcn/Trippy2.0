@@ -10,10 +10,13 @@ define(
 		   		var lat = this.attributes.loc.lat;
 	  			var lon = this.attributes.loc.lon;
 				var point = new ol.geom.Point(ol.proj.transform([lat, lon], 'EPSG:4326', 'EPSG:3857'));
-				return new ol.Feature({
-					geometry: point,
+
+				var feat = new ol.Feature({
+					pointGeom: point,
 					model: this,
 				});
+				feat.setGeometryName('pointGeom');
+				return feat;
 			},
 		});
 	   return ResponsePlace;

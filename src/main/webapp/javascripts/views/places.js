@@ -50,10 +50,7 @@ define(
 					style: circlesVectorStyle,
 				});
 
-				var pointsVectorStyle = new ol.style.Style({
-                        fill: new ol.style.Fill({
-                            color: 'rgba(255, 255, 255, 0.2)'
-                        }),
+				pointsVectorStyle = new ol.style.Style({
                         image: new ol.style.Circle({
                             radius: 6,
                             fill: new ol.style.Fill({
@@ -111,41 +108,39 @@ define(
                         })
                     });
 
+				// hover over fetched places
 				var pointerMove = new ol.interaction.Select({
 					condition: ol.events.condition.pointerMove,
 					style: selectedFeatureStyle,
 					layers: [pointsVectorLayer],
 				});
 				pointerMove.on('select', function(e) {
-					if (e.target.getFeatures().getLength() > 0) {
+					if (e.selected.length > 0 && e.selected[0].getGeometryName() == 'pointGeom' && circlesVectorSource.getFeatures().length > 0) {
 						$('.map').css('cursor', 'hand');
+						draw.setActive(false);
 					} else {
 						$('.map').css('cursor', 'default');
+						draw.setActive(true);
 					}
 				});
 				map.addInteraction(pointerMove);
 
-
-				map.on('click', function(evt) {
-				  var feature = map.forEachFeatureAtPixel(evt.pixel,
-					  function(feature, layer) {
-						  if (layer) {
-							return feature;
-						  }
-					  }, this, function (layer) {
-						  return layer == this.pointsVectorLayer;
-					  }, this);
-				  if (feature) {
-					this.map.removeInteraction(draw);
-
-					var placeView = new ResponsePlaceView({
-						model: feature.get('model')
+				// click on fetched places
+				var pointClick = new ol.interaction.Select({
+					condition: ol.events.condition.click,
+					style: selectedFeatureStyle,
+					layers: [pointsVectorLayer],
+				});
+				pointClick.on('select', function(e) {
+					if (e.selected.length > 0 && e.selected[0].getGeometryName() == 'pointGeom') {
+					placeView = new ResponsePlaceView({
+						model: e.selected[0].get('model')
 					});
 					placeView.render();
 
-					this.map.addInteraction(draw);
-				  }
-				}, this);
+					} 
+				});
+				map.addInteraction(pointClick);
             },
 			appendCollectionNameToSelect: function (collection, select) {
 				_.each(collection, function (elem) {
