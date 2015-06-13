@@ -108,12 +108,9 @@ define(
 				  var feature = map.forEachFeatureAtPixel(evt.pixel,
 					  function(feature, layer) {
 						  if (layer) {
-							  console.log(layer);
 							return feature;
 						  }
 					  }, this, function (layer) {
-//						  console.log(layer);
-//						  console.log(this.pointsVectorLayer);
 						  return layer == this.pointsVectorLayer;
 					  }, this);
 				  if (feature) {
