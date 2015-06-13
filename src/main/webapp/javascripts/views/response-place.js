@@ -11,6 +11,7 @@ define(
                 'click .places-new-property-submit': 'newPropertySubmit',
 				'click .places-remove-property-submit': 'deletePropertySubmit',
 				'change #response-place-properties': 'toggleDeleteOption',
+				'click .alert-resize-map': 'resizeMap'
             },
             render: function () {
 				var template = _.template(ResponsePlaceTemplate);
@@ -50,14 +51,13 @@ define(
 				if ($('#response-place-new-property:not(:has(option))').length != 0) {
 					$('#response-place-new-property').prop('disabled', true);
 					$('.places-new-property-submit').prop('disabled', true);
-				//} else {
-				//	$('#response-place-new-property').prop('disabled', false);
-				//	$('.places-new-property-submit').prop('disabled', false);
 				}
 			},
-		   newPropertySubmit: function () {
-			   var propId = $('#response-place-new-property').val();
-			   var placeId = this.model.id;
+		    newPropertySubmit: function () {
+			    $('.alert-resize-map').click();
+
+			    var propId = $('#response-place-new-property').val();
+			    var placeId = this.model.id;
 
 				$.ajax({
                     method: "GET",
@@ -67,13 +67,23 @@ define(
                 }).done(function() {
 					this.model.attributes.properties.push({'id': parseInt(propId)});
 					this.render();
-                    }.bind(this))
-                    .fail(function(){
-                        alert('Unable to add property to place!');
-                    });
+				}.bind(this))
+				.fail(function(){
+					$('#places-map').css('height', $('#places-map').height() - 60);
+					$('.alerts-row').html(
+						'<div class="alert alert-danger alert-dismissable" role="alert">' +
+						'<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
+						'<span aria-hidden="true">&times;</span></button>' +
+						'<strong>Unable to add property to place!</strong> See console log for more details.</div>');
+				});
 
             },
+			resizeMap: function () {
+				$('#places-map').css('height', $('#places-map').height() + 60);
+			},
 			deletePropertySubmit: function () {
+				$('.alert-resize-map').click();
+
 				var propId = $('#response-place-properties').val();
 				var placeId = this.model.id;
 
@@ -88,7 +98,12 @@ define(
 					}, this);
 					this.render();
 				}.bind(this)).fail(function(){
-					alert('Unable to remove property from place!');
+					$('#places-map').css('height', $('#places-map').height() - 60);
+					$('.alerts-row').html(
+						'<div class="alert alert-danger alert-dismissable" role="alert">' +
+						'<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
+						'<span aria-hidden="true">&times;</span></button>' +
+						'<strong>Unable to remove property to place!</strong> See console log for more details.</div>');
 				});
 			},
 			toggleDeleteOption: function () {
