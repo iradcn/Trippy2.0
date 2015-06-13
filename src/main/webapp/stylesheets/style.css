@@ -1,34 +1,12 @@
-.popover {
-	width:400px;
-	height:100px;
+/* --- General --- */
+
+.page-header {
+	margin-top: 20px;
+	margin-left: 20px;
 }
+
 .body-container {
 	margin-top: 7px;
-}
-
-.refresh-yago-data {
-	padding-right: 8px;
-}
-
-.yago-reload-row {
-	margin: 30px auto;
-	text-align: center;
-}
-
-.yago-text-row {
-	color: dimgray;
-	display: none;
-}
-
-.progress {
-	display:none;
-	width:500px;
-	margin: auto;
-	text-align: center;
-}
-.map {
-    height: calc(100% - 215px);
-    width: 100%;
 }
 
 .alert {
@@ -52,6 +30,10 @@ label {
 	color: slategray;
 }
 
+.header-row h4 {
+	margin-top: 2px;
+}
+
 .panel-heading {
 	padding: 7px 12px !important;
 }
@@ -60,6 +42,34 @@ label {
 	padding: 7px 12px !important;
 	border: none;
 	box-shadow: none;
+}
+
+.map {
+	height: calc(100% - 235px);
+	width: 100%;
+}
+
+/* --- Yago Reload --- */
+
+.refresh-yago-data {
+	padding-right: 8px;
+}
+
+.yago-reload-row {
+	margin: 30px auto;
+	text-align: center;
+}
+
+.yago-text-row {
+	color: dimgray;
+	display: none;
+}
+
+.progress {
+	display:none;
+	width:500px;
+	margin: auto;
+	text-align: center;
 }
 
 /* --- Filter Bar --- */

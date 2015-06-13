@@ -85,7 +85,7 @@ define(
                     this.overlayResponse();
                 }.bind(this))
                 .fail(function() {
-                    $('#areas-map').css('height', $('#areas-map').height() - 70);
+                    $('#areas-map').css('height', $('#areas-map').height() - 60);
                     $('.alerts-row').html(
                         '<div class="alert alert-danger alert-dismissable" role="alert">' +
                         '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
@@ -94,7 +94,7 @@ define(
                 });
             },
             resizeMap: function () {
-                $('#areas-map').css('height', $('#areas-map').height() + 70);
+                $('#areas-map').css('height', $('#areas-map').height() + 60);
             },
             areasReset: function () {
                 this.circlesVectorSource.clear();
