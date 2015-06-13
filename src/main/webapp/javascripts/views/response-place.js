@@ -61,7 +61,7 @@ define(
 					this.render();
                     }.bind(this))
                     .fail(function(){
-                        alert('Unable to fetch places!');
+                        alert('Unable to add property to place!');
                     });
 
             },
@@ -75,10 +75,13 @@ define(
 					data: {'propId': propId,
 						'placeId': placeId}
 				}).done(function(data) {
-					console.log("success");
+					this.model.attributes.properties = _.reject(this.model.attributes.properties, function (p) {
+						return p.id == parseInt(propId);	
+					}, this);
+					this.render();
 					$('.places-remove-property-submit').prop('disabled', true);
 				}.bind(this)).fail(function(){
-					alert('Unable to add property to place!');
+					alert('Unable to remove property from place!');
 				});
 			},
 			toggleDeleteOption: function () {
