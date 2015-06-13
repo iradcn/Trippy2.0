@@ -76,6 +76,7 @@ define(
 					source: pointsVectorSource,
 					style: pointsVectorStyle,
 				});
+				this.pointsVectorLayer = pointsVectorLayer;
 
 
 
@@ -106,10 +107,15 @@ define(
 				map.on('click', function(evt) {
 				  var feature = map.forEachFeatureAtPixel(evt.pixel,
 					  function(feature, layer) {
-						  if (layer) { 
+						  if (layer) {
+							  console.log(layer);
 							return feature;
 						  }
-					  });
+					  }, this, function (layer) {
+//						  console.log(layer);
+//						  console.log(this.pointsVectorLayer);
+						  return layer == this.pointsVectorLayer;
+					  }, this);
 				  if (feature) {
 					this.map.removeInteraction(draw);
 
@@ -181,7 +187,7 @@ define(
 				};
 			},
 			overlayResponse: function () {
-				this.circlesVectorSource.clear();
+				this.pointsVectorSource.clear();
 
 				var pointsArray = MyGlobal.collections.ResponsePlaces.map(function(respPlace) {return respPlace.toOLFeature();});
 
