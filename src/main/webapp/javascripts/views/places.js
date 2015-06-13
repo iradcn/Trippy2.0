@@ -41,13 +41,8 @@ define(
                             color: '#ffcc33',
                             width: 2
                         }),
-                        image: new ol.style.Circle({
-                            radius: 7,
-                            fill: new ol.style.Fill({
-                                color: '#ffcc33'
-                            })
-                        })
                     });
+
 				var circlesVectorSource = new ol.source.Vector();
 				this.circlesVectorSource = circlesVectorSource;
 				var circlesVectorLayer = new ol.layer.Vector({
@@ -55,21 +50,20 @@ define(
 					style: circlesVectorStyle,
 				});
 
-
-
 				pointsVectorStyle = new ol.style.Style({
                         fill: new ol.style.Fill({
                             color: 'rgba(255, 255, 255, 0.2)'
                         }),
-                        stroke: new ol.style.Stroke({
-                            color: '#ffcc33',
-                            width: 2
-                        }),
                         image: new ol.style.Circle({
-                            radius: 7,
+                            radius: 6,
                             fill: new ol.style.Fill({
                                 color: '#ffcc33'
-                            })
+                            }),
+							stroke: new ol.style.Stroke({
+								color: '#ffffff',
+								width: 1
+							}),
+
                         })
                     });
 
@@ -80,8 +74,6 @@ define(
 					style: pointsVectorStyle,
 				});
 				this.pointsVectorLayer = pointsVectorLayer;
-
-
 
                 var map = new ol.Map({
                     layers: [raster, circlesVectorLayer, pointsVectorLayer],
@@ -96,7 +88,8 @@ define(
 
                 draw = new ol.interaction.Draw({
                     source: circlesVectorSource,
-                    type: "Circle"
+                    type: "Circle",
+					 style: circlesVectorStyle
                 });
 				draw.on('drawstart', function() { // make sure only 1 circle
 					circlesCollection = circlesVectorSource.getFeatures();
@@ -108,6 +101,32 @@ define(
                     this.toggleApplyFilterOption(e);
                 }, this);
                 map.addInteraction(draw);
+
+				selectedFeatureStyle = new ol.style.Style({
+                        image: new ol.style.Circle({
+                            radius: 6,
+                            fill: new ol.style.Fill({
+                                color: '#000000'
+                            })
+                        })
+                    });
+
+				var pointerMove = new ol.interaction.Select({
+					condition: ol.events.condition.pointerMove,
+					style: selectedFeatureStyle,
+					filter: function (feature, layer) {
+						return layer == pointsVectorLayer;
+					}
+				});
+				pointerMove.on('select', function(e) {
+					if (e.target.getFeatures().getLength() > 0) {
+						$('.map').css('cursor', 'hand');
+						// remove blue circle
+					} else {
+						$('.map').css('cursor', 'default');
+					}
+				});
+				map.addInteraction(pointerMove);
 
 
 				map.on('click', function(evt) {
