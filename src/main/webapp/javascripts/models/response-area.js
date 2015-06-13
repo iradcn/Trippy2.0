@@ -10,9 +10,6 @@ define(
         var ResponseArea = Backbone.Model.extend({
             idAttribute: "yagoId",
             toOLFeature: function () {
-
-                console.log(this.attributes);
-
                 var lat = this.attributes.loc.lat;
                 var lon = this.attributes.loc.lon;
                 var radius = this.attributes.loc.radius * 1000 / 0.621;
