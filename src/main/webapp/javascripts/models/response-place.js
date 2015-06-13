@@ -9,7 +9,7 @@ define(
 			toOLFeature: function () {
 		   		var lat = this.attributes.loc.lat;
 	  			var lon = this.attributes.loc.lon;
-				var point = new ol.geom.Point(ol.proj.transform([lat, lon], 'EPSG:4326', 'EPSG:3857'));
+				var point = new ol.geom.Point(ol.proj.transform([lon, lat], 'EPSG:4326', 'EPSG:3857'));
 
 				var feat = new ol.Feature({
 					pointGeom: point,

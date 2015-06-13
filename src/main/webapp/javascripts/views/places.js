@@ -76,7 +76,7 @@ define(
                     layers: [raster, circlesVectorLayer, pointsVectorLayer],
                     target: 'map',
                     view: new ol.View({
-                        center: ol.proj.transform([31, 37], 'EPSG:4326', 'EPSG:3857'),
+                        center: ol.proj.transform([37, 31], 'EPSG:4326', 'EPSG:3857'),
                         zoom: 4,
                     })
                 });
@@ -190,12 +190,14 @@ define(
 				var filtered_props = MyGlobal.collections.properties.filter(function(p) {
 					return _.contains(prop_yago_ids, p.id + '');
 				});
-
+				
+				var rad_km = location_circle.getGeometry().getRadius() / 1000;
+				var rad_mile = rad_km * 0.621;
 				return {
 					"loc": {
-                        "lat": location_coordinates[0],
-                        "lon": location_coordinates[1],
-						"radius": location_circle.getGeometry().getRadius() / 1000,
+                        "lat": location_coordinates[1],
+                        "lon": location_coordinates[0],
+						"radius": rad_mile,
 					},
 					"categories": filtered_cats.map(function (c) {
 						return c.attributes; 
