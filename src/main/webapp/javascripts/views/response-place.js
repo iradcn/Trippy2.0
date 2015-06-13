@@ -10,6 +10,7 @@ define(
             events: {
                 'click .places-new-property-submit': 'newPropertySubmit',
 				'click .places-remove-property-submit': 'deletePropertySubmit',
+				'change #response-place-properties': 'toggleDeleteOption',
             },
             render: function () {
 				var template = _.template(ResponsePlaceTemplate);
@@ -26,7 +27,7 @@ define(
 				var catsArr = this.model.attributes.categories;
 				_.each(catsArr, function (cat) {
 					var catModel = MyGlobal.collections.categories.get(cat.yagoId);
-					$('#response-place-categories').append("<option>" + catModel.get('name') +  "</option>");
+					$('#response-place-categories').append("<li>" + catModel.get('name') +  "</li>");
 				});
 			},
 			populateProperties: function () {
@@ -75,11 +76,14 @@ define(
 						'placeId': placeId}
 				}).done(function(data) {
 					console.log("success");
+					$('.places-remove-property-submit').prop('disabled', true);
 				}.bind(this)).fail(function(){
 					alert('Unable to add property to place!');
 				});
-			}
-   
+			},
+			toggleDeleteOption: function () {
+				$('.places-remove-property-submit').prop('disabled', false);
+			},
         });
 
         return ResponsePlaceView;

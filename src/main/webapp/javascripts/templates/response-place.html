@@ -1,21 +1,31 @@
-<div class="row">
-	<h1 id="place-name"></h1>
+<div class="row response-elem-row">
+	<h2 id="place-name"></h2>
 </div>
-<div class="row">
-	<div class="col-xs-6">
-        Categories:
-        <select id="response-place-categories" multiple size=6 class="form-control">
-        </select>
-    </div>
-    <div class="col-xs-6">
-        Properties:
-        <select id="response-place-properties" size=6 class="form-control">
-        </select>
-		<br />
+<div class="row response-elem-row">
+    <b>Categories:</b>
+    <ul id="response-place-categories">
+    </ul>
+</div>
+<div class="row response-elem-row">
+    <b>Properties:</b>
+    <select id="response-place-properties" size=6 class="form-control">
+    </select>
+</div>
+<div class="row response-elem-row">
+    <div class="col-xs-6 response-property-col add-property-to-place-col">
+        <label for="response-place-new-property">Choose property and add to place</label>
         <select id="response-place-new-property" class="form-control">
         </select>
-		<button class="btn btn-default places-new-property-submit" type="button">Add property</button>
-        <button class="btn btn-default places-remove-property-submit" type="button">Remove property</button>
-		
+        <button class="btn btn-info places-new-property-submit" type="button">Add</button>
+    </div>
+    <div class="col-xs-6 response-property-col delete-property-from-place-col">
+        <label>Remove selected property from place</label><br>
+        <button class="btn btn-danger places-remove-property-submit" type="button" disabled="true">Remove</button>
     </div>
 </div>
+
+
+
+
+
+
