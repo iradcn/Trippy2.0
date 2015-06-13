@@ -3,7 +3,7 @@
 	height:100px;
 }
 .body-container{
-	margin: 50px 50px 50px 50px;
+	margin: 30px;
 }
 .progress{
 	display:none;
@@ -11,8 +11,24 @@
 	width:500px;
 }
 .map {
-    height: 600px;
+    height: calc(100% - 180px);
     width: 100%;
+	padding: 0px 5px;
+}
+
+/* --- Filter Bar --- */
+
+.filter-row {
+	margin-bottom: 15px;
+}
+
+.filter-row > button {
+	margin-top: 3px;
+	width: calc(50% - 5px);
+}
+
+.filter-row > .places-reset-submit {
+	margin-right: 5px;
 }
 
 /* --- Response Display Bar --- */

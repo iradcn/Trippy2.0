@@ -10,6 +10,7 @@ define(
             el: ".body-container",
             events: {
                 'click .places-submit': 'placesSubmit',
+                'click .places-reset-submit': 'resetSubmit',
             },
             initialize: function () {
 				this.catView = MyGlobal.views.select_categories_view;
@@ -154,6 +155,10 @@ define(
                         alert('Unable to fetch places!');
                     });
 
+            },
+            resetSubmit: function () {
+                $('#categories').val('');
+                $('#places-select-curr-properties').val('');
             },
 			constructRequest: function () {
                 var location_circle = this.circlesVectorSource.getFeatures()[0];
