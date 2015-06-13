@@ -1,42 +1,38 @@
 define(
     ["backbone",
         "jquery",
-		"ol",
+        "ol",
         "text!templates/areas.html",
         "bootstrap",
-    ], function (Backbone, $, ol, Areas) {
+    ], function (Backbone, $, ol, AreasTemplate) {
         var AreasView = Backbone.View.extend({
             el: ".body-container",
             events: {
                 'click .areas-submit': 'areasSubmit',
+                'click .areas-reset-submit': 'areasReset',
+                'change #categories': 'toggleApplyFilterOption',
+                'change #areas-select-curr-properties': 'toggleApplyFilterOption',
             },
             initialize: function () {
-				this.propView = MyGlobal.views.select_categories_view;
+				this.catView = MyGlobal.views.select_categories_view;
+				this.propView = MyGlobal.views.select_properties_view;
                 this.render();
             },
             render: function () {
-                var template = _.template(Areas);
+                var template = _.template(AreasTemplate);
                 this.$el.html(template());
-				this.initMap();
-				this.initProperties();
+                this.initMap();
+				this.catView.render();
 				this.propView.render();
             },
-			initMap: function () {
+            initMap: function () {
+				// The actual map layer
                 var raster = new ol.layer.Tile({
                     source: new ol.source.MapQuest({layer: 'osm'})
                 });
 
-                var map = new ol.Map({
-                    layers: [raster],
-                    target: 'map',
-                    view: new ol.View({
-                        center: ol.proj.transform([31, 37], 'EPSG:4326', 'EPSG:3857'),
-                        zoom: 4,
-                    })
-                });
-
-                var featureOverlay = new ol.FeatureOverlay({
-                    style: new ol.style.Style({
+				// Drawing circles layer
+				var circlesVectorStyle = new ol.style.Style({
                         fill: new ol.style.Fill({
                             color: 'rgba(255, 255, 255, 0.2)'
                         }),
@@ -44,52 +40,119 @@ define(
                             color: '#ffcc33',
                             width: 2
                         }),
-                        image: new ol.style.Circle({
-                            radius: 7,
-                            fill: new ol.style.Fill({
-                                color: '#ffcc33'
-                            })
-                        })
+						text: new ol.style.Text({
+							text: 'ahhhh!',
+						}),
+                    });
+
+				var circlesVectorSource = new ol.source.Vector();
+				this.circlesVectorSource = circlesVectorSource;
+				var circlesVectorLayer = new ol.layer.Vector({
+					source: circlesVectorSource,
+					style: circlesVectorStyle,
+				});
+
+                var map = new ol.Map({
+                    layers: [raster, circlesVectorLayer],
+                    target: 'map',
+                    view: new ol.View({
+                        center: ol.proj.transform([31, 37], 'EPSG:4326', 'EPSG:3857'),
+                        zoom: 4,
                     })
                 });
-                featureOverlay.setMap(map);
 
-                draw = new ol.interaction.Draw({
-                    features: featureOverlay.getFeatures(),
-                    type: "Circle"
+				this.map = map;
+
+                var draw = new ol.interaction.Draw({
+                    source: circlesVectorSource,
+                    type: "Circle",
+					 style: circlesVectorStyle
                 });
+				 draw.on('drawend', function(e) {
+                    this.toggleApplyFilterOption(e);
+                }, this);
                 map.addInteraction(draw);
 
-                MyGlobal.circle_locations = featureOverlay;
-			},
-			initProperties: function () {
-                $.ajax({
-                    url:'get_all_properties'
-                    }).done(function(data){
-						MyGlobal.properties = data;
-						this.appendCollectionNameToSelect(data, '#properties');
+			 },
+			 areasSubmit: function () {
+				var req_json = this.constructRequest();
+				console.log(req_json);
+				$.ajax({
+                    method: "POST",
+                    url: 'get_places_aggregation',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(req_json)
+                }).done(function(data) {
+						console.log(data);
+//						MyGlobal.collections.ResponsePlaces.reset(data);
+//						this.overlayResponse();
                     }.bind(this))
                     .fail(function(){
-                        alert('Unable to fetch properties!');
+                        alert('Unable to fetch place counts!');
                     });
-			},
-			appendCollectionNameToSelect: function (collection, select) {
-				_.each(collection, function (elem) {
-							$(select).append(
-								"<option value='" + elem.yagoId + "'>" + elem.name +  "</option>"
-							);
-						
-						});
-			},
-            areasSubmit: function() {
-                var locationsArr = MyGlobal.circle_locations.getFeatures().getArray();
-                for (i = 0; i < MyGlobal.circle_locations.getFeatures().getLength(); i++) {
-                    console.log(ol.proj.transform(locationsArr[i].getGeometry().getCenter(), 'EPSG:3857', 'EPSG:4326'));
-                    console.log(locationsArr[i].getGeometry().getRadius());
+            },
+            areasResetSubmit: function () {
+                if (this.circlesVectorSource.getFeatures().length === 0) {
+                    $('.places-submit').prop('disabled', true);
+                }
+
+                $('#categories').val('');
+                $('#places-select-curr-properties').val('');
+                $('.places-reset-submit').prop('disabled', true);
+            },
+            toggleApplyFilterOption: function (e) {
+                if ((this.circlesVectorSource.getFeatures().length != 0) || e.feature) {
+                    $('.areas-submit').prop('disabled', false);
+                }
+
+                if ($('#categories').val() || $('#areas-select-curr-properties').val()) {
+                    $('.areas-reset-submit').prop('disabled', false);
                 }
             },
-			
-        })
+			constructRequest: function () {
+				locs = _.map(this.circlesVectorSource.getFeatures(), function (f) {
+					var coords = ol.proj.transform(f.getGeometry().getCenter(), 'EPSG:3857', 'EPSG:4326');
+					var radius = f.getGeometry().getRadius() / 1000;
+					return {
+						'lat': coords[0],
+						'lon': coords[1],
+						'radius': radius,
+					};
+					
+				});
 
+                var cat_yago_id = $('#categories').val(); 
+//				var filtered_cats = MyGlobal.collections.categories.filter(function(c) {
+//					return _.contains(cat_yago_ids, c.id);
+//				});
+
+                var prop_id = $('#areas-select-curr-properties').val(); 
+//				var filtered_props = MyGlobal.collections.properties.filter(function(p) {
+//					return _.contains(prop_yago_ids, p.id + '');
+//				});
+
+				return {
+					"locs": locs,
+					"category": cat_yago_id,
+					"property": prop_id
+/*					"categories": filtered_cats.map(function (c) {
+						return c.attributes; 
+					}),
+					"properties": filtered_props.map(function (p) {
+						return p.attributes; 
+					}),
+					*/
+				};
+			},
+			overlayResponse: function () {
+				this.pointsVectorSource.clear();
+
+				var pointsArray = MyGlobal.collections.ResponsePlaces.map(function(respPlace) {return respPlace.toOLFeature();});
+
+				this.pointsVectorSource.addFeatures(pointsArray);
+			},
+        });
         return AreasView;
+	
     });
