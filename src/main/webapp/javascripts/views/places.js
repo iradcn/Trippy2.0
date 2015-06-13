@@ -142,15 +142,7 @@ define(
 				});
 				map.addInteraction(pointClick);
             },
-			appendCollectionNameToSelect: function (collection, select) {
-				_.each(collection, function (elem) {
-							$(select).append(
-								"<option value='" + elem.yagoId + "'>" + elem.name +  "</option>"
-							);
-						
-						});
-			},
-            placesSubmit: function () {
+			 placesSubmit: function () {
 				var req_json = this.constructRequest();
 				$.ajax({
                     method: "POST",
