@@ -11,25 +11,26 @@ define(
             el: ".body-container",
             events: {
                 'click .submit': 'onYagoUpdate',
-				'click .refresh-yago-data': 'startUpdateModal'
             },
             initialize: function () {
                 this.render();
 
             },
-			startUpdateModal: function () {
-				$('.modal').modal();
-			},
             onYagoUpdate: function () {
-                this.startLoading();
+                $('.alerts-row').html('');
                 $.ajax({
                     url:'import'
-                    }).success(function(data){
+                    }).success(function() {
                         this.startLoading();
                         setTimeout(function(){this.fetchProgress();}.bind(this),10000);
                     }.bind(this))
                     .fail(function(){
-                        alert('cannot update at this time. this can happen if there is a connection problem, or if there is already an ongoing update');
+                        $('.alerts-row').html(
+                            '<div class="alert alert-danger alert-dismissable" role="alert">' +
+                            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                            '<span aria-hidden="true">&times;</span></button>' +
+                            '<strong>Cannot update at this time!</strong> Either there is a connection problem, ' +
+                            'or there is already an ongoing update</div>');
                     });
             },
             render: function () {
@@ -43,13 +44,23 @@ define(
 
                     if (data){
                         if (data.error==true){
-                            alert('failure!');
+                            $('.alerts-row').html(
+                                '<div class="alert alert-danger alert-dismissable" role="alert">' +
+                                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                                '<span aria-hidden="true">&times;</span></button>' +
+                                '<strong>Failed updating!</strong> See console for elaboration.</div>');
+                            console.log(data);
                             this.doneLoading();
                             return;
                         }
-                        else if(data.local_status_instance==false){
-                            alert('success!');
+                        else if(data.local_status_instance == false){
+                            $('.alerts-row').html(
+                                '<div class="alert alert-success alert-dismissable" role="alert">' +
+                                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                                '<span aria-hidden="true">&times;</span></button>' +
+                                '<strong>Finished updating!</strong> Updated data successfully.</div>');
                             this.doneLoading();
+                            $('.yago-btn-row').hide();
                             return;
                         }
                         this.updateProgressBar(data);
@@ -58,18 +69,25 @@ define(
                     setTimeout(function(){this.fetchProgress();}.bind(this),3000);
                 }.bind(this))
                     .fail(function(){
-                        alert('failure');
+                        $('.alerts-row').html(
+                            '<div class="alert alert-danger alert-dismissable" role="alert">' +
+                            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                            '<span aria-hidden="true">&times;</span></button>' +
+                            '<strong>Cannot update at this time!</strong> Either there is a connection problem, ' +
+                            'or there is already an ongoing update</div>');
+                        this.doneLoading();
                     }.bind(this));
             },
             startLoading: function(){
                 $('.progress-bar').css('width','0%');
                 $('.progress').show();
-                $('.submit').attr('disabled',true);
-
+                $('.yago-text-row').show();
+                $('.yago-btn-row').hide();
             },
             doneLoading: function(){
                 $('.progress').hide();
-                $('.submit').attr('disabled',false);
+                $('.yago-text-row').hide();
+                $('.yago-btn-row').show();
             },
             updateProgressBar: function(data){
                 if (data && data.local_total_read && data.local_status_instance && data.local_read)

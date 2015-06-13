@@ -5,14 +5,36 @@
 .body-container {
 	margin-top: 7px;
 }
+
+.refresh-yago-data {
+	padding-right: 8px;
+}
+
+.yago-reload-row {
+	margin: 30px auto;
+	text-align: center;
+}
+
+.yago-text-row {
+	color: dimgray;
+	display: none;
+}
+
 .progress {
 	display:none;
-	margin-top: 20px;
 	width:500px;
+	margin: auto;
+	text-align: center;
 }
 .map {
     height: calc(100% - 215px);
     width: 100%;
+}
+
+.alert {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 30px auto;
 }
 
 .no-display-placeholder {
@@ -82,7 +104,7 @@ label {
 /* --- Manage Properties --- */
 
 .curr-properties-col {
-	margin: 40px auto;
+	margin: 30px auto;
 }
 
 .curr-properties-col > .panel {

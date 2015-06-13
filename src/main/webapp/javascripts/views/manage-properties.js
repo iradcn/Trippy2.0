@@ -35,6 +35,11 @@ define(
                         name: $('#new-property').val(),
                     }
                 }).done(function() {
+                    $('.alerts-row').html(
+                        '<div class="alert alert-success alert-dismissable" role="alert">' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                        '<span aria-hidden="true">&times;</span></button>' +
+                        'Property was added successfully!</div>');
                     $('#new-property').val('');
                     $('.add-property-submit').prop('disabled', true);
                     $('.rename-property-submit').prop('disabled', true);
@@ -43,7 +48,11 @@ define(
                     this.props.fetchFromServer();
                 }.bind(this))
                     .fail(function(){
-                        alert('Unable to Create New Property!');
+                        $('.alerts-row').html(
+                            '<div class="alert alert-danger alert-dismissable" role="alert">' +
+                            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                            '<span aria-hidden="true">&times;</span></button>' +
+                            'Unable to add new property!</div>');
                     });
             },
             update: function() {
@@ -57,6 +66,11 @@ define(
                         name: $('#renamed-property').val(),
                     }
                 }).done(function() {
+                    $('.alerts-row').html(
+                        '<div class="alert alert-success alert-dismissable" role="alert">' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                        '<span aria-hidden="true">&times;</span></button>' +
+                        'Property was renamed successfully!</div>');
                     $('#renamed-property').val('');
                     $('.add-property-submit').prop('disabled', true);
                     $('.rename-property-submit').prop('disabled', true);
@@ -65,7 +79,11 @@ define(
                     this.props.fetchFromServer();
                 }.bind(this))
                     .fail(function(){
-                        alert('Unable to Rename Selected Property!');
+                        $('.alerts-row').html(
+                            '<div class="alert alert-danger alert-dismissable" role="alert">' +
+                            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                            '<span aria-hidden="true">&times;</span></button>' +
+                            'Unable to rename selected property!</div>');
                     });
             },
             delete: function() {
@@ -80,6 +98,11 @@ define(
                         name: prop.get('name'),
                     }
                 }).done(function() {
+                    $('.alerts-row').html(
+                        '<div class="alert alert-success alert-dismissable" role="alert">' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                        '<span aria-hidden="true">&times;</span></button>' +
+                        'Property was deleted successfully!</div>');
                     $('.add-property-submit').prop('disabled', true);
                     $('.rename-property-submit').prop('disabled', true);
                     $('#renamed-property').prop('disabled', true);
@@ -87,7 +110,11 @@ define(
                     this.props.fetchFromServer();
                 }.bind(this))
                     .fail(function(){
-                        alert('Unable to Delete Selected Property!');
+                        $('.alerts-row').html(
+                            '<div class="alert alert-danger alert-dismissable" role="alert">' +
+                            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                            '<span aria-hidden="true">&times;</span></button>' +
+                            'Unable to delete selected property!</div>');
                     });
             },
             toggleAddOption: function (e) {
