@@ -135,7 +135,7 @@ public class PlaceDAO {
 			i++;
 		}
 		for (Property prop : query.getProperties()) {
-			selectPlaces.setString(i, prop.getYagoId());
+			selectPlaces.setInt(i, prop.getId());
 			i++;
 		}
 
@@ -171,9 +171,9 @@ public class PlaceDAO {
 		}
 
 		for (Location loc : query.getLocs()) {
-			selectPlaces.setDouble(1,loc.getLat());
-			selectPlaces.setDouble(2,loc.getLat());
-			selectPlaces.setDouble(3, loc.getLon());
+			selectPlaces.setDouble(1,loc.getLon());
+			selectPlaces.setDouble(2,loc.getLon());
+			selectPlaces.setDouble(3, loc.getLat());
 			selectPlaces.setInt(4, (int) (loc.getRadius() / 1.609));
 			selectPlaces.setString(5, query.getCategory());
 
