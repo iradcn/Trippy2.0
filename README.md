@@ -24,11 +24,11 @@ Maven,Git
 
   1. Create an account on the school's MySQL server (user, db and pass will be sent to your email):
     - run on nova:
-      *`create_mysql_user`*
+      - *`create_mysql_user`*
   2. run:
-      *`mysql -u <username> -h mysqlsrv.cs.tau.ac.il <dbname> -p < src/main/build/build_schema.sql`*
-      *`mysql -u <username> -h mysqlsrv.cs.tau.ac.il <dbname> -p < src/main/build/fill-categories.sql`*
-      *`mysql -u <username> -h mysqlsrv.cs.tau.ac.il <dbname> -p < src/main/build/fill-properties.sql`*
+    - *`mysql -u <username> -h mysqlsrv.cs.tau.ac.il <dbname> -p < src/main/build/build_schema.sql`*
+    - *`mysql -u <username> -h mysqlsrv.cs.tau.ac.il <dbname> -p < src/main/build/fill-categories.sql`*
+    - *`mysql -u <username> -h mysqlsrv.cs.tau.ac.il <dbname> -p < src/main/build/fill-properties.sql`*
   
 #####3. Yago Dependencies
   1. Make sure you have all the following Yago dependencies under /Resources:
