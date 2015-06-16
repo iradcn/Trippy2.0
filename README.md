@@ -29,7 +29,14 @@ Maven,Git
     - *`mysql -u <username> -h mysqlsrv.cs.tau.ac.il <dbname> -p < src/main/build/build_schema.sql`*
     - *`mysql -u <username> -h mysqlsrv.cs.tau.ac.il <dbname> -p < src/main/build/fill-categories.sql`*
     - *`mysql -u <username> -h mysqlsrv.cs.tau.ac.il <dbname> -p < src/main/build/fill-properties.sql`*
-  
+ 
+  ---or---
+
+  1. use irad's school mysql server credentials:
+    - username, database: iradcohen
+    - password: iradcohe11907 
+    - the tables are already built and populated.
+
 #####3. Yago Dependencies
   1. Make sure you have all the following Yago dependencies under /Resources:
 	1.1 yagoGeonamesOnlyData.tsv
@@ -42,11 +49,11 @@ Maven,Git
   2. runnig locally (tunneled mysql):
     - hostname: localhost
     - port: 3305 (or whatever else you configured)
-    - dbName, username, password: as supplied by TAU system.
+    - dbName, username, password: as supplied by TAU system (or use irad's).
   3. running on nova:
     - hostname: mysqlsrv.cs.tau.ac.il
     - port: 3306
-    - dbName, username, password: as supplied by TAU system.
+    - dbName, username, password: as supplied by TAU system (or use irad's).
    
 #####4.Run
   From within project root:
