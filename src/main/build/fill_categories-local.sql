@@ -1,4 +1,4 @@
-insert into categories (`name`,`yagoid`) 
+insert into dbmysql11.categories (`name`,`yagoid`) 
 values("religious sites","<geoclass_religious_site>"),
 	("shopping malls","<geoclass_mall>"),
     ("museums","<geoclass_museum>"),

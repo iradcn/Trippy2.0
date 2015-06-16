@@ -15,11 +15,17 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Table `categories`
+-- Schema dbmysql11
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `categories` ;
+CREATE SCHEMA IF NOT EXISTS `dbmysql11` DEFAULT CHARACTER SET utf8 ;
+USE `dbmysql11` ;
 
-CREATE TABLE IF NOT EXISTS `categories` (
+-- -----------------------------------------------------
+-- Table `dbmysql11`.`categories`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `dbmysql11`.`categories` ;
+
+CREATE TABLE IF NOT EXISTS `dbmysql11`.`categories` (
   `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NULL DEFAULT NULL,
   `YagoId` VARCHAR(200) NOT NULL,
@@ -32,11 +38,11 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `places`
+-- Table `dbmysql11`.`places`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `places` ;
+DROP TABLE IF EXISTS `dbmysql11`.`places` ;
 
-CREATE TABLE IF NOT EXISTS `places` (
+CREATE TABLE IF NOT EXISTS `dbmysql11`.`places` (
   `Name` VARCHAR(200) NULL DEFAULT NULL,
   `Lat` DOUBLE NOT NULL,
   `Lon` DOUBLE NOT NULL,
@@ -48,23 +54,23 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `placescategories`
+-- Table `dbmysql11`.`placescategories`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `placescategories` ;
+DROP TABLE IF EXISTS `dbmysql11`.`placescategories` ;
 
-CREATE TABLE IF NOT EXISTS `placescategories` (
+CREATE TABLE IF NOT EXISTS `dbmysql11`.`placescategories` (
   `PlaceId` VARCHAR(200) NOT NULL,
   `CategoryId` VARCHAR(200) NOT NULL,
   INDEX `IX_CATEGORY_ID` (`CategoryId` ASC),
   INDEX `FK_PLACE_ID_idx` (`PlaceId` ASC),
   CONSTRAINT `FK_CATEGORY_ID_`
     FOREIGN KEY (`CategoryId`)
-    REFERENCES `categories` (`YagoId`)
+    REFERENCES `dbmysql11`.`categories` (`YagoId`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK_PLACE_ID_`
     FOREIGN KEY (`PlaceId`)
-    REFERENCES `places` (`Id`)
+    REFERENCES `dbmysql11`.`places` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -72,11 +78,11 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `properties`
+-- Table `dbmysql11`.`properties`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `properties` ;
+DROP TABLE IF EXISTS `dbmysql11`.`properties` ;
 
-CREATE TABLE IF NOT EXISTS `properties` (
+CREATE TABLE IF NOT EXISTS `dbmysql11`.`properties` (
   `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`Id`),
@@ -86,23 +92,23 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `placesprops`
+-- Table `dbmysql11`.`placesprops`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `placesprops` ;
+DROP TABLE IF EXISTS `dbmysql11`.`placesprops` ;
 
-CREATE TABLE IF NOT EXISTS `placesprops` (
+CREATE TABLE IF NOT EXISTS `dbmysql11`.`placesprops` (
   `PlaceId` VARCHAR(200) NOT NULL,
   `PropId` INT(10) UNSIGNED NOT NULL,
   INDEX `IX_PROP` (`PropId` ASC),
   INDEX `FK_PLACE_ID_idx` (`PlaceId` ASC),
   CONSTRAINT `FK_PLACE_ID`
     FOREIGN KEY (`PlaceId`)
-    REFERENCES `places` (`Id`)
+    REFERENCES `dbmysql11`.`places` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK_PROP_ID`
     FOREIGN KEY (`PropId`)
-    REFERENCES `properties` (`Id`)
+    REFERENCES `dbmysql11`.`properties` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -114,7 +120,7 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 DELIMITER $$
-CREATE PROCEDURE `CreateForeignKeys`()
+CREATE DEFINER=`DbMysql11`@`localhost` PROCEDURE `CreateForeignKeys`()
 BEGIN
 
     ALTER TABLE placesprops
@@ -141,7 +147,7 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE PROCEDURE `RemoveForeignKeys`()
+CREATE DEFINER=`DbMysql11`@`localhost` PROCEDURE `RemoveForeignKeys`()
 BEGIN
 
     ALTER TABLE placesprops
