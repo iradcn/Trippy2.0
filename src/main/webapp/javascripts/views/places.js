@@ -150,7 +150,7 @@ define(
 				var req_json = this.constructRequest();
 				$.ajax({
                     method: "POST",
-                    url: 'get_places_by_lo',
+                    url: 'get_places_by_loc',
                     dataType: 'json',
                     contentType: 'application/json',
                     data: JSON.stringify(req_json)

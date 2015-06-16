@@ -76,7 +76,7 @@ define(
 				var req_json = this.constructRequest();
 				$.ajax({
                     method: "POST",
-                    url: 'get_places_aggregatio',
+                    url: 'get_places_aggregation',
                     dataType: 'json',
                     contentType: 'application/json',
                     data: JSON.stringify(req_json)
