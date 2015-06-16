@@ -103,8 +103,8 @@ define(
             },
             updateProgressBar: function(data){
                 if (data && data.local_total_read && data.local_status_instance && data.local_read) {
-                    var percent = 100*data.local_read/data.local_total_read;
-					var nice_percent = percent.toFixed(2) - 0.02;
+                    var percent = (100*data.local_read/data.local_total_read) - 0.02;
+					var nice_percent = percent.toFixed(2);
                     $('.progress-bar').css('width', nice_percent + '%');
                     $('.progress-bar').html(nice_percent + '%');
 				}
