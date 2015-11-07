@@ -1,9 +1,9 @@
 require.config({
    paths: {
-       jquery: 'libs/jquery-1.11.2',
+       jquery: '/common/javascripts/libs/jquery-1.11.2',
        underscore: 'libs/underscore',
        backbone: 'libs/backbone',
-       bootstrap: 'libs/bootstrap.min',
+       bootstrap: '/common/javascripts/libs/bootstrap.min',
        text: 'libs/text',
        async: 'libs/requirejs-plugins/src/async',
        ol: 'libs/ol',

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PropertyController {
-	@RequestMapping(value="/create_property", method=RequestMethod.GET)
+	@RequestMapping(value="app/create_property", method=RequestMethod.GET)
 	public ResponseEntity<String> createProperty(@RequestParam("name") String name) {
 		Property property = new Property();
 		property.setName(name);
@@ -26,7 +26,7 @@ public class PropertyController {
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	@RequestMapping(value="/modify_property", method=RequestMethod.GET)
+	@RequestMapping(value="app/modify_property", method=RequestMethod.GET)
 	public ResponseEntity<String> modifyProperty(@RequestParam("name") String name,@RequestParam("id") int id) {
 		Property property = new Property();
 		property.setName(name);
@@ -41,7 +41,7 @@ public class PropertyController {
 		}
 	}
 	
-	@RequestMapping(value="/delete_property", method=RequestMethod.GET)
+	@RequestMapping(value="app/delete_property", method=RequestMethod.GET)
 	public ResponseEntity<String> deleteProperty(@RequestParam("name") String name,@RequestParam("id") int id) {
 		Property property = new Property();
 		property.setName(name);
@@ -55,13 +55,13 @@ public class PropertyController {
 		}
 	}
 
-	@RequestMapping(value="/get_all_properties", method=RequestMethod.GET)
+	@RequestMapping(value="app/get_all_properties", method=RequestMethod.GET)
 	public List<Property> getAllProperties() throws SQLException {
 			Property.getAll();
 			return Property.getAll();
 	}
 
-	@RequestMapping(value="/AddPropToPlace", method=RequestMethod.GET)
+	@RequestMapping(value="app/AddPropToPlace", method=RequestMethod.GET)
 	public void AddPropertyToPlace(@RequestParam("propId") int propId,@RequestParam("placeId") String placeId) {
 		try {
 			Property.AddPropToPlace(placeId, propId);
@@ -71,7 +71,7 @@ public class PropertyController {
 		}
 	}
 
-	@RequestMapping(value="/DelPropFromPlace", method=RequestMethod.GET)
+	@RequestMapping(value="app/DelPropFromPlace", method=RequestMethod.GET)
 	public void RemovePropertyFromPlace(@RequestParam("propId") int propId,@RequestParam("placeId") String placeId) {
 		try {
 			Property.RemovePropFromPlace(placeId, propId);

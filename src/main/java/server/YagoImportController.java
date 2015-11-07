@@ -14,7 +14,7 @@ import services.YagoImportService;
 @RestController
 public class YagoImportController {
 	
-	@RequestMapping("/import")
+	@RequestMapping("app/import")
 	public ResponseEntity<String> yagoImport() {
     	boolean status = Progress.startTrackingLoading();
     	if (status == true){
@@ -25,7 +25,7 @@ public class YagoImportController {
 		return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@RequestMapping("/status")
+	@RequestMapping("app/status")
 	public Progress sendStatusJSON() throws IOException, ParseException {
 		Progress progrs = Progress.getStatus();
 		return progrs;

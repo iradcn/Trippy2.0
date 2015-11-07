@@ -12,7 +12,7 @@ import DAO.CategoryDAO;
 
 @RestController
 public class CategoryController {
-	@RequestMapping(value="/get_all_categories", method=RequestMethod.GET)
+	@RequestMapping(value="app/get_all_categories", method=RequestMethod.GET)
 	public List<Category> getAllCats() throws Exception {//TODO:
 		
 		List<Category> allCats = CategoryDAO.getAllCategories();

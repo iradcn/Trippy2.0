@@ -1,12 +1,9 @@
 package protocol_model;
 
+import java.beans.PropertyEditorSupport;
+
 import com.google.gson.Gson;
 //import com.sun.org.apache.xml.internal.security.utils.Base64;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
-
-import java.beans.PropertyEditorSupport;
 
 /**
  * Created by nimrod on 6/6/15.

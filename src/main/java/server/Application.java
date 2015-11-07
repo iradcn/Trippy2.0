@@ -3,12 +3,14 @@ package server;
 import org.json.simple.parser.ParseException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 
 import services.ConnectionConfig;
 import services.Progress;
 
 import java.io.IOException;
 
+@EnableWebMvcSecurity
 @SpringBootApplication
 public class Application {
 

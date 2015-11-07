@@ -1,12 +1,9 @@
 package protocol_model;
 
-import model.Category;
-import model.Location;
-import model.Property;
-
-import java.beans.PropertyEditor;
 import java.util.ArrayList;
 import java.util.List;
+
+import model.Location;
 
 /**
  * Created by nimrod on 6/6/15.

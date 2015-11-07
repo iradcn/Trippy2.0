@@ -31,7 +31,7 @@ public class Location {
         this.lat = lat;
     }
 
-    public void Location(){}
+    public Location(){}
 
     double lon;
 }

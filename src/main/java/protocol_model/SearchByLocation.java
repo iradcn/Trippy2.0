@@ -15,7 +15,7 @@ public class SearchByLocation {
         return loc;
     }
 
-    public void SearchByLocation() {
+    public SearchByLocation() {
         categories = new ArrayList<>();
         properties = new ArrayList<>();
     }

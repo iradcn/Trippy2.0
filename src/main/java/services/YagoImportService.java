@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import model.Place;
 import DAO.PlaceDAO;
 import DAO.PropertyDAO;
-import model.Place;
-import model.Property;
 
 /**
  * Created by nimrod on 5/24/15.
