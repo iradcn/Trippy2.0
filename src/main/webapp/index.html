@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Spring Security Example </title>
+    <title> Trippy - The Only Trip You'll Ever Need </title>
 
     <link rel="stylesheet" type="text/css" href="/common/stylesheets/jquery-ui.min.css"></link>
     <link rel="stylesheet" type="text/css" href="/common/stylesheets/jquery-ui.structure.min.css"></link>
@@ -34,6 +34,9 @@
     }
     .jumbotron * {
         text-align: center;
+    }
+    fb:login-button.fb_iframe_widget {
+        width: 100%;
     }
 </style>
 <body>
@@ -116,7 +119,7 @@
     <div class="jumbotron">
         <h1>Welcome to Trippy</h1>
         <p>The best trip you'll ever have</p>
-        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" width="200px">
         </fb:login-button>
     </div>
 </div>
