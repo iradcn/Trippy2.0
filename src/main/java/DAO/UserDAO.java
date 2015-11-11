@@ -53,13 +53,12 @@ public class UserDAO {
 		stmt.setString(1, user.getUserId());
 		ResultSet rs = stmt.executeQuery();
 		JDBCConnection.closeConnection(conn);
-		
-		if (rs.wasNull())
-			Insert(user);
-		else
-			Update(user);
-		
-		
+
+        if (!rs.next()){
+            Insert(user);
+        } else {
+            Update(user);
+        }
     }
 
 }
