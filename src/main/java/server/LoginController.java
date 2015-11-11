@@ -16,10 +16,12 @@ import security.LoginBusinessLayer;
 
 @RestController
 public class LoginController {
+	
 	@Autowired
 	AuthenticationManager authenticationManager;
 	
-	LoginBusinessLayer loginBusinessLayer = new LoginBusinessLayer();
+	@Autowired
+	LoginBusinessLayer loginBusinessLayer;
 	
 	@RequestMapping(value="/login/facebook", method=RequestMethod.GET)
 	public void loginWithFacebook(
