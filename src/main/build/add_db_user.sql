@@ -1,6 +1,6 @@
 -- -----------------------------------------------------
 -- Create User and GRANT ACCESS
 -- -----------------------------------------------------
-CREATE USER 'DbMysql11'@'localhost' IDENTIFIED BY 'DbMysql11';
-GRANT ALL ON DbMysql11.* TO 'DbMysql11'@'localhost';
+CREATE USER 'trippy2'@'localhost' IDENTIFIED BY 'trippy2';
+GRANT ALL ON trippy2.* TO 'trippy2'@'localhost';
 
