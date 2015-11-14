@@ -1,63 +1,55 @@
 require.config({
-   paths: {
-       jquery: '/common/javascripts/libs/jquery-1.11.2',
-       underscore: 'libs/underscore',
-       backbone: 'libs/backbone',
-       bootstrap: '/common/javascripts/libs/bootstrap.min',
-       text: 'libs/text',
-       async: 'libs/requirejs-plugins/src/async',
-       ol: 'libs/ol',
+  paths: {
+    jquery: '/common/javascripts/libs/jquery-1.11.2',
+    underscore: 'libs/underscore',
+    backbone: 'libs/backbone',
+    bootstrap: '/common/javascripts/libs/bootstrap.min',
+    text: 'libs/text',
+    async: 'libs/requirejs-plugins/src/async',
+    ol: 'libs/ol',
 
-	   // Models
-	   Category: 'models/category',
-       Property: 'models/property',
-       ResponsePlace: 'models/response-place',
-       ResponseArea: 'models/response-area',
+    // Models
+    Category: 'models/category',
+    Property: 'models/property',
+    ResponsePlace: 'models/response-place',
 
-	   // Collections
-	   Categories: 'collections/categories',
-       Properties: 'collections/properties',
-       ResponsePlaces: 'collections/response-places',
-       ResponseAreas: 'collections/response-areas',
+    // Collections
+    Categories: 'collections/categories',
+    Properties: 'collections/properties',
+    ResponsePlaces: 'collections/response-places',
 
-       //views
-       YagoLoadView: 'views/yagoload',
-	   PlacesView: 'views/places',
-	   AreasView: 'views/areas',
-       SelectCategoriesView: 'views/select-categories',
-       SelectPropertiesView: 'views/select-properties',
-       ManagePropertiesView: 'views/manage-properties',
-	   ResponsePlaceView: 'views/response-place',
+    // Views
+    PlacesView: 'views/places',
+    SelectCategoriesView: 'views/select-categories',
+    SelectPropertiesView: 'views/select-properties',
+    ManagePropertiesView: 'views/manage-properties',
+    ResponsePlaceView: 'views/response-place',
 
-       //routers
-       MainRouter: 'router',
-   },
+    // Routers
+    MainRouter: 'router',
+  },
 
-    shim: {
-        'backbone': {
-            deps:['underscore','jquery'],
-            exports: 'Backbone'
-        },
-        'underscore': {
-            exports: '_'
-        },
-        'bootstrap': {
-            deps:['jquery']
-        },
-        'ol':{
-            exports: 'ol'
-        }
-
+  shim: {
+    'backbone': {
+      deps:['underscore','jquery'],
+      exports: 'Backbone'
+    },
+    'underscore': {
+      exports: '_'
+    },
+    'bootstrap': {
+      deps:['jquery']
+    },
+    'ol':{
+      exports: 'ol'
     }
-
-
+  }
 });
 
 require([
-    'MainRouter'
-
+  'MainRouter'
 ], function(MainRouter) {
-    MyGlobal.routers = {};
-    MyGlobal.routers.mainRouter = new MainRouter();
+  MyGlobal.routers = {};
+  MyGlobal.routers.mainRouter = new MainRouter();
 });
 
