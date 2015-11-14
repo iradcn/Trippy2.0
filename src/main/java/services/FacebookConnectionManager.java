@@ -8,8 +8,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
 
+import protocol_model.FacebookAuthResponse;
+import protocol_model.FacebookCheckInData;
+import protocol_model.FacebookPlaceEntry;
+
 import com.codesnippets4all.json.parsers.JSONParser;
 import com.codesnippets4all.json.parsers.JsonParserFactory;
+import com.google.gson.Gson;
 
 public class FacebookConnectionManager {
 
@@ -27,7 +32,7 @@ public class FacebookConnectionManager {
 	    AUTH, CHECK_INS;
 	}
 	
-	public Map sendFacebookRequest(RequestType reqType) throws IOException {
+	public String sendFacebookRequest(RequestType reqType) throws IOException {
 		String url = "";
 		URL obj;
 		HttpURLConnection con;
@@ -55,13 +60,21 @@ public class FacebookConnectionManager {
 
 		//print result
 		System.out.println(response.toString());
-		JsonParserFactory factory=JsonParserFactory.getInstance();
-		JSONParser parser=factory.newJsonParser();
-		Map jsonMap = parser.parseJson(response.toString());
-		return jsonMap;
 
+		return response.toString();
 	}
 	
+	public FacebookAuthResponse sendAuthRequest() throws IOException {
+		String respo = sendFacebookRequest(RequestType.AUTH);
+		FacebookAuthResponse authResponse = new Gson().fromJson(respo, FacebookAuthResponse.class);
+		return authResponse;
+	}
 	
+	public FacebookCheckInData sendCheckInRequest() throws IOException {
+		String respo = sendFacebookRequest(RequestType.CHECK_INS);
+		FacebookCheckInData checkInResponse = new Gson().fromJson(respo, FacebookCheckInData.class);
+		return checkInResponse;
+	}
+
 	
 }

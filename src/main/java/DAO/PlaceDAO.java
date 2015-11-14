@@ -7,6 +7,7 @@ import model.Category;
 import model.Location;
 import model.Place;
 import model.Property;
+import model.User;
 import protocol_model.ResultMultipleSearch;
 import protocol_model.SearchByLocation;
 import protocol_model.SearchByMultipleLocation;
@@ -47,6 +48,11 @@ public class PlaceDAO {
 
 	private static String deletePlacesSQL = "DELETE from places";
 	private static String deletePlacesCatsSQL = "DELETE from places_categories";
+	private static String selectByName = "SELECT `Id` from places where TRIM(LOWER(places.name))=TRIM(LOWER(?))";
+	private static String insertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) values(?,?)";
+
+	
+	
 
 	public static void SavePlacesAndPlaceCats(List<Place> places) throws SQLException {
 		//perform update, if fails rollback and throw sql exception	
@@ -177,4 +183,35 @@ public class PlaceDAO {
 
 		return  result;
 	}
+	
+	public static Place findPlaceByName(String placeName) throws SQLException {
+		Connection conn = JDBCConnection.getConnection();
+
+		PreparedStatement selectPlaces = null;
+		selectPlaces = conn.prepareStatement(selectByName);
+		selectPlaces.setString(1, placeName);
+
+		ResultSet rs = JDBCConnection.executeQuery(selectPlaces, conn);
+		
+		if (rs.next()) {
+			Place newPlace = new Place(rs.getString(1));
+			return newPlace;
+		}
+		else {
+			return null;
+		}
+
+	}
+	
+	public static void insertCheckIn(User user, Place place) throws SQLException {
+		Connection conn = JDBCConnection.getConnection();
+		PreparedStatement checkInSt;
+		checkInSt = conn.prepareStatement(insertCheckIn);
+		checkInSt.setString(1,user.getUserId());
+		checkInSt.setString(2,place.getGoogleId());
+		List<PreparedStatement> lst = new ArrayList<>();
+		lst.add(checkInSt);
+		JDBCConnection.executeUpdate(lst, conn);
+	}
+	
 }

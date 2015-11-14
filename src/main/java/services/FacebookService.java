@@ -1,9 +1,15 @@
 package services;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.json.simple.JSONArray;
+
+import protocol_model.FacebookAuthResponse;
+import protocol_model.FacebookCheckInData;
+import protocol_model.FacebookPlaceEntry;
 import model.User;
 import services.FacebookConnectionManager.RequestType;
 
@@ -23,8 +29,8 @@ public class FacebookService {
 	}
 	
 	public boolean isLoggedToFB() throws IOException {
-		Map jsonMap = facebookConnectionManager.sendFacebookRequest(RequestType.AUTH);
-		if (jsonMap.get("id").equals(this.userID))
+		FacebookAuthResponse authRes = facebookConnectionManager.sendAuthRequest();
+		if (authRes.getId().equals(this.userID))
 			return true;
 		return false;
 	}
@@ -36,7 +42,8 @@ public class FacebookService {
 	}
 
 	public void saveUserCheckIns() throws IOException {
-		Map jsonMap = facebookConnectionManager.sendFacebookRequest(RequestType.CHECK_INS);
-		System.out.print(jsonMap.toString());
+		FacebookCheckInData checkInData = facebookConnectionManager.sendCheckInRequest();
+		List<FacebookPlaceEntry> entriesList = checkInData.getData();
+		System.out.print(entriesList.toString());
 	}
 }
