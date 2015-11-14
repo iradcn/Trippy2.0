@@ -19,6 +19,18 @@
 <body>
 
 <script>
+    var FB_API_VERSION = 'v2.2';
+    var APP_ID = '1662478060658059';
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : APP_ID,
+            cookie     : true,  // enable cookies to allow the server to access
+            xfbml      : true,  // parse social plugins on this page
+            version    : FB_API_VERSION // use version 2.2
+        });
+    };
+
     $(document).ready(function(){
         MyGlobal.Controllers.Login.init();
     });
