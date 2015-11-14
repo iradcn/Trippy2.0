@@ -18,7 +18,6 @@ define([
       initialize: function (options) {
         MyGlobal.collections = {};
         MyGlobal.collections.ResponsePlaces = new ResponsePlaces();
-        MyGlobal.collections.ResponseAreas = new ResponseAreas();
 
         MyGlobal.views = {};
         MyGlobal.views.select_categories_view = new SelectCategoriesView();
