@@ -15,6 +15,8 @@ import model.Place;
 import org.json.simple.parser.ParseException;
 
 import model.Category;
+import model.CategoryMap;
+import model.EnumCategory;
 import model.Location;
 
 public class GoogleParser {
@@ -40,7 +42,10 @@ public class GoogleParser {
                     String[] categoriesInfo = line.substring(index+1, line.length() - 2).split(",");
                     HashSet<Category> categoriesSet = new HashSet<>();
                     for (String categoryStr : categoriesInfo) {
-                        categoriesSet.add(new Category(categoryStr));
+                    	if(!CategoryMap.getMap().containsKey(categoryStr))
+                    		continue;
+                    	int CategoryIndex = CategoryMap.getMap().get(categoryStr);
+                        categoriesSet.add(new Category(CategoryIndex,categoryStr));
                     }
                     Location loc = new Location();
                     loc.setLat(Double.parseDouble(placeInfo[2]));

@@ -29,6 +29,7 @@ public class Category extends AbstractEntity {
         super.myType = typeOf.Category;
         super.setId(id);
         super.setName(name);
+        this.setGoogleId("");
     }
     public static Map<Integer,Category> loadAll() throws FileNotFoundException, IOException, ParseException, SQLException{
 		CategoryDAO catDao = new CategoryDAO();
