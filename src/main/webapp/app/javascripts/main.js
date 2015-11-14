@@ -1,6 +1,7 @@
 require.config({
   paths: {
     jquery: '/common/javascripts/libs/jquery-1.11.2',
+    jqueryui: '/common/javascripts/libs/jquery-ui.min',
     underscore: 'libs/underscore',
     backbone: 'libs/backbone',
     bootstrap: '/common/javascripts/libs/bootstrap.min',
@@ -12,6 +13,7 @@ require.config({
     Category: 'models/category',
     Property: 'models/property',
     ResponsePlace: 'models/response-place',
+    Vote: 'models/vote',
 
     // Collections
     Categories: 'collections/categories',
@@ -24,6 +26,7 @@ require.config({
     SelectPropertiesView: 'views/select-properties',
     ManagePropertiesView: 'views/manage-properties',
     ResponsePlaceView: 'views/response-place',
+    VoteView: 'views/vote',
 
     // Routers
     MainRouter: 'router',

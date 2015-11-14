@@ -31,7 +31,8 @@ public abstract class AbstractEntity {
         Category,
         City,
         Country,
-        Place
+        Place,
+        Vote
     };
     protected typeOf myType;
 

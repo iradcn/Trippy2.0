@@ -6,9 +6,10 @@ define([
   'SelectCategoriesView',
   'SelectPropertiesView',
   'ManagePropertiesView',
+  'VoteView',
   'ResponsePlaces',
 ], function($, _, Backbone, PlacesView, SelectCategoriesView,
-            SelectPropertiesView, ManagePropertiesView, ResponsePlaces) {
+            SelectPropertiesView, ManagePropertiesView, VoteView, ResponsePlaces) {
     var AppRouter = Backbone.Router.extend({
       routes: {
         "places": "placesRoute",
@@ -25,12 +26,14 @@ define([
 
         this.places_view = new PlacesView();
         this.manage_properties_view = new ManagePropertiesView();
+	this.vote_view = new VoteView();
 
         Backbone.history.start();
       },
       placesRoute: function() {
         $('#places-tab').tab('show');
         this.places_view.render();
+	this.vote_view.render();
       },
       managePropertiesRoute: function(){
         $('#manage-properties-tab').tab('show');

@@ -152,3 +152,10 @@ label {
 .rename-property-col {
 	border-right: dotted darkgray 1px;
 }
+
+
+/* --- Voting Modal Dialog --- */
+
+.dlg-no-title .ui-dialog-titlebar {
+  display: none;
+}
