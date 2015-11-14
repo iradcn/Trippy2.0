@@ -61,9 +61,11 @@ public class PlaceDAO {
 			insertPlaceState.setDouble(4, place.getLoc().getLon());
 			insertPlaceState.addBatch();
 
+
+
 			for (Category cat : place.getCategories()) {
 				insertPlaceCategoryState.setString(1, place.getGoogleId());
-				insertPlaceCategoryState.setString(2, cat.getGoogleId());
+				insertPlaceCategoryState.setInt(2, cat.getId());
 				insertPlaceCategoryState.addBatch();
 			}
 		}
