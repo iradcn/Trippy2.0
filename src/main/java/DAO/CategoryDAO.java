@@ -19,6 +19,7 @@ import org.json.simple.parser.ParseException;
  * Created by nimrod on 5/24/15.
  */
 public class CategoryDAO {
+
 	public Map<Integer, Category> selectAll() throws FileNotFoundException,
 			IOException, ParseException, SQLException {
 		Map<Integer, Category> categoryMap = new HashMap<Integer, Category>();

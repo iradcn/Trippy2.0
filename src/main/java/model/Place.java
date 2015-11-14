@@ -31,15 +31,15 @@ public class Place extends AbstractEntity {
         loc = new Location();
     }
 
-    public Place(String googleId, HashSet<Category> categories, Location loc, String name) {
+    public Place(String googleId, String name, Location loc, HashSet<Category> categories) {
         super.setGoogleId(googleId);
-        if (this.categories != null) {
+        if (categories != null) {
             this.categories = categories;
         }
         else {
             this.categories = new HashSet<>();
         }
-        if (this.loc != null) {
+        if (loc != null) {
             this.loc = loc;
         }
         else {

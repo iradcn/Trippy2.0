@@ -21,6 +21,8 @@ public class Category extends AbstractEntity {
 
     public Category(String name) {
         this.setName(name);
+        super.myType = typeOf.Category;
+        this.setGoogleId("");
     }
 	
     public Category(int id, String name) {

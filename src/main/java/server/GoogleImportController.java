@@ -9,26 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import services.Progress;
-import services.YagoImportService;
+import services.GoogleImportService;
 
 @RestController
-public class YagoImportController {
+public class GoogleImportController {
 	
 	@RequestMapping("app/import")
 	public ResponseEntity<String> yagoImport() {
-    	boolean status = Progress.startTrackingLoading();
-    	if (status == true){
-    		YagoImportService yagoIS = new YagoImportService();
-    		new Thread(yagoIS).start();
-			return new ResponseEntity<String>(HttpStatus.OK);
-    	}
+    		GoogleImportService googleImportService = new GoogleImportService();
+		googleImportService.importData();
 		return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-	
-	@RequestMapping("app/status")
-	public Progress sendStatusJSON() throws IOException, ParseException {
-		Progress progrs = Progress.getStatus();
-		return progrs;
-	}
-	
 }
