@@ -16,7 +16,6 @@ import org.json.simple.parser.ParseException;
 
 import model.Category;
 import model.CategoryMap;
-import model.EnumCategory;
 import model.Location;
 
 public class GoogleParser {
