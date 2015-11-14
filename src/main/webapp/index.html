@@ -3,111 +3,26 @@
 <head>
     <title> Trippy - The Only Trip You'll Ever Need </title>
 
-    <link rel="stylesheet" type="text/css" href="/common/stylesheets/jquery-ui.min.css"></link>
-    <link rel="stylesheet" type="text/css" href="/common/stylesheets/jquery-ui.structure.min.css"></link>
-    <link rel="stylesheet" type="text/css" href="/common/stylesheets/jquery-ui.theme.min.css"></link>
-    <link rel="stylesheet" type="text/css" href="/common/stylesheets/bootstrap.min.css"></link>
-    <link rel="stylesheet" type="text/css" href="/common/stylesheets/bootstrap-theme.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="/common/stylesheets/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/common/stylesheets/jquery-ui.structure.min.css">
+    <link rel="stylesheet" type="text/css" href="/common/stylesheets/jquery-ui.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/common/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/common/stylesheets/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/login/stylesheets/style.css">
 
     <script src="/common/javascripts/libs/jquery-1.11.2.js"></script>
     <script src="/common/javascripts/libs/jquery-ui.min.js"></script>
     <script src="/common/javascripts/libs/bootstrap.min.js"></script>
+    <script src="/login/javascripts/facebook-load.js"></script>
+    <script src="/login/javascripts/login-controller.js"></script>
 </head>
-<style>
-    html {
-        background-image: url('/login/images/compass-and-map.jpg');
-        background-size: 100%;
-
-    }
-    .jumbotron-container {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-    }
-    .jumbotron {
-        margin-top: 150px;
-        margin-right: auto;
-        margin-left: auto;
-        width: 700px;
-        opacity: 0.85;
-        border-radius: 10px;
-    }
-    .jumbotron * {
-        text-align: center;
-    }
-    fb:login-button.fb_iframe_widget {
-        width: 100%;
-    }
-</style>
 <body>
 
 <script>
-    // This is called with the results from from FB.getLoginStatus().
-    function statusChangeCallback(response) {
-        console.log('statusChangeCallback');
-        console.log(response);
-        if (response.status === 'connected') {
-            authenticateServer(response);
-        } else if (response.status === 'not_authorized') {
-            document.getElementById('status').innerHTML = 'Please log ' +
-                    'into this app.';
-        } else {
-            document.getElementById('status').innerHTML = 'Please log ' +
-                    'into Facebook.';
-        }
-    }
-
-    function checkLoginState() {
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
-    }
-
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId      : '1662478060658059',
-            cookie     : true,  // enable cookies to allow the server to access
-            xfbml      : true,  // parse social plugins on this page
-            version    : 'v2.2' // use version 2.2
-        });
-    };
-
-    // Load the SDK asynchronously
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-    function testAPI() {
-        console.log('Welcome!  Fetching your information.... ');
-        FB.api('/me', function(response) {
-            console.log('Successful login for: ' + response.name);
-        });
-    }
-
-    function authenticateServer(response) {
-
-        var basedUrl = "/login/facebook";
-        var accessTokenParam = "accessToken="+response.authResponse.accessToken;
-        var signedRequestParam = "signedRequest="+response.authResponse.signedRequest;
-        var userIdParam = "userID="+response.authResponse.userID;
-        var requestUrl = basedUrl+'?'+accessTokenParam+'&'+signedRequestParam+'&'+userIdParam;
-
-        $.ajax({
-            url: requestUrl
-        }).fail(function(err){
-            console.log(err)
-        }).done(function(res){
-            console.log(res);
-            window.location.pathname = "/app/index.html";
-        });
-    }
-
+    $(document).ready(function(){
+        MyGlobal.Controllers.Login.init();
+    });
 </script>
-
 
 <form method="post" action="/login/facebook" style="display: none;" class="loginForm">
     <input name="accessToken" class="accessToken" />
@@ -119,8 +34,8 @@
     <div class="jumbotron">
         <h1>Welcome to Trippy</h1>
         <p>The best trip you'll ever have</p>
-        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" width="200px">
-        </fb:login-button>
+        <a class="fb-button"><img class="fb-button" src="login/images/login.png"/></a>
+        <p class="error-msg"></p>
     </div>
 </div>
 
