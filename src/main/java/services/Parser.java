@@ -22,7 +22,6 @@ public class Parser {
     private final String PATH = "Resources//yagoGeonamesTypes.tsv";
     public void init(Progress progrs) throws IOException, ParseException, SQLException {
          br = new BufferedReader(new FileReader(PATH));
-         allCategories = Category.loadAll();
          progrs.setLocal_total_read(this.countOverallItems());
     }
 

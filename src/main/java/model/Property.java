@@ -11,7 +11,7 @@ import DAO.PropertyDAO;
 public class Property  extends AbstractEntity {
     public Property (int id) {
 		super.setId(id);
-		super.setYagoId("");
+		super.setGoogleId("");
     }
 	public Property () {
 	}

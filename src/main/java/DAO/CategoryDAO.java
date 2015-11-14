@@ -19,17 +19,16 @@ import org.json.simple.parser.ParseException;
  * Created by nimrod on 5/24/15.
  */
 public class CategoryDAO {
-	public Map<String, Category> selectAll() throws FileNotFoundException,
+	public Map<Integer, Category> selectAll() throws FileNotFoundException,
 			IOException, ParseException, SQLException {
-		Map<String, Category> categoryMap = new HashMap<String, Category>();
+		Map<Integer, Category> categoryMap = new HashMap<Integer, Category>();
 
 		ResultSet rs = getAllCatsHelper();
 
 		while (rs.next() == true) {
-			String yagoId = rs.getNString("yagoid");
 			int id = rs.getInt("id");
 			String name = rs.getString("name");
-			categoryMap.put(yagoId, new Category(yagoId, id, name));
+			categoryMap.put(id, new Category(id, name));
 
 		}
 
@@ -41,10 +40,9 @@ public class CategoryDAO {
 		ResultSet rs = getAllCatsHelper();
 		
 		while (rs.next() == true) {
-			String yagoId = rs.getNString("yagoid");
 			int id = rs.getInt("id");
 			String name = rs.getString("name");
-			allCats.add(new Category(yagoId, id, name));
+			allCats.add(new Category(id, name));
 
 		}
 		

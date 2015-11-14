@@ -6,7 +6,7 @@ package model;
 public abstract class AbstractEntity {
     private int id;
     private String name;
-    private String yagoId;
+    private String googleId;
 
     @Override
     public boolean equals(Object o) {
@@ -16,14 +16,14 @@ public abstract class AbstractEntity {
         AbstractEntity that = (AbstractEntity) o;
 
         if (id != that.id) return false;
-        return yagoId.equals(that.yagoId);
+        return googleId.equals(that.googleId);
 
     }
 
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + yagoId.hashCode();
+        result = 31 * result + googleId.hashCode();
         return result;
     }
 
@@ -55,11 +55,11 @@ public abstract class AbstractEntity {
         this.name = name;
     }
 
-    public String getYagoId() {
-        return yagoId;
+    public String getGoogleId() {
+        return googleId;
     }
 
-    public void setYagoId(String yagoId) {
-        this.yagoId = yagoId;
+    public void setGoogleId(String googleId) {
+        this.googleId = googleId;
     }
 }

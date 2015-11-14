@@ -24,8 +24,6 @@ public class YagoImportService implements Runnable {
     	Progress progrs = Progress.getStatus();
         try{
 
-			System.out.println("Drop Foreign Keys");
-			PlaceDAO.dropForeignKeys();
 
 			System.out.println("Delete All Places");
 			PlaceDAO.deleteAllPlaces();
@@ -53,7 +51,6 @@ public class YagoImportService implements Runnable {
 			PropertyDAO.SyncPlacesProperties();
 
 			System.out.println("Create foreign Keys");
-			PlaceDAO.createForeignKeys();
         	progrs.setFinish();
         }catch(Exception e){
         	progrs.setError();

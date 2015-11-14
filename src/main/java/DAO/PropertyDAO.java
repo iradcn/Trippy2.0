@@ -19,13 +19,13 @@ public class PropertyDAO {
     //private static String selectProperty = "SELECT * FROM property WHERE name=?";
     //private static String selectPropertyById = "SELECT * FROM property WHERE id=?";
     private static String updateProperty = "UPDATE properties SET `name`=? WHERE `id`=?";
-    private static String syncProperties = "DELETE FROM placesprops"
+    private static String syncProperties = "DELETE FROM places_props"
             + " WHERE PlaceId NOT IN (SELECT Id from places)";
     private static String deleteProperty = "DELETE FROM properties WHERE `id`=?";
-    private static String deletePropPlaces = "DELETE FROM placesprops WHERE 'PropId'=?";
+    private static String deletePropPlaces = "DELETE FROM places_props WHERE 'PropId'=?";
     private static String getAllProperties = "SELECT * FROM properties";
-    private static String InsertPropToPlace = "INSERT INTO placesprops (PlaceId,PropId) Values(?,?)";
-    private static String DeletePropFromPlace = "DELETE FROM placesprops WHERE PlaceId=? AND PropId=?";
+    private static String InsertPropToPlace = "INSERT INTO places_props (PlaceId,PropId) Values(?,?)";
+    private static String DeletePropFromPlace = "DELETE FROM places_props WHERE PlaceId=? AND PropId=?";
 
     public static void Insert(Property prop) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
@@ -80,7 +80,7 @@ public class PropertyDAO {
     public static void AddPropToPlace(Place placeToAdd) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
         PreparedStatement addPropPlace = conn.prepareStatement(InsertPropToPlace);
-        addPropPlace.setString(1, placeToAdd.getYagoId());
+        addPropPlace.setString(1, placeToAdd.getGoogleId());
         addPropPlace.setInt(2, placeToAdd.getProperties().iterator().next().getId());
         List<PreparedStatement> statements = new ArrayList<>();
         statements.add(addPropPlace);
@@ -90,7 +90,7 @@ public class PropertyDAO {
     public static void RemovePropFromPlace(Place placeToAdd) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
         PreparedStatement addPropPlace = conn.prepareStatement(DeletePropFromPlace);
-        addPropPlace.setString(1, placeToAdd.getYagoId());
+        addPropPlace.setString(1, placeToAdd.getGoogleId());
         addPropPlace.setInt(2, placeToAdd.getProperties().iterator().next().getId());
         List<PreparedStatement> statements = new ArrayList<>();
         statements.add(addPropPlace);
