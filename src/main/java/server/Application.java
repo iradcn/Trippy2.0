@@ -18,7 +18,6 @@ import java.io.IOException;
 public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
         try {
             ConnectionConfig.init();
         } catch (IOException e) {
@@ -26,7 +25,6 @@ public class Application {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Progress.initGlobal();
-           
+        SpringApplication.run(Application.class, args);    
     }
 }
