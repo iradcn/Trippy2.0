@@ -31,8 +31,10 @@ public class LoginController {
 			@RequestParam(value="userID", required=true) String userID) throws IOException, SQLException {
 		
 		
-		loginBusinessLayer.loginWithFacebook(accessToken, userID, request, authenticationManager);
-		
+		boolean isLoggedToFB = loginBusinessLayer.loginWithFacebook(accessToken, userID, request, authenticationManager);
+		if (isLoggedToFB) {
+			
+		}
 	}
 	
 
