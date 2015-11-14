@@ -4,8 +4,9 @@ package model;
  * Created by nimrod on 6/6/15.
  */
 public class Location {
-    double lat;
-    int radius;
+    private double lat;
+    private int radius;
+    private double lon;
 
     public int getRadius() {
         return radius;
@@ -33,5 +34,5 @@ public class Location {
 
     public Location(){}
 
-    double lon;
+
 }

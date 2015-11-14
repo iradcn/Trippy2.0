@@ -18,12 +18,34 @@ import protocol_model.SearchByMultipleLocation;
  * Created by nimrod on 5/24/15.
  */
 public class Place extends AbstractEntity {
-    public Place(String yagoId) {
-        super.setYagoId(yagoId);
+
+    private Location loc;
+    private Set<Category> categories;
+    private Set<Property> properties;
+
+    public Place(String googleId) {
+        super.setGoogleId(googleId);
         super.myType = typeOf.Place;
         categories = new HashSet<Category>();
         properties = new HashSet<>();
         loc = new Location();
+    }
+
+    public Place(String googleId, HashSet<Category> categories, Location loc, String name) {
+        super.setGoogleId(googleId);
+        if (this.categories != null) {
+            this.categories = categories;
+        }
+        else {
+            this.categories = new HashSet<>();
+        }
+        if (this.loc != null) {
+            this.loc = loc;
+        }
+        else {
+            this.loc = new Location();
+        }
+        this.setName(name);
     }
 
     public Set<Category> getCategories() {
@@ -60,9 +82,6 @@ public class Place extends AbstractEntity {
         this.properties = properties;
     }
 
-    private Location loc;
-    private Set<Category> categories;
-    private Set<Property> properties;
 
     public static List<ResultMultipleSearch> gePlacesAggregation(SearchByMultipleLocation searchQueryJson) throws SQLException {
         return (PlaceDAO.getPlacesAggregation(searchQueryJson));

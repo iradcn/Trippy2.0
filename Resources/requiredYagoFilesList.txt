@@ -1,2 +1,0 @@
-yagoGeonamesOnlyData.tsv
-yagoGeonamesTypes.tsv

@@ -18,23 +18,19 @@ public class Category extends AbstractEntity {
 	public Category() {
 		
 	}
+
+    public Category(String name) {
+        this.setName(name);
+    }
 	
-    public Category(String yagoId, int id, String name) {
-        super.setYagoId(yagoId);
+    public Category(int id, String name) {
         super.myType = typeOf.Category;
         super.setId(id);
         super.setName(name);
     }
-    public static Map<String,Category> loadAll() throws FileNotFoundException, IOException, ParseException, SQLException{
+    public static Map<Integer,Category> loadAll() throws FileNotFoundException, IOException, ParseException, SQLException{
 		CategoryDAO catDao = new CategoryDAO();
-		Map<String,Category> categories = catDao.selectAll();
+		Map<Integer,Category> categories = catDao.selectAll();
     	return categories;
-    }
-    public static Category isYagoIdInCatList(List<Category> categories,String yagoId){
-    	for (Category cat : categories){
-    		if (cat.getYagoId().equals(yagoId))
-    			return cat;
-    	}
-    	return null;
     }
 }
