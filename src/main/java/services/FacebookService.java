@@ -2,16 +2,12 @@ package services;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
-import org.json.simple.JSONArray;
-
+import model.User;
 import protocol_model.FacebookAuthResponse;
 import protocol_model.FacebookCheckInData;
 import protocol_model.FacebookPlaceEntry;
-import model.User;
-import services.FacebookConnectionManager.RequestType;
 
 public class FacebookService {
 	

@@ -4,16 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Map;
 
 import protocol_model.FacebookAuthResponse;
 import protocol_model.FacebookCheckInData;
-import protocol_model.FacebookPlaceEntry;
 
-import com.codesnippets4all.json.parsers.JSONParser;
-import com.codesnippets4all.json.parsers.JsonParserFactory;
 import com.google.gson.Gson;
 
 public class FacebookConnectionManager {

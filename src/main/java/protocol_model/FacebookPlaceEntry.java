@@ -1,7 +1,5 @@
 package protocol_model;
 
-import java.util.List;
-
 public class FacebookPlaceEntry {
 	public String getId() {
 		return id;
