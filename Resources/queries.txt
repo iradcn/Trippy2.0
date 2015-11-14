@@ -1,9 +1,0 @@
-Query One:
-Request: lat,long,radius,List<category>,List<property>
-Response: [{lat,long,List<cats>,List<places>}]
-
-Query Two:
-Request: {[{lat,long,radius}],category,property}
-examples: {locs : [{"loc" : {"lat":32.053618, "lon": 34.788778, "radius" : 100 }}, {"loc" : {"lat":32.053618, "lon": 34.788778, "radius" : 50 }}], "category" : "<geoclass_park>"}
-          searchQueryJson={locs : [{"loc" : {"lat":32.053618, "lon": 34.788778, "radius" : 100 }}, {"loc" : {"lat":32.053618, "lon": 34.788778, "radius" : 50 }}], "category" : "<geoclass_park>", "property"=1}
-Response: [{lat,long,radius,number}]
