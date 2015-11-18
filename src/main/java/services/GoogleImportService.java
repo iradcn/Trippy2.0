@@ -16,11 +16,14 @@ public class GoogleImportService {
 
         try{
 			List<Place> allPlaces = new ArrayList<>();
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Tel-Aviv_demo_tab.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Yarkon_demo_pipe.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Yafo_demo_pipe.txt"));
 			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Jerusalem_demo_pipe.txt"));
 			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Eilat_demo_pipe.txt"));
 			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Haifa_demo_pipe.txt"));
 			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Rishon_demo_pipe.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Rosh_Pina_pipe.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/BeerSheva_demo_pipe.txt"));
 			PlaceDAO.SavePlacesAndPlaceCats(allPlaces);
         }catch(Exception e){
         	System.out.println("Error has occured:"+e.getStackTrace());

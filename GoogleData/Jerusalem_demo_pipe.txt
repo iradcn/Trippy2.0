@@ -1,0 +1,881 @@
+ChIJnVU7he0pAxURQVsspvgIa-w|Hadassah-Helicopters Airfield|31.799121|35.24072|[airport, point_of_interest, establishment]|
+ChIJnVU7he0pAxURQVsspvgIa-w|Hadassah-Helicopters Airfield|31.799121|35.24072|[airport, point_of_interest, establishment]|
+ChIJnVU7he0pAxURQVsspvgIa-w|Hadassah-Helicopters Airfield|31.799121|35.24072|[airport, point_of_interest, establishment]|
+ChIJudczzAMoAxUR3wK5FSx6qT0|חוות אייל|31.740316|35.21788199999999|[amusement_park, point_of_interest, establishment]|
+ChIJudczzAMoAxUR3wK5FSx6qT0|חוות אייל|31.740316|35.21788199999999|[amusement_park, point_of_interest, establishment]|
+ChIJudczzAMoAxUR3wK5FSx6qT0|חוות אייל|31.740316|35.21788199999999|[amusement_park, point_of_interest, establishment]|
+ChIJgwDqNNbXAhUR_DOD8XpnL5Y|The Tisch Family Zoological Gardens|31.7460012|35.1770265|[zoo, point_of_interest, establishment]|
+ChIJ4bm9OwIoAxURiZsutJtnah4|Animals Zone|31.740737|35.216656|[zoo, point_of_interest, establishment]|
+ChIJgwDqNNbXAhUR_DOD8XpnL5Y|The Tisch Family Zoological Gardens|31.7460012|35.1770265|[zoo, point_of_interest, establishment]|
+ChIJ4bm9OwIoAxURiZsutJtnah4|Animals Zone|31.740737|35.216656|[zoo, point_of_interest, establishment]|
+ChIJgwDqNNbXAhUR_DOD8XpnL5Y|The Tisch Family Zoological Gardens|31.7460012|35.1770265|[zoo, point_of_interest, establishment]|
+ChIJ4bm9OwIoAxURiZsutJtnah4|Animals Zone|31.740737|35.216656|[zoo, point_of_interest, establishment]|
+ChIJ196dWCwoAxURf0QAB2xvdWU|Inbal|31.770619|35.22197500000001|[lodging, spa, point_of_interest, establishment]|
+ChIJ3c29KHLXAhUR9TB16vDFjB4|Hotel Boutique Alegra|31.76768099999999|35.1615447|[lodging, spa, point_of_interest, establishment]|
+ChIJnWz5kdYpAxURJ-dC5ogzIAU|Bon-Voyage Ltd - Jerusalem|31.780161|35.21830909999999|[spa, point_of_interest, establishment]|
+ChIJaWiBiTHWAhURkYuyeyu8hks|פרינסס ספא: עיסוי בירושלים, מסאז', מסאג', חבילות ספא, מכון קוסמטיקה|31.7814612|35.2162783|[spa, beauty_salon, lodging, health, point_of_interest, establishment]|
+ChIJ-2zQNh8oAxURv46wSlmS-Hg|עיסויים ורפואה אלטרנטיבית|31.75231969999999|35.2198638|[spa, point_of_interest, establishment]|
+ChIJf2KWGN3XAhURS3NbLxS4UyM|The Magic Touch Jerusalem|31.7605361|35.2052909|[spa, point_of_interest, establishment]|
+ChIJ196dWCwoAxURf0QAB2xvdWU|Inbal|31.770619|35.22197500000001|[lodging, spa, point_of_interest, establishment]|
+ChIJ3c29KHLXAhUR9TB16vDFjB4|Hotel Boutique Alegra|31.76768099999999|35.1615447|[lodging, spa, point_of_interest, establishment]|
+ChIJnWz5kdYpAxURJ-dC5ogzIAU|Bon-Voyage Ltd - Jerusalem|31.780161|35.21830909999999|[spa, point_of_interest, establishment]|
+ChIJaWiBiTHWAhURkYuyeyu8hks|פרינסס ספא: עיסוי בירושלים, מסאז', מסאג', חבילות ספא, מכון קוסמטיקה|31.7814612|35.2162783|[spa, beauty_salon, lodging, health, point_of_interest, establishment]|
+ChIJ-2zQNh8oAxURv46wSlmS-Hg|עיסויים ורפואה אלטרנטיבית|31.75231969999999|35.2198638|[spa, point_of_interest, establishment]|
+ChIJf2KWGN3XAhURS3NbLxS4UyM|The Magic Touch Jerusalem|31.7605361|35.2052909|[spa, point_of_interest, establishment]|
+ChIJ196dWCwoAxURf0QAB2xvdWU|Inbal|31.770619|35.22197500000001|[lodging, spa, point_of_interest, establishment]|
+ChIJ3c29KHLXAhUR9TB16vDFjB4|Hotel Boutique Alegra|31.76768099999999|35.1615447|[lodging, spa, point_of_interest, establishment]|
+ChIJnWz5kdYpAxURJ-dC5ogzIAU|Bon-Voyage Ltd - Jerusalem|31.780161|35.21830909999999|[spa, point_of_interest, establishment]|
+ChIJaWiBiTHWAhURkYuyeyu8hks|פרינסס ספא: עיסוי בירושלים, מסאז', מסאג', חבילות ספא, מכון קוסמטיקה|31.7814612|35.2162783|[spa, beauty_salon, lodging, health, point_of_interest, establishment]|
+ChIJ-2zQNh8oAxURv46wSlmS-Hg|עיסויים ורפואה אלטרנטיבית|31.75231969999999|35.2198638|[spa, point_of_interest, establishment]|
+ChIJf2KWGN3XAhURS3NbLxS4UyM|The Magic Touch Jerusalem|31.7605361|35.2052909|[spa, point_of_interest, establishment]|
+ChIJZSLyiI7XAhURUd5cWIykvhs|Malha Mall|31.75160109999999|35.18731569999999|[shopping_mall, point_of_interest, establishment]|
+ChIJRa0fH9YpAxURUOl2s_b81Zk|City Tower|31.78128020000001|35.215666|[shopping_mall, parking, point_of_interest, establishment]|
+ChIJbc4Dz-HXAhURNTnsnpG0xmM|Hadar Mall|31.7535519|35.2135018|[shopping_mall, point_of_interest, establishment]|
+ChIJWXceCtcpAxURNOuxRWaT8eI|HaPa'amon Shopping Center|31.7828921|35.21780870000001|[shopping_mall, post_office, finance, point_of_interest, establishment]|
+ChIJW-5oFB4oAxURpb5D_1CQpeg|קניון ישראל תלפיות|31.7511274|35.2153954|[shopping_mall, point_of_interest, establishment]|
+ChIJewjEVDfWAhUR6kVvAcgOE60|מתחם פז סנטר העשור|31.7902447|35.1986694|[gas_station, car_repair, shopping_mall, point_of_interest, establishment]|
+ChIJcT5TDOTXAhURg4L568bJaOM|Lev Talpiot Mall|31.7506639|35.2085773|[shopping_mall, point_of_interest, establishment]|
+ChIJAQBtMdUpAxURQ_DDtHH-k9E|The Mill Shopping Center|31.77515459999999|35.2166822|[shopping_mall, point_of_interest, establishment]|
+ChIJVRXLZgXXAhURWuVfx333wOM|Grocery Store|31.7825479|35.1614936|[shopping_mall, point_of_interest, establishment]|
+ChIJiUdWWyYoAxURduWM3QrA0gQ|Lev Hamoshava|31.7623043|35.21861930000001|[shopping_mall, point_of_interest, establishment]|
+ChIJVVWgSUzWAhURaP5nS6gc2SI|Rami Levi|31.7883538|35.18505830000001|[shopping_mall, point_of_interest, establishment]|
+ChIJl7fzKN0pAxURd_bF2EtKYFc|כיכר זוועיל|31.7896843|35.2252511|[shopping_mall, point_of_interest, establishment]|
+ChIJj2DzDEzWAhURleVG3EBaBFE|Supersol Deal|31.78804390000001|35.1869316|[shopping_mall, point_of_interest, establishment]|
+ChIJW_RSL-DXAhURItldDBqXijk|Supersol Deal|31.75363549999999|35.2144936|[shopping_mall, point_of_interest, establishment]|
+ChIJVRU5ceTXAhURodfoE8NplTU|Supersol|31.7506558|35.2089491|[shopping_mall, point_of_interest, establishment]|
+ChIJCzIGySjWAhUR5NaImO4p5uc|Shukanyon Agripas|31.7854931|35.2098266|[shopping_mall, point_of_interest, establishment]|
+ChIJVVWJhMUpAxURGNDbDRIkbRs|Harochlim Market|31.7813339|35.2289914|[shopping_mall, point_of_interest, establishment]|
+ChIJbXZ2bB4oAxURob_7ShoQJSA|HaYatsranim Building|31.7508626|35.21645640000001|[shopping_mall, point_of_interest, establishment]|
+ChIJG4SG1CTWAhURiK8ByJ-_zt0|מרכז קניות שערי רווחה|31.7915177|35.2040077|[shopping_mall, point_of_interest, establishment]|
+ChIJAQCpczzYAhURUpz_kF8VgAw|HaMerkaz HaMisari HaHadash|31.730472|35.18784979999999|[shopping_mall, point_of_interest, establishment]|
+ChIJq-okHUbWAhURpJfh_go_tlY|Vehicle Certification Agency|31.785732|35.1866775|[shopping_mall, point_of_interest, establishment]|
+ChIJ9zjczCPWAhURDpFJNwMH4ko|Rav Shefa Shopping Center|31.7946792|35.20840829999999|[shopping_mall, point_of_interest, establishment]|
+ChIJU-pdJ4fXAhURzoqSfr0RkCE|משכנות משואה|31.7498034|35.1773216|[shopping_mall, point_of_interest, establishment]|
+ChIJWRO_ZDzYAhURAYXgyGQfh5U|Supersol Deal|31.7316964|35.1873154|[shopping_mall, point_of_interest, establishment]|
+ChIJHT5uA-TXAhUR5YCz3EGtaCI|Rav Mecher|31.752098|35.2087892|[shopping_mall, point_of_interest, establishment]|
+ChIJV49iXbTXAhURRnIGc68DdQ0|Co Op Shop|31.7805936|35.1887436|[shopping_mall, point_of_interest, establishment]|
+ChIJKZqDA-QpAxURX2hAFWLLBKo|Hackers Butcher Shop|31.79865169999999|35.2208395|[shopping_mall, point_of_interest, establishment]|
+ChIJVVWllOPXAhURkmb4U4tL3x8|Banit Shopping Center|31.7505547|35.2104249|[shopping_mall, point_of_interest, establishment]|
+ChIJNZHDfbIF-hQRGGVoVNFnrlo|Mega|31.7533248|35.213052|[shopping_mall, point_of_interest, establishment]|
+ChIJB1U3rbspAxURK1pJRNg2ipw|????????? ????????????|31.7784767|35.2444847|[shopping_mall, point_of_interest, establishment]|
+ChIJ_z9qd-TXAhURGU5RQelSfmY|Ace|31.7504526|35.20909939999999|[shopping_mall, point_of_interest, establishment]|
+ChIJq-q4GrHXAhURKkR9_XMfcMk|Smadar Shopping Center|31.7777418|35.1853643|[shopping_mall, point_of_interest, establishment]|
+ChIJY2qRjdEpAxURmTrXMB3CaNo|Mamilla Mall|31.7778796|35.2248572|[shopping_mall, point_of_interest, establishment]|
+ChIJnds9O7fXAhUROTpLe0XYGKI|Ahuzat Beit Hakerem|31.7755746|35.188288|[shopping_mall, point_of_interest, establishment]|
+ChIJ__-qdpzXAhURcylRY2ovMM8|Shupersal Sheli|31.7605129|35.1766227|[shopping_mall, point_of_interest, establishment]|
+ChIJyV6Lm9EpAxUR_xH9QPh8AOc|פדני שדרות ממילא|31.7784694|35.2234531|[shopping_mall, point_of_interest, establishment]|
+ChIJB0WOfzzYAhURuwQeVglnw50|Gilo Mall|31.7315897|35.1874022|[shopping_mall, point_of_interest, establishment]|
+ChIJq-okHUbWAhURpJfh_go_tlY|Vehicle Certification Agency|31.785732|35.1866775|[shopping_mall, point_of_interest, establishment]|
+ChIJ9zjczCPWAhURDpFJNwMH4ko|Rav Shefa Shopping Center|31.7946792|35.20840829999999|[shopping_mall, point_of_interest, establishment]|
+ChIJU-pdJ4fXAhURzoqSfr0RkCE|משכנות משואה|31.7498034|35.1773216|[shopping_mall, point_of_interest, establishment]|
+ChIJWRO_ZDzYAhURAYXgyGQfh5U|Supersol Deal|31.7316964|35.1873154|[shopping_mall, point_of_interest, establishment]|
+ChIJHT5uA-TXAhUR5YCz3EGtaCI|Rav Mecher|31.752098|35.2087892|[shopping_mall, point_of_interest, establishment]|
+ChIJV49iXbTXAhURRnIGc68DdQ0|Co Op Shop|31.7805936|35.1887436|[shopping_mall, point_of_interest, establishment]|
+ChIJKZqDA-QpAxURX2hAFWLLBKo|Hackers Butcher Shop|31.79865169999999|35.2208395|[shopping_mall, point_of_interest, establishment]|
+ChIJVVWllOPXAhURkmb4U4tL3x8|Banit Shopping Center|31.7505547|35.2104249|[shopping_mall, point_of_interest, establishment]|
+ChIJNZHDfbIF-hQRGGVoVNFnrlo|Mega|31.7533248|35.213052|[shopping_mall, point_of_interest, establishment]|
+ChIJB1U3rbspAxURK1pJRNg2ipw|????????? ????????????|31.7784767|35.2444847|[shopping_mall, point_of_interest, establishment]|
+ChIJ_z9qd-TXAhURGU5RQelSfmY|Ace|31.7504526|35.20909939999999|[shopping_mall, point_of_interest, establishment]|
+ChIJq-q4GrHXAhURKkR9_XMfcMk|Smadar Shopping Center|31.7777418|35.1853643|[shopping_mall, point_of_interest, establishment]|
+ChIJY2qRjdEpAxURmTrXMB3CaNo|Mamilla Mall|31.7778796|35.2248572|[shopping_mall, point_of_interest, establishment]|
+ChIJnds9O7fXAhUROTpLe0XYGKI|Ahuzat Beit Hakerem|31.7755746|35.188288|[shopping_mall, point_of_interest, establishment]|
+ChIJ__-qdpzXAhURcylRY2ovMM8|Shupersal Sheli|31.7605129|35.1766227|[shopping_mall, point_of_interest, establishment]|
+ChIJyV6Lm9EpAxUR_xH9QPh8AOc|פדני שדרות ממילא|31.7784694|35.2234531|[shopping_mall, point_of_interest, establishment]|
+ChIJB0WOfzzYAhURuwQeVglnw50|Gilo Mall|31.7315897|35.1874022|[shopping_mall, point_of_interest, establishment]|
+ChIJgarW_tUpAxURCqyLLxhFH8g|Angelica|31.773619|35.2215351|[restaurant, food, point_of_interest, establishment]|
+ChIJ9ZPR6yjWAhURXAEV2XEL8yw|מחניודה|31.7852311|35.211156|[restaurant, food, point_of_interest, establishment]|
+ChIJ65tOGdcpAxURWv5eWUEjsIQ|Rimon Cafe|31.7818685|35.2186543|[restaurant, cafe, food, point_of_interest, establishment]|
+ChIJrUytgS8oAxURN4AorRVPDLw|Colony|31.763054|35.2240563|[restaurant, food, point_of_interest, establishment]|
+ChIJrTQGByrWAhURiZW-WOGw52s|Mona|31.7799359|35.2143878|[restaurant, food, point_of_interest, establishment]|
+ChIJzz3a0ZLXAhURR0WS9uRxPZg|Grill Bar|31.78053469999999|35.2210702|[restaurant, food, point_of_interest, establishment]|
+ChIJjWM0kXHXAhUR0gzvkvA6pE4|פונדק עין כרם|31.7661225|35.1618148|[restaurant, food, point_of_interest, establishment]|
+ChIJSxMMi3PXAhURWx0_KrSjVAI|כרמא|31.7670381|35.162792|[restaurant, food, point_of_interest, establishment]|
+ChIJl9M-9tYpAxURd0Ey1-5oElE|Dublin|31.78102580000001|35.2176786|[restaurant, food, point_of_interest, establishment]|
+ChIJyfCYPtEpAxURkM3shlnI8j0|Lara|31.7795706|35.221277|[restaurant, food, point_of_interest, establishment]|
+ChIJvWw9KNcpAxURFJ8K7gIzQ-o|Tmol Shilshom|31.7809782|35.2199608|[book_store, store, cafe, restaurant, food, point_of_interest, establishment]|
+ChIJnVDl9dUpAxURkGShBqSYC8E|Link|31.7792442|35.2152882|[restaurant, food, point_of_interest, establishment]|
+ChIJrUytgS8oAxURIi9rAxwuU4E|Ha'Hatzer|31.7628876|35.2233029|[restaurant, food, point_of_interest, establishment]|
+ChIJPWFRmx8oAxUR8_GyhSy3490|Papagio|31.7539657|35.2177131|[restaurant, food, point_of_interest, establishment]|
+ChIJD2COYNIpAxUR7Iw_lL1x168|תאנים|31.77422550000001|35.2250648|[restaurant, food, point_of_interest, establishment]|
+ChIJJ8Y3l9UpAxURQz9UzRSfTfM|Chakra|31.7783059|35.2161626|[restaurant, food, point_of_interest, establishment]|
+ChIJs7Bt8CjWAhURknnbA_INs8Y|Fortuna|31.7845657|35.2114831|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJYZzWds4pAxURXrjc0PmXNy8|ויליג' גרין - village green|31.78145510000001|35.2205248|[restaurant, food, point_of_interest, establishment]|
+ChIJ196dWCwoAxURuOQdLJZHsuw|Sofia|31.7713046|35.2222124|[restaurant, food, point_of_interest, establishment]|
+ChIJb-E-FNEpAxURfFwYXmzyjvA|Canela|31.779476|35.2218741|[restaurant, food, point_of_interest, establishment]|
+ChIJn1UD3NMpAxURL-gq2RBuU-g|Waldorf Astoria Jerusalem|31.777383|35.22148|[restaurant, lodging, food, point_of_interest, establishment]|
+ChIJS0JoOtEpAxUR3gll6vATzhw|דולפין ים|31.77998619999999|35.2210615|[restaurant, food, point_of_interest, establishment]|
+ChIJtau_VMgpAxUR6gB96BmPfPw|מסעדת בין הקשתות: מסעדות כשרות בירושלים, מסעדה מומלצת לאירועים|31.77728549999999|35.2331999|[restaurant, food, point_of_interest, establishment]|
+ChIJrdy-Yi0oAxURFg5ETY-5Vyw|מסעדת לבן בסינמטק|31.76993059999999|35.2259204|[restaurant, food, point_of_interest, establishment]|
+ChIJPbwTz9MpAxUR2xLpOKOgIDA|Scala|31.7770673|35.2225617|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJJfzLO9EpAxURS5IRw_zZIiU|Gabriel|31.7798955|35.2211714|[restaurant, food, point_of_interest, establishment]|
+ChIJV32Lx9MpAxURjqfRdoXbEus|1868|31.77676609999999|35.2222313|[restaurant, food, point_of_interest, establishment]|
+ChIJC5HsLdcpAxUR2fy3AFA0viA|Mike's Place|31.7812411|35.2204837|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJX9ryIirWAhURCoDJPdSM5XU|Sushi-ya|31.7803213|35.21371709999999|[restaurant, food, point_of_interest, establishment]|
+ChIJdWxij80pAxURsB7W_iQoxu4|The Eucalyptus Restaurant|31.77463100000001|35.227071|[restaurant, food, point_of_interest, establishment]|
+ChIJBf8JD9opAxURx80OH3DKdik|Vaqueiro|31.7838637|35.2211613|[restaurant, food, point_of_interest, establishment]|
+ChIJ36p-SyrWAhURreoc9kFoIuo|Al Dante|31.77963179999999|35.21233529999999|[restaurant, food, point_of_interest, establishment]|
+ChIJt4ur_dQpAxUR69AAqSg5NJk|Primavera|31.77657589999999|35.2166646|[restaurant, food, point_of_interest, establishment]|
+ChIJC7woLdEpAxURqy_Whh8DH9g|Alma|31.78059179999999|35.2204701|[restaurant, food, point_of_interest, establishment]|
+ChIJ265CuNApAxURg9pJTdB1R1Y|דארנא דארכום בע"מ|31.7821163|35.221088|[restaurant, food, point_of_interest, establishment]|
+ChIJP5_LVijWAhURDgMoHhPkXcI|Topolino|31.7840833|35.2122936|[restaurant, food, point_of_interest, establishment]|
+ChIJSYlycmrWAhUR-EkybvF7Tac|Tur Sinai Organic Farm|31.804039|35.188987|[finance, restaurant, lodging, food, point_of_interest, establishment]|
+ChIJkYVFhNYpAxURDSsT4KtgTX0|פוקצ'ה בר|31.7799453|35.2179757|[restaurant, food, point_of_interest, establishment]|
+ChIJM7doTC8oAxUR9cMWDzXzuLc|לוצ'נה|31.7781725|35.2246786|[restaurant, food, point_of_interest, establishment]|
+ChIJCbwTetEpAxURntlqQ7RLNyo|Tsunami Sushi and BBQ|31.7783746|35.2226242|[restaurant, food, point_of_interest, establishment]|
+ChIJRUlDtiMoAxURc_agK17zTcw|מסעדת פולי | מסעדות חלביות כשרות למהדרין בירושלים|31.75626790000001|35.2216607|[restaurant, food, point_of_interest, establishment]|
+ChIJVRumCyrWAhURmgWN-sd7M0o|Maalot|31.7792887|35.2146279|[restaurant, food, point_of_interest, establishment]|
+ChIJtxnbn0vWAhURBHNHkkhqWV4|Tzidkiyahu|31.786064|35.188533|[restaurant, meal_delivery, food, point_of_interest, establishment]|
+ChIJlZYuGi8oAxURl6CJrLXxI1M|Lev Smadar|31.7649|35.22216100000001|[movie_theater, restaurant, food, point_of_interest, establishment]|
+ChIJP9tZ0dApAxURuTmCkFqd6DU|בארוד|31.7814433|35.2201108|[restaurant, bar, food, point_of_interest, establishment]|
+ChIJdY3T2ywoAxUReydvAnwALtw|Rooftop Outdoor Lounge & Restaurant|31.7783581|35.2231084|[restaurant, food, point_of_interest, establishment]|
+ChIJnRFQ2dHXAhURihE8RX0BgTA|מודרן, מוזיאון ישראל|31.773813|35.204344|[restaurant, food, point_of_interest, establishment]|
+ChIJdbBqK9cpAxURfZ0RYlMdEgw|שאנטי|31.7814041|35.2201737|[restaurant, food, point_of_interest, establishment]|
+ChIJX4cEGNEpAxURS-pljMErU8E|Noya|31.77999549999999|35.22164420000001|[restaurant, food, point_of_interest, establishment]|
+ChIJTyUSRdApAxURaGwA2FTfKWQ|Agas vetapuach|31.7797465|35.2244366|[restaurant, food, point_of_interest, establishment]|
+ChIJT0dGCEvWAhUR1IuQIiJ2fGg|Burgers Bar|31.7862461|35.1891071|[restaurant, food, point_of_interest, establishment]|
+ChIJPWSqttApAxURg7pct1BJ0C4|Racha|31.7824397|35.22074380000001|[restaurant, food, point_of_interest, establishment]|
+ChIJ9ZIi19YpAxURdFdB6bvrgGM|Zuni|31.7807012|35.2199472|[restaurant, food, point_of_interest, establishment]|
+ChIJB2f8O9EpAxUR3iVuatfeodY|Gabriela|31.7798039|35.2211783|[restaurant, food, point_of_interest, establishment]|
+ChIJX1oeRyYoAxUREvnX-VN4uCY|מרבד הקסמים|31.7820589|35.2163584|[restaurant, food, point_of_interest, establishment]|
+ChIJMSXq3ybXAhUR7YxijG5EJdo|Pizza maestro|31.7767244|35.2136138|[restaurant, food, point_of_interest, establishment]|
+ChIJHd9awtcpAxURVOOI3eI7lj4|המוציא|31.783682|35.215744|[restaurant, food, point_of_interest, establishment]|
+ChIJvc33UyYoAxURMun-UWS6290|Sushi Rehavya|31.76230289999999|35.2178245|[restaurant, food, point_of_interest, establishment]|
+ChIJP9tZ0dApAxURq-SBe7cBYJw|סאקורה סושי בר|31.78092|35.2210013|[restaurant, food, point_of_interest, establishment]|
+ChIJ_f6eB88pAxUReMaGuTrii8E|Lina|31.7791903|35.23032660000001|[restaurant, food, point_of_interest, establishment]|
+ChIJtcGVisXXAhUR2wxBM0b0tp8|הגן הבוטני|31.76703299999999|35.200517|[park, point_of_interest, establishment]|
+ChIJRRg6oDLWAhURjFQwKBgFpyQ|Wohl Park - Gan Havradim|31.779164|35.203693|[park, point_of_interest, establishment]|
+ChIJC7T9Ay0oAxURydzihXMA21M|HaPa'amon Garden|31.7702956|35.222977|[park, point_of_interest, establishment]|
+ChIJ0zG7Ou7XAhURvFVCmIkP05c|Gazelle Valley|31.760053|35.1953904|[park, point_of_interest, establishment]|
+ChIJS6q-QSzWAhURcrX_nTKj40c|Sacher Park|31.7806|35.2077|[park, point_of_interest, establishment]|
+ChIJj_WDiNHXAhURa5kDIenSzFk|Emek HaMatsleva - Rehavia Park|31.7725712|35.2059168|[park, point_of_interest, establishment]|
+ChIJPcHraJYpAxURbTnyrSJKbIY|Zurim Valley National Park|31.7891393|35.2438225|[park, point_of_interest, establishment]|
+ChIJGbtmss0pAxUROtyWY9cEM_g|Armenian Garden|31.774529|35.2286051|[park, point_of_interest, establishment]|
+ChIJ085LraTXAhURNvgFz825tYw|Mount Herzl|31.7740106|35.1803542|[cemetery, park, point_of_interest, establishment]|
+ChIJPfnPDTwoAxUR0vjPjoyIEZg|Trotner Park|31.75478009999999|35.2316741|[park, point_of_interest, establishment]|
+ChIJUzUSqzQoAxURwQzHtWd5Szc|Sovev Homot Yerushalayim|31.769963|35.231571|[park, point_of_interest, establishment]|
+ChIJOexaLrvXAhURqOLygleQxRs|גן הר הרצל הקטן|31.7724465|35.1825137|[park, point_of_interest, establishment]|
+ChIJgwDqNNbXAhURqSzJMdeUWxM|St George’s Cathedral Pilgrim Guesthouse - Jerusalem|31.787901|35.22870899999999|[park, church, store, cafe, restaurant, lodging, food, place_of_worship, point_of_interest, establishment]|
+ChIJk4C8AkzWAhURv5OKTdWPjIw|רשות הטבע והגנים|31.789162|35.186745|[park, point_of_interest, establishment]|
+ChIJgWbCdJIpAxURZozEO7h49q8|הגן הבוטני בהר הצופים|31.794376|35.2438295|[park, point_of_interest, establishment]|
+ChIJ6cZmQc7XAhURx3KJp9nYaxA|Sculptures Garden|31.77288100000001|35.2022243|[park, point_of_interest, establishment]|
+ChIJq1Eun7XXAhURlacnfjKkBTY|סיורים. אתר הסיורים של ישראל|31.7799946|35.1916133|[campground, travel_agency, park, lodging, point_of_interest, establishment]|
+ChIJYZzWds4pAxURP7JV6phovLk|TripVip -?????????????? ????????? ?? ???????|31.77574000000001|35.227474|[park, point_of_interest, establishment]|
+ChIJq0DUtdgpAxURBgzlXodh2DI|לאב-גארדן|31.789617|35.21606500000001|[park, point_of_interest, establishment]|
+ChIJd8YHp9EpAxUR65adgsmODhQ|ר. נירים - עיצוב גינות בירושלים|31.784823|35.21199|[park, point_of_interest, establishment]|
+ChIJp9NzgC8oAxURjQtQOAPKmQQ|Smart Tour | סמארט טור | סיורי סגווי בירושלים|31.76898999999999|35.224317|[park, travel_agency, point_of_interest, establishment]|
+ChIJ_8g9Zu3XAhURD5crDzvxyJ8|Elmaliah Garden|31.7522709|35.1947529|[park, point_of_interest, establishment]|
+ChIJw87pUM0pAxURBawYyS3y6JA|Mitchell Garden|31.7720849|35.2261799|[park, point_of_interest, establishment]|
+ChIJ72DA19EpAxUROMZ_goMgkVw|The National Garden (HaGan Haleumi)|31.77883659999999|35.2257506|[park, point_of_interest, establishment]|
+ChIJ2wv5R7nXAhUR7QSwx-XwT8A|Flori Shemtov Garden|31.7693759|35.1889126|[park, point_of_interest, establishment]|
+ChIJ0Sp3RykoAxURIIBk8wjqPu4|Motti Garden|31.7676661|35.2192257|[park, point_of_interest, establishment]|
+ChIJj-ukuMApAxURY4KpBgvr56I|Rockefeller Garden|31.7849296|35.2352795|[park, point_of_interest, establishment]|
+ChIJty7u7ecpAxURnJ0S-9hoO70|Arzei Ha-Bira Garden|31.7928602|35.22472039999999|[park, point_of_interest, establishment]|
+ChIJaYU3q-8pAxURU7brOJN2LmE|Jerusalem Garden|31.798829|35.2282403|[park, point_of_interest, establishment]|
+ChIJy0I7LBooAxUR3vpiLeG2Jts|Eliezer Blankfeld Garden - גן אליעזר בלנקפלד|31.74733490000001|35.2233847|[park, point_of_interest, establishment]|
+ChIJ0TxfaSnYAhURsPelpbiYZuo|פארק ירושלים|31.7438222|35.1773949|[park, point_of_interest, establishment]|
+ChIJnwpB880pAxURKPKwiMNeo6E|פארק טדי|31.7755556|35.22625|[park, point_of_interest, establishment]|
+ChIJu_3sbCsoAxURO-130ZbFEmg|גן סוקולוב|31.77237280000001|35.21908579999999|[park, point_of_interest, establishment]|
+ChIJocOknijYAhURQM7v0LfpoQg|Gilo Forest|31.74253|35.181581|[park, point_of_interest, establishment]|
+ChIJmx95JxfWAhURB828y5-FhXg|ספורטק ירושלים|31.8037957|35.2011082|[park, point_of_interest, establishment]|
+ChIJ3yZHdt_XAhUR7ZXul5bZkFs|מתקני כושר פארק המסילה|31.7582944|35.2139276|[park, point_of_interest, establishment]|
+ChIJGWZZks0pAxUR3JJDpKG30Iw|Park Teddy|31.7751924|35.226637|[park, point_of_interest, establishment]|
+ChIJZfirfujXAhURr4bmHujbTDs|Mikvar Park|31.75680090000001|35.2035337|[park, point_of_interest, establishment]|
+ChIJ94ZlaxXWAhURpWY3icf2gPk|Ya'ar Ramot|31.8033601|35.1943825|[park, point_of_interest, establishment]|
+ChIJB-BemKXXAhURn1fihLoONOU|Howie Tzvi Glatt - Grave|31.7756834|35.1785945|[park, point_of_interest, establishment]|
+ChIJ9aSPBxsoAxURflYBarpQVwo|גן תכלת מרדכי|31.74549549999999|35.2225241|[park, point_of_interest, establishment]|
+ChIJqRKpVGrWAhURXEaPqJ1XiBY|חניון טורצ'ינר|31.80566589999999|35.189785|[park, point_of_interest, establishment]|
+ChIJaSIZuLApAxURQ0a8QhPbBPE|אנדרטה לזכר השואה|31.7752289|35.2430313|[park, point_of_interest, establishment]|
+ChIJW1utyjjWAhURLjr9_uzDSEY|Lifta Reserve|31.7968412|35.19434469999999|[park, point_of_interest, establishment]|
+ChIJu_oeUj7WAhURfS1_XMQrGHE|פארק נחל שורק|31.7993207|35.195942|[park, point_of_interest, establishment]|
+ChIJ26qha4jXAhURAyMhiQcW26g|מבואה פארק נחל רפאים|31.7469568|35.1829963|[park, point_of_interest, establishment]|
+ChIJF8z5dpfXAhURHxm-jXpB8FE|Gravel Driveway|31.7628948|35.1827677|[park, point_of_interest, establishment]|
+ChIJ-TSkyynWAhURJhUM_-qt1EM|Playground|31.7830111|35.2136992|[park, point_of_interest, establishment]|
+ChIJW9YPdTIoAxURGATgAEP1Yv4|Jvp Parking 2|31.7682252|35.2259563|[park, point_of_interest, establishment]|
+ChIJJYO-F9EpAxURSPzCmcqP_Rk|La Casa del Habano|31.77986679999999|35.2217296|[store, night_club, bar, point_of_interest, establishment]|
+ChIJca1lzNApAxURlE3BwyOCEvI|בר הצעצוע|31.7817833|35.22072430000001|[bar, night_club, point_of_interest, establishment]|
+ChIJcRbkxtApAxUR8AcnCySqpGg|התקליט Hataklit|31.78190770000001|35.2212274|[night_club, bar, restaurant, food, point_of_interest, establishment]|
+ChIJ9x4JU5zXAhURjgjjhprwJsI|אלוני בלוני - ליצן לימי הולדת וקריוקי|31.7612646|35.1737656|[night_club, bar, point_of_interest, establishment]|
+ChIJgwDqNNbXAhURDbf3pyxmtqw|express yourself - אטרקציות לחתונה|31.768319|35.21371|[night_club, bar, point_of_interest, establishment]|
+ChIJuSbBJS4oAxURq42AcSpZggU|מועדון הג'סטיס|31.7662284|35.2251882|[night_club, point_of_interest, establishment]|
+ChIJ24lfgeHXAhURTVrUjzZ-d0A|solloft|31.7515384|35.2123641|[night_club, point_of_interest, establishment]|
+ChIJJYO-F9EpAxURSPzCmcqP_Rk|La Casa del Habano|31.77986679999999|35.2217296|[store, night_club, bar, point_of_interest, establishment]|
+ChIJca1lzNApAxURlE3BwyOCEvI|בר הצעצוע|31.7817833|35.22072430000001|[bar, night_club, point_of_interest, establishment]|
+ChIJcRbkxtApAxUR8AcnCySqpGg|התקליט Hataklit|31.78190770000001|35.2212274|[night_club, bar, restaurant, food, point_of_interest, establishment]|
+ChIJ9x4JU5zXAhURjgjjhprwJsI|אלוני בלוני - ליצן לימי הולדת וקריוקי|31.7612646|35.1737656|[night_club, bar, point_of_interest, establishment]|
+ChIJgwDqNNbXAhURDbf3pyxmtqw|express yourself - אטרקציות לחתונה|31.768319|35.21371|[night_club, bar, point_of_interest, establishment]|
+ChIJuSbBJS4oAxURq42AcSpZggU|מועדון הג'סטיס|31.7662284|35.2251882|[night_club, point_of_interest, establishment]|
+ChIJ24lfgeHXAhURTVrUjzZ-d0A|solloft|31.7515384|35.2123641|[night_club, point_of_interest, establishment]|
+ChIJJYO-F9EpAxURSPzCmcqP_Rk|La Casa del Habano|31.77986679999999|35.2217296|[store, night_club, bar, point_of_interest, establishment]|
+ChIJca1lzNApAxURlE3BwyOCEvI|בר הצעצוע|31.7817833|35.22072430000001|[bar, night_club, point_of_interest, establishment]|
+ChIJcRbkxtApAxUR8AcnCySqpGg|התקליט Hataklit|31.78190770000001|35.2212274|[night_club, bar, restaurant, food, point_of_interest, establishment]|
+ChIJ9x4JU5zXAhURjgjjhprwJsI|אלוני בלוני - ליצן לימי הולדת וקריוקי|31.7612646|35.1737656|[night_club, bar, point_of_interest, establishment]|
+ChIJgwDqNNbXAhURDbf3pyxmtqw|express yourself - אטרקציות לחתונה|31.768319|35.21371|[night_club, bar, point_of_interest, establishment]|
+ChIJuSbBJS4oAxURq42AcSpZggU|מועדון הג'סטיס|31.7662284|35.2251882|[night_club, point_of_interest, establishment]|
+ChIJ24lfgeHXAhURTVrUjzZ-d0A|solloft|31.7515384|35.2123641|[night_club, point_of_interest, establishment]|
+ChIJP2uIpNEpAxUR5grH1dWfKmQ|Yad Vashem|31.77419359999999|35.1753018|[museum, point_of_interest, establishment]|
+ChIJXYMJHfnXAhUREEYmQPdAUTE|Bible Lands Museum|31.7749524|35.2024512|[museum, point_of_interest, establishment]|
+ChIJh6UFB87XAhURgw8LdPRZjnQ|The Israel Museum, Jerusalem|31.7721506|35.2040939|[museum, point_of_interest, establishment]|
+ChIJsX5zQtApAxUR0yuiYiAxgNc|Underground Prisoners Museum|31.7809246|35.2245069|[museum, point_of_interest, establishment]|
+ChIJS_zBNNbXAhUROcCbGbvI9Wg|Israel Antiquities Authority|31.7843948|35.23574|[museum, point_of_interest, establishment]|
+ChIJz_pfvRkoAxURs1FIx8mjtAI|בית עגנון|31.74862060000001|35.22383049999999|[museum, point_of_interest, establishment]|
+ChIJORuKStbXAhURMMJHwGEqHTA|L. A. Mayer Institute for Islamic Art|31.7684963|35.2131826|[museum, point_of_interest, establishment]|
+ChIJJWFXJykoAxURCH3zNtFVRrA|Nature Museum|31.76654359999999|35.2204224|[museum, point_of_interest, establishment]|
+ChIJYZzWds4pAxUR53NZoGD64MA|Tower of David|31.7763531|35.228413|[museum, point_of_interest, establishment]|
+ChIJk9PBXC0oAxURgc6zG1jT5qs|מרכז מורשת מנחם בגין|31.7693298|35.2254349|[museum, point_of_interest, establishment]|
+ChIJ9d2x98zXAhURDKrJgw0-eF4|מוזיאון המדע ע"ש בלומפילד ירושלים|31.77765|35.200306|[museum, point_of_interest, establishment]|
+ChIJgwDqNNbXAhURhbIaTaZ2dcI|Rockefeller Archeological Museum|31.7843814|35.2357962|[museum, point_of_interest, establishment]|
+ChIJN8kvaskpAxUR58MltHVaWkk|The Temple Institute|31.7760292|35.23287099999999|[museum, travel_agency, point_of_interest, establishment]|
+ChIJvSJ6vtYpAxURBcq8q95MVMI|Nahon Museum of Italian Jewish Art|31.7800156|35.2191251|[museum, point_of_interest, establishment]|
+ChIJ5-azL5DXAhURcTQLUcyjjK0|עין יעל|31.7432572|35.1780859|[museum, point_of_interest, establishment]|
+ChIJgwDqNNbXAhURPuCyWbfa1ns|Museum on the Seam|31.7863806|35.2267895|[museum, point_of_interest, establishment]|
+ChIJV0ZKic4pAxURkOp4mBkkSxI|Wujoud Museum|31.7767544|35.2289117|[museum, point_of_interest, establishment]|
+ChIJvdo4qtApAxUR3N-9ZWOhtLs|Museum of Psalms|31.7834258|35.22041919999999|[museum, point_of_interest, establishment]|
+ChIJBwRAQc7XAhURu8HVbuSDGLo|Art Garden|31.7728802|35.2022228|[museum, point_of_interest, establishment]|
+ChIJq2uBNNEpAxURj798hCrC9lg|מוזיאון ידידי ישראל|31.7800941|35.2204968|[museum, point_of_interest, establishment]|
+ChIJo4vd1SrWAhURwbUCLgoZ37k|Menachim begin|31.776482|35.2121861|[museum, point_of_interest, establishment]|
+ChIJhdFSs88pAxURgoqxBwewC3A|Terra Sancta Museum|31.778802|35.22758779999999|[museum, point_of_interest, establishment]|
+ChIJM6VIL__WAhUR1HvSsWjUwHA|natural history museum|31.794407|35.168509|[museum, point_of_interest, establishment]|
+ChIJURLZadcpAxURcFcNBpL9txA|Ticho House|31.7831909|35.21895290000001|[museum, point_of_interest, establishment]|
+ChIJBXEhs8ApAxURsFDkXIhhTwQ|Rockefeller Archological Museum|31.783695|35.2359482|[museum, point_of_interest, establishment]|
+ChIJKWT5CqXXAhURPDVMeJMNV1o|הר הרצל חלקת גדולי האומה|31.7752416|35.17926440000001|[museum, point_of_interest, establishment]|
+ChIJZ4ZSkdYpAxURSSa7BREYInw|מוזיאון יהדות איטליה|31.7800431|35.2186151|[museum, point_of_interest, establishment]|
+ChIJo4vd1SrWAhURwbUCLgoZ37k|Menachim begin|31.776482|35.2121861|[museum, point_of_interest, establishment]|
+ChIJhdFSs88pAxURgoqxBwewC3A|Terra Sancta Museum|31.778802|35.22758779999999|[museum, point_of_interest, establishment]|
+ChIJM6VIL__WAhUR1HvSsWjUwHA|natural history museum|31.794407|35.168509|[museum, point_of_interest, establishment]|
+ChIJURLZadcpAxURcFcNBpL9txA|Ticho House|31.7831909|35.21895290000001|[museum, point_of_interest, establishment]|
+ChIJBXEhs8ApAxURsFDkXIhhTwQ|Rockefeller Archological Museum|31.783695|35.2359482|[museum, point_of_interest, establishment]|
+ChIJKWT5CqXXAhURPDVMeJMNV1o|הר הרצל חלקת גדולי האומה|31.7752416|35.17926440000001|[museum, point_of_interest, establishment]|
+ChIJZ4ZSkdYpAxURSSa7BREYInw|מוזיאון יהדות איטליה|31.7800431|35.2186151|[museum, point_of_interest, establishment]|
+ChIJXXx2vikoAxUR_X5BPo42P3w|תיאטרון ירושלים|31.7690082|35.2156368|[movie_theater, point_of_interest, establishment]|
+ChIJrdy-Yi0oAxURT7_Kvq-EOwU|Jerusalem Cinematheque|31.77008420000001|35.2258453|[movie_theater, point_of_interest, establishment]|
+ChIJlZYuGi8oAxURl6CJrLXxI1M|Lev Smadar|31.7649|35.22216100000001|[movie_theater, restaurant, food, point_of_interest, establishment]|
+ChIJE_2ZcysoAxURE_1J8SIsLmA|Goethe-Institut Israel|31.77186590000001|35.2191824|[library, movie_theater, point_of_interest, establishment]|
+ChIJkx__PC7WAhURo6LIN51A5bM|Cinema City|31.7826702|35.2037169|[movie_theater, point_of_interest, establishment]|
+ChIJjTDr-y8oAxURyXxJENcm79s|Yes Planet|31.7622535|35.2256699|[movie_theater, point_of_interest, establishment]|
+ChIJXXx2vikoAxUR_X5BPo42P3w|תיאטרון ירושלים|31.7690082|35.2156368|[movie_theater, point_of_interest, establishment]|
+ChIJrdy-Yi0oAxURT7_Kvq-EOwU|Jerusalem Cinematheque|31.77008420000001|35.2258453|[movie_theater, point_of_interest, establishment]|
+ChIJlZYuGi8oAxURl6CJrLXxI1M|Lev Smadar|31.7649|35.22216100000001|[movie_theater, restaurant, food, point_of_interest, establishment]|
+ChIJE_2ZcysoAxURE_1J8SIsLmA|Goethe-Institut Israel|31.77186590000001|35.2191824|[library, movie_theater, point_of_interest, establishment]|
+ChIJkx__PC7WAhURo6LIN51A5bM|Cinema City|31.7826702|35.2037169|[movie_theater, point_of_interest, establishment]|
+ChIJjTDr-y8oAxURyXxJENcm79s|Yes Planet|31.7622535|35.2256699|[movie_theater, point_of_interest, establishment]|
+ChIJXXx2vikoAxUR_X5BPo42P3w|תיאטרון ירושלים|31.7690082|35.2156368|[movie_theater, point_of_interest, establishment]|
+ChIJrdy-Yi0oAxURT7_Kvq-EOwU|Jerusalem Cinematheque|31.77008420000001|35.2258453|[movie_theater, point_of_interest, establishment]|
+ChIJlZYuGi8oAxURl6CJrLXxI1M|Lev Smadar|31.7649|35.22216100000001|[movie_theater, restaurant, food, point_of_interest, establishment]|
+ChIJE_2ZcysoAxURE_1J8SIsLmA|Goethe-Institut Israel|31.77186590000001|35.2191824|[library, movie_theater, point_of_interest, establishment]|
+ChIJkx__PC7WAhURo6LIN51A5bM|Cinema City|31.7826702|35.2037169|[movie_theater, point_of_interest, establishment]|
+ChIJjTDr-y8oAxURyXxJENcm79s|Yes Planet|31.7622535|35.2256699|[movie_theater, point_of_interest, establishment]|
+ChIJw2qbBjDWAhURsumW0fWT2bI|סופר-פארם|31.7890868|35.2032263|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJAe5EWtYpAxURoS31r1t_fgY|Ben Yehuda Street|31.78147800000001|35.217948|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJg7YYfbrXAhURwA8kxrbxXWE|מכון שלזינגר|31.7742797|35.1845955|[health, point_of_interest, establishment]|
+ChIJVcXhw6zXAhURd982p3ARU9I|בית החולים כפר שאול|31.7864353|35.1787591|[health, point_of_interest, establishment]|
+ChIJjxv0FNApAxUR-KviNG4X7b8|Lifeline for the Old|31.781154|35.224491|[health, point_of_interest, establishment]|
+ChIJc7WBL94pAxURKWYn3raC-MQ|Bar Ilan|31.7955329|35.2191049|[health, point_of_interest, establishment]|
+ChIJuRz0FNApAxUR8y8wJRw3QP4|Yad lakashish (Lifeline for the Old)|31.7807549|35.2249297|[health, point_of_interest, establishment]|
+ChIJfx_gCyYoAxURVWicUbbZzLM|כללית - המושבה|31.7628089|35.2201134|[health, point_of_interest, establishment]|
+ChIJG3UgbI3XAhURSCwzDLp5SB8|Akban Jerusalem | אקבן ירושלים, נינג'יטסו, אומנויות לחימה|31.75203599999999|35.191054|[health, point_of_interest, establishment]|
+ChIJA3HNweHXAhURKF0bEf9aMcw|טופ נייל שיווק בע"מ|31.7521776|35.2136689|[health, point_of_interest, establishment]|
+ChIJ8ZH7PycoAxURyFZuZFqojxk|Nekudat maga|31.761189|35.216249|[health, point_of_interest, establishment]|
+ChIJOSKegSooAxURu7PUdPaq8vE|בית מרקחת עזה|31.7729738|35.2151138|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJBVO2XNfXAhURYYVdkFYKMH8|HaPalmach|31.767372|35.210457|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJ3VBzeLvXAhURa2nNy5-i4H4|Uzi'el|31.770504|35.18459399999999|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJC2jcKfApAxUR97lg05jNHvo|Ramot Eshkol Medical Center|31.80058210000001|35.22845700000001|[hospital, pharmacy, store, health, point_of_interest, establishment]|
+ChIJY1vNFNspAxUREGEIde6Zktg|Deutsch|31.786081|35.22424400000001|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJOfSKzuzXAhURP2NIl1PU3ug|Optical Metrology|31.803074|35.21336999999999|[health, point_of_interest, establishment]|
+ChIJBbe6xSrWAhURO4N-MioVfQk|Tajer|31.776674|35.213002|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJp8ohEB4oAxUREuBBfjVOkP0|Talpiyot Center Pharm|31.750831|35.215623|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJvZ6VYSIoAxURsWJDyyR0GuI|Jerusalem Massage|31.7538055|35.22295769999999|[physiotherapist, health, point_of_interest, establishment]|
+ChIJIyRMQNEpAxURtZJ59FrYWVE|מאוחדת בן סירא|31.7792488|35.2217255|[health, point_of_interest, establishment]|
+ChIJV_kibTzYAhUR16-hqqJjyNA|Tsarfati|31.7303663|35.1880157|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJzZiVYSIoAxUR-cDlzF0asWc|Jerusalem Centre for Craniosacral Therapy (in Israel)|31.7538055|35.22295769999999|[health, point_of_interest, establishment]|
+ChIJ3eVYezrWAhURYjtcUSnMxqM|Terem|31.7906474|35.2004368|[hospital, health, point_of_interest, establishment]|
+ChIJgRabFNcpAxURhIRiEEqcmk0|Ha'Amudim|31.78276|35.218652|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJPUWiMdcpAxURSjspfJwo34E|Alba|31.781982|35.219903|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJLbj-UNYpAxUR25kjypQOHrs|Midrahov Super Pharm|31.781634|35.217094|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJbe7_OPrXAhURSv_mtC0zoGs|center pharmacy beitsafafa|31.744849|35.205916|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJX23whb3XAhUREYaxVQEyZk4|HaPisga|31.765118|35.185267|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJb21R1icoAxURwePVLowNsDA|Ishut|31.7645491|35.2173616|[hospital, health, point_of_interest, establishment]|
+ChIJ99GDCtgpAxURda6j_RdQvLs|Rina Pharm|31.7864023|35.21487249999999|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJzxqp_bDXAhUR8-2ZekWYh9U|יד שרה|31.7772753|35.1850167|[health, point_of_interest, establishment]|
+ChIJiXhAntkpAxUR6EAQ2T2Jk8s|Dr Alexander King - Maccabi Health Services|31.78635|35.219217|[doctor, health, point_of_interest, establishment]|
+ChIJf8Gtc0zWAhURvjRtsHSnfvA|ניצת הדובדבן - ירושלים|31.7878091|35.18686840000001|[food, store, health, point_of_interest, establishment]|
+ChIJfXxJqCwoAxURat6x-ibG6nc|קיורר גקסון יוטקוביץ|31.77309790000001|35.2206204|[dentist, health, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURzM4PBReq_vU|ינקותא Yankuta|31.7709714|35.21821759999999|[clothing_store, store, gym, health, school, point_of_interest, establishment]|
+ChIJq6qqtzHWAhURNahgYT37bak|ג'אמפ|31.7863215|35.2023102|[gym, health, point_of_interest, establishment]|
+ChIJhRYMaUzWAhURyoRTTIVw33o|אריה בר-און עו"ד|31.7878073|35.1861898|[lawyer, accounting, finance, health, point_of_interest, establishment]|
+ChIJf9eCt0nWAhURY8umZwPto78|זמורה אורגני בע"מ|31.7896538|35.1914048|[food, store, health, point_of_interest, establishment]|
+ChIJS-RQ_NbXAhURw4M4Z3LZ2xg|עיסוי טוב|31.7691474|35.2115611|[health, point_of_interest, establishment]|
+ChIJVVVFhszXAhURCAfG3d9XatY|ברק ספא SPA BARAK|31.778168|35.1989181|[health, point_of_interest, establishment]|
+ChIJkUt1i3K0AhUREG63NTDxTZI|Kiryat Rishon|31.78022530000001|35.2157168|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJl9et2ybWAhURFVuQR-hIn_o|בית טובי העיר|31.7916699|35.21242090000001|[health, point_of_interest, establishment]|
+ChIJA7bgodkpAxURNkkSHmM-xL8|The Premiere School of the Arts|31.7862446|35.2188256|[health, point_of_interest, establishment]|
+ChIJreNhF3XXAhUR37Aia4PbqN8|מסלול- מרכז הספורט הטיפולי לילדים באלי"ן|31.76849199999999|35.16881300000001|[health, point_of_interest, establishment]|
+ChIJ88F1BvsnAxURa_CCD_vXYwU|כללית - הר חומה|31.725838|35.223427|[health, point_of_interest, establishment]|
+ChIJS7429-DXAhUR_J3G_3I89kQ|DVI Trudi Birger Dental Clinic|31.7546412|35.211718|[dentist, health, point_of_interest, establishment]|
+ChIJBwTsPycoAxURCzaZ-lhqxqA|טיפול זוגי - מטפלת יעל חן ימיני|31.76114|35.216283|[hospital, health, point_of_interest, establishment]|
+ChIJR6nzXSXWAhURG6JIopA1_Fs|הדים ירושלים|31.7888333|35.20523379999999|[store, health, point_of_interest, establishment]|
+ChIJw7pQVisoAxURryOfcBD50JI|Dental Practice Dr. Robert Sreter|31.7732984|35.2202441|[dentist, health, point_of_interest, establishment]|
+ChIJrwTOaNfXAhURYMqn12ZH0F8|ד"ר בועז צור מומחה ליישור שיניים|31.7672519|35.2110724|[dentist, health, point_of_interest, establishment]|
+ChIJ90OUqcTXAhURVMRSwZlGDMU|אופיר אליצור - טיפולי שיאצו וסדנאות|31.76404589999999|35.2034894|[health, point_of_interest, establishment]|
+ChIJJwJZezrWAhURfZhMdme_RvE|ריפרש שייפ - חדר כושר לגברים בירושלים|31.790342|35.20091599999999|[gym, health, point_of_interest, establishment]|
+ChIJEXYeI53XAhURebvafnprE1o|פסיכולוג קליני - אריאל גולר פסיכולוגים קליניים|31.76011519999999|35.17112669999999|[health, point_of_interest, establishment]|
+ChIJ_ybjPycoAxURwh6xxfR6lzo|Lux Chiropractic|31.77239669999999|35.221618|[health, point_of_interest, establishment]|
+ChIJldIcbzfWAhUR63hK5l7uX9o|הרב נתנאל פרנקנטל מוהל (גם עושה הטפת דם ברית למבוגרים)|31.79034330000001|35.1965146|[health, point_of_interest, establishment]|
+ChIJyZuIksYpAxUR5TJG4zeJYjw|Dar Dawa Pharmacy|31.782877|35.232547|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJKQWTu47XAhUR5X5wMy39izU|Dr. Ari Greenspan|31.7554403|35.2221627|[dentist, doctor, health, point_of_interest, establishment]|
+ChIJL8cqR9gpAxURo9UznlCoy80|Israel Optical|31.7860921|35.2165669|[store, health, point_of_interest, establishment]|
+ChIJMZlidUvWAhURx4vpCDRa2yU|Lose It! לוז-איט: The Center For Weight Loss & Stress Management|31.786064|35.188533|[health, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURzM4PBReq_vU|ינקותא Yankuta|31.7709714|35.21821759999999|[clothing_store, store, gym, health, school, point_of_interest, establishment]|
+ChIJq6qqtzHWAhURNahgYT37bak|ג'אמפ|31.7863215|35.2023102|[gym, health, point_of_interest, establishment]|
+ChIJJwJZezrWAhURfZhMdme_RvE|ריפרש שייפ - חדר כושר לגברים בירושלים|31.790342|35.20091599999999|[gym, health, point_of_interest, establishment]|
+ChIJDxZ1PI3XAhURZx-UMSLUaiM|התעמלות מכבי ירושלים|31.751087|35.191826|[gym, health, point_of_interest, establishment]|
+ChIJF4ntTyYoAxURpSTfPsYdR-M|גוף בנפש סטודיו לפילאטיס|31.7624175|35.2183646|[gym, health, point_of_interest, establishment]|
+ChIJTQcCeN4pAxUR4-XWaOelhgQ|קונטרולוג'י המרכז לפילאטיס|31.7916833|35.220319|[gym, health, school, point_of_interest, establishment]|
+ChIJyRP4ZiIoAxURt-VhEViEwAk|Lehavot Yoga Center|31.754016|35.22268|[gym, health, point_of_interest, establishment]|
+ChIJR9mbsx8oAxURkzUUFHDn0RU|CrossFit Jerusalem|31.7526246|35.2171201|[gym, health, point_of_interest, establishment]|
+ChIJDYe6M_IpAxUROBg2rFHaiC0|LifeStyle Health and Fitness|31.802031|35.23223400000001|[gym, health, point_of_interest, establishment]|
+ChIJeTUP4dYpAxURvf-d5vdby_0|City Gym|31.7813555|35.2186168|[gym, health, point_of_interest, establishment]|
+ChIJCTMFwzrWAhURcOnU0xfvQP0|רשם המשכונות|31.7909106|35.2026894|[gym, health, point_of_interest, establishment]|
+ChIJW3QXUisoAxURIIAWfdHAbPY|Iron Gym|31.77354399999999|35.2197293|[gym, health, point_of_interest, establishment]|
+ChIJWT9YezrWAhUReGv8vxHgO2M|ליידי פיטנס|31.7903489|35.2007579|[gym, health, point_of_interest, establishment]|
+ChIJi32RtEvWAhURfEMA4qzOZL8|Kosher Gym|31.786687|35.1899987|[gym, health, point_of_interest, establishment]|
+ChIJ6TGBttTXAhUR5kAwuni2OkY|רזים - מועדון כושר לנשים|31.7763864|35.2105401|[gym, health, point_of_interest, establishment]|
+ChIJSxUFCyrWAhURug15eEXTJuo|מרכז היוגה שמואל הנגיד|31.77927939999999|35.2146377|[gym, health, point_of_interest, establishment]|
+ChIJUWXDcPUpAxURkgOhyR4DJdk|???? ???? ?????? ????? ???????|31.8082598|35.234488|[gym, health, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURzM4PBReq_vU|ינקותא Yankuta|31.7709714|35.21821759999999|[clothing_store, store, gym, health, school, point_of_interest, establishment]|
+ChIJq6qqtzHWAhURNahgYT37bak|ג'אמפ|31.7863215|35.2023102|[gym, health, point_of_interest, establishment]|
+ChIJJwJZezrWAhURfZhMdme_RvE|ריפרש שייפ - חדר כושר לגברים בירושלים|31.790342|35.20091599999999|[gym, health, point_of_interest, establishment]|
+ChIJDxZ1PI3XAhURZx-UMSLUaiM|התעמלות מכבי ירושלים|31.751087|35.191826|[gym, health, point_of_interest, establishment]|
+ChIJF4ntTyYoAxURpSTfPsYdR-M|גוף בנפש סטודיו לפילאטיס|31.7624175|35.2183646|[gym, health, point_of_interest, establishment]|
+ChIJTQcCeN4pAxUR4-XWaOelhgQ|קונטרולוג'י המרכז לפילאטיס|31.7916833|35.220319|[gym, health, school, point_of_interest, establishment]|
+ChIJyRP4ZiIoAxURt-VhEViEwAk|Lehavot Yoga Center|31.754016|35.22268|[gym, health, point_of_interest, establishment]|
+ChIJR9mbsx8oAxURkzUUFHDn0RU|CrossFit Jerusalem|31.7526246|35.2171201|[gym, health, point_of_interest, establishment]|
+ChIJDYe6M_IpAxUROBg2rFHaiC0|LifeStyle Health and Fitness|31.802031|35.23223400000001|[gym, health, point_of_interest, establishment]|
+ChIJeTUP4dYpAxURvf-d5vdby_0|City Gym|31.7813555|35.2186168|[gym, health, point_of_interest, establishment]|
+ChIJCTMFwzrWAhURcOnU0xfvQP0|רשם המשכונות|31.7909106|35.2026894|[gym, health, point_of_interest, establishment]|
+ChIJW3QXUisoAxURIIAWfdHAbPY|Iron Gym|31.77354399999999|35.2197293|[gym, health, point_of_interest, establishment]|
+ChIJWT9YezrWAhUReGv8vxHgO2M|ליידי פיטנס|31.7903489|35.2007579|[gym, health, point_of_interest, establishment]|
+ChIJi32RtEvWAhURfEMA4qzOZL8|Kosher Gym|31.786687|35.1899987|[gym, health, point_of_interest, establishment]|
+ChIJ6TGBttTXAhUR5kAwuni2OkY|רזים - מועדון כושר לנשים|31.7763864|35.2105401|[gym, health, point_of_interest, establishment]|
+ChIJSxUFCyrWAhURug15eEXTJuo|מרכז היוגה שמואל הנגיד|31.77927939999999|35.2146377|[gym, health, point_of_interest, establishment]|
+ChIJUWXDcPUpAxURkgOhyR4DJdk|???? ???? ?????? ????? ???????|31.8082598|35.234488|[gym, health, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURzM4PBReq_vU|ינקותא Yankuta|31.7709714|35.21821759999999|[clothing_store, store, gym, health, school, point_of_interest, establishment]|
+ChIJq6qqtzHWAhURNahgYT37bak|ג'אמפ|31.7863215|35.2023102|[gym, health, point_of_interest, establishment]|
+ChIJJwJZezrWAhURfZhMdme_RvE|ריפרש שייפ - חדר כושר לגברים בירושלים|31.790342|35.20091599999999|[gym, health, point_of_interest, establishment]|
+ChIJDxZ1PI3XAhURZx-UMSLUaiM|התעמלות מכבי ירושלים|31.751087|35.191826|[gym, health, point_of_interest, establishment]|
+ChIJF4ntTyYoAxURpSTfPsYdR-M|גוף בנפש סטודיו לפילאטיס|31.7624175|35.2183646|[gym, health, point_of_interest, establishment]|
+ChIJTQcCeN4pAxUR4-XWaOelhgQ|קונטרולוג'י המרכז לפילאטיס|31.7916833|35.220319|[gym, health, school, point_of_interest, establishment]|
+ChIJyRP4ZiIoAxURt-VhEViEwAk|Lehavot Yoga Center|31.754016|35.22268|[gym, health, point_of_interest, establishment]|
+ChIJR9mbsx8oAxURkzUUFHDn0RU|CrossFit Jerusalem|31.7526246|35.2171201|[gym, health, point_of_interest, establishment]|
+ChIJDYe6M_IpAxUROBg2rFHaiC0|LifeStyle Health and Fitness|31.802031|35.23223400000001|[gym, health, point_of_interest, establishment]|
+ChIJeTUP4dYpAxURvf-d5vdby_0|City Gym|31.7813555|35.2186168|[gym, health, point_of_interest, establishment]|
+ChIJCTMFwzrWAhURcOnU0xfvQP0|רשם המשכונות|31.7909106|35.2026894|[gym, health, point_of_interest, establishment]|
+ChIJW3QXUisoAxURIIAWfdHAbPY|Iron Gym|31.77354399999999|35.2197293|[gym, health, point_of_interest, establishment]|
+ChIJWT9YezrWAhUReGv8vxHgO2M|ליידי פיטנס|31.7903489|35.2007579|[gym, health, point_of_interest, establishment]|
+ChIJi32RtEvWAhURfEMA4qzOZL8|Kosher Gym|31.786687|35.1899987|[gym, health, point_of_interest, establishment]|
+ChIJ6TGBttTXAhUR5kAwuni2OkY|רזים - מועדון כושר לנשים|31.7763864|35.2105401|[gym, health, point_of_interest, establishment]|
+ChIJSxUFCyrWAhURug15eEXTJuo|מרכז היוגה שמואל הנגיד|31.77927939999999|35.2146377|[gym, health, point_of_interest, establishment]|
+ChIJUWXDcPUpAxURkgOhyR4DJdk|???? ???? ?????? ????? ???????|31.8082598|35.234488|[gym, health, point_of_interest, establishment]|
+ChIJZ24zYCjWAhURLa8NQt2ApQk|Eli's Shop (Eliyahu Ben Naim) - החנות של אלי|31.785213|35.212233|[general_contractor, home_goods_store, grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURosnxikMKcvs|אורלנד|31.7703053|35.24416230000001|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ5fqjocLXAhURSNYVvSVAMGU|רק בריאות - פרי וירק|31.75946099999999|35.2027197|[grocery_or_supermarket, food, store, health, point_of_interest, establishment]|
+ChIJH_qCcCHWAhURBTFwMlj8lZM|מינימרקט מנחת יצחק בע"מ|31.7938316|35.2099863|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJESaw5y8oAxUR5K1d-GoKIWU|MARKET 1|31.7629371|35.2252896|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJBWTU4NQpAxURM5VV92AqnNI|Supersol|31.7757674|35.21792569999999|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJzyxRNUjWAhURbqtzP0TQkfE|מתוק מדבש|31.7902127|35.1915622|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJU6LdA4sP-hQRj7lI7ZK6G50|מזרח ומערב - ירושלים|31.78546360000001|35.2094957|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ61jWidYpAxURRqJj6IoDRyY|סופרפרש-SUPERFRESH|31.78026959999999|35.21760479999999|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJuclxsSfWAhURf6AWrEGKxdI|סופר זול מקור ברוך בע"מ|31.787739|35.212498|[convenience_store, grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ8YnjNE3WAhURU4-nOb7biwQ|אושר עד|31.7850605|35.1836139|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJL0_Gh47XAhURyIkr0s0VYeQ|מגה|31.7517257|35.1867525|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ5dOWziPWAhURRH81K7IV-Xc|Osher ad|31.7944579|35.2084273|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJYR--pNcpAxURim5q5Yia6Cs|Russian Grocery store|31.7830205|35.2169925|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJhwM0A-TXAhURBmypMb83dZg|רמי לוי הרב מכר בי סנטר|31.75233549999999|35.2087892|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJrwNYgOPXAhUR0maMd2hL_NU|Rami Levi|31.75220399999999|35.2086271|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJt12-kx7WAhURTFZOhVyJWzQ|סופרפרש|31.8003544|35.2107847|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ5aQh-uHXAhUROijdXqi4CYk|רמי לוי|31.7509544|35.2142544|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJZ24zYCjWAhURLa8NQt2ApQk|Eli's Shop (Eliyahu Ben Naim) - החנות של אלי|31.785213|35.212233|[general_contractor, home_goods_store, grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURosnxikMKcvs|אורלנד|31.7703053|35.24416230000001|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ5fqjocLXAhURSNYVvSVAMGU|רק בריאות - פרי וירק|31.75946099999999|35.2027197|[grocery_or_supermarket, food, store, health, point_of_interest, establishment]|
+ChIJH_qCcCHWAhURBTFwMlj8lZM|מינימרקט מנחת יצחק בע"מ|31.7938316|35.2099863|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJESaw5y8oAxUR5K1d-GoKIWU|MARKET 1|31.7629371|35.2252896|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJBWTU4NQpAxURM5VV92AqnNI|Supersol|31.7757674|35.21792569999999|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJzyxRNUjWAhURbqtzP0TQkfE|מתוק מדבש|31.7902127|35.1915622|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJU6LdA4sP-hQRj7lI7ZK6G50|מזרח ומערב - ירושלים|31.78546360000001|35.2094957|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ61jWidYpAxURRqJj6IoDRyY|סופרפרש-SUPERFRESH|31.78026959999999|35.21760479999999|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJuclxsSfWAhURf6AWrEGKxdI|סופר זול מקור ברוך בע"מ|31.787739|35.212498|[convenience_store, grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ8YnjNE3WAhURU4-nOb7biwQ|אושר עד|31.7850605|35.1836139|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJL0_Gh47XAhURyIkr0s0VYeQ|מגה|31.7517257|35.1867525|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ5dOWziPWAhURRH81K7IV-Xc|Osher ad|31.7944579|35.2084273|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJYR--pNcpAxURim5q5Yia6Cs|Russian Grocery store|31.7830205|35.2169925|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJhwM0A-TXAhURBmypMb83dZg|רמי לוי הרב מכר בי סנטר|31.75233549999999|35.2087892|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJrwNYgOPXAhUR0maMd2hL_NU|Rami Levi|31.75220399999999|35.2086271|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJt12-kx7WAhURTFZOhVyJWzQ|סופרפרש|31.8003544|35.2107847|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ5aQh-uHXAhUROijdXqi4CYk|רמי לוי|31.7509544|35.2142544|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJZ24zYCjWAhURLa8NQt2ApQk|Eli's Shop (Eliyahu Ben Naim) - החנות של אלי|31.785213|35.212233|[general_contractor, home_goods_store, grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURosnxikMKcvs|אורלנד|31.7703053|35.24416230000001|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ5fqjocLXAhURSNYVvSVAMGU|רק בריאות - פרי וירק|31.75946099999999|35.2027197|[grocery_or_supermarket, food, store, health, point_of_interest, establishment]|
+ChIJH_qCcCHWAhURBTFwMlj8lZM|מינימרקט מנחת יצחק בע"מ|31.7938316|35.2099863|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJESaw5y8oAxUR5K1d-GoKIWU|MARKET 1|31.7629371|35.2252896|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJBWTU4NQpAxURM5VV92AqnNI|Supersol|31.7757674|35.21792569999999|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJzyxRNUjWAhURbqtzP0TQkfE|מתוק מדבש|31.7902127|35.1915622|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJU6LdA4sP-hQRj7lI7ZK6G50|מזרח ומערב - ירושלים|31.78546360000001|35.2094957|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ61jWidYpAxURRqJj6IoDRyY|סופרפרש-SUPERFRESH|31.78026959999999|35.21760479999999|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJuclxsSfWAhURf6AWrEGKxdI|סופר זול מקור ברוך בע"מ|31.787739|35.212498|[convenience_store, grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ8YnjNE3WAhURU4-nOb7biwQ|אושר עד|31.7850605|35.1836139|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJL0_Gh47XAhURyIkr0s0VYeQ|מגה|31.7517257|35.1867525|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ5dOWziPWAhURRH81K7IV-Xc|Osher ad|31.7944579|35.2084273|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJYR--pNcpAxURim5q5Yia6Cs|Russian Grocery store|31.7830205|35.2169925|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJhwM0A-TXAhURBmypMb83dZg|רמי לוי הרב מכר בי סנטר|31.75233549999999|35.2087892|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJrwNYgOPXAhUR0maMd2hL_NU|Rami Levi|31.75220399999999|35.2086271|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJt12-kx7WAhURTFZOhVyJWzQ|סופרפרש|31.8003544|35.2107847|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJ5aQh-uHXAhUROijdXqi4CYk|רמי לוי|31.7509544|35.2142544|[grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJgarW_tUpAxURCqyLLxhFH8g|Angelica|31.773619|35.2215351|[restaurant, food, point_of_interest, establishment]|
+ChIJ9ZPR6yjWAhURXAEV2XEL8yw|מחניודה|31.7852311|35.211156|[restaurant, food, point_of_interest, establishment]|
+ChIJ65tOGdcpAxURWv5eWUEjsIQ|Rimon Cafe|31.7818685|35.2186543|[restaurant, cafe, food, point_of_interest, establishment]|
+ChIJrUytgS8oAxURN4AorRVPDLw|Colony|31.763054|35.2240563|[restaurant, food, point_of_interest, establishment]|
+ChIJrTQGByrWAhURiZW-WOGw52s|Mona|31.7799359|35.2143878|[restaurant, food, point_of_interest, establishment]|
+ChIJzz3a0ZLXAhURR0WS9uRxPZg|Grill Bar|31.78053469999999|35.2210702|[restaurant, food, point_of_interest, establishment]|
+ChIJjWM0kXHXAhUR0gzvkvA6pE4|פונדק עין כרם|31.7661225|35.1618148|[restaurant, food, point_of_interest, establishment]|
+ChIJSxMMi3PXAhURWx0_KrSjVAI|כרמא|31.7670381|35.162792|[restaurant, food, point_of_interest, establishment]|
+ChIJl9M-9tYpAxURd0Ey1-5oElE|Dublin|31.78102580000001|35.2176786|[restaurant, food, point_of_interest, establishment]|
+ChIJx8OKMnLXAhURezEsBkP9AlA|Sweet N' Karem|31.7676902|35.1623685|[store, food, point_of_interest, establishment]|
+ChIJyfCYPtEpAxURkM3shlnI8j0|Lara|31.7795706|35.221277|[restaurant, food, point_of_interest, establishment]|
+ChIJvWw9KNcpAxURFJ8K7gIzQ-o|Tmol Shilshom|31.7809782|35.2199608|[book_store, store, cafe, restaurant, food, point_of_interest, establishment]|
+ChIJnVDl9dUpAxURkGShBqSYC8E|Link|31.7792442|35.2152882|[restaurant, food, point_of_interest, establishment]|
+ChIJrUytgS8oAxURIi9rAxwuU4E|Ha'Hatzer|31.7628876|35.2233029|[restaurant, food, point_of_interest, establishment]|
+ChIJPWFRmx8oAxUR8_GyhSy3490|Papagio|31.7539657|35.2177131|[restaurant, food, point_of_interest, establishment]|
+ChIJTwX_9dEpAxUR6Hv62134EFg|Cafe Cafe Mamilla|31.7777529|35.2236024|[store, cafe, food, point_of_interest, establishment]|
+ChIJD2COYNIpAxUR7Iw_lL1x168|תאנים|31.77422550000001|35.2250648|[restaurant, food, point_of_interest, establishment]|
+ChIJJ8Y3l9UpAxURQz9UzRSfTfM|Chakra|31.7783059|35.2161626|[restaurant, food, point_of_interest, establishment]|
+ChIJs7Bt8CjWAhURknnbA_INs8Y|Fortuna|31.7845657|35.2114831|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJVYQv2NYpAxURQeyqiWn7FKg|בבית קפה|31.781117|35.21962|[store, cafe, food, point_of_interest, establishment]|
+ChIJYZzWds4pAxURXrjc0PmXNy8|ויליג' גרין - village green|31.78145510000001|35.2205248|[restaurant, food, point_of_interest, establishment]|
+ChIJ196dWCwoAxURuOQdLJZHsuw|Sofia|31.7713046|35.2222124|[restaurant, food, point_of_interest, establishment]|
+ChIJb-E-FNEpAxURfFwYXmzyjvA|Canela|31.779476|35.2218741|[restaurant, food, point_of_interest, establishment]|
+ChIJn1UD3NMpAxURL-gq2RBuU-g|Waldorf Astoria Jerusalem|31.777383|35.22148|[restaurant, lodging, food, point_of_interest, establishment]|
+ChIJS0JoOtEpAxUR3gll6vATzhw|דולפין ים|31.77998619999999|35.2210615|[restaurant, food, point_of_interest, establishment]|
+ChIJtau_VMgpAxUR6gB96BmPfPw|מסעדת בין הקשתות: מסעדות כשרות בירושלים, מסעדה מומלצת לאירועים|31.77728549999999|35.2331999|[restaurant, food, point_of_interest, establishment]|
+ChIJrdy-Yi0oAxURFg5ETY-5Vyw|מסעדת לבן בסינמטק|31.76993059999999|35.2259204|[restaurant, food, point_of_interest, establishment]|
+ChIJPbwTz9MpAxUR2xLpOKOgIDA|Scala|31.7770673|35.2225617|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJJfzLO9EpAxURS5IRw_zZIiU|Gabriel|31.7798955|35.2211714|[restaurant, food, point_of_interest, establishment]|
+ChIJV32Lx9MpAxURjqfRdoXbEus|1868|31.77676609999999|35.2222313|[restaurant, food, point_of_interest, establishment]|
+ChIJC5HsLdcpAxUR2fy3AFA0viA|Mike's Place|31.7812411|35.2204837|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJX9ryIirWAhURCoDJPdSM5XU|Sushi-ya|31.7803213|35.21371709999999|[restaurant, food, point_of_interest, establishment]|
+ChIJdWxij80pAxURsB7W_iQoxu4|The Eucalyptus Restaurant|31.77463100000001|35.227071|[restaurant, food, point_of_interest, establishment]|
+ChIJBf8JD9opAxURx80OH3DKdik|Vaqueiro|31.7838637|35.2211613|[restaurant, food, point_of_interest, establishment]|
+ChIJ36p-SyrWAhURreoc9kFoIuo|Al Dante|31.77963179999999|35.21233529999999|[restaurant, food, point_of_interest, establishment]|
+ChIJt4ur_dQpAxUR69AAqSg5NJk|Primavera|31.77657589999999|35.2166646|[restaurant, food, point_of_interest, establishment]|
+ChIJC7woLdEpAxURqy_Whh8DH9g|Alma|31.78059179999999|35.2204701|[restaurant, food, point_of_interest, establishment]|
+ChIJXXx2vikoAxURlMF87hu-Ifs|Caffe Bateatron|31.7685144|35.21646269999999|[store, cafe, food, point_of_interest, establishment]|
+ChIJ265CuNApAxURg9pJTdB1R1Y|דארנא דארכום בע"מ|31.7821163|35.221088|[restaurant, food, point_of_interest, establishment]|
+ChIJP5_LVijWAhURDgMoHhPkXcI|Topolino|31.7840833|35.2122936|[restaurant, food, point_of_interest, establishment]|
+ChIJSYlycmrWAhUR-EkybvF7Tac|Tur Sinai Organic Farm|31.804039|35.188987|[finance, restaurant, lodging, food, point_of_interest, establishment]|
+ChIJkYVFhNYpAxURDSsT4KtgTX0|פוקצ'ה בר|31.7799453|35.2179757|[restaurant, food, point_of_interest, establishment]|
+ChIJM7doTC8oAxUR9cMWDzXzuLc|לוצ'נה|31.7781725|35.2246786|[restaurant, food, point_of_interest, establishment]|
+ChIJbeoOidYpAxURZUY88tpFi2U|Aroma|31.78007679999999|35.2180905|[cafe, food, point_of_interest, establishment]|
+ChIJCbwTetEpAxURntlqQ7RLNyo|Tsunami Sushi and BBQ|31.7783746|35.2226242|[restaurant, food, point_of_interest, establishment]|
+ChIJRUlDtiMoAxURc_agK17zTcw|מסעדת פולי | מסעדות חלביות כשרות למהדרין בירושלים|31.75626790000001|35.2216607|[restaurant, food, point_of_interest, establishment]|
+ChIJVRumCyrWAhURmgWN-sd7M0o|Maalot|31.7792887|35.2146279|[restaurant, food, point_of_interest, establishment]|
+ChIJtxnbn0vWAhURBHNHkkhqWV4|Tzidkiyahu|31.786064|35.188533|[restaurant, meal_delivery, food, point_of_interest, establishment]|
+ChIJlZYuGi8oAxURl6CJrLXxI1M|Lev Smadar|31.7649|35.22216100000001|[movie_theater, restaurant, food, point_of_interest, establishment]|
+ChIJP9tZ0dApAxURuTmCkFqd6DU|בארוד|31.7814433|35.2201108|[restaurant, bar, food, point_of_interest, establishment]|
+ChIJdY3T2ywoAxUReydvAnwALtw|Rooftop Outdoor Lounge & Restaurant|31.7783581|35.2231084|[restaurant, food, point_of_interest, establishment]|
+ChIJnRFQ2dHXAhURihE8RX0BgTA|מודרן, מוזיאון ישראל|31.773813|35.204344|[restaurant, food, point_of_interest, establishment]|
+ChIJAZssdtEpAxURSY37KwYz9P8|Roladin|31.77726729999999|35.2253598|[cafe, food, point_of_interest, establishment]|
+ChIJdbBqK9cpAxURfZ0RYlMdEgw|שאנטי|31.7814041|35.2201737|[restaurant, food, point_of_interest, establishment]|
+ChIJX4cEGNEpAxURS-pljMErU8E|Noya|31.77999549999999|35.22164420000001|[restaurant, food, point_of_interest, establishment]|
+ChIJTyUSRdApAxURaGwA2FTfKWQ|Agas vetapuach|31.7797465|35.2244366|[restaurant, food, point_of_interest, establishment]|
+ChIJT0dGCEvWAhUR1IuQIiJ2fGg|Burgers Bar|31.7862461|35.1891071|[restaurant, food, point_of_interest, establishment]|
+ChIJPWSqttApAxURg7pct1BJ0C4|Racha|31.7824397|35.22074380000001|[restaurant, food, point_of_interest, establishment]|
+ChIJ9ZIi19YpAxURdFdB6bvrgGM|Zuni|31.7807012|35.2199472|[restaurant, food, point_of_interest, establishment]|
+ChIJB2f8O9EpAxUR3iVuatfeodY|Gabriela|31.7798039|35.2211783|[restaurant, food, point_of_interest, establishment]|
+ChIJ0e1oFB4oAxURUWak6GKn_Mg|גולף קו|31.7503943|35.2156604|[general_contractor, clothing_store, furniture_store, department_store, home_goods_store, store, point_of_interest, establishment]|
+ChIJce3fw9gpAxURpuRdqTCYcNA|דלתות אקרודיון הרמוניקה מתקפלות\מחיצות אקורידון-מצלילים|31.78873999999999|35.216567|[furniture_store, general_contractor, department_store, home_goods_store, store, point_of_interest, establishment]|
+ChIJDQpdHtcpAxURugHlilvqiTc|גולף קו|31.78173099999999|35.218717|[department_store, general_contractor, clothing_store, furniture_store, home_goods_store, store, point_of_interest, establishment]|
+ChIJZSLyiI7XAhURZlo70zd0DAU|גולף קו|31.751601|35.187315|[department_store, general_contractor, clothing_store, furniture_store, home_goods_store, store, point_of_interest, establishment]|
+ChIJay_9Yo7XAhURe_l-gvW8IW0|המשביר החדש לצרכן|31.7520627|35.1865447|[department_store, store, point_of_interest, establishment]|
+ChIJJQ6szY3XAhURr5jFlQSj9sY|הום סנטר|31.7515547|35.1882076|[department_store, store, point_of_interest, establishment]|
+ChIJqeFtYo7XAhURkpUlm3u-Kwo|המשביר החדש לצרכן|31.7519771|35.1864427|[department_store, store, point_of_interest, establishment]|
+ChIJ0e1oFB4oAxURUWak6GKn_Mg|גולף קו|31.7503943|35.2156604|[general_contractor, clothing_store, furniture_store, department_store, home_goods_store, store, point_of_interest, establishment]|
+ChIJce3fw9gpAxURpuRdqTCYcNA|דלתות אקרודיון הרמוניקה מתקפלות\מחיצות אקורידון-מצלילים|31.78873999999999|35.216567|[furniture_store, general_contractor, department_store, home_goods_store, store, point_of_interest, establishment]|
+ChIJDQpdHtcpAxURugHlilvqiTc|גולף קו|31.78173099999999|35.218717|[department_store, general_contractor, clothing_store, furniture_store, home_goods_store, store, point_of_interest, establishment]|
+ChIJZSLyiI7XAhURZlo70zd0DAU|גולף קו|31.751601|35.187315|[department_store, general_contractor, clothing_store, furniture_store, home_goods_store, store, point_of_interest, establishment]|
+ChIJay_9Yo7XAhURe_l-gvW8IW0|המשביר החדש לצרכן|31.7520627|35.1865447|[department_store, store, point_of_interest, establishment]|
+ChIJJQ6szY3XAhURr5jFlQSj9sY|הום סנטר|31.7515547|35.1882076|[department_store, store, point_of_interest, establishment]|
+ChIJqeFtYo7XAhURkpUlm3u-Kwo|המשביר החדש לצרכן|31.7519771|35.1864427|[department_store, store, point_of_interest, establishment]|
+ChIJ0e1oFB4oAxURUWak6GKn_Mg|גולף קו|31.7503943|35.2156604|[general_contractor, clothing_store, furniture_store, department_store, home_goods_store, store, point_of_interest, establishment]|
+ChIJce3fw9gpAxURpuRdqTCYcNA|דלתות אקרודיון הרמוניקה מתקפלות\מחיצות אקורידון-מצלילים|31.78873999999999|35.216567|[furniture_store, general_contractor, department_store, home_goods_store, store, point_of_interest, establishment]|
+ChIJDQpdHtcpAxURugHlilvqiTc|גולף קו|31.78173099999999|35.218717|[department_store, general_contractor, clothing_store, furniture_store, home_goods_store, store, point_of_interest, establishment]|
+ChIJZSLyiI7XAhURZlo70zd0DAU|גולף קו|31.751601|35.187315|[department_store, general_contractor, clothing_store, furniture_store, home_goods_store, store, point_of_interest, establishment]|
+ChIJay_9Yo7XAhURe_l-gvW8IW0|המשביר החדש לצרכן|31.7520627|35.1865447|[department_store, store, point_of_interest, establishment]|
+ChIJJQ6szY3XAhURr5jFlQSj9sY|הום סנטר|31.7515547|35.1882076|[department_store, store, point_of_interest, establishment]|
+ChIJqeFtYo7XAhURkpUlm3u-Kwo|המשביר החדש לצרכן|31.7519771|35.1864427|[department_store, store, point_of_interest, establishment]|
+ChIJ63uZTSrWAhURefeVvAxj4Zs|מינימרקט אוסישקין|31.7793433|35.2123877|[convenience_store, food, store, point_of_interest, establishment]|
+ChIJ85GsMd8pAxUR-lzMFMzwAgs|בקטנה|31.7900422|35.2168627|[convenience_store, liquor_store, food, store, point_of_interest, establishment]|
+ChIJCx24RNYpAxURkZNn7D2Um1w|סופר העיר|31.78133000000001|35.216864|[convenience_store, food, store, point_of_interest, establishment]|
+ChIJuclxsSfWAhURf6AWrEGKxdI|סופר זול מקור ברוך בע"מ|31.787739|35.212498|[convenience_store, grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJiYKPWtwpAxURF0cNOVJHV7w|מכולת נתן אליהו|31.7897993|35.2226991|[convenience_store, food, store, point_of_interest, establishment]|
+ChIJ63uZTSrWAhURefeVvAxj4Zs|מינימרקט אוסישקין|31.7793433|35.2123877|[convenience_store, food, store, point_of_interest, establishment]|
+ChIJ85GsMd8pAxUR-lzMFMzwAgs|בקטנה|31.7900422|35.2168627|[convenience_store, liquor_store, food, store, point_of_interest, establishment]|
+ChIJCx24RNYpAxURkZNn7D2Um1w|סופר העיר|31.78133000000001|35.216864|[convenience_store, food, store, point_of_interest, establishment]|
+ChIJuclxsSfWAhURf6AWrEGKxdI|סופר זול מקור ברוך בע"מ|31.787739|35.212498|[convenience_store, grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJiYKPWtwpAxURF0cNOVJHV7w|מכולת נתן אליהו|31.7897993|35.2226991|[convenience_store, food, store, point_of_interest, establishment]|
+ChIJ63uZTSrWAhURefeVvAxj4Zs|מינימרקט אוסישקין|31.7793433|35.2123877|[convenience_store, food, store, point_of_interest, establishment]|
+ChIJ85GsMd8pAxUR-lzMFMzwAgs|בקטנה|31.7900422|35.2168627|[convenience_store, liquor_store, food, store, point_of_interest, establishment]|
+ChIJCx24RNYpAxURkZNn7D2Um1w|סופר העיר|31.78133000000001|35.216864|[convenience_store, food, store, point_of_interest, establishment]|
+ChIJuclxsSfWAhURf6AWrEGKxdI|סופר זול מקור ברוך בע"מ|31.787739|35.212498|[convenience_store, grocery_or_supermarket, food, store, point_of_interest, establishment]|
+ChIJiYKPWtwpAxURF0cNOVJHV7w|מכולת נתן אליהו|31.7897993|35.2226991|[convenience_store, food, store, point_of_interest, establishment]|
+ChIJ65tOGdcpAxURWv5eWUEjsIQ|Rimon Cafe|31.7818685|35.2186543|[restaurant, cafe, food, point_of_interest, establishment]|
+ChIJvWw9KNcpAxURFJ8K7gIzQ-o|Tmol Shilshom|31.7809782|35.2199608|[book_store, store, cafe, restaurant, food, point_of_interest, establishment]|
+ChIJTwX_9dEpAxUR6Hv62134EFg|Cafe Cafe Mamilla|31.7777529|35.2236024|[store, cafe, food, point_of_interest, establishment]|
+ChIJVYQv2NYpAxURQeyqiWn7FKg|בבית קפה|31.781117|35.21962|[store, cafe, food, point_of_interest, establishment]|
+ChIJXXx2vikoAxURlMF87hu-Ifs|Caffe Bateatron|31.7685144|35.21646269999999|[store, cafe, food, point_of_interest, establishment]|
+ChIJbeoOidYpAxURZUY88tpFi2U|Aroma|31.78007679999999|35.2180905|[cafe, food, point_of_interest, establishment]|
+ChIJAZssdtEpAxURSY37KwYz9P8|Roladin|31.77726729999999|35.2253598|[cafe, food, point_of_interest, establishment]|
+ChIJY3K8gtEpAxURbq4kplsAZa8|ממילא קפה|31.778168|35.2236003|[store, cafe, food, point_of_interest, establishment]|
+ChIJ-xlukdYpAxUR9a7vrU8UObw|Coffee Shop|31.7799937|35.21846789999999|[store, cafe, food, point_of_interest, establishment]|
+ChIJAaz8c0zWAhURJM5Xj3CDAxg|מסעדה ובית קפה מעיין|31.78766359999999|35.1869814|[store, cafe, food, point_of_interest, establishment]|
+ChIJwyxfGdrXAhURakTKknamrkM|Duvshanit|31.7663533|35.20887580000001|[cafe, food, point_of_interest, establishment]|
+ChIJezPwcdYpAxUR-v2-B1y64W4|Caf'e Hilel|31.780288|35.2165889|[cafe, food, point_of_interest, establishment]|
+ChIJr5mSf9XXAhURAniVJmNna8w|קפה יהושע|31.772861|35.214781|[cafe, food, point_of_interest, establishment]|
+ChIJc8ORTtYpAxUR4cHhSqwT4wU|Aroma|31.7819862|35.216744|[cafe, food, point_of_interest, establishment]|
+ChIJAQCUB9HXAhURbuH2arrUV_E|Aroma|31.7958942|35.2417106|[cafe, food, point_of_interest, establishment]|
+ChIJezPwcdYpAxURJghJTZKB8jE|Hillel Espresso Bar|31.7802881|35.216588|[cafe, bar, food, point_of_interest, establishment]|
+ChIJgzGXWMQpAxURoT_9ilFZa0k|Jerusalem Hotel|31.7842981|35.2280834|[cafe, restaurant, lodging, food, point_of_interest, establishment]|
+ChIJWY626tXXAhURq3iolqi-oZ4|Zigmond|31.771956|35.2135933|[store, cafe, food, point_of_interest, establishment]|
+ChIJn4OHRiYoAxURidDhYo3X1D8|קפה קפה המושבה הגרמנית|31.762695|35.2182665|[cafe, store, food, point_of_interest, establishment]|
+ChIJSRvCbkzWAhURhH7Ph2GPArg|מוסקט|31.7880495|35.186559|[restaurant, cafe, food, point_of_interest, establishment]|
+ChIJTe5YezrWAhURX4RXlJeowGU|Cafe Korus|31.790342|35.20091599999999|[cafe, food, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURCw9LxoTI6co|Versavee|31.7768219|35.2283158|[cafe, restaurant, food, point_of_interest, establishment]|
+ChIJgwDqNNbXAhURqSzJMdeUWxM|St George’s Cathedral Pilgrim Guesthouse - Jerusalem|31.787901|35.22870899999999|[park, church, store, cafe, restaurant, lodging, food, place_of_worship, point_of_interest, establishment]|
+ChIJXZwSh9nXAhURaZbSg91GKaw|הלחם של תומר|31.76521020000001|35.20947849999999|[bakery, store, cafe, food, point_of_interest, establishment]|
+ChIJq7LRNy8oAxURF62GJIf5Kbw|טחנת הקפה|31.764782|35.22101|[store, cafe, restaurant, food, point_of_interest, establishment]|
+ChIJA5Jhvh3WAhUR39Auaaq1USo|בק|31.8029314|35.2137782|[cafe, food, point_of_interest, establishment]|
+ChIJr43cQSQoAxURXGqiK6AeCJw|Kalu|31.759338|35.221988|[cafe, food, point_of_interest, establishment]|
+ChIJEWKqOY7XAhURLJRwi6iwOkY|Avihail Cafe|31.7537044|35.1854627|[cafe, food, point_of_interest, establishment]|
+ChIJnVDmMdcpAxURWyeLodIvgSQ|Aldo Ice Cream - La Gelateria Italiana | גלידה אלדו תחנה מרכזית|31.789303|35.202686|[store, cafe, food, point_of_interest, establishment]|
+ChIJzSISKfApAxURQ0_ifnnwKcA|Neeman|31.80081599999999|35.227283|[store, cafe, food, point_of_interest, establishment]|
+ChIJQx3HctYpAxUR7qQlurQH7kg|Halita'tea / חליטת'ה - בית תה ירושלמי|31.7805146|35.2162976|[store, cafe, restaurant, food, point_of_interest, establishment]|
+ChIJ20wE8O8pAxURYuTRgxN_H8k|Sam bagels|31.8006199|35.2266044|[cafe, food, point_of_interest, establishment]|
+ChIJo0E1RckpAxURadPp-14Geus|קפה הרובע|31.7758865|35.2312783|[store, cafe, food, point_of_interest, establishment]|
+ChIJhXpHitEpAxURPXhA25_ZwNI|Aroma|31.768319|35.21371|[cafe, food, point_of_interest, establishment]|
+ChIJhxp3ddEpAxUR7YVOmPhMHbU|שרגא|31.7787759|35.2235865|[cafe, food, point_of_interest, establishment]|
+ChIJPzjFNSYoAxURaQFbDCsGz-U|Morgens Cafe Jerusalem|31.7632369|35.2178821|[meal_takeaway, cafe, restaurant, food, point_of_interest, establishment]|
+ChIJderhOCnWAhURtBgzFRX3ZeE|וואי קפה Y cafe|31.783177|35.21028|[cafe, store, food, point_of_interest, establishment]|
+ChIJh-J3ddEpAxUR1aaB33ncU-0|Etz Cafe|31.7789193|35.2233536|[store, cafe, food, point_of_interest, establishment]|
+ChIJH_p9MnLXAhURDh0yczvlDaA|דברים אמיתיים|31.7676092|35.1623977|[cafe, food, point_of_interest, establishment]|
+ChIJAeYgItcpAxURVlL8pepIbTA|קצפת|31.7817706|35.2187053|[cafe, store, food, point_of_interest, establishment]|
+ChIJTzqVBdYpAxUR2s6QDQNey3s|Norbert|31.78061550000001|35.2154628|[cafe, bar, food, point_of_interest, establishment]|
+ChIJExFJKozXAhURc1rZqskrmtM|ארומה|31.7513767|35.18750989999999|[cafe, bar, food, point_of_interest, establishment]|
+ChIJsY-iJdnXAhURaETPgg3FNLU|Cohen's Deli|31.76221439999999|35.21156060000001|[store, cafe, food, point_of_interest, establishment]|
+ChIJgwDqNNbXAhURjdZye9TjWm0|1868 Caf?|31.768319|35.21371|[cafe, restaurant, food, point_of_interest, establishment]|
+ChIJgwDqNNbXAhUROHM5PztvW9U|Jaffar and Sons Pastry Cafe|31.768319|35.21371|[cafe, restaurant, food, point_of_interest, establishment]|
+ChIJccvEKtUpAxURujunX6XImvA|קפה פריז|31.7739497|35.2165221|[restaurant, cafe, food, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURR7WRlcj_yR4|Coffee Time|31.768318|35.213711|[cafe, food, point_of_interest, establishment]|
+ChIJMY_ADcvXAhURc2d-2kNcT74|Haeivrit|31.7937036|35.2459119|[cafe, restaurant, food, point_of_interest, establishment]|
+ChIJMY_ADcvXAhURK-9uNURhVbc|Haivrit|31.7772109|35.1987487|[restaurant, cafe, food, point_of_interest, establishment]|
+ChIJtxnbn0vWAhURGZC5zC66qP0|קופי שופ|31.786064|35.188533|[cafe, food, point_of_interest, establishment]|
+ChIJQR6bJ9kpAxURAVeptydcBq8|מזנון גאולה|31.78871989999999|35.2176595|[cafe, store, food, point_of_interest, establishment]|
+ChIJTxF9AScoAxURjf04X7Kp8fw|וופל בר המושבה 54|31.7617922|35.2173866|[store, cafe, food, point_of_interest, establishment]|
+ChIJ6w7u1uspAxURG_01HC46t0g|Gallery Cafe|31.792887|35.231574|[cafe, food, point_of_interest, establishment]|
+ChIJiwn5i9YpAxURPfdS0inm6jg|פרי שייק בר|31.7803276|35.2179232|[cafe, food, point_of_interest, establishment]|
+ChIJfUGRCzLWAhUR_vRQX360vuw|Greg Cafe|31.7828638|35.2035722|[store, cafe, food, point_of_interest, establishment]|
+ChIJt2W3yaAF-hQRQfQfh4oPn9M|Caffit|31.76370889999999|35.21935499999999|[restaurant, cafe, food, point_of_interest, establishment]|
+ChIJh0uafY7XAhUR_PNWQ-tfMys|אספרסו בר|31.7518301|35.1868537|[cafe, bar, food, point_of_interest, establishment]|
+ChIJWyFpNMEpAxUR9O0tvRmdbYA|Languages College|31.784773|35.232979|[book_store, store, cafe, food, point_of_interest, establishment]|
+ChIJD0jHAirWAhURksub9rXY2i4|קפה בצלאל|31.7804518|35.2142219|[store, cafe, food, point_of_interest, establishment]|
+ChIJlfH68MTXAhURGcXILeTy_p4|מסעדת קפית|31.766341|35.20158869999999|[restaurant, store, cafe, food, point_of_interest, establishment]|
+ChIJs7Bt8CjWAhURknnbA_INs8Y|Fortuna|31.7845657|35.2114831|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJY6fI0tYpAxURZXHWF8ryfB8|בל ווד בר|31.780554|35.22040399999999|[bar, point_of_interest, establishment]|
+ChIJPbwTz9MpAxUR2xLpOKOgIDA|Scala|31.7770673|35.2225617|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJC5HsLdcpAxUR2fy3AFA0viA|Mike's Place|31.7812411|35.2204837|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJdY3T2ywoAxUR6TWveXwatpU|Mirror Bar|31.7781919|35.2236084|[bar, point_of_interest, establishment]|
+ChIJP9tZ0dApAxURuTmCkFqd6DU|בארוד|31.7814433|35.2201108|[restaurant, bar, food, point_of_interest, establishment]|
+ChIJdy_BRynWAhUROJR6ydwAYzY|סלואו משה|31.7827658|35.2101625|[bar, point_of_interest, establishment]|
+ChIJ6weP6yjWAhURgBKviLD8Kh8|השכנה|31.7852441|35.2110852|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJu5tuA9cpAxURrDvUEf-wlXM|בולינט קפה בר|31.782065|35.21814099999999|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJJYO-F9EpAxURSPzCmcqP_Rk|La Casa del Habano|31.77986679999999|35.2217296|[store, night_club, bar, point_of_interest, establishment]|
+ChIJfaPwbdEpAxURCHOddffb_0k|glen whisk(e)y bar|31.778622|35.222598|[bar, point_of_interest, establishment]|
+ChIJ6U4iydApAxURHSLM5BBktY4|Uganda Bar|31.78198939999999|35.2209011|[bar, point_of_interest, establishment]|
+ChIJca1lzNApAxURlE3BwyOCEvI|בר הצעצוע|31.7817833|35.22072430000001|[bar, night_club, point_of_interest, establishment]|
+ChIJgXtGqbDXAhURpKAh2zw105Y|Beit Hamashkaot Shel Shahar|31.774403|35.1870165|[food, bar, point_of_interest, establishment]|
+ChIJcRbkxtApAxUR8AcnCySqpGg|התקליט Hataklit|31.78190770000001|35.2212274|[night_club, bar, restaurant, food, point_of_interest, establishment]|
+ChIJezPwcdYpAxURJghJTZKB8jE|Hillel Espresso Bar|31.7802881|35.216588|[cafe, bar, food, point_of_interest, establishment]|
+ChIJHdRoPtEpAxURbR1hoAFqREk|בר ז'בוטינסקי|31.7795121|35.2216048|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJp3wdxtApAxURP3rLKykziT4|Sideways Bar|31.7818091|35.2210686|[bar, point_of_interest, establishment]|
+ChIJX8NZ0dApAxURCSUHXG1LguY|גולה בר - Gula Bar|31.780893|35.220996|[bar, point_of_interest, establishment]|
+ChIJqfFLQNEpAxURZLjJciXzWyg|מחסן בר / Mahsan Bar|31.7793591|35.2215272|[bar, point_of_interest, establishment]|
+ChIJvbeE15LXAhUR-TulqMM4QuA|Waffel Bar|31.7789294|35.22237010000001|[bar, point_of_interest, establishment]|
+ChIJUdl8SyrWAhURO3xIMtKZOQk|Besarabia bar|31.7812191|35.2155754|[bar, point_of_interest, establishment]|
+ChIJP22uz9YpAxUR0Igm0s-7tGM|Blue Hall Music (בלו הול מיוסיק)|31.7805117|35.219716|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJ_9Kpi3PXAhURxDlQKJA-kPo|Mala Bar|31.7671353|35.1625281|[restaurant, bar, food, point_of_interest, establishment]|
+ChIJ9x4JU5zXAhURjgjjhprwJsI|אלוני בלוני - ליצן לימי הולדת וקריוקי|31.7612646|35.1737656|[night_club, bar, point_of_interest, establishment]|
+ChIJzaPwbdEpAxURY-_GIRkgFzc|גלן בר|31.77864|35.222582|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJl7g1qibXAhURr5nCggnSczo|בירמן|31.7818355|35.2181876|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJtTxAt9YpAxURjuZy7DkWEeA|החבית - The Barrel PUBlic house|31.7798635|35.2197552|[bar, point_of_interest, establishment]|
+ChIJTzqVBdYpAxUR2s6QDQNey3s|Norbert|31.78061550000001|35.2154628|[cafe, bar, food, point_of_interest, establishment]|
+ChIJgwDqNNbXAhURDbf3pyxmtqw|express yourself - אטרקציות לחתונה|31.768319|35.21371|[night_club, bar, point_of_interest, establishment]|
+ChIJzRINidYpAxUR4aSpuY7Svy8|Gatsby Cocktail Room|31.7800856|35.2180268|[bar, point_of_interest, establishment]|
+ChIJExFJKozXAhURc1rZqskrmtM|ארומה|31.7513767|35.18750989999999|[cafe, bar, food, point_of_interest, establishment]|
+ChIJP8ucjNMpAxUR8J0o1WZiqdY|אגרונסקי|31.777063|35.2207481|[bar, point_of_interest, establishment]|
+ChIJh0uafY7XAhUR_PNWQ-tfMys|אספרסו בר|31.7518301|35.1868537|[cafe, bar, food, point_of_interest, establishment]|
+ChIJiWpjItEpAxURMfJ8toXRWwU|נחלה 16|31.7802204|35.2216671|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJsSApLNEpAxUR-uV2_q2FRJU|Mantra Restaurant|31.7806747|35.22065800000001|[restaurant, bar, food, point_of_interest, establishment]|
+ChIJ8wQtt9ApAxURd-Gl_O-6xio|mitt'e city-bar|31.7824664|35.2208909|[bar, point_of_interest, establishment]|
+ChIJ-Sycv9ApAxURMtm3XRwiHBQ|בר 102|31.7822148|35.2215203|[bar, point_of_interest, establishment]|
+ChIJAXiWutEpAxURQsPfOH8X_J4|קקטוס9|31.7794277|35.2234018|[bar, point_of_interest, establishment]|
+ChIJoe7iRCjWAhURnJ2ITm2ae6I|5inMay|31.78422490000001|35.212908|[bar, point_of_interest, establishment]|
+ChIJB9IH5dYpAxURLZjBoUVJkUA|Servesa|31.781278|35.2184076|[bar, point_of_interest, establishment]|
+ChIJZxCKkijWAhUR-o1nga9-4iM|הטיפה|31.7853324|35.211345|[bar, point_of_interest, establishment]|
+ChIJqcGF5tYpAxUR9GsDTuBcHUc|Fishnzon bar|31.7811787|35.2186617|[bar, point_of_interest, establishment]|
+ChIJ5UpFfCjWAhURO2i7e9IeIhE|קזינו דה פריז|31.7855792|35.21248260000001|[bar, point_of_interest, establishment]|
+ChIJ8xzywiwoAxURNWUrJBrkuxs|ברדק פיצה בר|31.7715822|35.2224169|[bar, restaurant, food, point_of_interest, establishment]|
+ChIJo7XXgSooAxURtGGkyfuiNIo|ראש בר|31.7730478|35.2148527|[bar, point_of_interest, establishment]|
+ChIJt3hlAtcpAxURu1kZnY9mM_0|Birman Piano Bar|31.78185809999999|35.2180681|[bar, point_of_interest, establishment]|
+ChIJjSPdZCjWAhURaUqkuI6QTek|Casino de Paris|31.7853438|35.2125757|[bar, point_of_interest, establishment]|
+ChIJOYJltdYpAxURG0gkgdmvG5o|חביבי בר|31.7798454|35.2202243|[bar, point_of_interest, establishment]|
+ChIJG8uPLNEpAxUR0T3A6eMf9vA|פנקס הקטן The Little Pinkas|31.78068940000001|35.2204752|[bar, point_of_interest, establishment]|
+ChIJvztng2MF-hQRnj2cGDMDCww|Putin Pub|31.7810854|35.220993|[bar, point_of_interest, establishment]|
+ChIJM9mlq8MpAxURsTsz2xKX8E4|St George’s Garden Bistro - Jerusalem|31.788202|35.22880500000001|[store, cafe, bar, restaurant, food, point_of_interest, establishment]|
+ChIJTW_i1NApAxURWjrlX3HufOo|אבן ג'וק|31.781214|35.220457|[bar, point_of_interest, establishment]|
+ChIJQd1nxiPWAhURHzgRohB7Fdo|מאפית שובע שמחות|31.79413659999999|35.208241|[bar, point_of_interest, establishment]|
+ChIJBUtg43fXAhURETONRyksen8|פאב המפלצת|31.7601536|35.1705367|[bar, point_of_interest, establishment]|
+ChIJ10m4vS0oAxURkCtclim_NAk|Cactus 9|31.7690162|35.2243395|[bar, point_of_interest, establishment]|
+ChIJwwg3mdUpAxURAhl0Sjdr-RI|Chet-7|31.7778329|35.2159749|[bar, point_of_interest, establishment]|
+ChIJw8Uwx9ApAxURkxavIJHIRpo|Video bar gay|31.78194710000001|35.22119970000001|[bar, point_of_interest, establishment]|
+ChIJ3dPYGSYoAxURysDxGWsNeeA|בן עמי - המושבה הגרמנית - ירושלים מסעדה קונדיטוריה אירועים|31.7634512|35.2191472|[bakery, store, food, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURPLgwX0rMsXc|מאפה נאמן|31.7534698|35.2136448|[bakery, store, food, point_of_interest, establishment]|
+ChIJXZwSh9nXAhURaZbSg91GKaw|הלחם של תומר|31.76521020000001|35.20947849999999|[bakery, store, cafe, food, point_of_interest, establishment]|
+ChIJyceKAXLXAhURRCE6ftMbNu4|מאפה נאמן - קניון הדסה, עין כרם|31.767763|35.160215|[bakery, store, food, point_of_interest, establishment]|
+ChIJqWATguYpAxURc8XJDkY4lZQ|judaica IDF TZITZIT|31.797724|35.222688|[bakery, clothing_store, electronics_store, florist, store, food, point_of_interest, establishment]|
+ChIJwwejdkjWAhURM9J3zTXZUcQ|אירית עוגות עוגיות מעוצבות|31.7863384|35.20999880000001|[bakery, store, food, point_of_interest, establishment]|
+ChIJ887LUSYoAxURgJoBL1I4H00|Bagel Cafe|31.7624799|35.2180298|[bakery, store, food, point_of_interest, establishment]|
+ChIJ45kBrUvWAhURWM9mtSs3uUY|Franck delights|31.7862344|35.18991539999999|[bakery, store, food, point_of_interest, establishment]|
+ChIJ3SbFNSYoAxURTL9DjZyLTmY|Marzipan|31.76318169999999|35.2177638|[bakery, store, food, point_of_interest, establishment]|
+ChIJScEu6ufXAhURJfW3Jg5ohEU|Delightfully Delivered|31.757448|35.204912|[bakery, store, food, point_of_interest, establishment]|
+ChIJYxfxNvTWAhUReZ7W7CaSEv4|Tali Raz Cakes|31.806265|35.167666|[bakery, store, food, point_of_interest, establishment]|
+ChIJp5U78S3WAhURY_kjcrkG8cw|Boutique Central|31.7828507|35.2042589|[bakery, store, food, point_of_interest, establishment]|
+ChIJ_646h47XAhURE6kAYKLKvpY|Roladin|31.7516501|35.18697819999999|[bakery, store, food, point_of_interest, establishment]|
+ChIJ28YX1o3XAhURdBP9P8M9c4U|תופיניי|31.7520133|35.1874152|[bakery, store, food, point_of_interest, establishment]|
+ChIJqbnxHyAoAxUR0vlfxO4voY0|אינגליש קייק|31.7546728|35.215484|[bakery, store, food, point_of_interest, establishment]|
+ChIJ_89DXijWAhURQwN0xdGPC_M|עוגת-חן|31.784714|35.2123002|[bakery, store, food, point_of_interest, establishment]|
+ChIJCRihhY7XAhURmKCRf7A_-R0|Sam's Bagels|31.75137190000001|35.1867815|[bakery, store, food, point_of_interest, establishment]|
+ChIJjZNqgY7XAhURV2VHXn5511U|מאפה נאמן|31.7514826|35.1871134|[bakery, store, food, point_of_interest, establishment]|
+ChIJdQjF7TrWAhUR9mQRxgU51zo|מאפיית אנגל|31.7909127|35.20191570000001|[bakery, store, food, point_of_interest, establishment]|
+ChIJQaX4kuApAxURhlWWQtKwLvA|מאפית שובע שמחות|31.79540639999999|35.2185363|[bakery, store, food, point_of_interest, establishment]|
+ChIJOdVV-NgpAxURaFIK-sWPP2E|מאפיית אביחיל|31.7872435|35.2170688|[bakery, store, food, point_of_interest, establishment]|
+ChIJPRHCOSjWAhURr08Um1BgrIA|מרציפן|31.78394329999999|35.2134401|[bakery, store, food, point_of_interest, establishment]|
+ChIJwQBHx94pAxURRSvV7uVO-wg|מגדניית קצבורג|31.7899576|35.2188094|[bakery, store, food, point_of_interest, establishment]|
+ChIJOdVV-NgpAxURaFIK-sWPP2E|מאפיית אביחיל|31.7872435|35.2170688|[bakery, store, food, point_of_interest, establishment]|
+ChIJPRHCOSjWAhURr08Um1BgrIA|מרציפן|31.78394329999999|35.2134401|[bakery, store, food, point_of_interest, establishment]|
+ChIJwQBHx94pAxURRSvV7uVO-wg|מגדניית קצבורג|31.7899576|35.2188094|[bakery, store, food, point_of_interest, establishment]|
+ChIJC7woLdEpAxUREt2I3VqDh6M|Vision Neil Folberg Gallery|31.780276|35.22048300000001|[art_gallery, point_of_interest, establishment]|
+ChIJby7UAtEpAxUR6yzpdMSRiV8|Yaffo 23|31.7802924|35.22242379999999|[art_gallery, point_of_interest, establishment]|
+ChIJy9u5U9kpAxURuqMJxlhYWcg|Ceramics Gallery|31.7884624|35.2199566|[art_gallery, point_of_interest, establishment]|
+ChIJn_zRs84pAxURKeoSf30gjVE|Gold of Jerusalem|31.776022|35.231029|[art_gallery, jewelry_store, store, point_of_interest, establishment]|
+ChIJId7nf3jXAhURjtLzIRSwBqs|Shaked designs - Judaica & Jewlery|31.7569217|35.1707313|[art_gallery, store, point_of_interest, establishment]|
+ChIJ4QXabdEpAxURqzCwbJA_bII|Sarah’s Tent Gallery|31.778945|35.222275|[art_gallery, point_of_interest, establishment]|
+ChIJPWFRmx8oAxUR5lg3bsmvr7U|Yaal Herman - Photographer|31.774613|35.22640199999999|[art_gallery, point_of_interest, establishment]|
+ChIJBUPltc4pAxURgkRwElsQYg8|ארטנובה -גלריה לאומנות|31.776425|35.231027|[art_gallery, store, point_of_interest, establishment]|
+ChIJbbqV9tDXAhURSjBtYj_lvGI|הקוביה|31.7690636|35.20529559999999|[university, art_gallery, point_of_interest, establishment]|
+ChIJa71xOnLXAhURucZ_L6WQKgI|בחפץ כפיה|31.7679791|35.1619727|[store, art_gallery, point_of_interest, establishment]|
+ChIJa2clYB3XAhURSwj2y7hOOEM|ארטנובה בע"מ-סטודיו וגלריה/בית היוצר לציורים רכים|31.7932514|35.15837|[store, art_gallery, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURpldovQgg_pc|Engel Gallery Jerusalem|31.77880799999999|35.222588|[art_gallery, point_of_interest, establishment]|
+ChIJ06CG5NUpAxURa-znsxSIoDM|גלריה מעיינות|31.7796766|35.21573069999999|[art_gallery, point_of_interest, establishment]|
+ChIJjeyHnNEpAxURDzCKtLg6KdM|luvaton art ltd|31.777295|35.222752|[art_gallery, jewelry_store, store, point_of_interest, establishment]|
+ChIJmW32bdEpAxURmyIIu8NgilU|Rakia Gallery|31.7789296|35.22237|[art_gallery, point_of_interest, establishment]|
+ChIJfSuWQ-0pAxUR4NlVQf1BERw|Nouveau Fine Arts|31.797818|35.23571|[art_gallery, point_of_interest, establishment]|
+ChIJQUqdz3PXAhURC7OZsmcWOqc|עדינה סטודיו לקרמיקה Adina Ceramics Studio|31.7674155|35.1632812|[art_gallery, store, point_of_interest, establishment]|
+ChIJx_ZmFB4oAxURXHmGQKtXT_g|סטודיו ארד-יאירי|31.7510059|35.21620179999999|[art_gallery, point_of_interest, establishment]|
+ChIJlWNruNMpAxURt_BdElRIKgw|Shuki Freiman Gallery|31.7766737|35.2223095|[art_gallery, point_of_interest, establishment]|
+ChIJDY3uts4pAxURlbXi3B8N56Q|תפארה בעתיקה|31.7763096|35.23087519999999|[art_gallery, point_of_interest, establishment]|
+ChIJV70f8R0oAxURsHCFCDRHgHg|הדפס אומנותי ירושלים בע"מ|31.749482|35.215375|[art_gallery, point_of_interest, establishment]|
+ChIJVR7BEikoAxURdx-HKcRI7yU|Marrache Fine Art|31.7679478|35.2183785|[art_gallery, point_of_interest, establishment]|
+ChIJV70f8R0oAxURsHCFCDRHgHg|הדפס אומנותי ירושלים בע"מ|31.749482|35.215375|[art_gallery, point_of_interest, establishment]|
+ChIJVR7BEikoAxURdx-HKcRI7yU|Marrache Fine Art|31.7679478|35.2183785|[art_gallery, point_of_interest, establishment]|
+ChIJFQ6OvEspAxURuQpdA-hDdT0|Adumim Mall|31.77153059999999|35.2985018|[shopping_mall, point_of_interest, establishment]|
+ChIJr0hivjksAxURrPj5uTO8gRM|Rami Levi Leshivuk HaShikma Shopping Center|31.7937828|35.33399480000001|[shopping_mall, point_of_interest, establishment]|
+ChIJVVXh9EspAxURy-SrBROvKwA|Kikar Yahalom Shopping Center|31.77360969999999|35.2984983|[shopping_mall, point_of_interest, establishment]|
+ChIJq-o4HaYuAxURsah_QT4xUdQ|Zol uve-Gadol|31.7795682|35.3137916|[shopping_mall, point_of_interest, establishment]|
+ChIJq6q7ZSUsAxUR5Rx52n5T754|Supersol|31.7854062|35.3350838|[shopping_mall, point_of_interest, establishment]|
+ChIJ__8CVKguAxURhRjxT8p4ZBw|Shopping Center (under construction)|31.78245720000001|35.3112885|[shopping_mall, point_of_interest, establishment]|
+ChIJFQ6OvEspAxURuQpdA-hDdT0|Adumim Mall|31.77153059999999|35.2985018|[shopping_mall, point_of_interest, establishment]|
+ChIJr0hivjksAxURrPj5uTO8gRM|Rami Levi Leshivuk HaShikma Shopping Center|31.7937828|35.33399480000001|[shopping_mall, point_of_interest, establishment]|
+ChIJVVXh9EspAxURy-SrBROvKwA|Kikar Yahalom Shopping Center|31.77360969999999|35.2984983|[shopping_mall, point_of_interest, establishment]|
+ChIJq-o4HaYuAxURsah_QT4xUdQ|Zol uve-Gadol|31.7795682|35.3137916|[shopping_mall, point_of_interest, establishment]|
+ChIJq6q7ZSUsAxUR5Rx52n5T754|Supersol|31.7854062|35.3350838|[shopping_mall, point_of_interest, establishment]|
+ChIJ__8CVKguAxURhRjxT8p4ZBw|Shopping Center (under construction)|31.78245720000001|35.3112885|[shopping_mall, point_of_interest, establishment]|
+ChIJFQ6OvEspAxURuQpdA-hDdT0|Adumim Mall|31.77153059999999|35.2985018|[shopping_mall, point_of_interest, establishment]|
+ChIJr0hivjksAxURrPj5uTO8gRM|Rami Levi Leshivuk HaShikma Shopping Center|31.7937828|35.33399480000001|[shopping_mall, point_of_interest, establishment]|
+ChIJVVXh9EspAxURy-SrBROvKwA|Kikar Yahalom Shopping Center|31.77360969999999|35.2984983|[shopping_mall, point_of_interest, establishment]|
+ChIJq-o4HaYuAxURsah_QT4xUdQ|Zol uve-Gadol|31.7795682|35.3137916|[shopping_mall, point_of_interest, establishment]|
+ChIJq6q7ZSUsAxUR5Rx52n5T754|Supersol|31.7854062|35.3350838|[shopping_mall, point_of_interest, establishment]|
+ChIJ__8CVKguAxURhRjxT8p4ZBw|Shopping Center (under construction)|31.78245720000001|35.3112885|[shopping_mall, point_of_interest, establishment]|
+ChIJnUdXVgcsAxURjvqfFVE3ntw|Maale adumim mall|31.792742|35.302876|[restaurant, food, point_of_interest, establishment]|
+ChIJnUdXVgcsAxURjvqfFVE3ntw|Maale adumim mall|31.792742|35.302876|[restaurant, food, point_of_interest, establishment]|
+ChIJnUdXVgcsAxURjvqfFVE3ntw|Maale adumim mall|31.792742|35.302876|[restaurant, food, point_of_interest, establishment]|
+ChIJIfrmrE0pAxURLuEUVVuErCc|Central Park|31.7758201|35.2989486|[park, point_of_interest, establishment]|
+ChIJt-mmWQQsAxURQXryT9yWbeU|Green Drop Home|31.791138|35.310841|[food, park, point_of_interest, establishment]|
+ChIJGTRofVkpAxURa9IYemuUAUU|Ma'ale Adumim Forest|31.78699|35.2884|[park, point_of_interest, establishment]|
+ChIJZ7suHVApAxURrYC5PmS1ay4|פארק ע"ש יצחק שמיר|31.780813|35.2922121|[park, point_of_interest, establishment]|
+ChIJIfrmrE0pAxURLuEUVVuErCc|Central Park|31.7758201|35.2989486|[park, point_of_interest, establishment]|
+ChIJt-mmWQQsAxURQXryT9yWbeU|Green Drop Home|31.791138|35.310841|[food, park, point_of_interest, establishment]|
+ChIJGTRofVkpAxURa9IYemuUAUU|Ma'ale Adumim Forest|31.78699|35.2884|[park, point_of_interest, establishment]|
+ChIJZ7suHVApAxURrYC5PmS1ay4|פארק ע"ש יצחק שמיר|31.780813|35.2922121|[park, point_of_interest, establishment]|
+ChIJIfrmrE0pAxURLuEUVVuErCc|Central Park|31.7758201|35.2989486|[park, point_of_interest, establishment]|
+ChIJt-mmWQQsAxURQXryT9yWbeU|Green Drop Home|31.791138|35.310841|[food, park, point_of_interest, establishment]|
+ChIJGTRofVkpAxURa9IYemuUAUU|Ma'ale Adumim Forest|31.78699|35.2884|[park, point_of_interest, establishment]|
+ChIJZ7suHVApAxURrYC5PmS1ay4|פארק ע"ש יצחק שמיר|31.780813|35.2922121|[park, point_of_interest, establishment]|
+ChIJW0CKv0cpAxURaDH_J0OqRbg|יויו|31.77272|35.29036479999999|[night_club, point_of_interest, establishment]|
+ChIJW0CKv0cpAxURaDH_J0OqRbg|יויו|31.77272|35.29036479999999|[night_club, point_of_interest, establishment]|
+ChIJW0CKv0cpAxURaDH_J0OqRbg|יויו|31.77272|35.29036479999999|[night_club, point_of_interest, establishment]|
+ChIJT3BxSUopAxURJPceShsnYiM|כללית|31.77154|35.298523|[health, point_of_interest, establishment]|
+ChIJA_paAqYuAxURU6fq6IwKDCM|כללית - מרכז בריאות האישה|31.7793195|35.3138209|[health, point_of_interest, establishment]|
+ChIJcQqVsEwpAxURuvxf1mpo1yc|Family Health Clinic|31.7734895|35.3021116|[health, point_of_interest, establishment]|
+ChIJ6fIF9kspAxURLvrjwxVeiYk|Brosh|31.773832|35.298235|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJl8wAwDksAxURbeXC4BjnRY4|Mishor Adumim Pharm Center|31.793562|35.334286|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJVaWvRrQuAxURQ9iaF-_YJUo|Maccabi Healthcare Services|31.76965109999999|35.30653119999999|[health, point_of_interest, establishment]|
+ChIJ___OUrUuAxURWcp9sH07nj0|Housing for the Elderly|31.7679724|35.3027547|[health, point_of_interest, establishment]|
+ChIJAcBMHaYuAxURTsEr9QU7FbQ|Clalit Health Services|31.7795298|35.3137594|[health, point_of_interest, establishment]|
+ChIJGY7PK68uAxURYK8Hg52W9lc|מרפאת כללית סמייל מעלה אדומים|31.7717825|35.2984411|[dentist, health, point_of_interest, establishment]|
+ChIJj26cCUwpAxURoqaG3dhC0sc|י.ש.מ מעלה אדומים|31.774263|35.298205|[store, health, point_of_interest, establishment]|
+ChIJ_y-B-kspAxURvp6qLQm4Itw|Clalit Health Services|31.7677317|35.30228260000001|[health, point_of_interest, establishment]|
+ChIJM9cudVQpAxURz5YguAOtM3c|Mental Health Clinic|31.7838319|35.2986364|[health, point_of_interest, establishment]|
+ChIJAcD6dFQpAxURNJG2z84F3k4|Family Health Clinic|31.7838547|35.2987395|[health, point_of_interest, establishment]|
+ChIJq-qCBU4pAxURJIxFtsOHkGU|Leumit Health Fund|31.7787374|35.2967238|[health, point_of_interest, establishment]|
+ChIJq-omxU4pAxUR1Xn0fDWz8c8|Matia|31.7755828|35.2952334|[health, point_of_interest, establishment]|
+ChIJ_09lCUwpAxURwVeqkrerZ4s|Yad Sarah|31.7740691|35.2982222|[health, point_of_interest, establishment]|
+ChIJAQDT8EspAxUR-1D2NTQb-Z4|Maccabi Healthcare Services|31.7736032|35.2980587|[health, point_of_interest, establishment]|
+ChIJ-0DQllEpAxURZVB9deVwcRs|שרפקין יועצי מטבח (2001) בע״מ|31.78118|35.296167|[health, point_of_interest, establishment]|
+ChIJ7dOcz0spAxURU05oV3mO_L8|Meuhedet Health Fund|31.7731134|35.2983226|[health, point_of_interest, establishment]|
+ChIJ9eiQYTUpAxURM0v1puPbkmQ|'Pais' Family Healthcare Center|31.7678827|35.3010654|[health, point_of_interest, establishment]|
+ChIJT3BxSUopAxURJPceShsnYiM|כללית|31.77154|35.298523|[health, point_of_interest, establishment]|
+ChIJA_paAqYuAxURU6fq6IwKDCM|כללית - מרכז בריאות האישה|31.7793195|35.3138209|[health, point_of_interest, establishment]|
+ChIJcQqVsEwpAxURuvxf1mpo1yc|Family Health Clinic|31.7734895|35.3021116|[health, point_of_interest, establishment]|
+ChIJ6fIF9kspAxURLvrjwxVeiYk|Brosh|31.773832|35.298235|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJl8wAwDksAxURbeXC4BjnRY4|Mishor Adumim Pharm Center|31.793562|35.334286|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJVaWvRrQuAxURQ9iaF-_YJUo|Maccabi Healthcare Services|31.76965109999999|35.30653119999999|[health, point_of_interest, establishment]|
+ChIJ___OUrUuAxURWcp9sH07nj0|Housing for the Elderly|31.7679724|35.3027547|[health, point_of_interest, establishment]|
+ChIJAcBMHaYuAxURTsEr9QU7FbQ|Clalit Health Services|31.7795298|35.3137594|[health, point_of_interest, establishment]|
+ChIJGY7PK68uAxURYK8Hg52W9lc|מרפאת כללית סמייל מעלה אדומים|31.7717825|35.2984411|[dentist, health, point_of_interest, establishment]|
+ChIJj26cCUwpAxURoqaG3dhC0sc|י.ש.מ מעלה אדומים|31.774263|35.298205|[store, health, point_of_interest, establishment]|
+ChIJ_y-B-kspAxURvp6qLQm4Itw|Clalit Health Services|31.7677317|35.30228260000001|[health, point_of_interest, establishment]|
+ChIJM9cudVQpAxURz5YguAOtM3c|Mental Health Clinic|31.7838319|35.2986364|[health, point_of_interest, establishment]|
+ChIJAcD6dFQpAxURNJG2z84F3k4|Family Health Clinic|31.7838547|35.2987395|[health, point_of_interest, establishment]|
+ChIJq-qCBU4pAxURJIxFtsOHkGU|Leumit Health Fund|31.7787374|35.2967238|[health, point_of_interest, establishment]|
+ChIJq-omxU4pAxUR1Xn0fDWz8c8|Matia|31.7755828|35.2952334|[health, point_of_interest, establishment]|
+ChIJ_09lCUwpAxURwVeqkrerZ4s|Yad Sarah|31.7740691|35.2982222|[health, point_of_interest, establishment]|
+ChIJAQDT8EspAxUR-1D2NTQb-Z4|Maccabi Healthcare Services|31.7736032|35.2980587|[health, point_of_interest, establishment]|
+ChIJ-0DQllEpAxURZVB9deVwcRs|שרפקין יועצי מטבח (2001) בע״מ|31.78118|35.296167|[health, point_of_interest, establishment]|
+ChIJ7dOcz0spAxURU05oV3mO_L8|Meuhedet Health Fund|31.7731134|35.2983226|[health, point_of_interest, establishment]|
+ChIJ9eiQYTUpAxURM0v1puPbkmQ|'Pais' Family Healthcare Center|31.7678827|35.3010654|[health, point_of_interest, establishment]|
+ChIJT3BxSUopAxURJPceShsnYiM|כללית|31.77154|35.298523|[health, point_of_interest, establishment]|
+ChIJA_paAqYuAxURU6fq6IwKDCM|כללית - מרכז בריאות האישה|31.7793195|35.3138209|[health, point_of_interest, establishment]|
+ChIJcQqVsEwpAxURuvxf1mpo1yc|Family Health Clinic|31.7734895|35.3021116|[health, point_of_interest, establishment]|
+ChIJ6fIF9kspAxURLvrjwxVeiYk|Brosh|31.773832|35.298235|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJl8wAwDksAxURbeXC4BjnRY4|Mishor Adumim Pharm Center|31.793562|35.334286|[pharmacy, store, health, point_of_interest, establishment]|
+ChIJVaWvRrQuAxURQ9iaF-_YJUo|Maccabi Healthcare Services|31.76965109999999|35.30653119999999|[health, point_of_interest, establishment]|
+ChIJ___OUrUuAxURWcp9sH07nj0|Housing for the Elderly|31.7679724|35.3027547|[health, point_of_interest, establishment]|
+ChIJAcBMHaYuAxURTsEr9QU7FbQ|Clalit Health Services|31.7795298|35.3137594|[health, point_of_interest, establishment]|
+ChIJGY7PK68uAxURYK8Hg52W9lc|מרפאת כללית סמייל מעלה אדומים|31.7717825|35.2984411|[dentist, health, point_of_interest, establishment]|
+ChIJj26cCUwpAxURoqaG3dhC0sc|י.ש.מ מעלה אדומים|31.774263|35.298205|[store, health, point_of_interest, establishment]|
+ChIJ_y-B-kspAxURvp6qLQm4Itw|Clalit Health Services|31.7677317|35.30228260000001|[health, point_of_interest, establishment]|
+ChIJM9cudVQpAxURz5YguAOtM3c|Mental Health Clinic|31.7838319|35.2986364|[health, point_of_interest, establishment]|
+ChIJAcD6dFQpAxURNJG2z84F3k4|Family Health Clinic|31.7838547|35.2987395|[health, point_of_interest, establishment]|
+ChIJq-qCBU4pAxURJIxFtsOHkGU|Leumit Health Fund|31.7787374|35.2967238|[health, point_of_interest, establishment]|
+ChIJq-omxU4pAxUR1Xn0fDWz8c8|Matia|31.7755828|35.2952334|[health, point_of_interest, establishment]|
+ChIJ_09lCUwpAxURwVeqkrerZ4s|Yad Sarah|31.7740691|35.2982222|[health, point_of_interest, establishment]|
+ChIJAQDT8EspAxUR-1D2NTQb-Z4|Maccabi Healthcare Services|31.7736032|35.2980587|[health, point_of_interest, establishment]|
+ChIJ-0DQllEpAxURZVB9deVwcRs|שרפקין יועצי מטבח (2001) בע״מ|31.78118|35.296167|[health, point_of_interest, establishment]|
+ChIJ7dOcz0spAxURU05oV3mO_L8|Meuhedet Health Fund|31.7731134|35.2983226|[health, point_of_interest, establishment]|
+ChIJ9eiQYTUpAxURM0v1puPbkmQ|'Pais' Family Healthcare Center|31.7678827|35.3010654|[health, point_of_interest, establishment]|
+ChIJFQ6OvEspAxUROu5OFUpj9nI|ארומה|31.7714983|35.2986218|[cafe, food, point_of_interest, establishment]|
+ChIJt-mmWQQsAxURQXryT9yWbeU|Green Drop Home|31.791138|35.310841|[food, park, point_of_interest, establishment]|
+ChIJJUZEtkspAxUROGuFZchJh1s|רנה|31.7715304|35.29849319999999|[florist, food, store, point_of_interest, establishment]|
+ChIJnUdXVgcsAxURjvqfFVE3ntw|Maale adumim mall|31.792742|35.302876|[restaurant, food, point_of_interest, establishment]|
+ChIJw8WuDVApAxURPVrk1gYrpUs|קפית באגם|31.7817989|35.2922863|[cafe, food, point_of_interest, establishment]|
+ChIJFQ6OvEspAxUROu5OFUpj9nI|ארומה|31.7714983|35.2986218|[cafe, food, point_of_interest, establishment]|
+ChIJt-mmWQQsAxURQXryT9yWbeU|Green Drop Home|31.791138|35.310841|[food, park, point_of_interest, establishment]|
+ChIJJUZEtkspAxUROGuFZchJh1s|רנה|31.7715304|35.29849319999999|[florist, food, store, point_of_interest, establishment]|
+ChIJnUdXVgcsAxURjvqfFVE3ntw|Maale adumim mall|31.792742|35.302876|[restaurant, food, point_of_interest, establishment]|
+ChIJw8WuDVApAxURPVrk1gYrpUs|קפית באגם|31.7817989|35.2922863|[cafe, food, point_of_interest, establishment]|
+ChIJFQ6OvEspAxUROu5OFUpj9nI|ארומה|31.7714983|35.2986218|[cafe, food, point_of_interest, establishment]|
+ChIJt-mmWQQsAxURQXryT9yWbeU|Green Drop Home|31.791138|35.310841|[food, park, point_of_interest, establishment]|
+ChIJJUZEtkspAxUROGuFZchJh1s|רנה|31.7715304|35.29849319999999|[florist, food, store, point_of_interest, establishment]|
+ChIJnUdXVgcsAxURjvqfFVE3ntw|Maale adumim mall|31.792742|35.302876|[restaurant, food, point_of_interest, establishment]|
+ChIJw8WuDVApAxURPVrk1gYrpUs|קפית באגם|31.7817989|35.2922863|[cafe, food, point_of_interest, establishment]|
+ChIJFQ6OvEspAxUROu5OFUpj9nI|ארומה|31.7714983|35.2986218|[cafe, food, point_of_interest, establishment]|
+ChIJw8WuDVApAxURPVrk1gYrpUs|קפית באגם|31.7817989|35.2922863|[cafe, food, point_of_interest, establishment]|
+ChIJFQ6OvEspAxUROu5OFUpj9nI|ארומה|31.7714983|35.2986218|[cafe, food, point_of_interest, establishment]|
+ChIJw8WuDVApAxURPVrk1gYrpUs|קפית באגם|31.7817989|35.2922863|[cafe, food, point_of_interest, establishment]|
+ChIJFQ6OvEspAxUROu5OFUpj9nI|ארומה|31.7714983|35.2986218|[cafe, food, point_of_interest, establishment]|
+ChIJw8WuDVApAxURPVrk1gYrpUs|קפית באגם|31.7817989|35.2922863|[cafe, food, point_of_interest, establishment]|
+ChIJmVjfP0opAxURXc_Wni7MxyE|Branga Bar, Maale Adumim|31.7700497|35.2985019|[bar, point_of_interest, establishment]|
+ChIJmVjfP0opAxURXc_Wni7MxyE|Branga Bar, Maale Adumim|31.7700497|35.2985019|[bar, point_of_interest, establishment]|
+ChIJmVjfP0opAxURXc_Wni7MxyE|Branga Bar, Maale Adumim|31.7700497|35.2985019|[bar, point_of_interest, establishment]|
+ChIJq2oFAO4zAxURGlmc7VRaOms|Grocery Store|31.7499812|35.4671993|[shopping_mall, point_of_interest, establishment]|
+ChIJq2oFAO4zAxURGlmc7VRaOms|Grocery Store|31.7499812|35.4671993|[shopping_mall, point_of_interest, establishment]|
+ChIJq2oFAO4zAxURGlmc7VRaOms|Grocery Store|31.7499812|35.4671993|[shopping_mall, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURriUJxrITskQ|Last Chance|31.8016891|35.4593558|[restaurant, food, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURriUJxrITskQ|Last Chance|31.8016891|35.4593558|[restaurant, food, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURriUJxrITskQ|Last Chance|31.8016891|35.4593558|[restaurant, food, point_of_interest, establishment]|
+ChIJyQMwIOEzAxURX1YgoPgIcBE|Qumran|31.7412482|35.4591477|[park, point_of_interest, establishment]|
+ChIJtadjPUIxAxUR08Ga2WP_EB4|עיינות צוקים|31.723942|35.457662|[park, point_of_interest, establishment]|
+ChIJyQMwIOEzAxURX1YgoPgIcBE|Qumran|31.7412482|35.4591477|[park, point_of_interest, establishment]|
+ChIJtadjPUIxAxUR08Ga2WP_EB4|עיינות צוקים|31.723942|35.457662|[park, point_of_interest, establishment]|
+ChIJyQMwIOEzAxURX1YgoPgIcBE|Qumran|31.7412482|35.4591477|[park, point_of_interest, establishment]|
+ChIJtadjPUIxAxUR08Ga2WP_EB4|עיינות צוקים|31.723942|35.457662|[park, point_of_interest, establishment]|
+ChIJAcAzLmwzAxUR63D_9exF6dU|Clalit Health Services|31.78969210000001|35.4611323|[health, point_of_interest, establishment]|
+ChIJAcAzLmwzAxUR63D_9exF6dU|Clalit Health Services|31.78969210000001|35.4611323|[health, point_of_interest, establishment]|
+ChIJAcAzLmwzAxUR63D_9exF6dU|Clalit Health Services|31.78969210000001|35.4611323|[health, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURriUJxrITskQ|Last Chance|31.8016891|35.4593558|[restaurant, food, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURriUJxrITskQ|Last Chance|31.8016891|35.4593558|[restaurant, food, point_of_interest, establishment]|
+ChIJS_zBNNbXAhURriUJxrITskQ|Last Chance|31.8016891|35.4593558|[restaurant, food, point_of_interest, establishment]|
+ChIJqUTCHVxKAxUR0AuL0yJj0xE|Winter Valley Warwick Resort & Spa|31.7298896|35.5921703|[lodging, spa, health, point_of_interest, establishment]|
+ChIJq7XdFMBOAxUR7WGjvagiHpU|Winter Valley Warwick Resort & Spa|31.767446|35.578464|[lodging, spa, health, point_of_interest, establishment]|
+ChIJqUTCHVxKAxUR0AuL0yJj0xE|Winter Valley Warwick Resort & Spa|31.7298896|35.5921703|[lodging, spa, health, point_of_interest, establishment]|
+ChIJq7XdFMBOAxUR7WGjvagiHpU|Winter Valley Warwick Resort & Spa|31.767446|35.578464|[lodging, spa, health, point_of_interest, establishment]|
+ChIJqUTCHVxKAxUR0AuL0yJj0xE|Winter Valley Warwick Resort & Spa|31.7298896|35.5921703|[lodging, spa, health, point_of_interest, establishment]|
+ChIJq7XdFMBOAxUR7WGjvagiHpU|Winter Valley Warwick Resort & Spa|31.767446|35.578464|[lodging, spa, health, point_of_interest, establishment]|
+ChIJ_cljgUFKAxURguDymi8I2W4|?????? - Pastiche Cafe? ????? ?????|31.720375|35.590175|[cafe, restaurant, food, point_of_interest, establishment]|
+ChIJ6fpqg0FKAxURxCN_H9GP-1E|?????? - Zaitona? ????? ?????|31.720329|35.5901|[restaurant, food, point_of_interest, establishment]|
+ChIJp5QLSgy1HBURu_UeDxflSsk|??????????? 01|31.8073421|35.5917549|[restaurant, food, point_of_interest, establishment]|
+ChIJnTiPKUJKAxURk5ZmKSPmlY8|Buffalo Wings & Rings|31.72083000000001|35.590038|[restaurant, bar, food, point_of_interest, establishment]|
+ChIJ_cljgUFKAxURguDymi8I2W4|?????? - Pastiche Cafe? ????? ?????|31.720375|35.590175|[cafe, restaurant, food, point_of_interest, establishment]|
+ChIJ6fpqg0FKAxURxCN_H9GP-1E|?????? - Zaitona? ????? ?????|31.720329|35.5901|[restaurant, food, point_of_interest, establishment]|
+ChIJp5QLSgy1HBURu_UeDxflSsk|??????????? 01|31.8073421|35.5917549|[restaurant, food, point_of_interest, establishment]|
+ChIJnTiPKUJKAxURk5ZmKSPmlY8|Buffalo Wings & Rings|31.72083000000001|35.590038|[restaurant, bar, food, point_of_interest, establishment]|
+ChIJ_cljgUFKAxURguDymi8I2W4|?????? - Pastiche Cafe? ????? ?????|31.720375|35.590175|[cafe, restaurant, food, point_of_interest, establishment]|
+ChIJ6fpqg0FKAxURxCN_H9GP-1E|?????? - Zaitona? ????? ?????|31.720329|35.5901|[restaurant, food, point_of_interest, establishment]|
+ChIJp5QLSgy1HBURu_UeDxflSsk|??????????? 01|31.8073421|35.5917549|[restaurant, food, point_of_interest, establishment]|
+ChIJnTiPKUJKAxURk5ZmKSPmlY8|Buffalo Wings & Rings|31.72083000000001|35.590038|[restaurant, bar, food, point_of_interest, establishment]|
+ChIJqUTCHVxKAxUR0AuL0yJj0xE|Winter Valley Warwick Resort & Spa|31.7298896|35.5921703|[lodging, spa, health, point_of_interest, establishment]|
+ChIJq7XdFMBOAxUR7WGjvagiHpU|Winter Valley Warwick Resort & Spa|31.767446|35.578464|[lodging, spa, health, point_of_interest, establishment]|
+ChIJqUTCHVxKAxUR0AuL0yJj0xE|Winter Valley Warwick Resort & Spa|31.7298896|35.5921703|[lodging, spa, health, point_of_interest, establishment]|
+ChIJq7XdFMBOAxUR7WGjvagiHpU|Winter Valley Warwick Resort & Spa|31.767446|35.578464|[lodging, spa, health, point_of_interest, establishment]|
+ChIJqUTCHVxKAxUR0AuL0yJj0xE|Winter Valley Warwick Resort & Spa|31.7298896|35.5921703|[lodging, spa, health, point_of_interest, establishment]|
+ChIJq7XdFMBOAxUR7WGjvagiHpU|Winter Valley Warwick Resort & Spa|31.767446|35.578464|[lodging, spa, health, point_of_interest, establishment]|
+ChIJ_cljgUFKAxURguDymi8I2W4|?????? - Pastiche Cafe? ????? ?????|31.720375|35.590175|[cafe, restaurant, food, point_of_interest, establishment]|
+ChIJ6fpqg0FKAxURxCN_H9GP-1E|?????? - Zaitona? ????? ?????|31.720329|35.5901|[restaurant, food, point_of_interest, establishment]|
+ChIJ4dYYrUNKAxURAwoq-AjkvGw|Juicebangbang|31.722568|35.5905|[cafe, food, point_of_interest, establishment]|
+ChIJp5QLSgy1HBURu_UeDxflSsk|??????????? 01|31.8073421|35.5917549|[restaurant, food, point_of_interest, establishment]|
+ChIJnTiPKUJKAxURk5ZmKSPmlY8|Buffalo Wings & Rings|31.72083000000001|35.590038|[restaurant, bar, food, point_of_interest, establishment]|
+ChIJ_cljgUFKAxURguDymi8I2W4|?????? - Pastiche Cafe? ????? ?????|31.720375|35.590175|[cafe, restaurant, food, point_of_interest, establishment]|
+ChIJ6fpqg0FKAxURxCN_H9GP-1E|?????? - Zaitona? ????? ?????|31.720329|35.5901|[restaurant, food, point_of_interest, establishment]|
+ChIJ4dYYrUNKAxURAwoq-AjkvGw|Juicebangbang|31.722568|35.5905|[cafe, food, point_of_interest, establishment]|
+ChIJp5QLSgy1HBURu_UeDxflSsk|??????????? 01|31.8073421|35.5917549|[restaurant, food, point_of_interest, establishment]|
+ChIJnTiPKUJKAxURk5ZmKSPmlY8|Buffalo Wings & Rings|31.72083000000001|35.590038|[restaurant, bar, food, point_of_interest, establishment]|
+ChIJ_cljgUFKAxURguDymi8I2W4|?????? - Pastiche Cafe? ????? ?????|31.720375|35.590175|[cafe, restaurant, food, point_of_interest, establishment]|
+ChIJ6fpqg0FKAxURxCN_H9GP-1E|?????? - Zaitona? ????? ?????|31.720329|35.5901|[restaurant, food, point_of_interest, establishment]|
+ChIJ4dYYrUNKAxURAwoq-AjkvGw|Juicebangbang|31.722568|35.5905|[cafe, food, point_of_interest, establishment]|
+ChIJp5QLSgy1HBURu_UeDxflSsk|??????????? 01|31.8073421|35.5917549|[restaurant, food, point_of_interest, establishment]|
+ChIJnTiPKUJKAxURk5ZmKSPmlY8|Buffalo Wings & Rings|31.72083000000001|35.590038|[restaurant, bar, food, point_of_interest, establishment]|
+ChIJ_cljgUFKAxURguDymi8I2W4|?????? - Pastiche Cafe? ????? ?????|31.720375|35.590175|[cafe, restaurant, food, point_of_interest, establishment]|
+ChIJ4dYYrUNKAxURAwoq-AjkvGw|Juicebangbang|31.722568|35.5905|[cafe, food, point_of_interest, establishment]|
+ChIJ_cljgUFKAxURguDymi8I2W4|?????? - Pastiche Cafe? ????? ?????|31.720375|35.590175|[cafe, restaurant, food, point_of_interest, establishment]|
+ChIJ4dYYrUNKAxURAwoq-AjkvGw|Juicebangbang|31.722568|35.5905|[cafe, food, point_of_interest, establishment]|
+ChIJ_cljgUFKAxURguDymi8I2W4|?????? - Pastiche Cafe? ????? ?????|31.720375|35.590175|[cafe, restaurant, food, point_of_interest, establishment]|
+ChIJ4dYYrUNKAxURAwoq-AjkvGw|Juicebangbang|31.722568|35.5905|[cafe, food, point_of_interest, establishment]|
+ChIJnTiPKUJKAxURk5ZmKSPmlY8|Buffalo Wings & Rings|31.72083000000001|35.590038|[restaurant, bar, food, point_of_interest, establishment]|
+ChIJnTiPKUJKAxURk5ZmKSPmlY8|Buffalo Wings & Rings|31.72083000000001|35.590038|[restaurant, bar, food, point_of_interest, establishment]|
+ChIJnTiPKUJKAxURk5ZmKSPmlY8|Buffalo Wings & Rings|31.72083000000001|35.590038|[restaurant, bar, food, point_of_interest, establishment]|

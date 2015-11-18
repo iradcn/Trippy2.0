@@ -50,7 +50,6 @@ public class PlaceDAO {
 	private static String deletePlacesCatsSQL = "DELETE from places_categories";
 	private static String selectByName = "SELECT `Id` from places where TRIM(LOWER(places.name))=TRIM(LOWER(?))";
 	private static String insertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) values(?,?)";
-
 	
 	
 
@@ -62,7 +61,7 @@ public class PlaceDAO {
 		PreparedStatement insertPlaceCategoryState = conn.prepareStatement(insertCategoriesSQL);
 		for (Place place : places) {
 			insertPlaceState.setString(1, place.getGoogleId());
-			insertPlaceState.setString(2, place.getName());
+			insertPlaceState.setString(2, place.getName());			
 			insertPlaceState.setDouble(3, place.getLoc().getLat());
 			insertPlaceState.setDouble(4, place.getLoc().getLon());
 			insertPlaceState.addBatch();
