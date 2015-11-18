@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @EnableWebMvcSecurity
 @SpringBootApplication
-@ComponentScan({"security","server"})
+@ComponentScan({"security","server","services"})
 public class Application {
 
     public static void main(String[] args) {

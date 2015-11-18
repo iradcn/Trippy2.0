@@ -4,50 +4,29 @@ define([
   "text!templates/vote.html",
   "bootstrap",
   "jqueryui",
-], function (Backbone, $, VoteTemplate) {
+  "Vote"
+], function (Backbone, $, VoteTemplate, Vote) {
   var VoteView = Backbone.View.extend({
     el: ".dialog-container",
     events: {
       'click .vote-yes': 'respondYes',
       'click .vote-no': 'respondNo',
+      'click #btnYes1': 'respondYes',
+      'click .submit' : 'submit'
     },
     initialize: function () {
-      this.props = MyGlobal.collections.properties;
+      $('.vote-yes').click(function(){
+        console.log('im in');
+      });
     },
     render: function () {
       var template = _.template(VoteTemplate);
       this.$el.html(template());
-      $('#dialog').dialog({
-        modal: true,
-        dialogClass: 'dlg-no-title',
-        resizable: false,
-        buttons: {
-          "yes": {
-            text: "Yes",
-            class: 'btn btn-success',
-            click: function() {
-              $(this).dialog("close");
-            },
-          },
-          "no": {
-            text: "No",
-            class: 'btn btn-danger',
-            click: function() {
-              $(this).dialog("close");
-            },
-          },
-          "dontknow": {
-            text: "I have no idea!",
-            class: 'btn',
-            click: function() {
-              $(this).dialog("close");
-            },
-          },
-
-        }
-      });
+      $('.modal').modal('show');
       
-      this.requestVote();
+      //this.requestVote();
+
+      $("#placeImage").attr("src", "data:image/jpeg;base64," + MyGlobal.models.vote.get("placeImage"));
     },
     requestVote: function() {
       $.ajax({
@@ -76,12 +55,16 @@ define([
         console.log("answer sending failed!");
       });
     },
-    respondYes: function() {
+    respondYes: function(data) {
       repond("yes");
+      $(this).dialog("close");
     },
     respondNo: function() {
       repond("no");
     },
+    submit: function(data) {
+      $('.modal').modal('hide');
+    }
   });
 
   return VoteView;
