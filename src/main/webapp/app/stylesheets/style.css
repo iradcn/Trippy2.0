@@ -158,4 +158,29 @@ label {
 
 .dlg-no-title .ui-dialog-titlebar {
   display: none;
+
+
 }
+.dlg-no-title {
+    border-radius: 25px;
+    border: 3px solid #73AD21;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+}
+
+.top-buffer { margin-top:20px; }
+.middle-buffer { margin-top:10px; background-color: #73AD21}
+
+.modal-content  {
+    -webkit-border-radius: 20px !important;
+    -moz-border-radius: 20px !important;
+    border-radius: 20px !important;
+}
+
+.close {display: none;}
+
+.modal-dialog{
+    width:700px
+}
+
