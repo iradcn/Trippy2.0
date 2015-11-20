@@ -7,6 +7,9 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -66,7 +69,23 @@ public class DefaultRequestHandler implements RequestHandler {
     public InputStream getInputStream(String uri) throws IOException {
         HttpGet get = new HttpGet(uri);
         try {
-            return client.execute(get).getEntity().getContent();
+            InputStream in = client.execute(get).getEntity().getContent();
+            BufferedImage bi = ImageIO.read(in);
+            return in;
+        } catch (Exception e) {
+            throw new IOException(e);
+        } finally {
+            get.releaseConnection();
+        }
+    }
+
+    @Override
+    public BufferedImage getBufferedImage (String uri) throws IOException {
+        HttpGet get = new HttpGet(uri);
+        try {
+            InputStream in = client.execute(get).getEntity().getContent();
+            BufferedImage bi = ImageIO.read(in);
+            return bi;
         } catch (Exception e) {
             throw new IOException(e);
         } finally {

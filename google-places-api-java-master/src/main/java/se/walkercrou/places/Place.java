@@ -26,7 +26,7 @@ public class Place {
     private double lat = -1, lng = -1;
     private JSONObject json;
     private String iconUrl;
-    private InputStream icon;
+    private BufferedImage icon;
     private String name;
     private String addr;
     private String vicinity;
@@ -357,22 +357,10 @@ public class Place {
      *
      * @return input stream
      */
-    public InputStream getIconInputStream() {
+    public BufferedImage getIconInputStream() {
         return icon;
     }
 
-    /**
-     * Returns the icon image. {@link #downloadIcon()} must be called previous to this.
-     *
-     * @return image
-     */
-    public BufferedImage getIconImage() {
-        try {
-            return ImageIO.read(icon);
-        } catch (Exception e) {
-            throw new GooglePlacesException(e);
-        }
-    }
 
     /**
      * Returns the name of this place.

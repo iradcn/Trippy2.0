@@ -45,7 +45,7 @@ public class Photo {
      * @param extraParams to append to request url
      * @return this
      */
-    public InputStream download(int maxWidth, int maxHeight) {
+    public BufferedImage download(int maxWidth, int maxHeight) {
         return place.getClient().downloadPhoto(this,maxWidth,maxHeight);
       
     }
@@ -66,7 +66,7 @@ public class Photo {
      * @param extraParams to append to request url
      * @return this
      */
-    public InputStream download() {
+    public BufferedImage download() {
         return download(MAX_PHOTO_SIZE, MAX_PHOTO_SIZE);
     }
 

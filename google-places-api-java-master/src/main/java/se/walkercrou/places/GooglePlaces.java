@@ -42,7 +42,7 @@ public class GooglePlaces implements GooglePlacesInterface {
      * For the CSV file
      * path to the file
      */
-    //private static final String PATH = "C:\\Users\\Hila\\Documents\\ùðä ã\\ñãðà\\DB\\DATA1.csv";
+    //private static final String PATH = "C:\\Users\\Hila\\Documents\\ï¿½ï¿½ï¿½ ï¿½\\ï¿½ï¿½ï¿½ï¿½\\DB\\DATA1.csv";
      
     /**
       * CSV columns  
@@ -223,7 +223,7 @@ public class GooglePlaces implements GooglePlacesInterface {
             		  int width = jsonPhoto.getInt(INTEGER_WIDTH);
             		  int height = jsonPhoto.getInt(INTEGER_HEIGHT);
             		  Photo photo = new Photo(place,photoRefrence, width,height);
-            		  InputStream photoStream = photo.download();
+            		  BufferedImage photoStream = photo.download();
             		  writePhotoToFile(photoStream,placeId);
             	}
            
@@ -239,16 +239,15 @@ public class GooglePlaces implements GooglePlacesInterface {
      * the name of the file should be the placeId
      * @throws IOException 
      */
-    public static void writePhotoToFile (InputStream stream,String placeId) throws IOException{
-    	String currentPath = PHOTOPATH + placeId + ".jpg";
+    public static void writePhotoToFile (BufferedImage img,String placeId) throws IOException{
+    	String currentPath = "src//main//resources//" + placeId + ".jpg";
     
     	try {
     	    // retrieve image
-    	    BufferedImage bi = ImageIO.read(stream);
     	    File outputfile = new File(currentPath);
-    	    ImageIO.write(bi, "png", outputfile);
+    	    ImageIO.write(img, "jpg", outputfile);
     	} catch (IOException e) {
-    	
+            int a = 5;
     	}
     	//works
 //    	byte[] buffer  = toByteArrayUsingJava(stream);
@@ -473,19 +472,19 @@ public class GooglePlaces implements GooglePlacesInterface {
         deletePlaceById(place.getPlaceId(), extraParams);
     }
 
-    protected InputStream download(String uri) {
+    protected BufferedImage download(String uri) {
         try {
-            InputStream in = requestHandler.getInputStream(uri);
-            if (in == null)
+            BufferedImage bi = requestHandler.getBufferedImage(uri);
+            if (bi == null)
                 throw new GooglePlacesException("Could not attain input stream at " + uri);
             debug("Successfully attained InputStream at " + uri);
-            return in;
+            return bi;
         } catch (Exception e) {
             throw new GooglePlacesException(e);
         }
     }
 
-    protected InputStream downloadPhoto(Photo photo, int maxHeight, int maxWight) {
+    protected BufferedImage downloadPhoto(Photo photo, int maxHeight, int maxWight) {
         try {
             String uri = String.format("%sphoto?photoreference=%s&key=%s", API_URL, photo.getReference(),
                     apiKey);

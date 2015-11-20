@@ -2,6 +2,7 @@ package se.walkercrou.places;
 
 import org.apache.http.client.methods.HttpPost;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -50,4 +51,5 @@ public interface RequestHandler {
      * @throws IOException
      */
     String post(HttpPost data) throws IOException;
+    BufferedImage getBufferedImage (String uri) throws IOException;
 }
