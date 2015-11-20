@@ -37,7 +37,7 @@ public class ConnectionConfig{
 	public static String getConnectionURL(){
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append(protocol).append("://").append(hostName).append(":").append(port).append("/").append(dbName).append("?useUnicode=yes&characterEncoding=UTF-8");
+		sb.append(protocol).append("://").append(hostName).append(":").append(port).append("/").append(dbName).append("?useUnicode=true&characterEncoding=UTF-8");
 		return sb.toString();
 	}
 	

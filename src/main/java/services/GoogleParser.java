@@ -41,9 +41,6 @@ public class GoogleParser {
 
                     int index = line.indexOf('[');
                     String[] placeInfo = line.substring(0, index).split("\t");
-                    if(!placeInfo[1].matches(IS_ENGLISH_REGEX)){
-                    	continue;
-                    }
                     matchRegex = Question.matcher(placeInfo[1]);
                     if(matchRegex.find()){
                     	continue;
