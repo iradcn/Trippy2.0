@@ -24,6 +24,15 @@ public class GoogleImportService {
 			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Rishon_demo_pipe.txt"));
 			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Rosh_Pina_pipe.txt"));
 			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/BeerSheva_demo_pipe.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/North_dizingof_tel_aviv_pipe.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/dizingof_center_pipe.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/dizingof_center_pipe.txt"));
+			
+			
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/rotchild_pipe.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/dizingof_center_pipe.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/dizingof_center_pipe.txt"));
+			
 			PlaceDAO.SavePlacesAndPlaceCats(allPlaces);
         }catch(Exception e){
         	System.out.println("Error has occured:"+e.getStackTrace());
