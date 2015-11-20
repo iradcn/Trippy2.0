@@ -1,3 +1,61 @@
-<div id="dialog" class="row">
-  Do you believe <span id="vote-place"></span> is <span id="vote-prop"></span>?
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Please help the community by answer the questions:</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <img height="400" width="700" id="placeImage" class="center-block">
+        </div>
+        <div class="row top-buffer"></div>
+        <div class="row" id="row1">
+          <div class="col-md-4">
+            Do you believe it is <span id="vote-prop1"></span>
+          </div>
+          <div class="col-md-4">
+            <label id="row1PropLabel"/>
+          </div>
+          <div class="col-md-4">
+            <button id="btnYes1" class="btn btn-success vote-yes" data-propIndex="1">Yes</button>
+            <button class="btn btn-danger">No</button>
+            <button class="btn">No Idea</button>
+          </div>
+        </div>
+        <div class="middle-buffer"></div>
+        <div class="row" id="row2">
+          <div class="col-md-4">
+            Do you believe it is <span id="vote-prop2"></span>
+          </div>
+          <div class="col-md-4">
+            <label id="row2PropLabel"/>
+          </div>
+          <div class="col-md-4">
+            <button id="btnYes2" class="btn btn-success vote-yes">Yes</button>
+            <button class="btn btn-danger">No</button>
+            <button class="btn">No Idea</button>
+          </div>
+        </div>
+        <div class="middle-buffer"></div>
+        <div class="row" id="row3">
+          <div class="col-md-4">
+            Do you believe it is <span id="vote-prop"></span>
+          </div>
+          <div class="col-md-4">
+            <label id="row3PropLabel"/>
+          </div>
+          <div class="col-md-4">
+            <button id="btnYes3" class="btn btn-success vote-yes">Yes</button>
+            <button class="btn btn-danger">No</button>
+            <button class="btn">No Idea</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary submit">Submit</button>
+      </div>
+    </div>
+  </div>
 </div>

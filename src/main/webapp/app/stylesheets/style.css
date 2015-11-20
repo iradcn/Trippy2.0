@@ -1,163 +1,187 @@
 /* --- General --- */
 
 .page-header {
-	margin-top: 20px;
-	margin-left: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 .body-container {
-	margin-top: 7px;
+    margin-top: 7px;
 }
 
 .alert {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	margin: 20px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 20px auto;
 }
 
 .no-display-placeholder {
-	color: dimgray;
+    color: dimgray;
 }
 
 label {
-	margin-bottom: 0px !important;
+    margin-bottom: 0px !important;
 }
 
 .header-row {
-	border-bottom: dotted lightgray 1px;
-	padding-bottom: 5px;
-	margin-bottom: 14px;
-	color: slategray;
+    border-bottom: dotted lightgray 1px;
+    padding-bottom: 5px;
+    margin-bottom: 14px;
+    color: slategray;
 }
 
 .header-row h4 {
-	margin-top: 2px;
+    margin-top: 2px;
 }
 
 .panel-heading {
-	padding: 7px 12px !important;
+    padding: 7px 12px !important;
 }
 
 .panel-body {
-	padding: 7px 12px !important;
-	border: none;
-	box-shadow: none;
+    padding: 7px 12px !important;
+    border: none;
+    box-shadow: none;
 }
 
 .map {
-	height: calc(100% - 235px);
-	width: 100%;
+    height: calc(100% - 235px);
+    width: 100%;
 }
 
 /* --- Yago Reload --- */
 
 .refresh-yago-data {
-	padding-right: 8px;
+    padding-right: 8px;
 }
 
 .yago-reload-row {
-	margin: 30px auto;
-	text-align: center;
+    margin: 30px auto;
+    text-align: center;
 }
 
 .yago-text-row {
-	color: dimgray;
-	display: none;
+    color: dimgray;
+    display: none;
 }
 
 .progress {
-	display:none;
-	width:500px;
-	margin: auto;
-	text-align: center;
+    display:none;
+    width:500px;
+    margin: auto;
+    text-align: center;
 }
 
 /* --- Filter Bar --- */
 
 .filter-row > button {
-	width: calc(50% - 5px);
+    width: calc(50% - 5px);
 }
 
 .filter-row > .places-reset-submit {
-	margin-right: 5px;
+    margin-right: 5px;
 }
 
 /* --- Response Display Bar --- */
 
 .response-elem-row {
-	margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .response-elem-row > h3 {
-	margin-top: 0px;
+    margin-top: 0px;
 }
 
 .response-property-col {
-	text-align: center;
-	padding: 15px;
+    text-align: center;
+    padding: 15px;
 }
 
 .response-property-col > select {
-	margin: 15px auto auto auto;
-	width: 100%;
+    margin: 15px auto auto auto;
+    width: 100%;
 }
 
 .response-property-col > button {
-	margin-top: 15px;
-	width: 80px;
+    margin-top: 15px;
+    width: 80px;
 }
 
 .add-property-to-place-col {
-	border-right: dotted darkgray 1px;
+    border-right: dotted darkgray 1px;
 }
 
 /* --- Manage Properties --- */
 
 .curr-properties-col {
-	margin: 30px auto;
+    margin: 30px auto;
 }
 
 .curr-properties-col > .panel {
-	margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .add-property-col {
-	text-align: center;
-	margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .add-property-col > input {
-	width: 100%;
+    width: 100%;
 }
 
 .add-property-col > button {
-	width: 100%;
+    width: 100%;
 }
 
 .manage-property-col {
-	text-align: center;
-	padding: 20px;
+    text-align: center;
+    padding: 20px;
 }
 
 .manage-property-col > button {
-	margin-top: 20px;
-	width: 150px;
+    margin-top: 20px;
+    width: 150px;
 }
 
 .manage-property-col > input {
-	margin: 20px auto auto auto;
-	width: 50%;
+    margin: 20px auto auto auto;
+    width: 50%;
 }
 
 .rename-property-col {
-	border-right: dotted darkgray 1px;
+    border-right: dotted darkgray 1px;
 }
 
 
 /* --- Voting Modal Dialog --- */
 
 .dlg-no-title .ui-dialog-titlebar {
-  display: none;
+    display: none;
 
 
 }
+
+.divWithBorder {
+    border-radius: 25px;
+    border: 3px solid #73AD21;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+}
+
+.top-buffer { margin-top:20px; }
+.middle-buffer { margin-top:10px; background-color: #73AD21}
+
+.modal-content  {
+    -webkit-border-radius: 20px !important;
+    -moz-border-radius: 20px !important;
+    border-radius: 20px !important;
+}
+
+.close {display: none;}
+
+.modal-dialog{
+    width:700px
+}
+
