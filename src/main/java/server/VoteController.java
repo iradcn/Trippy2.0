@@ -22,25 +22,11 @@ public class VoteController {
     QuestionsGeneratorService questionsGeneratorService;
 
 	@RequestMapping(value="app/vote/request", method=RequestMethod.GET)
-	public @ResponseBody Vote getVoteRequest(@RequestParam("placeId") String placeId) throws Exception {
-        Vote vote = new Vote();
-        vote.setPlaceId("place1");
-        vote.setPlaceName("Room Service");
-
-        // Todo - call questionsGeneratorService
-        //vote.setProperty(questionsGeneratorService.generate(placeId));
-        String[] properties = new String[3];
-        properties[0] = "prop1";
-        properties[1] = "prop2";
-        properties[2] = "prop3";
-        vote.setProperty(properties);
-
-        // Todo - Fetch image for the place (DB or http query)
-        File initialFile = new File("src/main/resources/929200_1571840069710538_1151072500_n.jpg");
-        InputStream targetStream = Files.asByteSource(initialFile).openStream();
-        BufferedImage img = ImageIO.read(targetStream);
-        vote.setPlaceImage(getDataFromBufferedImage(img));
-        return vote;
+	public @ResponseBody Vote getSomeStuff() throws Exception {
+    Vote vote = new Vote();
+    vote.setPlace("place1");
+    vote.setProperty("prop1");
+    return vote;
 	}
 
     private byte[] getDataFromBufferedImage(BufferedImage thumbnail) throws IOException {

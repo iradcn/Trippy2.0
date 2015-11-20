@@ -40,4 +40,5 @@ public class Vote extends AbstractEntity {
 	public void setProperty (String[] prop_name) {
 		this.property = prop_name;
 	}
+
 }

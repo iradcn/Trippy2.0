@@ -22,9 +22,6 @@ define([
     render: function () {
       var template = _.template(VoteTemplate);
       this.$el.html(template());
-
-      // using dialogs instead of modals
-/* 
       $('#dialog').dialog({
         modal: true,
         dialogClass: 'dlg-no-title',
@@ -34,7 +31,6 @@ define([
             text: "Yes",
             class: 'btn btn-success',
             click: function() {
-              this.respondYes();
               $(this).dialog("close");
             },
           },
@@ -55,12 +51,8 @@ define([
 
         }
       });
-      */
-      $('.modal').modal('show');
       
-      //this.requestVote();
-
-      $("#placeImage").attr("src", "data:image/jpeg;base64," + MyGlobal.models.vote.get("placeImage"));
+      this.requestVote();
     },
     requestVote: function() {
       $.ajax({

@@ -8,8 +8,9 @@ define([
   'ManagePropertiesView',
   'VoteView',
   'ResponsePlaces',
+    'Vote'
 ], function($, _, Backbone, PlacesView, SelectCategoriesView,
-            SelectPropertiesView, ManagePropertiesView, VoteView, ResponsePlaces) {
+            SelectPropertiesView, ManagePropertiesView, VoteView, ResponsePlaces, Vote) {
     var AppRouter = Backbone.Router.extend({
       routes: {
         "places": "placesRoute",
@@ -33,21 +34,7 @@ define([
       placesRoute: function() {
         $('#places-tab').tab('show');
         this.places_view.render();
-
-        //this.vote = new Vote(); -- help
-        var self = this;
-        var Vote = Backbone.Model.extend({
-          urlRoot: 'vote/request',
-        });
-        this.vote = new Vote();
-        MyGlobal.models = {};
-        MyGlobal.models.vote = this.vote;
-        this.vote.on("sync", function()
-        {
-          var voteView = new VoteView();
-          voteView.render();
-        });
-        this.vote.fetch({data: { placeId : "AXSDEFEEEE"}});
+	this.vote_view.render();
       },
       managePropertiesRoute: function(){
         $('#manage-properties-tab').tab('show');
