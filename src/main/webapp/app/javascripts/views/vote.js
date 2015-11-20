@@ -63,8 +63,7 @@ define([
       $("#placeImage").attr("src", "data:image/jpeg;base64," + MyGlobal.models.vote.get("placeImage"));
 
       //this.requestVote();
-      this.$el.fin
-      this.$el.find('#placeImage').attr("src", "data:image/jpeg;base64," + MyGlobal.models.vote.get("placeImage"));
+      this.$el.find('#placeImage').attr("src", "/app/image/" + MyGlobal.models.vote.get("placeId") + ".jpg");
       this.$el.find('#row1PropLabel').text(MyGlobal.models.vote.get("property")[0]);
       this.$el.find('#row2PropLabel').text(MyGlobal.models.vote.get("property")[1]);
       this.$el.find('#row3PropLabel').text(MyGlobal.models.vote.get("property")[2]);
