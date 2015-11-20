@@ -10,3 +10,7 @@ final-project.iml
 *.swp
 /bin/
 /target/
+/google-places-api-java-master/.idea
+/google-places-api-java-master/src/main/resources
+/google-places-api-java-master/target
+/google-places-api-java-master/google-places-api-java.iml
