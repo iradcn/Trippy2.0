@@ -12,7 +12,9 @@ import org.json.simple.parser.ParseException;
 public class Vote extends AbstractEntity {
 
 	private String place;
+	private String placeId;
 	private String property;
+	private String propertyId;
 
 	public String getPlace() {
 		return place;
@@ -22,6 +24,15 @@ public class Vote extends AbstractEntity {
 		this.place = place_name;
 	}
 
+	public String getPlaceId() {
+		return placeId;
+	}
+
+	public void setPlaceId (String place_id) {
+		this.placeId = place_id;
+	}
+
+
 	public String getProperty() {
 		return property;
 	}
@@ -29,4 +40,13 @@ public class Vote extends AbstractEntity {
 	public void setProperty (String prop_name) {
 		this.property = prop_name;
 	}
+
+	public String getPropertyId() {
+		return propertyId;
+	}
+
+	public void setPropertyId (String property_id) {
+		this.propertyId = property_id;
+	}
+
 }

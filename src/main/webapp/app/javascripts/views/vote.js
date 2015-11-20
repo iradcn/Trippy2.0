@@ -26,6 +26,7 @@ define([
             text: "Yes",
             class: 'btn btn-success',
             click: function() {
+              this.respondYes();
               $(this).dialog("close");
             },
           },
@@ -55,6 +56,7 @@ define([
         url: 'vote/request',
       }).done(function(res) {
         console.log(res);
+        this.vote = res;
         $('#vote-place').html(res.place);
         $('#vote-prop').html(res.property);
       }.bind(this)).fail(function(){
@@ -63,11 +65,11 @@ define([
     },
     respond: function(ans) {
       $.ajax({
-        method: "GET",
+        method: "POST",
         url: 'vote/response',
         data: {
-          placeId: "place id",
-          propId: "prop id",
+          placeId: this.vote.placeId,
+          propId: this.vote.propertyId,
           answer: ans,
         }
       }).done(function() {

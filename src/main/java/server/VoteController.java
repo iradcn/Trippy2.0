@@ -17,7 +17,9 @@ public class VoteController {
 	public @ResponseBody Vote getSomeStuff() throws Exception {
     Vote vote = new Vote();
     vote.setPlace("place1");
-    vote.setProperty("prop1");
+    vote.setPlaceId("11");
+    vote.setProperty("prop2");
+    vote.setPropertyId("22");
     return vote;
 	}
 }
