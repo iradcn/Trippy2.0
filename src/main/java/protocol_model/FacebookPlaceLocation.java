@@ -1,5 +1,7 @@
 package protocol_model;
 
+import model.Location;
+
 public class FacebookPlaceLocation {
 	public String getCity() {
 		return city;
@@ -31,6 +33,14 @@ public class FacebookPlaceLocation {
 	public void setStreet(String street) {
 		this.street = street;
 	}
+	
+	public Location getLocationEntity() {
+		Double lat = Double.parseDouble(this.getLatitude());
+		Double lon = Double.parseDouble(this.getLongtitude());
+		Location loc = new Location(lat,lon);
+		return loc;
+	}
+	
 	private String city;
 	private String country;
 	private String latitude;

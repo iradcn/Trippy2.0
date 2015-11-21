@@ -1,4 +1,4 @@
-package services;
+package contentprovider;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,13 +14,11 @@ import com.google.gson.Gson;
 public class FacebookConnectionManager {
 
 	private String accessToken;
-	private String userID;
 	private final String VALIDATE_TOKEN = "https://graph.facebook.com/me?access_token=%s";
 	private final String CHECKINS = "https://graph.facebook.com/me/tagged_places?access_token=%s";
 
 	public FacebookConnectionManager (String accessToken, String userID) {
 		this.accessToken = accessToken;
-		this.userID = userID;
 	}
 	
 	public enum RequestType {
@@ -41,7 +39,6 @@ public class FacebookConnectionManager {
 		obj = new URL(url);
 		con = (HttpURLConnection) obj.openConnection();
 		con.setRequestMethod("GET");
-		int responseCode = con.getResponseCode();
 
 		BufferedReader in = new BufferedReader(
 		        new InputStreamReader(con.getInputStream()));

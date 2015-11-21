@@ -14,11 +14,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Service;
 
-import services.FacebookService;
+import services.CheckInsService;
 import DAO.UserDAO;
+import contentprovider.FacebookService;
 
 @Service
 public class LoginBusinessLayerImpl implements LoginBusinessLayer {
+	
 
 	public boolean loginWithFacebook(String accessToken, String userID, HttpServletRequest request, AuthenticationManager authenticationManager) throws IOException, SQLException {
 		
@@ -29,9 +31,11 @@ public class LoginBusinessLayerImpl implements LoginBusinessLayer {
 		if (isAuthenticatedToFacebook){
 			User user = faceBookService.createUserByFB();
 			UserDAO.createOrUpdate(user);
-			faceBookService.saveUserCheckIns();
-
 			this.authenticateUser(user, request, authenticationManager);
+
+			//fetch check ins in another thread
+			CheckInsService checkInsService = new CheckInsService(faceBookService);
+			checkInsService.startThread();
 		}
 		
 		return isAuthenticatedToFacebook;

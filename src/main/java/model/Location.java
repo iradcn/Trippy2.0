@@ -32,7 +32,14 @@ public class Location {
         this.lat = lat;
     }
 
-    public Location(){}
+    public Location(Double lat, Double lon){
+    	this.lat = lat;
+    	this.lon = lon;
+    }
+    
+    public Location(){
+    }
+
 
 
 }

@@ -1,12 +1,14 @@
-package services;
+package contentprovider;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 import model.User;
 import protocol_model.FacebookAuthResponse;
 import protocol_model.FacebookCheckInData;
+import protocol_model.FacebookPlaceData;
 import protocol_model.FacebookPlaceEntry;
 
 public class FacebookService {
@@ -37,9 +39,16 @@ public class FacebookService {
 		return newUser;
 	}
 
-	public void saveUserCheckIns() throws IOException {
+	public List<FacebookPlaceData> getUserCheckIns() throws IOException {
 		FacebookCheckInData checkInData = facebookConnectionManager.sendCheckInRequest();
-		List<FacebookPlaceEntry> entriesList = checkInData.getData();
-		System.out.print(entriesList.toString());
+		List<FacebookPlaceEntry> facebookPlaceEntry = checkInData.getData();
+		
+		List<FacebookPlaceData> facebookPlaceData = new ArrayList<>();
+
+		for (FacebookPlaceEntry placeEntry:facebookPlaceEntry) {
+			facebookPlaceData.add(placeEntry.getPlace());
+		}
+		
+		return facebookPlaceData;
 	}
 }
