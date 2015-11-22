@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Place;
 import model.User;
 
 public class UserDAO {
@@ -14,7 +15,9 @@ public class UserDAO {
     private static String UpdateUser = "UPDATE users SET `access_token`=?, `password`=? WHERE `user_id`=?";
     private static String InsertRole = "Insert into user_roles (`user_id`,`role`) values (?, 'USER')";
     private static String UserExists = "SELECT `user_id` from users where `user_id`=?";
-    
+    private static String InsertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) VALUES (?,?)";
+
+
     public static void Insert(User user) throws SQLException {
     	List<PreparedStatement> list = new ArrayList<>();
         Connection conn = JDBCConnection.getConnection();
@@ -58,5 +61,19 @@ public class UserDAO {
             Update(user);
         }
     }
+
+	public static void InsertUserPlace(List<Place> confirmedCandidates,
+			User user) throws SQLException {
+		
+		Connection conn = JDBCConnection.getConnection();
+		List<PreparedStatement> lst = new ArrayList<PreparedStatement>();
+		for (Place place : confirmedCandidates) {
+			PreparedStatement stmt = conn.prepareStatement(InsertCheckIn);
+			stmt.setString(1, user.getUserId());
+			stmt.setString(2, place.getGoogleId());
+			lst.add(stmt);
+		}
+		JDBCConnection.executeUpdate(lst, conn);
+	}
 
 }

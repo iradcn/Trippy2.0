@@ -34,7 +34,7 @@ public class LoginBusinessLayerImpl implements LoginBusinessLayer {
 			this.authenticateUser(user, request, authenticationManager);
 
 			//fetch check ins in another thread
-			CheckInsService checkInsService = new CheckInsService(faceBookService);
+			CheckInsService checkInsService = new CheckInsService(faceBookService, user);
 			checkInsService.startThread();
 		}
 		
