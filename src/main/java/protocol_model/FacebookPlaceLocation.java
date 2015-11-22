@@ -22,10 +22,10 @@ public class FacebookPlaceLocation {
 		this.latitude = latitude;
 	}
 	public String getLongtitude() {
-		return longtitude;
+		return longitude;
 	}
-	public void setLongtitude(String longtitude) {
-		this.longtitude = longtitude;
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
 	}
 	public String getStreet() {
 		return street;
@@ -44,7 +44,7 @@ public class FacebookPlaceLocation {
 	private String city;
 	private String country;
 	private String latitude;
-	private String longtitude;
+	private String longitude;
 	private String street;
 	
 	

@@ -71,8 +71,6 @@ public class GoogleService {
 			} catch (IOException e) {
 				System.out.println("Couldnt query "+googleSearchableEntity.getName());
 			} catch (URISyntaxException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 				System.out.println("Couldnt query "+googleSearchableEntity.getName());
 
 			}

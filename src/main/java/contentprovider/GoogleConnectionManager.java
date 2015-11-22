@@ -30,7 +30,7 @@ public class GoogleConnectionManager {
 			try {
 				updatePlaceLocation(googleSearchableEntity);
 			} catch (RuntimeException ex) {
-				System.out.println("error finding location for:"+googleSearchableEntity.getName());
+				System.out.println("error finding location for: "+googleSearchableEntity.getName());
 				return null;
 			}
 		}
@@ -60,9 +60,6 @@ public class GoogleConnectionManager {
 		}
 		in.close();
 
-		//print result
-		System.out.println(response.toString());
-
 		return response.toString();
 	}
 	
@@ -70,14 +67,18 @@ public class GoogleConnectionManager {
 		
 		String url = getNearPlaceApiUrl(googleSearchableEntity);
 		String response = queryGoogleUrl(url);
-		System.out.println(response.toString());
 		try {
 			
 			JsonObject resultJson = new Gson().fromJson(response, JsonObject.class);
-			JsonArray resultsArr = resultJson.get("results").getAsJsonArray();		
-			String id = resultsArr.get(0).getAsJsonObject().get("id").getAsString();
-			System.out.println("Found id="+id);
-			return null;
+			JsonArray resultsArr = resultJson.get("results").getAsJsonArray();
+			if (resultsArr.size() > 0) {
+				String id = resultsArr.get(0).getAsJsonObject().get("place_id").getAsString();
+				String name = resultsArr.get(0).getAsJsonObject().get("name").getAsString();
+				System.out.println("Found id="+id);
+				return new Place(id, name, null, null);
+			} else {
+				return null;
+			}
 			
 		} catch (RuntimeException e) {
 			System.out.println("error parsing json");

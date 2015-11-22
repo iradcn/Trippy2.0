@@ -74,9 +74,28 @@ public class PlaceDAO {
 	private static String deletePlacesCatsSQL = "DELETE from places_categories";
 	private static String selectByName = "SELECT `Id` from places where TRIM(LOWER(places.name))=TRIM(LOWER(?))";
 	private static String insertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) values(?,?)";
-	
+	private static String selectPlaceById = "SELECT `Name`,`Lat`,`Lon`,`Id` from places where Id=?";
 	
 
+	public static Place getPlace(String Id) throws SQLException {
+		
+    	Connection conn = JDBCConnection.getConnection();
+		if (conn == null)  throw new SQLException();
+
+		PreparedStatement ps = conn.prepareStatement(selectPlaceById);
+		ps.setString(1, Id);
+		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
+		
+		Place foundPlace = null;
+		
+		if (rs.next()) {
+			foundPlace = new Place(rs.getString("Id"));
+		}
+		
+		return foundPlace;
+		
+		
+	}
 	public static void SavePlacesAndPlaceCats(List<Place> places) throws SQLException {
 		//perform update, if fails rollback and throw sql exception	
     	Connection conn = JDBCConnection.getConnection();
