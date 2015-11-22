@@ -11,10 +11,11 @@ import se.walkercrou.places.exception.GooglePlacesException;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -39,12 +40,6 @@ public class GooglePlaces implements GooglePlacesInterface {
     private boolean debugModeEnabled;
 
     /**
-     * For the CSV file
-     * path to the file
-     */
-    //private static final String PATH = "C:\\Users\\Hila\\Documents\\��� �\\����\\DB\\DATA1.csv";
-     
-    /**
       * CSV columns  
       */
 //    private static  String PLACE_NAME = "place name";
@@ -54,18 +49,15 @@ public class GooglePlaces implements GooglePlacesInterface {
 //    private static  String CATEGORY = "category";
 //
 //    private static String FILE_HEADER = PLACE_ID+","+PLACE_NAME+","+LAT+","+LON+","+CATEGORY;
-    private static FileWriter fileWriter = null;
+  //  private static FileWriter fileWriter = null;
+    private static FileOutputStream fileStream =null;
+    private static OutputStreamWriter writer = null;
   /**
    * Delimiter used in CSV file
    */
      private static final String TAB_DELIMITER = "\t";
      private static final String NEW_LINE_SEPARATOR = "\n";
 
-//     /**
-//      * photos properties
-//      */
-//     private static final int MAXHEIGHT = 400; 
-//     private static final int MAXWIDTH = 400;
      
     /**
      * Creates a new GooglePlaces object using the specified API key and the specified {@link RequestHandler}.
@@ -235,54 +227,22 @@ public class GooglePlaces implements GooglePlacesInterface {
 
     
     /**
-     * writes the photo to file in  the folder Trippy2.0\\src\\main\\resources.
+     * writes the photo to file in  the folder src//main//resources.
      * the name of the file should be the placeId
      * @throws IOException 
      */
     public static void writePhotoToFile (BufferedImage img,String placeId) throws IOException{
-    	String currentPath = "src//main//resources//" + placeId + ".jpg";
+    	String currentPath = "src//main//resources//Photos//" + placeId + ".jpg";
     
     	try {
     	    // retrieve image
     	    File outputfile = new File(currentPath);
     	    ImageIO.write(img, "jpg", outputfile);
     	} catch (IOException e) {
-            int a = 5;
+    		System.out.println("Error in writing the image file");
+    		e.printStackTrace();
     	}
-    	//works
-//    	byte[] buffer  = toByteArrayUsingJava(stream);
-//    	File targetFile = new File(currentPath);
-//    	OutputStream outStream = new FileOutputStream(targetFile);
-//    	 outStream.write(buffer);
-//    	 outStream.flush();
-//    	 outStream.close();
-    	
-    	
-    	
-    	//works
-//    	final Path destination = Paths.get(currentPath);
-//    	try {
-//    	    final InputStream in = stream;
-//    	 
-//    	    Files.copy(in, destination);
-//    	}
-//    	catch (Exception e) {}
-    	
     }
-    
-    public static byte[] toByteArrayUsingJava(InputStream is) throws IOException{ 
-    	ByteArrayOutputStream baos = new ByteArrayOutputStream(); 
-    	int reads = is.read(); 
-    	try{
-    	while(reads != -1){ 
-    		baos.write(reads); 
-    		reads = is.read(); 
-    		} 
-    	}
-    	catch (Exception e){}
-    	return baos.toByteArray();
-    } 
-    
 
 
     
@@ -292,11 +252,13 @@ public class GooglePlaces implements GooglePlacesInterface {
      */
     public static void  toCSVfile(String... args){
     	try{
-    		for(String arg : args){
-    			fileWriter.append(arg);
-    			fileWriter.append(TAB_DELIMITER);
+    		if(writer!=null){
+    			for(String arg : args){
+    				writer.write(arg);
+    				writer.write(TAB_DELIMITER);
+    			}
+    			writer.write(NEW_LINE_SEPARATOR);
     		}
-    		fileWriter.append(NEW_LINE_SEPARATOR);
     	}
     	catch (Exception e){
     		System.out.println("Error in CSV fileWriter");
@@ -306,20 +268,19 @@ public class GooglePlaces implements GooglePlacesInterface {
     
     public static void createCSVfile(String path){
     	try{
-    		fileWriter = new FileWriter(path);
-    		//fileWriter.append(FILE_HEADER.toString());
-    		//fileWriter.append(NEW_LINE_SEPARATOR);
+    		fileStream = new FileOutputStream(path);
+    		writer = new OutputStreamWriter(fileStream, "UTF-8");
     	}
     	catch (Exception e){
-    		System.out.println("Error in CSV fileWriter");
+    		System.out.println("Error in CSV fileWriter");		
     		e.printStackTrace();
     	}
     }
     
     public static void closeCSVfile(){
     	try{
-			fileWriter.flush();
-			fileWriter.close();
+    		if(writer!=null)
+    			writer.close();
 		}
 		catch(IOException e){
 			System.out.println("Error while closing the CSV fileWriter");

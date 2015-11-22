@@ -30,10 +30,19 @@ public class GetData{
 	     * For the CSV file
 	     * pathes to the file
 	     */
-	    private static final String RothschildFile = "C:\\dev\\Trippy2.0\\GoogleData\\Rothschild.txt";
+	    private static final String FILEDIR= "src//main//resources//Files//";
+	    private static final String ROTHSCILDfILE = FILEDIR + "Rothschild.txt";
+	    private static final String  JERUSALEM = FILEDIR + "jerusalem.txt";
+	    private static final String  YARKON = FILEDIR + "Yarkon.txt";
+	    private static final String  BEER_SHEVA = FILEDIR + "Beer-sheva.txt";
+	    private static final String  EILAT = FILEDIR + "eilat.txt";
+	    private static final String  RISHON = FILEDIR + "Rishon.txt";
+	    private static final String  DIZINGOF = FILEDIR + "dizingof.txt";
+	    private static final String  HAIFA = FILEDIR + "haifa.txt";
+
 	     
 	    
-	    public static void main (String [] args) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
+	    public static void main(String [] args) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
 	    	setUp();
 	    	getAllPlaces();
 	    	//GetNearbyPlaces();
@@ -54,32 +63,23 @@ public class GetData{
 	     * Getts all the places at once
 	     */
 	    public static void getAllPlaces() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
-	    	GetNearbyPlaces(RothschildFile,32.068177,34.775915);
+	    	GetNearbyPlaces(ROTHSCILDfILE,32.068177,34.775915);
+	    	GetNearbyPlaces(JERUSALEM,31.765564,35.211261);
+	    	GetNearbyPlaces(YARKON,32.092392,34.776652);
+	    	GetNearbyPlaces(BEER_SHEVA,31.249535,34.796235);
+	    	GetNearbyPlaces(EILAT,29.564031,34.951469);
+	    	GetNearbyPlaces(RISHON,31.977733,34.787317);
+	    	GetNearbyPlaces(DIZINGOF,32.077000,34.773671);
+	    	GetNearbyPlaces(HAIFA,32.819554,34.968398);
+	    	
+	    	
 	    }
 	    public static void GetNearbyPlaces(String path, double start_lon, double start_lng) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 	        System.out.println("******************** getNearbyPlaces ********************");
 	        PLACE_START_LAT=  start_lon;
 	        PLACE_START_LNG= start_lng;
 	        Types type = new Types();
-	        //the point in the sea = 33.060865; 34.628895;
-	        //tel aviv points: 32.084721;34.794548;
-	        //jerusalem 31.765564, 35.211261
-	        //haifa  32.819554;34.968398;
-	        //Yarkon 32.092392, 34.776652
-	        //Beer-sheva : 31.249535, 34.796235
-	        //Eilat 29.564031, 34.951469
-	        //Rishon 31.977733, 34.787317
-	        //Yaffo 32.055130, 34.767502
-	        //Rosh_Pina 32.963869, 35.544308
-	        //North of diingof tel aviv 32.091732, 34.776791
-	        //dizingof center 32.077000, 34.773671
-	      
-	        //rotchild 32.068177, 34.775915
-	        
-	        //bnei-dan 32.094649, 34.788790
-	        //ramat-hahayal 32.110208, 34.834966
-	        //ramat-gan 32.070359, 34.822092
-	        //givataim 32.075450, 34.808702
+
 	        double currentLon=PLACE_START_LNG;
 	        double currentLat=PLACE_START_LAT;
 	        

@@ -16,22 +16,14 @@ public class GoogleImportService {
 
         try{
 			List<Place> allPlaces = new ArrayList<>();
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Yarkon_demo_pipe.txt"));
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Yafo_demo_pipe.txt"));
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Jerusalem_demo_pipe.txt"));
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Eilat_demo_pipe.txt"));
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Haifa_demo_pipe.txt"));
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Rishon_demo_pipe.txt"));
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Rosh_Pina_pipe.txt"));
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/BeerSheva_demo_pipe.txt"));
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/North_dizingof_tel_aviv_pipe.txt"));
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/dizingof_center_pipe.txt"));
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/dizingof_center_pipe.txt"));
-			
-			
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/rotchild_pipe.txt"));
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/dizingof_center_pipe.txt"));
-			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/dizingof_center_pipe.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Beer-sheva.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/dizingof.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/eilat.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/jerusalem.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Rishon.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Rothschild.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/Yarkon.txt"));
+			allPlaces.addAll(googleParser.getPlacesFromCsvFile("GoogleData/haifa.txt"));
 			
 			PlaceDAO.SavePlacesAndPlaceCats(allPlaces);
         }catch(Exception e){

@@ -51,7 +51,7 @@ public interface GooglePlacesInterface extends Statuses {
     String METHOD_AUTOCOMPLETE = "autocomplete";
     String METHOD_QUERY_AUTOCOMPLETE = "queryautocomplete";
 
-    int MAX_PHOTO_SIZE = 400;
+    int MAX_PHOTO_SIZE = 500;
 
    static final String PHOTOPATH = "C:\\dev\\Trippy2.0\\src\\main\\resources\\";
     

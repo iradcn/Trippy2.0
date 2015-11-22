@@ -22,8 +22,6 @@ import model.Location;
 
 public class GoogleParser {
 
-	private static final String IS_ENGLISH_REGEX = "^[ \\w \\d \\s \\. \\& \\+ \\- \\, \\! \\@ \\# \\$ \\% \\^ \\* \\( \\) \\; \\\\ \\/ \\| \\< \\> \\\" \\' \\? \\= \\: \\[ \\] ]*";
-	private static final  Pattern Question = Pattern.compile("\\?\\?\\?+");
 	
 	public List<Place> getPlacesFromCsvFile(String filePath) throws NumberFormatException, IOException{
 		Matcher matchRegex;
@@ -41,10 +39,6 @@ public class GoogleParser {
 
                     int index = line.indexOf('[');
                     String[] placeInfo = line.substring(0, index).split("\t");
-                    matchRegex = Question.matcher(placeInfo[1]);
-                    if(matchRegex.find()){
-                    	continue;
-                    }
                     String[] categoriesInfo = line.substring(index+1, line.length() - 2).split(",");
                     HashSet<Category> categoriesSet = new HashSet<>();
                     for (String categoryStr : categoriesInfo) {
