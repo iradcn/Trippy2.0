@@ -1187,4 +1187,3 @@ ChIJ2ZPJPMK7HRURF1os5OLlCfo	Goodies	32.83035999999999	34.974339	[bakery, store, 
 ChIJkbzq27q7HRURzmEc4r6Euao	Tibi	32.81348699999999	34.98140920000001	[cafe, bar, bakery, restaurant, store, food, point_of_interest, establishment]	
 ChIJ7Xk71rW7HRURV2Q2nAutCqs	Klein's Cafe	32.8179054	34.9893778	[cafe, bakery, store, bar, restaurant, food, point_of_interest, establishment]	
 ChIJYxpJLfe6HRURpkmw07Ogmos	Lehem Erez	32.78936199999999	35.0079096	[bakery, store, food, point_of_interest, establishment]	
-ChIJL2

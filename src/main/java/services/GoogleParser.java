@@ -24,7 +24,6 @@ public class GoogleParser {
 
 	
 	public List<Place> getPlacesFromCsvFile(String filePath) throws NumberFormatException, IOException{
-		Matcher matchRegex;
     	Map <String,Place> allPlaces = new HashMap<>();
     	String line;
     	 
@@ -41,7 +40,7 @@ public class GoogleParser {
                     String[] placeInfo = line.substring(0, index).split("\t");
                     String[] categoriesInfo = line.substring(index+1, line.length() - 2).split(",");
                     HashSet<Category> categoriesSet = new HashSet<>();
-                    for (String categoryStr : categoriesInfo) {
+                    for (String categoryStr : categoriesInfo) {               	
                     	if(!CategoryMap.getMap().containsKey(categoryStr))
                     		continue;
                     	int CategoryIndex = CategoryMap.getMap().get(categoryStr);
