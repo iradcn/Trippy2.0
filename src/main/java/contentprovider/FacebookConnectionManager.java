@@ -5,9 +5,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import protocol_model.FacebookAuthResponse;
 import protocol_model.FacebookCheckInData;
+import protocol_model.FacebookNextPage;
 
 import com.google.gson.Gson;
 
@@ -36,6 +39,13 @@ public class FacebookConnectionManager {
 			url = String.format(CHECKINS, this.accessToken);
 		}
 		
+		return sendFacebookRequest(url);
+	}
+	
+	public String sendFacebookRequest(String url) throws IOException {
+		URL obj;
+		HttpURLConnection con;
+		
 		obj = new URL(url);
 		con = (HttpURLConnection) obj.openConnection();
 		con.setRequestMethod("GET");
@@ -53,17 +63,28 @@ public class FacebookConnectionManager {
 		//print result
 		return response.toString();
 	}
-	
+
 	public FacebookAuthResponse sendAuthRequest() throws IOException {
 		String respo = sendFacebookRequest(RequestType.AUTH);
 		FacebookAuthResponse authResponse = new Gson().fromJson(respo, FacebookAuthResponse.class);
 		return authResponse;
 	}
 	
-	public FacebookCheckInData sendCheckInRequest() throws IOException {
+	public List<FacebookCheckInData> sendCheckInRequest() throws IOException {
+		List<FacebookCheckInData> faceBookCheckInDataLst = new ArrayList<>();
 		String respo = sendFacebookRequest(RequestType.CHECK_INS);
 		FacebookCheckInData checkInResponse = new Gson().fromJson(respo, FacebookCheckInData.class);
-		return checkInResponse;
+		faceBookCheckInDataLst.add(checkInResponse);
+		FacebookNextPage nextPage = checkInResponse.getPaging();
+		while (nextPage != null && nextPage.getNext() != null){
+			String nextUrl = nextPage.getNext();
+			respo = sendFacebookRequest(nextUrl);
+			checkInResponse = new Gson().fromJson(respo, FacebookCheckInData.class);
+			faceBookCheckInDataLst.add(checkInResponse);
+			nextPage = checkInResponse.getPaging();
+		}
+		
+		return faceBookCheckInDataLst;
 	}
 
 	

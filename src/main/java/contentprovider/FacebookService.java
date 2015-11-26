@@ -40,14 +40,18 @@ public class FacebookService {
 	}
 
 	public List<FacebookPlaceData> getUserCheckIns() throws IOException {
-		FacebookCheckInData checkInData = facebookConnectionManager.sendCheckInRequest();
-		List<FacebookPlaceEntry> facebookPlaceEntry = checkInData.getData();
-		
 		List<FacebookPlaceData> facebookPlaceData = new ArrayList<>();
+		List<FacebookPlaceEntry> facebookPlaceEntry;
 
-		for (FacebookPlaceEntry placeEntry:facebookPlaceEntry) {
-			facebookPlaceData.add(placeEntry.getPlace());
+		List<FacebookCheckInData> checkInDataLst = facebookConnectionManager.sendCheckInRequest();
+		for (FacebookCheckInData checkInData: checkInDataLst) {
+			facebookPlaceEntry = checkInData.getData();
+			
+			for (FacebookPlaceEntry placeEntry:facebookPlaceEntry) {
+				facebookPlaceData.add(placeEntry.getPlace());
+			}
 		}
+		
 		
 		return facebookPlaceData;
 	}

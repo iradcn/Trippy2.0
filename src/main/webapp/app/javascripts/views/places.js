@@ -59,7 +59,7 @@ define([
           stroke: new ol.style.Stroke({
             color: 'blue',
             width: 1
-          }),
+          })
         })
       });
 
@@ -157,7 +157,6 @@ define([
           MyGlobal.collections.ResponsePlaces.reset(data);
           this.overlayResponse();
         } else {
-          $('#places-map').css('height', $('#places-map').height() - 60);
           $('.alerts-row').html(
             '<div class="alert alert-warning alert-dismissable" role="alert">' +
             '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
@@ -174,7 +173,7 @@ define([
       });
     },
     resizeMap: function () {
-      $('#places-map').css('height', $('#places-map').height() + 60);
+      //$('#places-map').css('height', $('#places-map').height() + 60);
     },
     resetSubmit: function () {
       if (this.circlesVectorSource.getFeatures().length === 0) {
