@@ -13,7 +13,7 @@ define([
       'click .places-reset-submit': 'resetSubmit',
       'change #places-select-curr-categories': 'toggleApplyFilterOption',
       'change #places-select-curr-properties': 'toggleApplyFilterOption',
-      'click .alert-resize-map': 'resizeMap'
+ //     'click .alert-resize-map': 'resizeMap'
     },
     initialize: function () {
       this.catView = MyGlobal.views.select_categories_view;
@@ -74,8 +74,8 @@ define([
         layers: [raster, circlesVectorLayer, pointsVectorLayer],
         target: 'places-map',
         view: new ol.View({
-          center: ol.proj.transform([37, 31], 'EPSG:4326', 'EPSG:3857'),
-          zoom: 4,
+          center: ol.proj.transform([34.781813, 32.075978], 'EPSG:4326', 'EPSG:3857'),
+          zoom: 14
         })
       });
 
@@ -209,6 +209,7 @@ define([
       });
       
       var rad_km = location_circle.getGeometry().getRadius() / 1000;
+      rad_km = 2*rad_km;
       var rad_mile = rad_km * 0.621;
       return {
         "loc": {

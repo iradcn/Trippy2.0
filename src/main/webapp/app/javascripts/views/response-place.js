@@ -77,7 +77,7 @@ define([
       });
     },
     resizeMap: function () {
-      $('#places-map').css('height', $('#places-map').height() + 60);
+      $('#places-map').css('height',398);
     },
     deletePropertySubmit: function () {
       $('.alert-resize-map').click();
@@ -96,7 +96,7 @@ define([
         }, this);
         this.render();
       }.bind(this)).fail(function(){
-        $('#places-map').css('height', $('#places-map').height() - 60);
+        $('#places-map').css('height', 398);
         $('.alerts-row').html(
           '<div class="alert alert-danger alert-dismissable" role="alert">' +
           '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
