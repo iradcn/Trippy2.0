@@ -2,18 +2,18 @@ package server;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-
-import com.google.common.io.Files;
-import model.Vote;
-
-import org.springframework.web.bind.annotation.*;
-
-import services.QuestionsGeneratorService;
 
 import javax.imageio.ImageIO;
+
+import model.Vote;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import services.QuestionsGeneratorService;
 
 @RestController
 public class VoteController {

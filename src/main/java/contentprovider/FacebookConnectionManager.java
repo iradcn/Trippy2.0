@@ -30,8 +30,6 @@ public class FacebookConnectionManager {
 	
 	public String sendFacebookRequest(RequestType reqType) throws IOException {
 		String url = "";
-		URL obj;
-		HttpURLConnection con;
 		
 		if (reqType == RequestType.AUTH) {
 			url = String.format(VALIDATE_TOKEN, this.accessToken);

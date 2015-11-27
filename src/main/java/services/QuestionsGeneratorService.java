@@ -1,6 +1,9 @@
 package services;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import java.util.List;
+
+import javax.sql.DataSource;
+
 import org.apache.mahout.cf.taste.common.TasteException;
 import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
 import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
@@ -11,11 +14,9 @@ import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
 import org.apache.mahout.cf.taste.similarity.UserSimilarity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.sql.DataSource;
-import java.util.List;
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 /**
  * Created by nimrodoron on 11/17/15.

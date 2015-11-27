@@ -8,14 +8,11 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import model.Place;
 
 import model.Category;
 import model.CategoryMap;
 import model.Location;
+import model.Place;
 
 
 
