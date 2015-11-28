@@ -21,32 +21,8 @@ public class PlaceDAO {
 	private static String insertPlacesSQL = "INSERT INTO places"
 			+ " (`id`,`name`,`lat`,`lon`) VALUES"
 			+ "(?,?,?,?) ON DUPLICATE KEY UPDATE `id`=`id`";
-	private static String insertOnlyCategoriesSQL = "INSERT INTO categories" + "(`name`, `id`) VALUES"
-																+"(airport,1),"
-																+ "(amusement_park,2),"
-																+ "(aquarium,3)"
-																+ "(art_gallery,4),"
-																+ "(bakery,5),"
-																+ "(bar,6),"
-																+ "(cafe,7),"
-																+ "(casino,8),"
-																+ "(clothing_store,9),"
-																+ "(convenience_store,10),"
-																+ "(department_store,11),"
-																+ "(food,12),"
-																+ "(grocery_or_supermarket,13),"
-																+ "(gym,14),"
-																+ "(health,15),"
-																+ "(movie_theater,16),"
-																+ "(museum,17),"
-																+ "(night_club,18),"
-																+ "(park,19),"
-																+ "(restaurant,20),"
-																+ "(shopping_mall,21),"
-																+ "(spa,22),"
-																+ "(zoo,23);";
 
-																private static String insertCategoriesSQL = "INSERT INTO places_categories"
+	private static String insertCategoriesSQL = "INSERT INTO places_categories"
 			+ " (`placeid`,`categoryid`) VALUES"
 			+ "(?,?) ON DUPLICATE KEY UPDATE `PlaceId`=`PlaceId`";
 
@@ -100,7 +76,6 @@ public class PlaceDAO {
 		//perform update, if fails rollback and throw sql exception	
     	Connection conn = JDBCConnection.getConnection();
 		if (conn == null)  throw new SQLException();
-		PreparedStatement insertCategoriesState = conn.prepareStatement(insertOnlyCategoriesSQL);
 		PreparedStatement insertPlaceState = conn.prepareStatement(insertPlacesSQL);
 		PreparedStatement insertPlaceCategoryState = conn.prepareStatement(insertCategoriesSQL);
 		for (Place place : places) {
@@ -121,7 +96,6 @@ public class PlaceDAO {
 		List<PreparedStatement> statements = new ArrayList<PreparedStatement>();
 		statements.add(insertPlaceState);
 		statements.add(insertPlaceCategoryState);
-		statements.add(insertCategoriesState);
 		JDBCConnection.executeBatch(statements,conn);
     }
 	public static void deleteAllPlaces() throws SQLException {

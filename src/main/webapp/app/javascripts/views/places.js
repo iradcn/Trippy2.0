@@ -183,6 +183,7 @@ define([
       $('#places-select-curr-categories').val('');
       $('#places-select-curr-properties').val('');
       $('.places-reset-submit').prop('disabled', true);
+	   this.pointsVectorSource.clear();
     },
     toggleApplyFilterOption: function (e) {
       if ((this.circlesVectorSource.getFeatures().length != 0) || e.feature) {
