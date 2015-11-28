@@ -21,8 +21,8 @@ USE `trippy2` ;
 -- Table `trippy2`.`UserVotes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `trippy2`.`UserVotes` (
-  `userId` VARCHAR(16) NOT NULL,
-  `placeId` VARCHAR(16) NOT NULL,
+  `userId` VARCHAR(40) NOT NULL,
+  `placeId` VARCHAR(40) NOT NULL,
   `propId` INT(11) NOT NULL,
   `vote` INT(11) NOT NULL,
   `fTimestamp` VARCHAR(45) NOT NULL)

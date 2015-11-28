@@ -3,15 +3,15 @@ package server;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.imageio.ImageIO;
 
+import model.Property;
 import model.Vote;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
 
 import services.QuestionsGeneratorService;
 
@@ -39,11 +39,22 @@ public class VoteController {
         // Todo - Fetch image for the place (DB or http query)
         //File initialFile = new File("src/main/resources/929200_1571840069710538_1151072500_n.jpg");
         //InputStream targetStream = Files.asByteSource(initialFile).openStream();
-        //BufferedImage img = ImageIO.read(targetStream);
+        //BufferedImage img = ImageIO.read(target Stream);
         //vote.setPlaceImage(getDataFromBufferedImage(img));
         return vote;
 
 	}
+
+    @RequestMapping(value="app/addVoteToProp", method=RequestMethod.GET)
+    public void addVoteToPlace(@RequestParam("propId") int propId,@RequestParam("placeId") String placeId,
+                               @RequestParam("voteValue") int voteValue) throws SQLException {
+        // check valid vote value
+        if (voteValue != 1 && voteValue != 1)
+            return;
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        Property.AddPropToPlace(placeId, propId, voteValue, username);
+
+    }
 
     private byte[] getDataFromBufferedImage(BufferedImage thumbnail) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

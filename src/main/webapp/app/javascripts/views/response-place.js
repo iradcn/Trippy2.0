@@ -27,7 +27,7 @@ define([
     populateCategories: function () {
       var catsArr = this.model.attributes.categories;
       _.each(catsArr, function (cat) {
-        var catModel = MyGlobal.collections.categories.get(cat.yagoId);
+        var catModel = MyGlobal.collections.categories.get(cat.id);
         $('#response-place-categories').append("<li>" + catModel.get('name') +  "</li>");
       });
     },
@@ -57,13 +57,14 @@ define([
       $('.alert-resize-map').click();
 
       var propId = $('#response-place-new-property').val();
-      var placeId = this.model.id;
+      var placeId = this.model.get('googleId');
 
       $.ajax({
         method: "GET",
-        url: 'AddPropToPlace',
+        url: 'addVoteToProp',
         data: {'propId': propId,
-               'placeId': placeId}
+               'placeId': placeId,
+                'voteValue': 1}
       }).done(function() {
         this.model.attributes.properties.push({'id': parseInt(propId)});
         this.render();
@@ -83,13 +84,14 @@ define([
       $('.alert-resize-map').click();
 
       var propId = $('#response-place-properties').val();
-      var placeId = this.model.id;
+      var placeId = this.model.get('googleId');
 
       $.ajax({
         method: "GET",
-        url: 'DelPropFromPlace',
+        url: 'addVoteToProp',
         data: {'propId': propId,
-               'placeId': placeId}
+          'placeId': placeId,
+          'voteValue': -1}
       }).done(function() {
         this.model.attributes.properties = _.reject(this.model.attributes.properties, function (p) {
           return p.id == parseInt(propId);  

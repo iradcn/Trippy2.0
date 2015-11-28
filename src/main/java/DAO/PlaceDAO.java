@@ -53,7 +53,7 @@ public class PlaceDAO {
 	private static String getPlacesByLocation = "SELECT  p.name, p.lat, p.lon, p.id, pc.CategoryId, pp.PropId " +
 												"FROM places p " +
 												     "LEFT OUTER JOIN places_categories pc ON p.id = pc.placeid " +
-													 "LEFT OUTER JOIN places_props pp ON pp.placeId = p.ID " +
+													 "LEFT OUTER JOIN places_props_view pp ON pp.placeId = p.ID " +
 												"WHERE "+
 													"3956 * 2 * ASIN(SQRT(POWER(SIN((? - p.lat) * PI() / 180 / 2), " +
 													"2) + COS(? * PI() / 180) * COS(p.lat * PI() / 180) * " +
@@ -62,7 +62,7 @@ public class PlaceDAO {
 													"AND (pp.PropId IN (%s) %s)";
 
 	private static String countPlacesByLoc = "SELECT COUNT(DISTiNCT(p.name)) AS cms " +
-											 "FROM places p,  places_categories pc, places_props pp" +
+											 "FROM places p,  places_categories pc, places_props_view pp" +
 											 " WHERE " +
 												"3956 * 2 * ASIN(SQRT(POWER(SIN((? - p.lat) * PI() / 180 / 2), " +
 												"2) + COS(? * PI() / 180) * COS(p.lat * PI() / 180) * " +
