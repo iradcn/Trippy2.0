@@ -208,7 +208,6 @@ define([
       });
       
       var rad_km = location_circle.getGeometry().getRadius() / 1000;
-      rad_km = 2*rad_km;
       var rad_mile = rad_km * 0.621;
       return {
         "loc": {

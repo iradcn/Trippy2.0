@@ -164,7 +164,7 @@ public class PlaceDAO {
 		selectPlaces.setDouble(1,query.getLoc().getLat());
 		selectPlaces.setDouble(2,query.getLoc().getLat());
 		selectPlaces.setDouble(3,query.getLoc().getLon());
-		selectPlaces.setInt(4, (int) (query.getLoc().getRadius() / 1.609));
+		selectPlaces.setDouble(4, (double) (query.getLoc().getRadius() / 1.609));
 
 		i = 5;
 		for (Category cat : query.getCategories()) {
