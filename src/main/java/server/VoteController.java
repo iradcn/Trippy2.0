@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import model.Property;
 import model.Vote;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ import services.QuestionsGeneratorService;
 @RestController
 public class VoteController {
 
-    //@Autowired
+    @Autowired
     QuestionsGeneratorService questionsGeneratorService;
 
 	@RequestMapping(value="app/vote/request", method=RequestMethod.GET)
@@ -41,18 +42,20 @@ public class VoteController {
         //InputStream targetStream = Files.asByteSource(initialFile).openStream();
         //BufferedImage img = ImageIO.read(target Stream);
         //vote.setPlaceImage(getDataFromBufferedImage(img));
+        //QuestionsGeneratorService questionsGeneratorService = new QuestionsGeneratorService();
+        long propId = questionsGeneratorService.generate(10096);
         return vote;
 
 	}
 
     @RequestMapping(value="app/addVoteToProp", method=RequestMethod.GET)
     public void addVoteToPlace(@RequestParam("propId") int propId,@RequestParam("placeId") String placeId,
-                               @RequestParam("voteValue") int voteValue) throws SQLException {
+                               @RequestParam("voteValue") int voteValue, @RequestParam("placenId") long placenId) throws SQLException {
         // check valid vote value
         if (voteValue != 1 && voteValue != 1)
             return;
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        Property.AddPropToPlace(placeId, propId, voteValue, username);
+        Property.AddPropToPlace(placeId, propId, voteValue, username, placenId);
 
     }
 

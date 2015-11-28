@@ -58,13 +58,15 @@ define([
 
       var propId = $('#response-place-new-property').val();
       var placeId = this.model.get('googleId');
+      var placenId = this.model.get('nId');
 
       $.ajax({
         method: "GET",
         url: 'addVoteToProp',
         data: {'propId': propId,
                'placeId': placeId,
-                'voteValue': 1}
+                'voteValue': 1,
+                'placenId':placenId}
       }).done(function() {
         this.model.attributes.properties.push({'id': parseInt(propId)});
         this.render();
