@@ -168,7 +168,7 @@ public class PlaceDAO {
 
 		i = 5;
 		for (Category cat : query.getCategories()) {
-			selectPlaces.setString(i, cat.getGoogleId());
+			selectPlaces.setInt(i, cat.getId());
 			i++;
 		}
 		for (Property prop : query.getProperties()) {

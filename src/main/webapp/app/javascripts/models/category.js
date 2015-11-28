@@ -4,7 +4,7 @@ define([
   "bootstrap",
 ], function (Backbone, $){
   var Category = Backbone.Model.extend({
-    idAttribute: "yagoId",
+    idAttribute: "id",
   });
   return Category;
 });

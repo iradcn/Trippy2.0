@@ -199,7 +199,7 @@ define([
 
       var cat_yago_ids = $('#places-select-curr-categories').val(); // array of yagoId
       var filtered_cats = MyGlobal.collections.categories.filter(function(c) {
-        return _.contains(cat_yago_ids, c.id);
+        return _.contains(cat_yago_ids, c.id.toString());
       });
 
       var prop_yago_ids = $('#places-select-curr-properties').val(); // array of yagoId
