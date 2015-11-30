@@ -54,7 +54,7 @@ public class CheckInsService implements Runnable {
 				try {
 					UserDAO.InsertUserPlace(confirmedCandidates, this.user);
 				} catch (SQLException e) {
-					System.out.println("Error Inserting confirmed candidated CheckIns to DB");
+					System.out.println("Error Inserting confirmed candidated CheckIns to DB - maybe exists");
 				}
 			}
 		} catch (IOException e) {
