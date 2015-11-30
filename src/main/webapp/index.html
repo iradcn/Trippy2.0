@@ -20,11 +20,12 @@
 
 <script>
     var FB_API_VERSION = 'v2.2';
-    var APP_ID = '1662478060658059';
+    var TEST_APP_ID = '1662478060658059';
+    var PROD_APP_ID = '1662297354009463';
 
     window.fbAsyncInit = function() {
         FB.init({
-            appId      : APP_ID,
+            appId      : (window.location.hostname=="localhost" ? TEST_APP_ID : PROD_APP_ID),
             cookie     : true,  // enable cookies to allow the server to access
             xfbml      : true,  // parse social plugins on this page
             version    : FB_API_VERSION // use version 2.2
