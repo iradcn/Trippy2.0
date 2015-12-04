@@ -18,9 +18,9 @@ CREATE SCHEMA IF NOT EXISTS `trippy2` DEFAULT CHARACTER SET utf8 ;
 USE `trippy2` ;
 
 -- -----------------------------------------------------
--- Table `trippy2`.`UserVotes`
+-- Table `trippy2`.`uservotes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `trippy2`.`UserVotes` (
+CREATE TABLE IF NOT EXISTS `trippy2`.`uservotes` (
   `userId` VARCHAR(40) NOT NULL,
   `placeId` VARCHAR(40) NOT NULL,
   `propId` INT(11) NOT NULL,
@@ -158,6 +158,7 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`user_votes_agg_view` (`placeId` INT, `prop
 
 DELIMITER $$
 USE `trippy2`$$
+DROP PROCEDURE IF EXISTS CreateForeignKeys;
 CREATE DEFINER=`trippy2`@`localhost` PROCEDURE `CreateForeignKeys`()
 BEGIN
 
@@ -191,6 +192,7 @@ DELIMITER ;
 
 DELIMITER $$
 USE `trippy2`$$
+DROP PROCEDURE IF EXISTS RemoveForeignKeys;
 CREATE DEFINER=`trippy2`@`localhost` PROCEDURE `RemoveForeignKeys`()
 BEGIN
 
