@@ -10,10 +10,13 @@ import javax.imageio.ImageIO;
 import model.Property;
 import model.Vote;
 
+import model.VoteAnswer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import protocol_model.QuestionAndResults;
+import protocol_model.SearchByLocation;
 import services.QuestionsGeneratorService;
 
 @RestController
@@ -48,14 +51,16 @@ public class VoteController {
 
 	}
 
-    @RequestMapping(value="app/addVoteToProp", method=RequestMethod.GET)
-    public void addVoteToPlace(@RequestParam("propId") int propId,@RequestParam("placeId") String placeId,
-                               @RequestParam("voteValue") int voteValue, @RequestParam("placenId") long placenId) throws SQLException {
-        // check valid vote value
-        if (voteValue != 1 && voteValue != 1)
-            return;
+    @RequestMapping(value="app/vote/answer", method=RequestMethod.GET)
+    public QuestionAndResults answerVoteQuestion(@RequestParam("voteAnswer") VoteAnswer answer,
+                                                 @RequestParam("searchQuery") SearchByLocation searchQueryJson) throws SQLException {
+
+        // Save the
+
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        Property.AddPropToPlace(placeId, propId, voteValue, username, placenId);
+        //Property.AddPropToPlace(placeId, propId, voteValue, username, placenId);
+
+        // todo - delete open qustion
 
     }
 
