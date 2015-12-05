@@ -2,18 +2,15 @@ package services;
 
 import java.sql.SQLException;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Service;
-
-import DAO.PlaceDAO;
-import DAO.UserDAO;
-import DAO.VoteDAO;
 import model.Place;
 import model.Vote;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+
+import DAO.UserDAO;
+import DAO.VoteDAO;
 
 
 @Service
@@ -56,9 +53,6 @@ public class QuestionManagerService {
 			System.out.println("Error SQLException while checking if a new question is required");
 			return false;
 		}
-		
-		
-		
 	}
 	
 	private Place getPlaceForQuestion () {
@@ -70,5 +64,11 @@ public class QuestionManagerService {
 
 	}
 
-
+	public void setQuestionAsDone(String placeId, int propertyId, int answer, String userId, long intPlaceId) {
+		try {
+			VoteDAO.setQuestionAsAnswered(propertyId, placeId, answer, userId, intPlaceId);
+		} catch (SQLException e) {
+			System.out.println("Error setting question answer.");
+		}
+	}
 }

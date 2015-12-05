@@ -137,7 +137,8 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`uservotes` (
   `placeId` VARCHAR(40) NOT NULL,
   `propId` INT(11) NOT NULL,
   `vote` INT(11) NOT NULL,
-  `fTimestamp` VARCHAR(45) NOT NULL)
+  `fTimestamp` VARCHAR(45) NOT NULL,
+  `is_opened` BINARY(1) NOT NULL DEFAULT '0')
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
