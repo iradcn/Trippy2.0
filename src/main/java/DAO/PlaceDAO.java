@@ -202,13 +202,11 @@ public class PlaceDAO {
 
 		return  result;
 	}
-	//ליצור עוד אחד כזה
 	public static Place findPlaceByName(String placeName) throws SQLException {
 		Connection conn = JDBCConnection.getConnection();
 
 		PreparedStatement selectPlaces = null;
 		selectPlaces = conn.prepareStatement(selectByName);
-		//להכניס פרמטר לסטרינג, למקומות של הסימן שאלה בלמעלה
 		selectPlaces.setString(1, placeName);
 
 		ResultSet rs = JDBCConnection.executeQuery(selectPlaces, conn);

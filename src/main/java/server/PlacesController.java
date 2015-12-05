@@ -6,9 +6,13 @@ import model.Vote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import business_layer.PlaceBusinessLayer;
+import DAO.UserDAO;
 import protocol_model.*;
 import services.QuestionManagerService;
 
@@ -20,7 +24,7 @@ import java.util.List;
 public class PlacesController {
 	
 	@Autowired
-	QuestionManagerService newQuestionManager;
+	PlaceBusinessLayer placeBusinessLayer;
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -35,17 +39,8 @@ public class PlacesController {
 
 	@RequestMapping(value="app/get_places_by_loc", method=RequestMethod.POST)
 	public QuestionAndResults SearchPlacesByLocation(@RequestBody SearchByLocation searchQueryJson) throws SQLException {
-		QuestionAndResults questionOrResult = new QuestionAndResults();
-		List<Place> places;
-		
-		Vote newQuestion = newQuestionManager.getQuestion();
-		if (newQuestion == null) {
-			places = Place.getPlacesByLocation(searchQueryJson);
-			questionOrResult.setPlaces(places);
-		} 
-
-		//TODO: If user will recieve data now, increment the counter 
-		return questionOrResult;
+		QuestionAndResults questionAndResults = placeBusinessLayer.getPlacesOrQuestion(searchQueryJson);
+		return questionAndResults;
 	}
 
 	@RequestMapping(value="app/get_places_aggregation", method=RequestMethod.POST)
