@@ -51,9 +51,13 @@ public class VoteDAO {
 		
 		Vote openQuestionVote = null;
 		
+		if (!rs.next())
+			return null;
+		
 		for(int i=0; i< 3 ; i++){
-			property[i] =new Property( rs.getInt("propId"));
-			rs.next();
+				property[i] =new Property( rs.getInt("propId"));
+				if (!rs.next())
+					break;
 		}
 		
 		placeId = rs.getString("placeId");

@@ -186,8 +186,7 @@ define([
         contentType: 'application/json',
         data: JSON.stringify(req_json)
       }).done(function(data) {
-//        if (data.places) {
-        if (0) {
+        if (data.places) {
           if (data.places.length != 0) {
             MyGlobal.collections.ResponsePlaces.reset(data.places);
             this.overlayResponse();
@@ -198,8 +197,8 @@ define([
               '<span aria-hidden="true">&times;</span></button>' +
               '<strong>No places were found!</strong> No places matching chosen filter criterias were found.</div>');
           }
-        } else if (data.vote) {
-          this.renderVoteModal(data.vote);
+        } else if (data.question) {
+          this.renderVoteModal(data.question);
         } else {
           this.renderVoteModal({
             placeName: 'place1',

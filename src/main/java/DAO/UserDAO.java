@@ -96,8 +96,10 @@ public class UserDAO {
 		PreparedStatement ps = conn.prepareStatement(getSentDataCounterByUserId);
 		ps.setString(1, UserId);
 		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
-		
-		return rs.getInt("sent_data_counter");
+		if (rs.next()) {
+			return rs.getInt("sent_data_counter");
+		}
+		return -1;
 		
 	}
 

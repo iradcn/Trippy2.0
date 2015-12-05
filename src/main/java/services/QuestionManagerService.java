@@ -50,7 +50,11 @@ public class QuestionManagerService {
 	private boolean isRequiredNewQuestion()  {
 		String userId = SecurityContextHolder.getContext().getAuthentication().getName();
 		try {
-			return (UserDAO.getSentDataCounter(userId)%3 ==0);
+			int numOfSentRqsts = UserDAO.getSentDataCounter(userId);
+			if (numOfSentRqsts == -1)
+				throw new SQLException();
+			
+			return (numOfSentRqsts%3 ==0);
 		} catch (SQLException e) {
 			System.out.println("Error SQLException while checking if a new question is required");
 			return false;
