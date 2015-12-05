@@ -90,7 +90,6 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`properties` (
   PRIMARY KEY (`Id`),
   UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT=25
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -159,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`uservotes` (
   `propId` INT(11) NOT NULL,
   `vote` INT(11) NOT NULL,
   `fTimestamp` VARCHAR(45) NOT NULL,
-  `is_opened` BINARY(1) NOT NULL DEFAULT '0',
+  `is_opened` INT(1) NOT NULL DEFAULT '0',
   `nPlaceId` INT(11) NOT NULL)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
