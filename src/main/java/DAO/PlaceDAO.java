@@ -52,7 +52,6 @@ public class PlaceDAO {
 	private static String insertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) values(?,?)";
 	private static String selectPlaceById = "SELECT `Name`,`Lat`,`Lon`,`Id` from places where Id=?";
 	
-
 	public static Place getPlace(String Id) throws SQLException {
 		
     	Connection conn = JDBCConnection.getConnection();
@@ -72,6 +71,13 @@ public class PlaceDAO {
 		
 		
 	}
+	
+	public static String getPlaceNameByPlaceId(String Id) throws SQLException {
+		
+		Place foundPlace = getPlace(Id);
+		return foundPlace.getName();	
+	}
+	
 	public static void SavePlacesAndPlaceCats(List<Place> places) throws SQLException {
 		//perform update, if fails rollback and throw sql exception	
     	Connection conn = JDBCConnection.getConnection();
