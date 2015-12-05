@@ -24,7 +24,7 @@ define([
       'click #btnIDK1': 'setIDK1',
       'click #btnIDK2': 'setIDK2',
       'click #btnIDK3': 'setIDK3',
-      'click .submitVote' : 'submitVote'
+      'click #submitVote': 'submitVote'
 
  //     'click .alert-resize-map': 'resizeMap'
     },
@@ -38,11 +38,16 @@ define([
       };
     },
     render: function () {
-      var template = _.template(PlacesTemplate);
-      this.$el.html(template());
+      var places_template = _.template(PlacesTemplate);
+      this.$el.html(places_template());
+
+      var vote_template = _.template(VoteTemplate);
+      $(this.vote_el).html(vote_template());
+
       this.initMap();
       this.catView.render();
       this.propView.render();
+
     },
     initMap: function () {
       // The actual map layer
@@ -161,18 +166,15 @@ define([
       });
       map.addInteraction(pointClick);
     },
-    renderVoteModal: function () {
-      var template = _.template(VoteTemplate);
-      this.$vote_el.html(template());
+    renderVoteModal: function (data) {
       $('.modal').modal('show');
       //this.requestVote();
 
-      $("#placeImage").attr("src", "data:image/jpeg;base64," + MyGlobal.models.vote.get("placeImage"));
 
-      this.$vote_el.find('#placeImage').attr("src", "/app/image/" + MyGlobal.models.vote.get("placeId") + ".jpg");
-      this.$vote_el.find('#row1PropLabel').text(MyGlobal.models.vote.get("property")[0]);
-      this.$vote_el.find('#row2PropLabel').text(MyGlobal.models.vote.get("property")[1]);
-      this.$vote_el.find('#row3PropLabel').text(MyGlobal.models.vote.get("property")[2]);
+      $(this.vote_el).find('#placeImage').attr("src", "/app/image/" + data.placeId + ".jpg");
+      $(this.vote_el).find('#row1PropLabel').text(data.prop1);
+      $(this.vote_el).find('#row2PropLabel').text(data.prop2);
+      $(this.vote_el).find('#row3PropLabel').text(data.prop3);
     },
     placesSubmit: function () {
       $('.alert-resize-map').click();
@@ -196,8 +198,16 @@ define([
               '<strong>No places were found!</strong> No places matching chosen filter criterias were found.</div>');
           }
         } else if (data.vote) {
-          renderVoteModal(data);
+          this.renderVoteModal(data.vote);
         } else {
+          this.renderVoteModal({
+            placeName: 'place1',
+            placeId: '929200_1571840069710538_1151072500_n',
+            prop1: 'prop1',
+            prop2: 'prop2',
+            prop3: 'prop3',
+            img_url: 'url'
+          });
           $('.alerts-row').html(
             '<div class="alert alert-danger alert-dismissable" role="alert">' +
             '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
@@ -273,33 +283,61 @@ define([
       this.pointsVectorSource.addFeatures(pointsArray);
     },
     setYes1: function() {
-      this.voteAnswers.q1 = 'yes';
+      this.voteAnswers.q1 = 1;
     },
     setYes2: function() {
-      this.voteAnswers.q2 = 'yes';
+      this.voteAnswers.q2 = 1;
     },
     setYes3: function() {
-      this.voteAnswers.q3 = 'yes';
+      this.voteAnswers.q3 = 1;
     },
     setNo1: function() {
-      this.voteAnswers.q1 = 'no';
+      this.voteAnswers.q1 = -1;
     },
     setNo2: function() {
-      this.voteAnswers.q2 = 'no';
+      this.voteAnswers.q2 = -1;
     },
     setNo3: function() {
-      this.voteAnswers.q3 = 'no';
+      this.voteAnswers.q3 = -1;
     },
     setIDK1: function() {
-      this.voteAnswers.q1 = 'idk';
+      this.voteAnswers.q1 = 0;
     },
     setIDK2: function() {
-      this.voteAnswers.q2 = 'idk';
+      this.voteAnswers.q2 = 0;
     },
     setIDK3: function() {
-      this.voteAnswers.q3 = 'idk';
+      this.voteAnswers.q3 = 0;
     },
+    submitVote: function() {
+      console.log("aaaaaaaaaa");
+      if (this.voteAnswers.q1 == '' ||
+          this.voteAnswers.q2 == '' ||
+          this.voteAnswers.q3 == '') {
+        alert("wtf man");
+      } else {
+        $.ajax({
+          method: "POST",
+          url: 'vote/response',
+          data: {
+            placeId: this.vote.placeId,
+            propId: this.vote.propertyId,
+            answer: 'aaaaa',
+          }
+        }).done(function() {
+          console.log("answer sent!");
+        }.bind(this)).fail(function(){
+          console.log("answer sending failed!");
+        });
 
+        this.voteAnswers = {
+          q1: '',
+          q2: '',
+          q3: ''
+        };
+        $('.modal').modal('hide');
+      }
+    },
   });
   return PlacesView;
 });
