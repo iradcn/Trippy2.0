@@ -3,21 +3,39 @@ define([
   "jquery",
   "ol",
   "text!templates/places.html",
+  "text!templates/vote.html",
   "ResponsePlaceView",
   "bootstrap",
-], function (Backbone, $, ol, PlacesTemplate, ResponsePlaceView) {
+], function (Backbone, $, ol, PlacesTemplate, VoteTemplate, ResponsePlaceView) {
   var PlacesView = Backbone.View.extend({
     el: ".body-container",
+    vote_el: ".dialog-container",
     events: {
       'click .places-submit': 'placesSubmit',
       'click .places-reset-submit': 'resetSubmit',
       'change #places-select-curr-categories': 'toggleApplyFilterOption',
       'change #places-select-curr-properties': 'toggleApplyFilterOption',
+      'click #btnYes1': 'setYes1',
+      'click #btnYes2': 'setYes2',
+      'click #btnYes2': 'setYes3',
+      'click #btnNo1': 'setNo1',
+      'click #btnNo2': 'setNo2',
+      'click #btnNo3': 'setNo3',
+      'click #btnIDK1': 'setIDK1',
+      'click #btnIDK2': 'setIDK2',
+      'click #btnIDK3': 'setIDK3',
+      'click .submitVote' : 'submitVote'
+
  //     'click .alert-resize-map': 'resizeMap'
     },
     initialize: function () {
       this.catView = MyGlobal.views.select_categories_view;
       this.propView = MyGlobal.views.select_properties_view;
+      this.voteAnswers = {
+        q1: '',
+        q2: '',
+        q3: ''
+      };
     },
     render: function () {
       var template = _.template(PlacesTemplate);
@@ -143,6 +161,19 @@ define([
       });
       map.addInteraction(pointClick);
     },
+    renderVoteModal: function () {
+      var template = _.template(VoteTemplate);
+      this.$vote_el.html(template());
+      $('.modal').modal('show');
+      //this.requestVote();
+
+      $("#placeImage").attr("src", "data:image/jpeg;base64," + MyGlobal.models.vote.get("placeImage"));
+
+      this.$vote_el.find('#placeImage').attr("src", "/app/image/" + MyGlobal.models.vote.get("placeId") + ".jpg");
+      this.$vote_el.find('#row1PropLabel').text(MyGlobal.models.vote.get("property")[0]);
+      this.$vote_el.find('#row2PropLabel').text(MyGlobal.models.vote.get("property")[1]);
+      this.$vote_el.find('#row3PropLabel').text(MyGlobal.models.vote.get("property")[2]);
+    },
     placesSubmit: function () {
       $('.alert-resize-map').click();
       var req_json = this.constructRequest();
@@ -153,15 +184,25 @@ define([
         contentType: 'application/json',
         data: JSON.stringify(req_json)
       }).done(function(data) {
-        if (data.length != 0) {
-          MyGlobal.collections.ResponsePlaces.reset(data);
-          this.overlayResponse();
+        if (data.places) {
+          if (data.length != 0) {
+            MyGlobal.collections.ResponsePlaces.reset(data);
+            this.overlayResponse();
+          } else {
+            $('.alerts-row').html(
+              '<div class="alert alert-warning alert-dismissable" role="alert">' +
+              '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
+              '<span aria-hidden="true">&times;</span></button>' +
+              '<strong>No places were found!</strong> No places matching chosen filter criterias were found.</div>');
+          }
+        } else if (data.vote) {
+          renderVoteModal(data);
         } else {
           $('.alerts-row').html(
-            '<div class="alert alert-warning alert-dismissable" role="alert">' +
+            '<div class="alert alert-danger alert-dismissable" role="alert">' +
             '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
             '<span aria-hidden="true">&times;</span></button>' +
-            '<strong>No places were found!</strong> No places matching chosen filter criterias were found.</div>');
+            '<strong>Something went terribly wrong!</strong> See console log for more details.</div>');
         }
       }.bind(this)).fail(function() {
         $('#places-map').css('height', $('#places-map').height() - 60);
@@ -231,6 +272,34 @@ define([
 
       this.pointsVectorSource.addFeatures(pointsArray);
     },
+    setYes1: function() {
+      this.voteAnswers.q1 = 'yes';
+    },
+    setYes2: function() {
+      this.voteAnswers.q2 = 'yes';
+    },
+    setYes3: function() {
+      this.voteAnswers.q3 = 'yes';
+    },
+    setNo1: function() {
+      this.voteAnswers.q1 = 'no';
+    },
+    setNo2: function() {
+      this.voteAnswers.q2 = 'no';
+    },
+    setNo3: function() {
+      this.voteAnswers.q3 = 'no';
+    },
+    setIDK1: function() {
+      this.voteAnswers.q1 = 'idk';
+    },
+    setIDK2: function() {
+      this.voteAnswers.q2 = 'idk';
+    },
+    setIDK3: function() {
+      this.voteAnswers.q3 = 'idk';
+    },
+
   });
   return PlacesView;
 });
