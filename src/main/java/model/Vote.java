@@ -9,8 +9,7 @@ public class Vote extends AbstractEntity {
 	public Vote(String placeId, String placeName,  Property[] property){
 		this.placeId = placeId; 
 		this.placeName = placeName;
-		this.property = property; 
-				 
+		this.property = property;
 	}
 
 	public Vote() {}
