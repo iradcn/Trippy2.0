@@ -17,7 +17,8 @@ public class QuestionManagerService {
 		return null;
 	}
 	
-	
+	//ללכת לטבלה של vote וליוזר קיימת שאלה פתוחה 
+	// 
 	public Vote isExistsOpenQuestion() {
 		return null;
 	}
