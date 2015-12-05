@@ -187,8 +187,8 @@ define([
         data: JSON.stringify(req_json)
       }).done(function(data) {
         if (data.places) {
-          if (data.length != 0) {
-            MyGlobal.collections.ResponsePlaces.reset(data);
+          if (data.places.length != 0) {
+            MyGlobal.collections.ResponsePlaces.reset(data.places);
             this.overlayResponse();
           } else {
             $('.alerts-row').html(
@@ -310,7 +310,6 @@ define([
       this.voteAnswers.q3 = 0;
     },
     submitVote: function() {
-      console.log("aaaaaaaaaa");
       if (this.voteAnswers.q1 == '' ||
           this.voteAnswers.q2 == '' ||
           this.voteAnswers.q3 == '') {
