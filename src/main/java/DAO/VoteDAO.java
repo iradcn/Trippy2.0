@@ -1,7 +1,6 @@
 package DAO;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,15 +8,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import model.Place;
+import org.springframework.security.core.context.SecurityContextHolder;
+
 import model.Vote;
 
 /**
  * Created by nimrodoron on 11/28/15.
  */
 public class VoteDAO {
-    private static String InsertVotePropToPlace = "INSERT INTO UserVotes (userId, placeId, propId, vote, fTimestamp, placenid) Values(?,?,?,?,?,?)";
-    private static String selectOpenQuestion = "SELECT * FROM trippy2.uservotes where is_opened = 0 + userId = ";
+    private static String InsertVotePropToPlace = "INSERT INTO uservotes (userId, placeId, propId, vote, fTimestamp, placenid) Values(?,?,?,?,?,?)";
+    private static String selectOpenQuestion = "SELECT * FROM uservotes where is_opened = 0 + userId =? ";
    
     public static void insertVoteAnswer(int propId, String placeId, int voteValue, String username, long nId) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
@@ -35,22 +35,30 @@ public class VoteDAO {
         JDBCConnection.executeUpdate(statements,conn);
     }
     
-public static Vote getOpenQuestion() throws SQLException {
+	public static Vote getOpenQuestion() throws SQLException {
 		
-    	Connection conn = JDBCConnection.getConnection();
+		String[] property = new String[3];
+		String placeId;
+		
+		Connection conn = JDBCConnection.getConnection();
 		if (conn == null)  throw new SQLException();
-		private String[] property = new String[3];
+	
 		PreparedStatement ps = conn.prepareStatement(selectOpenQuestion);
+		String userId = SecurityContextHolder.getContext().getAuthentication().getName();
+		ps.setString(1, userId);
 		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
 		
 		Vote openQuestionVote = null;
 		
-		if (rs.next()) {
-			openQuestionVote = new Vote(rs.getString("PlaceId"),);
+		for(int i=0; i< 3 ; i++){
+			property[i] = rs.getString("propId");
+			rs.next();
 		}
 		
+		placeId = rs.getString("placeId");
+		openQuestionVote = new Vote(placeId,PlaceDAO.getPlaceNameByPlaceId(placeId), property);
+		
 		return openQuestionVote;
-		
-		
 	}
+
 }
