@@ -17,7 +17,8 @@ public class UserDAO {
     private static String UserExists = "SELECT `user_id` from users where `user_id`=?";
     private static String InsertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) VALUES (?,?)";
     private static String incrementSentDataCounter = "UPDATE users set `sent_data_counter`=`sent_data_counter`+1 where `user_id`=?"; 
-
+    private static String getSentDataCounterByUserId = "SELECT * FROM users where user_id = ?";
+    
     public static void Insert(User user) throws SQLException {
     	List<PreparedStatement> list = new ArrayList<>();
         Connection conn = JDBCConnection.getConnection();
@@ -83,6 +84,18 @@ public class UserDAO {
 		stmt.setString(1, userId);
 		lst.add(stmt);
 		JDBCConnection.executeUpdate(lst, conn);
+	}
+	
+	public static int getSentDataCounter(String UserId) throws SQLException{
+		Connection conn = JDBCConnection.getConnection();
+		if (conn == null)  throw new SQLException();
+
+		PreparedStatement ps = conn.prepareStatement(getSentDataCounterByUserId);
+		ps.setString(1, UserId);
+		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
+		
+		return rs.getInt("sent_data_counter");
+		
 	}
 
 }

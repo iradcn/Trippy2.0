@@ -1,11 +1,14 @@
 package DAO;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import model.Property;

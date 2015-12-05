@@ -3,8 +3,11 @@ package services;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import DAO.PlaceDAO;
+import DAO.UserDAO;
 import DAO.VoteDAO;
 import model.Place;
 import model.Vote;
@@ -44,8 +47,16 @@ public class QuestionManagerService {
 		}
 	}
 	
-	private boolean isRequiredNewQuestion() {
-		return false;
+	
+	private boolean isRequiredNewQuestion()  {
+		String userId = SecurityContextHolder.getContext().getAuthentication().getName();
+		try {
+			return (UserDAO.getSentDataCounter(userId)%3 ==0);
+		} catch (SQLException e) {
+			System.out.println("Error SQLException while checking if a new question is required");
+			return false;
+		}
+		
 		
 		
 	}
