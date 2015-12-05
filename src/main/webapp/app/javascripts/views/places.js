@@ -3,28 +3,51 @@ define([
   "jquery",
   "ol",
   "text!templates/places.html",
+  "text!templates/vote.html",
   "ResponsePlaceView",
   "bootstrap",
-], function (Backbone, $, ol, PlacesTemplate, ResponsePlaceView) {
+], function (Backbone, $, ol, PlacesTemplate, VoteTemplate, ResponsePlaceView) {
   var PlacesView = Backbone.View.extend({
     el: ".body-container",
+    vote_el: ".dialog-container",
     events: {
       'click .places-submit': 'placesSubmit',
       'click .places-reset-submit': 'resetSubmit',
       'change #places-select-curr-categories': 'toggleApplyFilterOption',
       'change #places-select-curr-properties': 'toggleApplyFilterOption',
+      'click #btnYes1': 'setYes1',
+      'click #btnYes2': 'setYes2',
+      'click #btnYes3': 'setYes3',
+      'click #btnNo1': 'setNo1',
+      'click #btnNo2': 'setNo2',
+      'click #btnNo3': 'setNo3',
+      'click #btnIDK1': 'setIDK1',
+      'click #btnIDK2': 'setIDK2',
+      'click #btnIDK3': 'setIDK3',
+      'click #submitVote': 'submitVote'
+
  //     'click .alert-resize-map': 'resizeMap'
     },
     initialize: function () {
       this.catView = MyGlobal.views.select_categories_view;
       this.propView = MyGlobal.views.select_properties_view;
+      this.voteAnswers = {
+        q1: '',
+        q2: '',
+        q3: ''
+      };
     },
     render: function () {
-      var template = _.template(PlacesTemplate);
-      this.$el.html(template());
+      var places_template = _.template(PlacesTemplate);
+      this.$el.html(places_template());
+
+      var vote_template = _.template(VoteTemplate);
+      $(this.vote_el).html(vote_template());
+
       this.initMap();
       this.catView.render();
       this.propView.render();
+
     },
     initMap: function () {
       // The actual map layer
@@ -143,6 +166,16 @@ define([
       });
       map.addInteraction(pointClick);
     },
+    renderVoteModal: function (data) {
+      $('.modal').modal('show');
+      //this.requestVote();
+
+
+      $(this.vote_el).find('#placeImage').attr("src", "/app/image/" + data.placeId + ".jpg");
+      $(this.vote_el).find('#row1PropLabel').text(data.prop1);
+      $(this.vote_el).find('#row2PropLabel').text(data.prop2);
+      $(this.vote_el).find('#row3PropLabel').text(data.prop3);
+    },
     placesSubmit: function () {
       $('.alert-resize-map').click();
       var req_json = this.constructRequest();
@@ -153,15 +186,33 @@ define([
         contentType: 'application/json',
         data: JSON.stringify(req_json)
       }).done(function(data) {
-        if (data.length != 0) {
-          MyGlobal.collections.ResponsePlaces.reset(data);
-          this.overlayResponse();
+//        if (data.places) {
+        if (0) {
+          if (data.places.length != 0) {
+            MyGlobal.collections.ResponsePlaces.reset(data.places);
+            this.overlayResponse();
+          } else {
+            $('.alerts-row').html(
+              '<div class="alert alert-warning alert-dismissable" role="alert">' +
+              '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
+              '<span aria-hidden="true">&times;</span></button>' +
+              '<strong>No places were found!</strong> No places matching chosen filter criterias were found.</div>');
+          }
+        } else if (data.vote) {
+          this.renderVoteModal(data.vote);
         } else {
+          this.renderVoteModal({
+            placeName: 'place1',
+            placeId: '929200_1571840069710538_1151072500_n',
+            prop1: 'prop1',
+            prop2: 'prop2',
+            prop3: 'prop3',
+          });
           $('.alerts-row').html(
-            '<div class="alert alert-warning alert-dismissable" role="alert">' +
+            '<div class="alert alert-danger alert-dismissable" role="alert">' +
             '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
             '<span aria-hidden="true">&times;</span></button>' +
-            '<strong>No places were found!</strong> No places matching chosen filter criterias were found.</div>');
+            '<strong>Something went terribly wrong!</strong> See console log for more details.</div>');
         }
       }.bind(this)).fail(function() {
         $('#places-map').css('height', $('#places-map').height() - 60);
@@ -230,6 +281,103 @@ define([
       var pointsArray = MyGlobal.collections.ResponsePlaces.map(function(respPlace) {return respPlace.toOLFeature();});
 
       this.pointsVectorSource.addFeatures(pointsArray);
+    },
+    fixButtons: function(qnum) {
+      if (this.voteAnswers['q'+ qnum] == 1) {
+        $('#btnYes' + qnum).removeClass('btn-success');
+        $('#btnYes' + qnum).addClass('btn-primary');
+        $('#btnNo' + qnum).addClass('btn-danger');
+        $('#btnNo' + qnum).removeClass('btn-primary');
+        $('#btnIDK' + qnum).addClass('btn-warning');
+        $('#btnIDK' + qnum).removeClass('btn-primary');
+      } else if (this.voteAnswers['q'+ qnum] == -1) {
+        $('#btnYes' + qnum).addClass('btn-success');
+        $('#btnYes' + qnum).removeClass('btn-primary');
+        $('#btnNo' + qnum).removeClass('btn-danger');
+        $('#btnNo' + qnum).addClass('btn-primary');
+        $('#btnIDK' + qnum).addClass('btn-warning');
+        $('#btnIDK' + qnum).removeClass('btn-primary');
+      } else if (this.voteAnswers['q'+ qnum] == 0) {
+        $('#btnYes' + qnum).addClass('btn-success');
+        $('#btnYes' + qnum).removeClass('btn-primary');
+        $('#btnNo' + qnum).addClass('btn-danger');
+        $('#btnNo' + qnum).removeClass('btn-primary');
+        $('#btnIDK' + qnum).removeClass('btn-warning');
+        $('#btnIDK' + qnum).addClass('btn-primary');
+      } else if (this.voteAnswers['q' + qnum] == '') {
+        $('#btnYes' + qnum).addClass('btn-success');
+        $('#btnYes' + qnum).removeClass('btn-primary');
+        $('#btnNo' + qnum).addClass('btn-danger');
+        $('#btnNo' + qnum).removeClass('btn-primary');
+        $('#btnIDK' + qnum).addClass('btn-warning');
+        $('#btnIDK' + qnum).removeClass('btn-primary');
+      } else {
+        alert("someone fucked up here");
+      }
+    },
+    setYes1: function() {
+      this.voteAnswers.q1 = 1;
+      this.fixButtons(1);
+    },
+    setYes2: function() {
+      this.voteAnswers.q2 = 1;
+      this.fixButtons(2);
+    },
+    setYes3: function() {
+      this.voteAnswers.q3 = 1;
+      this.fixButtons(3);
+    },
+    setNo1: function() {
+      this.voteAnswers.q1 = -1;
+      this.fixButtons(1);
+    },
+    setNo2: function() {
+      this.voteAnswers.q2 = -1;
+      this.fixButtons(2);
+    },
+    setNo3: function() {
+      this.voteAnswers.q3 = -1;
+      this.fixButtons(3);
+    },
+    setIDK1: function() {
+      this.voteAnswers.q1 = 0;
+      this.fixButtons(1);
+    },
+    setIDK2: function() {
+      this.voteAnswers.q2 = 0;
+      this.fixButtons(2);
+    },
+    setIDK3: function() {
+      this.voteAnswers.q3 = 0;
+      this.fixButtons(3);
+    },
+    submitVote: function() {
+      if (this.voteAnswers.q1 == '' ||
+          this.voteAnswers.q2 == '' ||
+          this.voteAnswers.q3 == '') {
+        alert("wtf man");
+      } else {
+        $.ajax({
+          method: "POST",
+          url: 'vote/response',
+          data: {
+            placeId: this.vote.placeId,
+            propId: this.vote.propertyId,
+            answer: 'aaaaa',
+          }
+        }).done(function() {
+          console.log("answer sent!");
+        }.bind(this)).fail(function(){
+          console.log("answer sending failed!");
+        });
+
+        this.voteAnswers = {
+          q1: '',
+          q2: '',
+          q3: ''
+        };
+        $('.modal').modal('hide');
+      }
     },
   });
   return PlacesView;
