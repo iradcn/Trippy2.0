@@ -16,7 +16,7 @@ public class UserDAO {
     private static String InsertRole = "Insert into user_roles (`user_id`,`role`) values (?, 'USER')";
     private static String UserExists = "SELECT `user_id` from users where `user_id`=?";
     private static String InsertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) VALUES (?,?)";
-
+    private static String incrementSentDataCounter = "UPDATE users set `sent_data_counter`=`sent_data_counter`+1 where `user_id`=?"; 
 
     public static void Insert(User user) throws SQLException {
     	List<PreparedStatement> list = new ArrayList<>();
@@ -73,6 +73,15 @@ public class UserDAO {
 			stmt.setString(2, place.getGoogleId());
 			lst.add(stmt);
 		}
+		JDBCConnection.executeUpdate(lst, conn);
+	}
+	
+	public static void IncrementUserNumSearches (String userId) throws SQLException {
+		Connection conn = JDBCConnection.getConnection();
+		List<PreparedStatement> lst = new ArrayList<PreparedStatement>();
+		PreparedStatement stmt = conn.prepareStatement(incrementSentDataCounter);
+		stmt.setString(1, userId);
+		lst.add(stmt);
 		JDBCConnection.executeUpdate(lst, conn);
 	}
 

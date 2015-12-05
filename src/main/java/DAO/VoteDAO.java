@@ -35,7 +35,7 @@ public class VoteDAO {
         JDBCConnection.executeUpdate(statements,conn);
     }
     
-public static Vote getOpenQuestion() throws SQLException {
+    public static Vote getOpenQuestion() throws SQLException {
 		
     	Connection conn = JDBCConnection.getConnection();
 		if (conn == null)  throw new SQLException();
@@ -53,4 +53,5 @@ public static Vote getOpenQuestion() throws SQLException {
 		
 		
 	}
+    
 }
