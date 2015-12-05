@@ -4,15 +4,18 @@ public class Vote extends AbstractEntity {
 
 	private String placeId;
 	private String placeName;
-	private String[] property = new String[3];
+	private Property[] property = new Property[3];
 	
-	public Vote(String placeId, String placeName,  String[] property){
+	public Vote(String placeId, String placeName,  Property[] property){
 		this.placeId = placeId; 
 		this.placeName = placeName;
 		this.property = property; 
 				 
 	}
-	public String[] getProperty() {
+
+	public Vote() {}
+
+	public Property[] getProperty() {
 		return property;
 	}
 	private long nPlaceId;
@@ -41,7 +44,7 @@ public class Vote extends AbstractEntity {
 		this.placeId = place_name;
 	}
 
-	public void setProperty (String[] prop_name) {
+	public void setProperty (Property[] prop_name) {
 		this.property = prop_name;
 	}
 

@@ -46,7 +46,7 @@ public class VoteController {
         //BufferedImage img = ImageIO.read(target Stream);
         //vote.setPlaceImage(getDataFromBufferedImage(img));
         //QuestionsGeneratorService questionsGeneratorService = new QuestionsGeneratorService();
-        long propId = questionsGeneratorService.generate(10096);
+       // long propId = questionsGeneratorService.generate(10096); 
         return vote;
 
 	}
