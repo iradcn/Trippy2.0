@@ -61,6 +61,7 @@ public class VoteController {
         //Property.AddPropToPlace(placeId, propId, voteValue, username, placenId);
 
         // todo - delete open qustion
+        return null;
 
     }
 
