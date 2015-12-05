@@ -21,7 +21,7 @@ public class VoteDAO {
     private static String InsertVotePropToPlace = "INSERT INTO uservotes (userId, placeId, propId, vote, fTimestamp, placenid) Values(?,?,?,?,?,?)";
     private static String selectOpenQuestion = "SELECT * FROM uservotes where is_opened = 0 + userId =? ";
     private static String voteQuestion = "UPDATE uservotes set `";
-    public static void insertNewQuestion(int propId, String placeId, int voteValue, String username, long nId) throws SQLException {
+    public static void insertNewQuestion(int propId, String placeId, int voteValue, String username, long nPlaceId) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
         PreparedStatement addVotePropPlace = conn.prepareStatement(InsertVotePropToPlace);
         addVotePropPlace.setString(1, username);
