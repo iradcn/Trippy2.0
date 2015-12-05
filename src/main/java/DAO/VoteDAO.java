@@ -35,25 +35,6 @@ public class VoteDAO {
         JDBCConnection.executeUpdate(statements,conn);
     }
     
-    public static Vote getOpenQuestion() throws SQLException {
-		
-    	Connection conn = JDBCConnection.getConnection();
-		if (conn == null)  throw new SQLException();
-		private String[] property = new String[3];
-		PreparedStatement ps = conn.prepareStatement(selectOpenQuestion);
-		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
-		
-		Vote openQuestionVote = null;
-		
-		if (rs.next()) {
-			openQuestionVote = new Vote(rs.getString("PlaceId"),);
-		}
-		
-		return openQuestionVote;
-		
-		
-	}
-    
     public static void setQuestionAsAnswered(int propId, String placeId, int voteValue, String username, long nId) throws SQLException {
         
     }
