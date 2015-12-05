@@ -20,6 +20,16 @@ import protocol_model.SearchByMultipleLocation;
 public class Place extends AbstractEntity {
 
     private Location loc;
+    private long nId;
+
+    public long getnId() {
+        return nId;
+    }
+
+    public void setnId(long nId) {
+        this.nId = nId;
+    }
+
     private Set<Category> categories;
     private Set<Property> properties;
 

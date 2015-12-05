@@ -9,6 +9,8 @@ import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
 import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
 import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
 import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
+import org.apache.mahout.cf.taste.impl.similarity.TanimotoCoefficientSimilarity;
+import org.apache.mahout.cf.taste.impl.similarity.UncenteredCosineSimilarity;
 import org.apache.mahout.cf.taste.model.JDBCDataModel;
 import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
@@ -38,21 +40,21 @@ public class QuestionsGeneratorService {
 
         dataModel = new MySQLJDBCDataModel(
                 dataSource, "user_votes_agg_view", "placeId",
-                "propId", "votesRank", "fTimestamp") {
+                "propId", "votesRankBin", "fTimestamp") {
         };
 
     };
-    public String[] generate(String placeId) throws TasteException {
-        UserSimilarity similarity = new PearsonCorrelationSimilarity(dataModel);
+    public long generate(long placeId) throws TasteException {
+        UserSimilarity similarity = new TanimotoCoefficientSimilarity(dataModel);
         UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, dataModel);
         UserBasedRecommender recommender = new GenericUserBasedRecommender(dataModel, neighborhood, similarity);
 
-        List<RecommendedItem> recommendations = recommender.recommend(2, 3);
+        List<RecommendedItem> recommendations = recommender.recommend(placeId, 1);
         for (RecommendedItem recommendation : recommendations) {
-            System.out.println(recommendation);
+            return recommendation.getItemID();
         }
 
-        return null;
+        return -1;
 
     }
 

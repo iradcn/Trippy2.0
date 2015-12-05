@@ -26,7 +26,7 @@ public class PlaceDAO {
 			+ " (`placeid`,`categoryid`) VALUES"
 			+ "(?,?) ON DUPLICATE KEY UPDATE `PlaceId`=`PlaceId`";
 
-	private static String getPlacesByLocation = "SELECT  p.name, p.lat, p.lon, p.id, pc.CategoryId, pp.PropId " +
+	private static String getPlacesByLocation = "SELECT  p.name, p.lat, p.lon, p.id, pc.CategoryId, pp.PropId, p.n_id " +
 												"FROM places p " +
 												     "LEFT OUTER JOIN places_categories pc ON p.id = pc.placeid " +
 													 "LEFT OUTER JOIN places_props_view pp ON pp.placeId = p.ID " +
@@ -158,6 +158,7 @@ public class PlaceDAO {
 				newPlace.getLoc().setLat(rs.getDouble("lat"));
 				newPlace.getLoc().setLon(rs.getDouble("lon"));
 				newPlace.setName(rs.getString("name"));
+				newPlace.setnId(rs.getLong("n_id"));
 				places.put(newPlace.getGoogleId(), newPlace);
 			}
 			places.get(rs.getString("id")).getCategories().add(new Category(rs.getInt("Categoryid"), ""));
