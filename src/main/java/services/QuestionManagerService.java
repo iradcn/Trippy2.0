@@ -1,8 +1,11 @@
 package services;
 
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import DAO.VoteDAO;
 import model.Place;
 import model.Vote;
 
@@ -16,11 +19,13 @@ public class QuestionManagerService {
 	public Vote getQuestion() {
 		return null;
 	}
-	
-	//ללכת לטבלה של vote וליוזר קיימת שאלה פתוחה 
-	// 
+
 	public Vote isExistsOpenQuestion() {
-		return null;
+		try {
+			return VoteDAO.getOpenQuestion();
+		} catch (SQLException e) {
+			return null;
+		}
 	}
 	
 	public boolean isRequiredNewQuestion() {
