@@ -16,6 +16,7 @@ public class UserDAO {
     private static String InsertRole = "Insert into user_roles (`user_id`,`role`) values (?, 'USER')";
     private static String UserExists = "SELECT `user_id` from users where `user_id`=?";
     private static String InsertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) VALUES (?,?)";
+    private static String FindCheckIn = "SELECT 'place_id' FROM users_check_in WHERE 'user_id'=?";
     private static String incrementSentDataCounter = "UPDATE users set `sent_data_counter`=`sent_data_counter`+1 where `user_id`=?"; 
     private static String getSentDataCounterByUserId = "SELECT * FROM users where user_id = ?";
     
