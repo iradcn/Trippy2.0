@@ -9,6 +9,9 @@ import DAO.VoteDAO;
 import model.Place;
 import model.Vote;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 @Service
 public class QuestionManagerService {
@@ -16,8 +19,21 @@ public class QuestionManagerService {
 	@Autowired
 	QuestionsGeneratorService questionGeneratorService;
 	
-	public Vote getQuestion() {
-		return null;
+	public Vote getQuestions() {
+
+		Vote question = isExistsOpenQuestion();
+		if (question != null) {
+			return question;
+		}
+
+		if (!isRequiredNewQuestion()) {
+			return null;
+		}
+
+		Place placeForQuestion = getPlaceForQuestion();
+		Vote newQuestions = questionGeneratorService.generateThreeQuestions(placeForQuestion);
+
+		return newQuestions;
 	}
 
 	public Vote isExistsOpenQuestion() {
@@ -28,15 +44,20 @@ public class QuestionManagerService {
 		}
 	}
 	
-	public boolean isRequiredNewQuestion() {
+	private boolean isRequiredNewQuestion() {
 		return false;
 		
 		
 	}
 	
-	public Place getPlaceForQuestion () {
+	private Place getPlaceForQuestion () {
 		return null;
 	}
 	
-	
+	public void insertNewQuestions (Vote questions) {
+		//TODO: insert new questions to db
+
+	}
+
+
 }

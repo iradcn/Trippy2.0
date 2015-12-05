@@ -40,7 +40,7 @@ public class Property  extends AbstractEntity {
 	}
 
 	public static void AddPropToPlace(String placeId,int propId, int vote, String username, long nId) throws SQLException {
-		VoteDAO.insertVoteAnswer(propId,placeId,vote, username, nId);
+		VoteDAO.insertNewQuestion(propId,placeId,vote, username, nId);
 	}
 
 	public static void RemovePropFromPlace(String placeId,int propId) throws SQLException
