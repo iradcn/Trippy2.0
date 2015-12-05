@@ -13,6 +13,7 @@ import protocol_model.*;
 import services.QuestionManagerService;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -34,17 +35,17 @@ public class PlacesController {
 
 	@RequestMapping(value="app/get_places_by_loc", method=RequestMethod.POST)
 	public QuestionAndResults SearchPlacesByLocation(@RequestBody SearchByLocation searchQueryJson) throws SQLException {
-		
+		QuestionAndResults questionOrResult = new QuestionAndResults();
+		List<Place> places;
 		
 		Vote newQuestion = newQuestionManager.getQuestion();
-		/*
-		 * 
-		 * if we have question return the question else get data and return data
-		 * Place.getPlacesByLocation(searchQueryJson);
-		 * 
-		 */
+		if (newQuestion == null) {
+			places = Place.getPlacesByLocation(searchQueryJson);
+			questionOrResult.setPlaces(places);
+		} 
+
 		//TODO: If user will recieve data now, increment the counter 
-		return null;
+		return questionOrResult;
 	}
 
 	@RequestMapping(value="app/get_places_aggregation", method=RequestMethod.POST)
