@@ -12,7 +12,7 @@ import config.ConnectionConfig;
 
 @EnableWebMvcSecurity
 @SpringBootApplication
-@ComponentScan({"security","server","services","contentprovider","config"})
+@ComponentScan({"security","server","services","contentprovider","config","business_layer"})
 public class Application {
 
     public static void main(String[] args) {
