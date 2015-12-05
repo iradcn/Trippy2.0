@@ -8,10 +8,7 @@ import model.VoteAnswer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import protocol_model.QuestionAndResults;
 import protocol_model.SearchByLocation;
@@ -27,9 +24,8 @@ public class VoteController {
     @Autowired
     QuestionManagerService questionManagerService;
     
-    @RequestMapping(value="app/vote/answer", method=RequestMethod.GET)
-    public QuestionAndResults answerVoteQuestion(@RequestParam("voteAnswer") VoteAnswer answer,
-                                                 @RequestParam("searchQuery") SearchByLocation searchQueryJson) throws SQLException {
+    @RequestMapping(value="app/vote/answer", method=RequestMethod.POST)
+    public QuestionAndResults answerVoteQuestion(@RequestBody VoteAnswer answer) throws SQLException {
 
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
 
@@ -40,7 +36,7 @@ public class VoteController {
             }
         }
         QuestionAndResults questionAndResults = new QuestionAndResults();
-        questionAndResults.setPlaces(Place.getPlacesByLocation(searchQueryJson));
+        questionAndResults.setPlaces(Place.getPlacesByLocation(answer.getQuery()));
         return questionAndResults;
     }
 }
