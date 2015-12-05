@@ -5,9 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -21,6 +19,7 @@ public class VoteDAO {
     private static String InsertVotePropToPlace = "INSERT INTO uservotes (userId, placeId, propId, vote, fTimestamp, placenid) Values(?,?,?,?,?,?)";
     private static String selectOpenQuestion = "SELECT * FROM uservotes where is_opened = 0 + userId =? ";
     private static String voteQuestion = "UPDATE uservotes set `vote`=?,`is_opened`=0 WHERE `userId`=? and `propId`=?";
+    private static String GetPlacesUserVote = "SELECT placeId FROM uservotes WHERE userId = ? GROUP BY placeId";
     public static void insertNewQuestion(int propId, String placeId, int voteValue, String username, long nPlaceId) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
         PreparedStatement addVotePropPlace = conn.prepareStatement(InsertVotePropToPlace);
@@ -74,5 +73,18 @@ public class VoteDAO {
 		JDBCConnection.executeUpdate(psLst, conn);
     }
 
+    public static Set<String> getPlacesUserVotes(String userId) throws SQLException {
+        Set<String> placesIds = new HashSet<>();
 
+        Connection conn = JDBCConnection.getConnection();
+        if (conn == null)  throw new SQLException();
+        PreparedStatement ps = conn.prepareStatement(GetPlacesUserVote);
+        ps.setString(1, userId);
+        ResultSet rs = JDBCConnection.executeQuery(ps, conn);
+
+        while (!rs.next()) {
+            placesIds.add(rs.getString("placeId"));
+        }
+        return placesIds;
+    }
 }

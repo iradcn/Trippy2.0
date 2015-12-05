@@ -1,7 +1,9 @@
 package services;
 
 import java.sql.SQLException;
+import java.util.Set;
 
+import DAO.PlaceDAO;
 import model.Place;
 import model.Vote;
 
@@ -56,6 +58,23 @@ public class QuestionManagerService {
 	}
 	
 	private Place getPlaceForQuestion () {
+		try {
+			String userId = SecurityContextHolder.getContext().getAuthentication().getName();
+			Set<String> candidateCheckInPlaces = UserDAO.getUserCheckInPlaces(userId);
+			Set<String> questionedPlaces = VoteDAO.getPlacesUserVotes(userId);
+			for (String cPlace : candidateCheckInPlaces) {
+				if (!questionedPlaces.contains(cPlace)) {
+					return (PlaceDAO.getPlace(cPlace));
+				}
+			}
+
+			// Todo - Find random place or place in the area
+
+		}
+		catch (Exception Ex)
+		{
+
+		}
 		return null;
 	}
 	

@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.*;
 
 import model.Place;
 import model.User;
@@ -98,5 +100,20 @@ public class UserDAO {
 		return rs.getInt("sent_data_counter");
 		
 	}
+
+    public static Set<String> getUserCheckInPlaces(String userId) throws SQLException {
+        Set<String> placesIds = new HashSet<>();
+
+        Connection conn = JDBCConnection.getConnection();
+        if (conn == null)  throw new SQLException();
+        PreparedStatement ps = conn.prepareStatement(FindCheckIn);
+        ps.setString(1, userId);
+        ResultSet rs = JDBCConnection.executeQuery(ps, conn);
+
+        while (!rs.next()) {
+            placesIds.add(rs.getString("placeId"));
+        }
+        return placesIds;
+    }
 
 }

@@ -50,7 +50,7 @@ public class PlaceDAO {
 	private static String deletePlacesCatsSQL = "DELETE from places_categories";
 	private static String selectByName = "SELECT `Id` from places where TRIM(LOWER(places.name))=TRIM(LOWER(?))";
 	private static String insertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) values(?,?)";
-	private static String selectPlaceById = "SELECT `Name`,`Lat`,`Lon`,`Id` from places where Id=?";
+	private static String selectPlaceById = "SELECT * from places where Id=?";
 	
 	public static Place getPlace(String Id) throws SQLException {
 		
@@ -65,6 +65,7 @@ public class PlaceDAO {
 		
 		if (rs.next()) {
 			foundPlace = new Place(rs.getString("Id"));
+			foundPlace.setnId(rs.getLong("n_id"));
 		}
 		
 		return foundPlace;
