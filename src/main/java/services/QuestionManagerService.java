@@ -15,9 +15,6 @@ import model.Vote;
 public class QuestionManagerService {
 
 	@Autowired
-	VoteDAO voteDAO;
-	
-	@Autowired
 	QuestionsGeneratorService questionGeneratorService;
 	
 	public Vote getQuestions() {
