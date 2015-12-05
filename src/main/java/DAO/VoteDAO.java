@@ -16,14 +16,14 @@ import model.Vote;
  * Created by nimrodoron on 11/28/15.
  */
 public class VoteDAO {
-    private static String InsertVotePropToPlace = "INSERT INTO uservotes (userId, placeId, propId, vote, fTimestamp, placenid) Values(?,?,?,?,?,?)";
-    private static String selectOpenQuestion = "SELECT * FROM uservotes where is_opened = 0 + userId =? ";
+    private static String InsertVotePropToPlace = "INSERT INTO uservotes (userId, placeId, propId, vote, fTimestamp, nPlaceId) Values(?,?,?,?,?,?)";
+    private static String selectOpenQuestion = "SELECT * FROM uservotes where is_opened = 1 and userId =? ";
     private static String voteQuestion = "UPDATE uservotes set `vote`=?,`is_opened`=0 WHERE `userId`=? and `propId`=?";
     private static String GetPlacesUserVote = "SELECT placeId FROM uservotes WHERE userId = ? GROUP BY placeId";
-    public static void insertNewQuestion(int propId, String placeId, int voteValue, String username, long nPlaceId) throws SQLException {
+    public static void insertNewQuestion(int propId, String placeId, int voteValue, String userId, long nPlaceId) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
         PreparedStatement addVotePropPlace = conn.prepareStatement(InsertVotePropToPlace);
-        addVotePropPlace.setString(1, username);
+        addVotePropPlace.setString(1, userId);
         addVotePropPlace.setString(2, placeId);
         addVotePropPlace.setInt(3, propId);
         addVotePropPlace.setInt(4, voteValue);
@@ -61,7 +61,7 @@ public class VoteDAO {
 		}
 		
 		placeId = rs.getString("placeId");
-		openQuestionVote = new Vote(placeId,PlaceDAO.getPlaceNameByPlaceId(placeId), property, rs.getLong("nId"));
+		openQuestionVote = new Vote(placeId,PlaceDAO.getPlaceNameByPlaceId(placeId), property, rs.getLong("nPlaceId"));
 		
 		return openQuestionVote;
 	}

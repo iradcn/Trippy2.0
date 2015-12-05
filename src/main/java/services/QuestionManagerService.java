@@ -85,7 +85,8 @@ public class QuestionManagerService {
 	public void insertNewQuestions (Vote questions) {
 		for(int i=0;i<questions.getProperty().length;i++){
 			try {
-				VoteDAO.insertNewQuestion(questions.getProperty()[i].getId(), questions.getPlaceId(), 0, questions.getName(), questions.getnPlaceId());
+				String userId = SecurityContextHolder.getContext().getAuthentication().getName();
+				VoteDAO.insertNewQuestion(questions.getProperty()[i].getId(), questions.getPlaceId(), 0, userId, questions.getnPlaceId());
 			} catch (SQLException e) {
 				System.out.println("Error inserting new question to data base");
 			}

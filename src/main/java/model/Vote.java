@@ -3,13 +3,12 @@ package model;
 public class Vote extends AbstractEntity {
 
 	private String placeId;
-	private String placeName;
 	private Property[] property = new Property[3];
 	private long nPlaceId;
 	
 	public Vote(String placeId, String placeName,  Property[] property, long nPlaceId) {
 		this.placeId = placeId; 
-		this.placeName = placeName;
+		super.setName(placeName);
 		this.property = property;
 		this.nPlaceId = nPlaceId;
 	}
@@ -27,14 +26,6 @@ public class Vote extends AbstractEntity {
 
 	public void setnPlaceId(long nPlaceId) {
 		this.nPlaceId = nPlaceId;
-	}
-
-	public String getPlaceName() {
-		return placeName;
-	}
-
-	public void setPlaceName(String placeName) {
-		this.placeName = placeName;
 	}
 
 	public String getPlaceId() {
