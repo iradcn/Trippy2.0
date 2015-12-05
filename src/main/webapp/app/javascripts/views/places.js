@@ -17,7 +17,7 @@ define([
       'change #places-select-curr-properties': 'toggleApplyFilterOption',
       'click #btnYes1': 'setYes1',
       'click #btnYes2': 'setYes2',
-      'click #btnYes2': 'setYes3',
+      'click #btnYes3': 'setYes3',
       'click #btnNo1': 'setNo1',
       'click #btnNo2': 'setNo2',
       'click #btnNo3': 'setNo3',
@@ -186,7 +186,8 @@ define([
         contentType: 'application/json',
         data: JSON.stringify(req_json)
       }).done(function(data) {
-        if (data.places) {
+//        if (data.places) {
+        if (0) {
           if (data.places.length != 0) {
             MyGlobal.collections.ResponsePlaces.reset(data.places);
             this.overlayResponse();
@@ -206,7 +207,6 @@ define([
             prop1: 'prop1',
             prop2: 'prop2',
             prop3: 'prop3',
-            img_url: 'url'
           });
           $('.alerts-row').html(
             '<div class="alert alert-danger alert-dismissable" role="alert">' +
@@ -282,32 +282,74 @@ define([
 
       this.pointsVectorSource.addFeatures(pointsArray);
     },
+    fixButtons: function(qnum) {
+      if (this.voteAnswers['q'+ qnum] == 1) {
+        $('#btnYes' + qnum).removeClass('btn-success');
+        $('#btnYes' + qnum).addClass('btn-primary');
+        $('#btnNo' + qnum).addClass('btn-danger');
+        $('#btnNo' + qnum).removeClass('btn-primary');
+        $('#btnIDK' + qnum).addClass('btn-warning');
+        $('#btnIDK' + qnum).removeClass('btn-primary');
+      } else if (this.voteAnswers['q'+ qnum] == -1) {
+        $('#btnYes' + qnum).addClass('btn-success');
+        $('#btnYes' + qnum).removeClass('btn-primary');
+        $('#btnNo' + qnum).removeClass('btn-danger');
+        $('#btnNo' + qnum).addClass('btn-primary');
+        $('#btnIDK' + qnum).addClass('btn-warning');
+        $('#btnIDK' + qnum).removeClass('btn-primary');
+      } else if (this.voteAnswers['q'+ qnum] == 0) {
+        $('#btnYes' + qnum).addClass('btn-success');
+        $('#btnYes' + qnum).removeClass('btn-primary');
+        $('#btnNo' + qnum).addClass('btn-danger');
+        $('#btnNo' + qnum).removeClass('btn-primary');
+        $('#btnIDK' + qnum).removeClass('btn-warning');
+        $('#btnIDK' + qnum).addClass('btn-primary');
+      } else if (this.voteAnswers['q' + qnum] == '') {
+        $('#btnYes' + qnum).addClass('btn-success');
+        $('#btnYes' + qnum).removeClass('btn-primary');
+        $('#btnNo' + qnum).addClass('btn-danger');
+        $('#btnNo' + qnum).removeClass('btn-primary');
+        $('#btnIDK' + qnum).addClass('btn-warning');
+        $('#btnIDK' + qnum).removeClass('btn-primary');
+      } else {
+        alert("someone fucked up here");
+      }
+    },
     setYes1: function() {
       this.voteAnswers.q1 = 1;
+      this.fixButtons(1);
     },
     setYes2: function() {
       this.voteAnswers.q2 = 1;
+      this.fixButtons(2);
     },
     setYes3: function() {
       this.voteAnswers.q3 = 1;
+      this.fixButtons(3);
     },
     setNo1: function() {
       this.voteAnswers.q1 = -1;
+      this.fixButtons(1);
     },
     setNo2: function() {
       this.voteAnswers.q2 = -1;
+      this.fixButtons(2);
     },
     setNo3: function() {
       this.voteAnswers.q3 = -1;
+      this.fixButtons(3);
     },
     setIDK1: function() {
       this.voteAnswers.q1 = 0;
+      this.fixButtons(1);
     },
     setIDK2: function() {
       this.voteAnswers.q2 = 0;
+      this.fixButtons(2);
     },
     setIDK3: function() {
       this.voteAnswers.q3 = 0;
+      this.fixButtons(3);
     },
     submitVote: function() {
       if (this.voteAnswers.q1 == '' ||
