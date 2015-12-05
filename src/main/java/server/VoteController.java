@@ -31,7 +31,7 @@ public class VoteController {
 
         // Save the votes
         for (int i = 0; i < answer.getAnswers().length; i++) {
-            if (EnumVoteValue.isLegalValue(answer.getAnswers()[i]) {
+            if (EnumVoteValue.isLegalValue(answer.getAnswers()[i])) {
                 Property.AddPropToPlace(answer.getPlaceId(), answer.getProperty()[i].getId(), answer.getAnswers()[i], username, answer.getnPlaceId());
             }
         }
