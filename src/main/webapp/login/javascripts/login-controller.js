@@ -8,7 +8,7 @@ if (typeof(MyGlobal) === 'undefined') {
 
 (function ($) {
 
-    var REQUIRED_PERMISSIONS = 'email,public_profile,user_tagged_places';
+    var REQUIRED_PERMISSIONS = 'email,public_profile,user_tagged_places,user_location';
 
     var LoginController = {
 
