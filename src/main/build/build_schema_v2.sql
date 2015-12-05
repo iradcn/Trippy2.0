@@ -18,19 +18,6 @@ CREATE SCHEMA IF NOT EXISTS `trippy2` DEFAULT CHARACTER SET utf8 ;
 USE `trippy2` ;
 
 -- -----------------------------------------------------
--- Table `trippy2`.`uservotes`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `trippy2`.`uservotes` (
-  `userId` VARCHAR(40) NOT NULL,
-  `placeId` VARCHAR(40) NOT NULL,
-  `propId` INT(11) NOT NULL,
-  `vote` INT(11) NOT NULL,
-  `fTimestamp` VARCHAR(45) NOT NULL)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
 -- Table `trippy2`.`categories`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `trippy2`.`categories` (
@@ -116,6 +103,7 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`users` (
   `access_token` VARCHAR(500) NULL DEFAULT NULL,
   `enabled` TINYINT(4) NULL DEFAULT '1',
   `userscol` VARCHAR(45) NULL DEFAULT NULL,
+  `sent_data_counter` INT(20) UNSIGNED NULL DEFAULT '0',
   PRIMARY KEY (`user_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -140,6 +128,19 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`users_search_props_history` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+
+-- -----------------------------------------------------
+-- Table `trippy2`.`uservotes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `trippy2`.`uservotes` (
+  `userId` VARCHAR(40) NOT NULL,
+  `placeId` VARCHAR(40) NOT NULL,
+  `propId` INT(11) NOT NULL,
+  `vote` INT(11) NOT NULL,
+  `fTimestamp` VARCHAR(45) NOT NULL)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
 USE `trippy2` ;
 
 -- -----------------------------------------------------
@@ -158,7 +159,6 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`user_votes_agg_view` (`placeId` INT, `prop
 
 DELIMITER $$
 USE `trippy2`$$
-DROP PROCEDURE IF EXISTS CreateForeignKeys;
 CREATE DEFINER=`trippy2`@`localhost` PROCEDURE `CreateForeignKeys`()
 BEGIN
 
@@ -192,7 +192,6 @@ DELIMITER ;
 
 DELIMITER $$
 USE `trippy2`$$
-DROP PROCEDURE IF EXISTS RemoveForeignKeys;
 CREATE DEFINER=`trippy2`@`localhost` PROCEDURE `RemoveForeignKeys`()
 BEGIN
 
@@ -219,14 +218,14 @@ DELIMITER ;
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `trippy2`.`places_props_view`;
 USE `trippy2`;
-CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`places_props_view` AS select `trippy2`.`uservotes`.`placeId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`placeId`,`trippy2`.`uservotes`.`propId` having (sum(`trippy2`.`uservotes`.`vote`) > 0);
+CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`places_props_view` AS select `trippy2`.`uservotes`.`placeId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`placeId`,`trippy2`.`uservotes`.`propId` having (sum(`trippy2`.`uservotes`.`vote`) > 0);
 
 -- -----------------------------------------------------
 -- View `trippy2`.`user_votes_agg_view`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `trippy2`.`user_votes_agg_view`;
 USE `trippy2`;
-CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`user_votes_agg_view` AS select `trippy2`.`uservotes`.`placeId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId`,sum(`trippy2`.`uservotes`.`vote`) AS `votesRank`,max(`trippy2`.`uservotes`.`fTimestamp`) AS `max(fTimestamp)` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`placeId`,`trippy2`.`uservotes`.`propId`;
+CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`user_votes_agg_view` AS select `trippy2`.`uservotes`.`placeId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId`,sum(`trippy2`.`uservotes`.`vote`) AS `votesRank`,max(`trippy2`.`uservotes`.`fTimestamp`) AS `max(fTimestamp)` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`placeId`,`trippy2`.`uservotes`.`propId`;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
