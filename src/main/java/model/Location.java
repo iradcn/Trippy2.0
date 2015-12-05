@@ -5,10 +5,10 @@ package model;
  */
 public class Location {
     private double lat;
-    private int radius;
+    private double radius;
     private double lon;
 
-    public int getRadius() {
+    public double getRadius() {
         return radius;
     }
 

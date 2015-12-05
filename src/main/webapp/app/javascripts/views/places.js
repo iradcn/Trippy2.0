@@ -264,14 +264,14 @@ define([
         "loc": {
           "lat": location_coordinates[1],
           "lon": location_coordinates[0],
-          "radius": rad_mile,
+          "radius": rad_mile
         },
         "categories": filtered_cats.map(function (c) {
           return c.attributes; 
         }),
         "properties": filtered_props.map(function (p) {
           return p.attributes; 
-        }),
+        })
       };
     },
     overlayResponse: function () {
