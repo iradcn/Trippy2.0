@@ -40,7 +40,7 @@ public class QuestionsGeneratorService {
 
         dataModel = new MySQLJDBCDataModel(
                 dataSource, "user_votes_agg_view", "placeId",
-                "propId", "votesRank", "fTimestamp") {
+                "propId", "votesRankBin", "fTimestamp") {
         };
 
     };
