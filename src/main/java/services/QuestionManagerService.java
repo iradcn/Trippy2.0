@@ -55,10 +55,7 @@ public class QuestionManagerService {
 		} catch (SQLException e) {
 			System.out.println("Error SQLException while checking if a new question is required");
 			return false;
-		}
-		
-		
-		
+		}		
 	}
 	
 	private Place getPlaceForQuestion () {
@@ -66,7 +63,13 @@ public class QuestionManagerService {
 	}
 	
 	public void insertNewQuestions (Vote questions) {
-		//TODO: insert new questions to db
+		for(int i=0;i<questions.getProperty().length;i++){
+			try {
+				VoteDAO.insertNewQuestion(questions.getProperty()[i].getId(), questions.getPlaceId(), 0, questions.getName(), questions.getnPlaceId());
+			} catch (SQLException e) {
+				System.out.println("Error inserting new question to data base");
+			}
+		}
 
 	}
 

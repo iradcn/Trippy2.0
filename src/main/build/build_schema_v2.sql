@@ -20,27 +20,30 @@ USE `trippy2` ;
 -- -----------------------------------------------------
 -- Table `trippy2`.`categories`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `trippy2`.`categories` ;
+
 CREATE TABLE IF NOT EXISTS `trippy2`.`categories` (
   `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
 ENGINE = InnoDB
+AUTO_INCREMENT = 24
 DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
 -- Table `trippy2`.`places`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `trippy2`.`places` ;
+
 CREATE TABLE IF NOT EXISTS `trippy2`.`places` (
-  `n_id` INT(11) NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(200) NOT NULL,
   `Lat` DOUBLE NOT NULL,
   `Lon` DOUBLE NOT NULL,
   `Id` VARCHAR(200) NOT NULL,
-  PRIMARY KEY (`n_id`),
-  UNIQUE INDEX `Id_UNIQUE` (`Id` ASC),
-  UNIQUE INDEX `nId_UNIQUE` (`n_id` ASC))
+  PRIMARY KEY (`Id`),
+  UNIQUE INDEX `YagoId_UNIQUE` (`Id` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -48,6 +51,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `trippy2`.`places_categories`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `trippy2`.`places_categories` ;
+
 CREATE TABLE IF NOT EXISTS `trippy2`.`places_categories` (
   `PlaceId` VARCHAR(200) NOT NULL,
   `CategoryId` INT(10) NOT NULL,
@@ -60,6 +65,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `trippy2`.`places_props`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `trippy2`.`places_props` ;
+
 CREATE TABLE IF NOT EXISTS `trippy2`.`places_props` (
   `PlaceId` VARCHAR(200) NOT NULL,
   `PropId` INT(10) UNSIGNED NOT NULL,
@@ -74,18 +81,23 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `trippy2`.`properties`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `trippy2`.`properties` ;
+
 CREATE TABLE IF NOT EXISTS `trippy2`.`properties` (
   `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
 -- Table `trippy2`.`user_roles`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `trippy2`.`user_roles` ;
+
 CREATE TABLE IF NOT EXISTS `trippy2`.`user_roles` (
   `user_id` VARCHAR(40) NOT NULL,
   `role` VARCHAR(45) NULL DEFAULT NULL,
@@ -97,6 +109,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `trippy2`.`users`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `trippy2`.`users` ;
+
 CREATE TABLE IF NOT EXISTS `trippy2`.`users` (
   `user_id` VARCHAR(40) NOT NULL,
   `password` VARCHAR(45) NULL DEFAULT NULL,
@@ -112,6 +126,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `trippy2`.`users_check_in`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `trippy2`.`users_check_in` ;
+
 CREATE TABLE IF NOT EXISTS `trippy2`.`users_check_in` (
   `user_id` VARCHAR(40) NOT NULL,
   `place_id` VARCHAR(200) NOT NULL)
@@ -122,6 +138,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `trippy2`.`users_search_props_history`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `trippy2`.`users_search_props_history` ;
+
 CREATE TABLE IF NOT EXISTS `trippy2`.`users_search_props_history` (
   `user_id` VARCHAR(40) NOT NULL,
   `prop_id` INT(10) NOT NULL)
@@ -132,12 +150,17 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `trippy2`.`uservotes`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `trippy2`.`uservotes` ;
+
 CREATE TABLE IF NOT EXISTS `trippy2`.`uservotes` (
   `userId` VARCHAR(40) NOT NULL,
   `placeId` VARCHAR(40) NOT NULL,
   `propId` INT(11) NOT NULL,
   `vote` INT(11) NOT NULL,
-  `fTimestamp` VARCHAR(45) NOT NULL)
+  `fTimestamp` VARCHAR(45) NOT NULL,
+  `is_opened` BINARY(1) NOT NULL DEFAULT '0',
+  `nPlaceId` INT(11) NOT NULL,
+  PRIMARY KEY (`nPlaceId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -156,6 +179,9 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`user_votes_agg_view` (`placeId` INT, `prop
 -- -----------------------------------------------------
 -- procedure CreateForeignKeys
 -- -----------------------------------------------------
+
+USE `trippy2`;
+DROP procedure IF EXISTS `trippy2`.`CreateForeignKeys`;
 
 DELIMITER $$
 USE `trippy2`$$
@@ -190,6 +216,9 @@ DELIMITER ;
 -- procedure RemoveForeignKeys
 -- -----------------------------------------------------
 
+USE `trippy2`;
+DROP procedure IF EXISTS `trippy2`.`RemoveForeignKeys`;
+
 DELIMITER $$
 USE `trippy2`$$
 CREATE DEFINER=`trippy2`@`localhost` PROCEDURE `RemoveForeignKeys`()
@@ -216,6 +245,7 @@ DELIMITER ;
 -- -----------------------------------------------------
 -- View `trippy2`.`places_props_view`
 -- -----------------------------------------------------
+DROP VIEW IF EXISTS `trippy2`.`places_props_view` ;
 DROP TABLE IF EXISTS `trippy2`.`places_props_view`;
 USE `trippy2`;
 CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`places_props_view` AS select `trippy2`.`uservotes`.`placeId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`placeId`,`trippy2`.`uservotes`.`propId` having (sum(`trippy2`.`uservotes`.`vote`) > 0);
@@ -223,6 +253,7 @@ CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURIT
 -- -----------------------------------------------------
 -- View `trippy2`.`user_votes_agg_view`
 -- -----------------------------------------------------
+DROP VIEW IF EXISTS `trippy2`.`user_votes_agg_view` ;
 DROP TABLE IF EXISTS `trippy2`.`user_votes_agg_view`;
 USE `trippy2`;
 CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`user_votes_agg_view` AS select `trippy2`.`uservotes`.`placeId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId`,sum(`trippy2`.`uservotes`.`vote`) AS `votesRank`,max(`trippy2`.`uservotes`.`fTimestamp`) AS `max(fTimestamp)` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`placeId`,`trippy2`.`uservotes`.`propId`;

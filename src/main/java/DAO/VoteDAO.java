@@ -21,7 +21,7 @@ public class VoteDAO {
     private static String InsertVotePropToPlace = "INSERT INTO uservotes (userId, placeId, propId, vote, fTimestamp, placenid) Values(?,?,?,?,?,?)";
     private static String selectOpenQuestion = "SELECT * FROM uservotes where is_opened = 0 + userId =? ";
    
-    public static void insertNewQuestion(int propId, String placeId, int voteValue, String username, long nId) throws SQLException {
+    public static void insertNewQuestion(int propId, String placeId, int voteValue, String username, long nPlaceId) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
         PreparedStatement addVotePropPlace = conn.prepareStatement(InsertVotePropToPlace);
         addVotePropPlace.setString(1, username);
@@ -31,7 +31,7 @@ public class VoteDAO {
 
         java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         addVotePropPlace.setDate(5, date);
-        addVotePropPlace.setLong(6, nId);
+        addVotePropPlace.setLong(6, nPlaceId);
         List<PreparedStatement> statements = new ArrayList<>();
         statements.add(addVotePropPlace);
         JDBCConnection.executeUpdate(statements,conn);
@@ -58,7 +58,7 @@ public class VoteDAO {
 		}
 		
 		placeId = rs.getString("placeId");
-		openQuestionVote = new Vote(placeId,PlaceDAO.getPlaceNameByPlaceId(placeId), property);
+		openQuestionVote = new Vote(placeId,PlaceDAO.getPlaceNameByPlaceId(placeId), property, rs.getLong("nId"));
 		
 		return openQuestionVote;
 	}
