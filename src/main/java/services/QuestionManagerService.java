@@ -9,14 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import DAO.PlaceDAO;
 import DAO.UserDAO;
 import DAO.VoteDAO;
-import model.Place;
-import model.Vote;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 
 @Service

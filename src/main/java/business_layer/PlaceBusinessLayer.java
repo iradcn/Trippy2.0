@@ -15,7 +15,6 @@ import protocol_model.QuestionAndResults;
 import protocol_model.SearchByLocation;
 import services.QuestionManagerService;
 import DAO.UserDAO;
-import DAO.VoteDAO;
 
 @Service
 public class PlaceBusinessLayer {

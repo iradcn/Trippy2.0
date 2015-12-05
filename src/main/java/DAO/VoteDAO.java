@@ -19,8 +19,8 @@ import model.Vote;
  */
 public class VoteDAO {
     private static String InsertVotePropToPlace = "INSERT INTO uservotes (userId, placeId, propId, vote, fTimestamp, placenid) Values(?,?,?,?,?,?)";
-    private static String selectOpenQuestion = "SELECT * FROM uservotes where is_opened = 0 and userId =? ";
-    private static String voteQuestion = "UPDATE uservotes set `";
+    private static String selectOpenQuestion = "SELECT * FROM uservotes where is_opened = 0 + userId =? ";
+    private static String voteQuestion = "UPDATE uservotes set `vote`=?,`is_opened`=0 WHERE `userId`=? and `propId`=?";
     public static void insertNewQuestion(int propId, String placeId, int voteValue, String username, long nPlaceId) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
         PreparedStatement addVotePropPlace = conn.prepareStatement(InsertVotePropToPlace);
@@ -64,9 +64,14 @@ public class VoteDAO {
 	}
 
     public static void setQuestionAsAnswered(int propId, String placeId, int voteValue, String username, long nId) throws SQLException {
-
-
-
+		Connection conn = JDBCConnection.getConnection();
+		List<PreparedStatement> psLst = new ArrayList<>();
+		PreparedStatement ps = conn.prepareStatement(voteQuestion);
+		ps.setInt(1, voteValue);
+		ps.setString(2,username);
+		ps.setInt(3, propId);
+		psLst.add(ps);
+		JDBCConnection.executeUpdate(psLst, conn);
     }
 
 
