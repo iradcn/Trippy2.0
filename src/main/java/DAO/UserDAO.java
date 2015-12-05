@@ -112,7 +112,7 @@ public class UserDAO {
         ps.setString(1, userId);
         ResultSet rs = JDBCConnection.executeQuery(ps, conn);
 
-        while (!rs.next()) {
+        while (rs.next()) {
             placesIds.add(rs.getString("placeId"));
         }
         return placesIds;

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import model.Place;
+import model.Property;
 import model.Vote;
 
 import org.apache.mahout.cf.taste.common.TasteException;
@@ -45,7 +46,7 @@ public class QuestionsGeneratorService {
         };
 
     };
-    public long generate(long placeId) throws TasteException {
+    public Property generateCorrelatedProperty(long placeId) throws TasteException {/*
         UserSimilarity similarity = new TanimotoCoefficientSimilarity(dataModel);
         UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, dataModel);
         UserBasedRecommender recommender = new GenericUserBasedRecommender(dataModel, neighborhood, similarity);
@@ -55,12 +56,33 @@ public class QuestionsGeneratorService {
             return recommendation.getItemID();
         }
 
-        return -1;
+        return -1;*/
+    	return null;
 
     }
 
     public Vote generateThreeQuestions(Place place) {
+    	Property prop1 = new Property(26);
+    	Property prop2 = new Property(27);
+    	Property prop3 = new Property(28);
+    	
+    	prop1.setName("Dog Friendly");
+    	prop2.setName("Cat Friendly");
+    	prop3.setName("Hila Friendly");
+    	Property[] propArr = {prop1,prop2,prop3};
+    	Vote vote = new Vote();
+    	vote.setProperty(propArr);
+    	vote.setPlaceId("ChIJ8br0vm5nAhURLIwIAA7PV2A");
+    	vote.setnPlaceId(1);
+    	vote.setName("Shufersal");
+    	return vote;
+    }
+    
+    public Property generateNewPropertyVote(Place place) {
     	return null;
     }
     
+    public Property generatePopularProperty(Place place) {
+    	return null;
+    }
 }
