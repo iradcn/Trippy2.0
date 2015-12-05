@@ -1,18 +1,11 @@
 package DAO;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
-import org.springframework.stereotype.Service;
-
-import model.Place;
-import model.Vote;
 
 /**
  * Created by nimrodoron on 11/28/15.

@@ -1,24 +1,27 @@
 package server;
 
+import java.sql.SQLException;
+import java.util.List;
+
 import model.Place;
-import model.Vote;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
+import protocol_model.QuestionAndResults;
+import protocol_model.ResultMultipleSearch;
+import protocol_model.SearchByLocation;
+import protocol_model.SearchByLocationEditor;
+import protocol_model.SearchByMultipleLocation;
+import protocol_model.SearchByMultipleLocationEditor;
 import business_layer.PlaceBusinessLayer;
-import DAO.UserDAO;
-import protocol_model.*;
-import services.QuestionManagerService;
-
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 public class PlacesController {
@@ -33,7 +36,7 @@ public class PlacesController {
 	}
 
 	@RequestMapping(value="app/get_all_places", method=RequestMethod.GET)
-	public ResponseEntity<String> createProperty() {//TODO:
+	public ResponseEntity<String> createProperty() {
 		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 

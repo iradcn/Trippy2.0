@@ -1,14 +1,10 @@
 package services;
 
-import java.util.List;
-
-import org.apache.mahout.cf.taste.common.TasteException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import DAO.VoteDAO;
 import model.Place;
 import model.Vote;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 
 @Service

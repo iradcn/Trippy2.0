@@ -22,9 +22,6 @@ public class PlaceBusinessLayer {
 	
 	@Autowired
 	QuestionManagerService newQuestionManager;
-
-	@Autowired
-	VoteDAO voteDAO;
 	
 	public QuestionAndResults getPlacesOrQuestion(SearchByLocation searchQueryJson) {
 		
