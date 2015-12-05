@@ -19,7 +19,7 @@ public class VoteDAO {
     private static String InsertVotePropToPlace = "INSERT INTO UserVotes (userId, placeId, propId, vote, fTimestamp, placenid) Values(?,?,?,?,?,?)";
     private static String selectOpenQuestion = "SELECT * FROM trippy2.uservotes where is_opened = 0 + userId = ";
    
-    public static void insertVoteAnswer(int propId, String placeId, int voteValue, String username, long nId) throws SQLException {
+    public static void insertNewQuestion(int propId, String placeId, int voteValue, String username, long nId) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
         PreparedStatement addVotePropPlace = conn.prepareStatement(InsertVotePropToPlace);
         addVotePropPlace.setString(1, username);
@@ -33,5 +33,28 @@ public class VoteDAO {
         List<PreparedStatement> statements = new ArrayList<>();
         statements.add(addVotePropPlace);
         JDBCConnection.executeUpdate(statements,conn);
+    }
+    
+    public static Vote getOpenQuestion() throws SQLException {
+		
+    	Connection conn = JDBCConnection.getConnection();
+		if (conn == null)  throw new SQLException();
+		private String[] property = new String[3];
+		PreparedStatement ps = conn.prepareStatement(selectOpenQuestion);
+		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
+		
+		Vote openQuestionVote = null;
+		
+		if (rs.next()) {
+			openQuestionVote = new Vote(rs.getString("PlaceId"),);
+		}
+		
+		return openQuestionVote;
+		
+		
+	}
+    
+    public static void setQuestionAsAnswered(int propId, String placeId, int voteValue, String username, long nId) throws SQLException {
+        
     }
 }

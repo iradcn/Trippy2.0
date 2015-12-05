@@ -15,6 +15,7 @@ import protocol_model.QuestionAndResults;
 import protocol_model.SearchByLocation;
 import services.QuestionManagerService;
 import DAO.UserDAO;
+import DAO.VoteDAO;
 
 @Service
 public class PlaceBusinessLayer {
@@ -22,12 +23,15 @@ public class PlaceBusinessLayer {
 	@Autowired
 	QuestionManagerService newQuestionManager;
 
+	@Autowired
+	VoteDAO voteDAO;
+	
 	public QuestionAndResults getPlacesOrQuestion(SearchByLocation searchQueryJson) {
 		
 		QuestionAndResults questionOrResult = new QuestionAndResults();
 		List<Place> places;
 		String userId;
-		Vote newQuestion = newQuestionManager.getQuestion();
+		Vote newQuestion = newQuestionManager.getQuestions();
 		if (newQuestion == null) {
 			try {
 				places = Place.getPlacesByLocation(searchQueryJson);
@@ -42,7 +46,10 @@ public class PlaceBusinessLayer {
 			} catch (SQLException e) {
 				System.out.println("Error Incrementing User Search Counter.");
 			}
-		} 
+		} else {
+			questionOrResult.setQuestion(newQuestion);
+			newQuestionManager.insertNewQuestions(newQuestion);
+		}
 
 		return questionOrResult;
 		

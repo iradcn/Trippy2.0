@@ -1,8 +1,12 @@
 package services;
 
+import java.util.List;
+
+import org.apache.mahout.cf.taste.common.TasteException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import DAO.VoteDAO;
 import model.Place;
 import model.Vote;
 
@@ -11,26 +15,47 @@ import model.Vote;
 public class QuestionManagerService {
 
 	@Autowired
+	VoteDAO voteDAO;
+	
+	@Autowired
 	QuestionsGeneratorService questionGeneratorService;
 	
-	public Vote getQuestion() {
-		return null;
+	public Vote getQuestions() {
+		
+		Vote question = isExistsOpenQuestion();
+		if (question != null) {
+			return question;
+		}
+		
+		if (!isRequiredNewQuestion()) {
+			return null;
+		}
+		
+		Place placeForQuestion = getPlaceForQuestion();
+		Vote newQuestions = questionGeneratorService.generateThreeQuestions(placeForQuestion);
+		
+		return newQuestions;
 	}
 	
 	//ללכת לטבלה של vote וליוזר קיימת שאלה פתוחה 
 	// 
-	public Vote isExistsOpenQuestion() {
+	private Vote isExistsOpenQuestion() {
 		return null;
 	}
 	
-	public boolean isRequiredNewQuestion() {
+	private boolean isRequiredNewQuestion() {
 		return false;
 		
 		
 	}
 	
-	public Place getPlaceForQuestion () {
+	private Place getPlaceForQuestion () {
 		return null;
+	}
+	
+	public void insertNewQuestions (Vote questions) {
+		//TODO: insert new questions to db
+		
 	}
 	
 	
