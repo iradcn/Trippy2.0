@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import org.springframework.security.core.context.SecurityContextHolder;
+
+import model.Property;
 import model.Vote;
 
 /**
@@ -31,30 +33,30 @@ public class VoteDAO {
         statements.add(addVotePropPlace);
         JDBCConnection.executeUpdate(statements,conn);
     }
-
+    
 	public static Vote getOpenQuestion() throws SQLException {
-
-		String[] property = new String[3];
+		
+		Property[] property = new Property[3];
 		String placeId;
-
+		
 		Connection conn = JDBCConnection.getConnection();
 		if (conn == null)  throw new SQLException();
-
+	
 		PreparedStatement ps = conn.prepareStatement(selectOpenQuestion);
 		String userId = SecurityContextHolder.getContext().getAuthentication().getName();
 		ps.setString(1, userId);
 		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
-
+		
 		Vote openQuestionVote = null;
-
+		
 		for(int i=0; i< 3 ; i++){
-			property[i] = rs.getString("propId");
+			property[i] =new Property( rs.getInt("propId"));
 			rs.next();
 		}
-
+		
 		placeId = rs.getString("placeId");
 		openQuestionVote = new Vote(placeId,PlaceDAO.getPlaceNameByPlaceId(placeId), property);
-
+		
 		return openQuestionVote;
 	}
 
