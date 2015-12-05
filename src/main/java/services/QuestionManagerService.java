@@ -21,12 +21,15 @@ public class QuestionManagerService {
 	@Autowired
 	QuestionsGeneratorService questionGeneratorService;
 	
-	public Vote getQuestions() {
-
+	public Vote getOpenQuestions () {
 		Vote question = isExistsOpenQuestion();
 		if (question != null) {
 			return question;
 		}
+		return null;
+	}
+	public Vote getQuestions() {
+
 
 		if (!isRequiredNewQuestion()) {
 			return null;

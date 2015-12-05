@@ -27,7 +27,17 @@ public class PlaceBusinessLayer {
 		QuestionAndResults questionOrResult = new QuestionAndResults();
 		List<Place> places;
 		String userId;
-		Vote newQuestion = newQuestionManager.getQuestions();
+		
+		Vote newQuestion;
+		newQuestion = newQuestionManager.getOpenQuestions();
+		
+		if (newQuestion != null) {
+			questionOrResult.setQuestion(newQuestion);
+			return questionOrResult;
+		}
+		
+		newQuestion = newQuestionManager.getQuestions();
+		
 		if (newQuestion == null) {
 			try {
 				places = Place.getPlacesByLocation(searchQueryJson);
@@ -48,8 +58,6 @@ public class PlaceBusinessLayer {
 		}
 
 		return questionOrResult;
-		
-		
 	}
 
 	
