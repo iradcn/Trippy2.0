@@ -3,10 +3,10 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
   <groupId>ac.il.tau.databases</groupId>
-  <artifactId>final-project</artifactId>
+  <artifactId>trippy</artifactId>
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>final-project Maven Webapp</name>
+  <name>Trippy v2</name>
   <url>http://maven.apache.org</url>
   
     <parent>
@@ -14,8 +14,7 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.2.3.RELEASE</version>
     </parent>
-  
-  
+
     <dependencies>
    		 <dependency>
     		<groupId>com.codesnippets4all</groupId>
