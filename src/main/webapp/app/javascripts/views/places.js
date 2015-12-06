@@ -31,11 +31,7 @@ define([
     initialize: function () {
       this.catView = MyGlobal.views.select_categories_view;
       this.propView = MyGlobal.views.select_properties_view;
-      this.voteAnswers = {
-        q1: '',
-        q2: '',
-        q3: ''
-      };
+      this.voteAnswers = ['', '', ''];
     },
     render: function () {
       var places_template = _.template(PlacesTemplate);
@@ -167,14 +163,20 @@ define([
       map.addInteraction(pointClick);
     },
     renderVoteModal: function (data) {
+      $.ajax({
+        method: "GET",
+        url: "/app/image/" + data.placeId + ".jpg",
+      }).done(function() {
+        $(this.vote_el).find('#placeImage').attr("src", "/app/image/" + data.placeId + ".jpg");
+        $(this.vote_el).find('#placeImage').show();
+      }.bind(this)).fail(function() {
+        $(this.vote_el).find('#placeImage').hide();
+      }.bind(this));
+      $(this.vote_el).find('#placeName').text(data.name);
+      $(this.vote_el).find('#row1PropLabel').text(data.property[0].name);
+      $(this.vote_el).find('#row2PropLabel').text(data.property[1].name);
+      $(this.vote_el).find('#row3PropLabel').text(data.property[2].name);
       $('.modal').modal('show');
-      //this.requestVote();
-
-
-      $(this.vote_el).find('#placeImage').attr("src", "/app/image/" + data.placeId + ".jpg");
-      $(this.vote_el).find('#row1PropLabel').text(data.prop1);
-      $(this.vote_el).find('#row2PropLabel').text(data.prop2);
-      $(this.vote_el).find('#row3PropLabel').text(data.prop3);
     },
     placesSubmit: function () {
       $('.alert-resize-map').click();
@@ -198,15 +200,9 @@ define([
               '<strong>No places were found!</strong> No places matching chosen filter criterias were found.</div>');
           }
         } else if (data.question) {
+          this.inFlightQuestion = data.question;
           this.renderVoteModal(data.question);
         } else {
-          this.renderVoteModal({
-            placeName: 'place1',
-            placeId: '929200_1571840069710538_1151072500_n',
-            prop1: 'prop1',
-            prop2: 'prop2',
-            prop3: 'prop3',
-          });
           $('.alerts-row').html(
             '<div class="alert alert-danger alert-dismissable" role="alert">' +
             '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
@@ -282,99 +278,99 @@ define([
       this.pointsVectorSource.addFeatures(pointsArray);
     },
     fixButtons: function(qnum) {
-      if (this.voteAnswers['q'+ qnum] == 1) {
+      inner_qnum = qnum - 1;
+      if (this.voteAnswers[inner_qnum] == 1) {
         $('#btnYes' + qnum).removeClass('btn-success');
-        $('#btnYes' + qnum).addClass('btn-primary');
+        $('#btnYes' + qnum).addClass('btn-info');
         $('#btnNo' + qnum).addClass('btn-danger');
-        $('#btnNo' + qnum).removeClass('btn-primary');
+        $('#btnNo' + qnum).removeClass('btn-info');
         $('#btnIDK' + qnum).addClass('btn-warning');
-        $('#btnIDK' + qnum).removeClass('btn-primary');
-      } else if (this.voteAnswers['q'+ qnum] == -1) {
+        $('#btnIDK' + qnum).removeClass('btn-info');
+      } else if (this.voteAnswers[inner_qnum] == -1) {
         $('#btnYes' + qnum).addClass('btn-success');
-        $('#btnYes' + qnum).removeClass('btn-primary');
+        $('#btnYes' + qnum).removeClass('btn-info');
         $('#btnNo' + qnum).removeClass('btn-danger');
-        $('#btnNo' + qnum).addClass('btn-primary');
+        $('#btnNo' + qnum).addClass('btn-info');
         $('#btnIDK' + qnum).addClass('btn-warning');
-        $('#btnIDK' + qnum).removeClass('btn-primary');
-      } else if (this.voteAnswers['q'+ qnum] == 0) {
+        $('#btnIDK' + qnum).removeClass('btn-info');
+      } else if (this.voteAnswers[inner_qnum] == 0) {
         $('#btnYes' + qnum).addClass('btn-success');
-        $('#btnYes' + qnum).removeClass('btn-primary');
+        $('#btnYes' + qnum).removeClass('btn-info');
         $('#btnNo' + qnum).addClass('btn-danger');
-        $('#btnNo' + qnum).removeClass('btn-primary');
+        $('#btnNo' + qnum).removeClass('btn-info');
         $('#btnIDK' + qnum).removeClass('btn-warning');
-        $('#btnIDK' + qnum).addClass('btn-primary');
-      } else if (this.voteAnswers['q' + qnum] == '') {
+        $('#btnIDK' + qnum).addClass('btn-info');
+      } else if (this.voteAnswers[inner_qnum] == '') {
         $('#btnYes' + qnum).addClass('btn-success');
-        $('#btnYes' + qnum).removeClass('btn-primary');
+        $('#btnYes' + qnum).removeClass('btn-info');
         $('#btnNo' + qnum).addClass('btn-danger');
-        $('#btnNo' + qnum).removeClass('btn-primary');
+        $('#btnNo' + qnum).removeClass('btn-info');
         $('#btnIDK' + qnum).addClass('btn-warning');
-        $('#btnIDK' + qnum).removeClass('btn-primary');
+        $('#btnIDK' + qnum).removeClass('btn-info');
       } else {
         alert("someone fucked up here");
       }
     },
     setYes1: function() {
-      this.voteAnswers.q1 = 1;
+      this.voteAnswers[0] = 1;
       this.fixButtons(1);
     },
     setYes2: function() {
-      this.voteAnswers.q2 = 1;
+      this.voteAnswers[1] = 1;
       this.fixButtons(2);
     },
     setYes3: function() {
-      this.voteAnswers.q3 = 1;
+      this.voteAnswers[2] = 1;
       this.fixButtons(3);
     },
     setNo1: function() {
-      this.voteAnswers.q1 = -1;
+      this.voteAnswers[0] = -1;
       this.fixButtons(1);
     },
     setNo2: function() {
-      this.voteAnswers.q2 = -1;
+      this.voteAnswers[1] = -1;
       this.fixButtons(2);
     },
     setNo3: function() {
-      this.voteAnswers.q3 = -1;
+      this.voteAnswers[2] = -1;
       this.fixButtons(3);
     },
     setIDK1: function() {
-      this.voteAnswers.q1 = 0;
+      this.voteAnswers[0] = 0;
       this.fixButtons(1);
     },
     setIDK2: function() {
-      this.voteAnswers.q2 = 0;
+      this.voteAnswers[1] = 0;
       this.fixButtons(2);
     },
     setIDK3: function() {
-      this.voteAnswers.q3 = 0;
+      this.voteAnswers[2] = 0;
       this.fixButtons(3);
     },
     submitVote: function() {
-      if (this.voteAnswers.q1 == '' ||
-          this.voteAnswers.q2 == '' ||
-          this.voteAnswers.q3 == '') {
+      if (this.voteAnswers[0] === '' ||
+          this.voteAnswers[1] === '' ||
+          this.voteAnswers[2] === '') {
         alert("wtf man");
       } else {
+        var res_json = this.inFlightQuestion;
+        res_json["answers"] = this.voteAnswers;
+        res_json["query"] = this.constructRequest();
+
+        console.log(JSON.stringify(req_json));
         $.ajax({
           method: "POST",
-          url: 'vote/response',
-          data: {
-            placeId: this.vote.placeId,
-            propId: this.vote.propertyId,
-            answer: 'aaaaa',
-          }
+          url: 'vote/answer',
+          dataType: 'json',
+          contentType: 'application/json',
+          data: res_json
         }).done(function() {
           console.log("answer sent!");
         }.bind(this)).fail(function(){
           console.log("answer sending failed!");
         });
 
-        this.voteAnswers = {
-          q1: '',
-          q2: '',
-          q3: ''
-        };
+        this.voteAnswers = ['', '', ''];
         $('.modal').modal('hide');
       }
     },
