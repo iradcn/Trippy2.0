@@ -1,11 +1,15 @@
 package services;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.sql.DataSource;
 
 import model.Place;
 import model.Property;
+import model.PropertyRank;
 import model.Vote;
 
 import org.apache.mahout.cf.taste.common.TasteException;
@@ -22,6 +26,8 @@ import org.springframework.stereotype.Service;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
+import DAO.PlaceDAO;
+
 /**
  * Created by nimrodoron on 11/17/15.
  */
@@ -32,7 +38,8 @@ public class QuestionsGeneratorService {
     DataSource dataSource;
 
     private JDBCDataModel dataModel;
-
+    private static boolean include;
+    
     public QuestionsGeneratorService() {
         MysqlDataSource dataSource = new MysqlDataSource ();
         dataSource.setServerName("localhost");
@@ -79,10 +86,67 @@ public class QuestionsGeneratorService {
     }
     
     public Property generateNewPropertyVote(Place place) {
-    	return null;
+    	try {
+    		int minVoteRank = 0;
+    		include = true;
+			List<PropertyRank> resultQuery = null;
+			List<PropertyRank> subResult = null;
+			
+			resultQuery = PlaceDAO.getPlacesWithRanks(place.getGoogleId());
+			minVoteRank  = resultQuery.get(0).getVotesRank();
+			subResult = getSubListByRank(resultQuery, minVoteRank);
+			return getRandomProperty(subResult);
+			
+		} catch (SQLException e) {
+			System.out.println("Error in getting properties form data base");
+			return null;
+		}
     }
     
     public Property generatePopularProperty(Place place) {
-    	return null;
+    	try {
+    		int minVoteRank = 0;
+    		include = false;
+			List<PropertyRank> resultQuery = null;
+			List<PropertyRank> subResult = null;
+			
+			resultQuery = PlaceDAO.getPlacesWithRanks(place.getGoogleId());
+			minVoteRank  = resultQuery.get(0).getVotesRank();
+			subResult = getSubListByRank(resultQuery, minVoteRank);
+			return getRandomProperty(subResult);
+			
+		} catch (SQLException e) {
+			System.out.println("Error in getting properties form data base");
+			return null;
+		}
+    }
+    
+    public List<PropertyRank> getSubListByRank (List<PropertyRank> original, int minVoteRank){
+    	List<PropertyRank> result = new ArrayList<>();
+    	for(int i=0; i<original.size(); i++){
+    		//get new properties.
+    		//add to the list the properties with voteRank =  minVoteRank
+    		if(original.get(i).getVotesRank() == minVoteRank){
+    			if(include){
+    				result.add(original.get(i));
+    			}
+    		}
+    		//get the popular properties.
+    		//add to the list the properties with voteRank >  minVoteRank
+    		else if(original.get(i).getVotesRank() != minVoteRank){
+    			if(!include){
+    				result.add(original.get(i));
+    			}
+    		}
+    	}
+    	return result;
+    }
+    
+    public Property getRandomProperty (List<PropertyRank> original){
+    	PropertyRank propertyRank = null;
+    	Random rand = new Random();
+    	int index = rand.nextInt(original.size());
+    	propertyRank = original.get(index);
+    	return new Property(propertyRank.getId());
     }
 }

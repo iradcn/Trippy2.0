@@ -7,6 +7,7 @@ import model.Category;
 import model.Location;
 import model.Place;
 import model.Property;
+import model.PropertyRank;
 import model.User;
 import protocol_model.ResultMultipleSearch;
 import protocol_model.SearchByLocation;
@@ -51,6 +52,7 @@ public class PlaceDAO {
 	private static String selectByName = "SELECT `Id` from places where TRIM(LOWER(places.name))=TRIM(LOWER(?))";
 	private static String insertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) values(?,?)";
 	private static String selectPlaceById = "SELECT * from places where Id=?";
+	private static String selectPlaceByIdAscOrder = "SELECT * FROM user_votes_agg_view where PlaceId = ? ORDER BY votesRank ASC;";
 	
 	public static Place getPlace(String Id) throws SQLException {
 		
@@ -239,4 +241,23 @@ public class PlaceDAO {
 		JDBCConnection.executeUpdate(lst, conn);
 	}
 	
+public static List<PropertyRank> getPlacesWithRanks(String Id) throws SQLException {
+		
+    	Connection conn = JDBCConnection.getConnection();
+		if (conn == null)  throw new SQLException();
+
+		PreparedStatement ps = conn.prepareStatement(selectPlaceByIdAscOrder);
+		ps.setString(1, Id);
+		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
+		
+		List<PropertyRank> result = new ArrayList<>();
+		PropertyRank property = null;
+		
+		while (rs.next()) {
+			property = new PropertyRank(rs.getString("placeId"),rs.getInt("prontpId"),rs.getInt("votesRank"));
+			result.add(property);
+		}
+		
+		return result;	
+	}
 }
