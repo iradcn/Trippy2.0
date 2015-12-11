@@ -169,7 +169,7 @@ USE `trippy2` ;
 -- -----------------------------------------------------
 -- Placeholder table for view `trippy2`.`places_props_view`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `trippy2`.`places_props_view` (`placeId` INT, `propId` INT);
+CREATE TABLE IF NOT EXISTS `trippy2`.`places_props_view` (`placeId` INT, `propId` INT, `nPlaceid` INT, `rank` INT, `rank_bin` INT);
 
 -- -----------------------------------------------------
 -- Placeholder table for view `trippy2`.`user_votes_agg_view`
@@ -182,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`user_votes_agg_view` (`placeId` INT, `prop
 DROP VIEW IF EXISTS `trippy2`.`places_props_view` ;
 DROP TABLE IF EXISTS `trippy2`.`places_props_view`;
 USE `trippy2`;
-CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`places_props_view` AS select `trippy2`.`uservotes`.`placeId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`placeId`,`trippy2`.`uservotes`.`propId` having (sum(`trippy2`.`uservotes`.`vote`) > 0);
+CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`places_props_view` AS select `trippy2`.`uservotes`.`placeId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId`,`trippy2`.`uservotes`.`nPlaceId` AS `nPlaceid`,sum(`trippy2`.`uservotes`.`vote`) AS `rank`,(case when (sum(`trippy2`.`uservotes`.`vote`) > 0) then 1 else 0 end) AS `rank_bin` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`placeId`,`trippy2`.`uservotes`.`propId` having (sum(`trippy2`.`uservotes`.`vote`) > 0);
 
 -- -----------------------------------------------------
 -- View `trippy2`.`user_votes_agg_view`
