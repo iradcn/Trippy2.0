@@ -2,8 +2,10 @@ package services;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import javax.sql.DataSource;
 
@@ -82,10 +84,41 @@ public class QuestionsGeneratorService {
     	vote.setPlaceId("ChIJ8br0vm5nAhURLIwIAA7PV2A");
     	vote.setnPlaceId(1);
     	vote.setName("Shufersal");
-    	return vote;
+    	
+    	prop1.setName("Dog Friendly");
+    	prop2.setName("Cat Friendly");
+    	prop3.setName("Hila Friendly");
+    	
+    	//for checking the two question algorithems
+    	//may be deleted
+    	
+//    	Set<Property> propArr = new HashSet<>();
+//    	Place tmp = new Place("ChIJ8br0vm5nAhURLIwIAA7PV2A");
+//    	Property prop1 = new Property(21);
+//    	Property prop2 = new Property(22);
+//    	Property prop3 = new Property(23);
+//    	Property prop4 = new Property(24);
+//    	Property prop5 = new Property(25);
+//    	Property prop6 = new Property(26);
+//    	propArr.add(prop1);
+//    	propArr.add(prop2);
+//    	propArr.add(prop3);
+//    	propArr.add(prop4);
+//    	propArr.add(prop5);
+//    	propArr.add(prop6);
+//    	
+//    	tmp.setProperties(propArr);
+//    	Property p1A = generateNewPropertyVote (tmp);
+//    	Property p1B = generateNewPropertyVote (tmp);
+//    	Property p1C = generateNewPropertyVote (tmp);
+//    	Property p2A = generatePopularProperty (tmp);
+//    	Property p2B = generatePopularProperty (tmp);
+//    	Property p2C = generatePopularProperty (tmp);
+    	
+    	return null;
     }
     
-    public Property generateNewPropertyVote(Place place) {
+    public Property generateNewPropertyVote(Place place) {    	
     	try {
     		int minVoteRank = 0;
     		include = true;
@@ -93,12 +126,16 @@ public class QuestionsGeneratorService {
 			List<PropertyRank> subResult = null;
 			
 			resultQuery = PlaceDAO.getPlacesWithRanks(place.getGoogleId());
-			minVoteRank  = resultQuery.get(0).getVotesRank();
+			for(int i=0 ; i< resultQuery.size();i++){
+				if(minVoteRank > Math.abs(resultQuery.get(i).getVotesRank())){
+					minVoteRank = Math.abs(resultQuery.get(i).getVotesRank());
+				}
+			}
 			subResult = getSubListByRank(resultQuery, minVoteRank);
 			return getRandomProperty(subResult);
 			
 		} catch (SQLException e) {
-			System.out.println("Error in getting properties form data base");
+			System.out.println("Error in getting properties form data base");//TODO: select random place to ask about?
 			return null;
 		}
     }
@@ -111,12 +148,16 @@ public class QuestionsGeneratorService {
 			List<PropertyRank> subResult = null;
 			
 			resultQuery = PlaceDAO.getPlacesWithRanks(place.getGoogleId());
-			minVoteRank  = resultQuery.get(0).getVotesRank();
+			for(int i=0 ; i< resultQuery.size();i++){
+				if(minVoteRank > Math.abs(resultQuery.get(i).getVotesRank())){
+					minVoteRank = Math.abs(resultQuery.get(i).getVotesRank());
+				}
+			}
 			subResult = getSubListByRank(resultQuery, minVoteRank);
 			return getRandomProperty(subResult);
 			
 		} catch (SQLException e) {
-			System.out.println("Error in getting properties form data base");
+			System.out.println("Error in getting properties form data base"); //TODO: select random place to ask about?
 			return null;
 		}
     }
@@ -126,14 +167,14 @@ public class QuestionsGeneratorService {
     	for(int i=0; i<original.size(); i++){
     		//get new properties.
     		//add to the list the properties with voteRank =  minVoteRank
-    		if(original.get(i).getVotesRank() == minVoteRank){
+    		if(Math.abs(original.get(i).getVotesRank()) == minVoteRank){
     			if(include){
     				result.add(original.get(i));
     			}
     		}
     		//get the popular properties.
     		//add to the list the properties with voteRank >  minVoteRank
-    		else if(original.get(i).getVotesRank() != minVoteRank){
+    		else if(Math.abs(original.get(i).getVotesRank()) != minVoteRank){
     			if(!include){
     				result.add(original.get(i));
     			}

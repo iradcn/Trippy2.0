@@ -254,7 +254,7 @@ public static List<PropertyRank> getPlacesWithRanks(String Id) throws SQLExcepti
 		PropertyRank property = null;
 		
 		while (rs.next()) {
-			property = new PropertyRank(rs.getString("placeId"),rs.getInt("prontpId"),rs.getInt("votesRank"));
+			property = new PropertyRank(rs.getString("placeId"),rs.getInt("propId"),rs.getInt("votesRank"));
 			result.add(property);
 		}
 		
