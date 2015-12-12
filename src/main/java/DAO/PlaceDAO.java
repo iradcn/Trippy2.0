@@ -52,7 +52,26 @@ public class PlaceDAO {
 	private static String selectByName = "SELECT `Id` from places where TRIM(LOWER(places.name))=TRIM(LOWER(?))";
 	private static String insertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) values(?,?)";
 	private static String selectPlaceById = "SELECT * from places where Id=?";
-	private static String selectPlaceByIdAscOrder = "SELECT * FROM user_votes_agg_view where PlaceId = ? ORDER BY votesRank ASC;";
+	private static String selectPlaceByIdAscOrder = 
+
+		"SELECT "+
+		    "uv.propId AS propId, p.Name, SUM(uv.vote) AS votesRank "+
+		"FROM "+
+		    "uservotes AS uv,properties AS p "+
+		"WHERE "+
+		    "placeId = ? "+
+		"GROUP BY uv.propId "+
+		"UNION "+ 
+		"SELECT "+ 
+		    "p.Id, p.Name, 0 AS votesRank "+
+		"FROM "+
+		    "properties AS p "+
+		"WHERE p.Id NOT IN (SELECT pp.PropId "+
+		    				"FROM places_props AS pp "+
+		    				"WHERE pp.placeId = ?) "+
+		"AND p.Id NOT IN (SELECT uservotes.propId as PropId "+
+		    		"FROM uservotes WHERE uservotes.placeId=?) "+
+		"ORDER BY votesRank ASC;";
 	
 	public static Place getPlace(String Id) throws SQLException {
 		
@@ -68,6 +87,7 @@ public class PlaceDAO {
 		if (rs.next()) {
 			foundPlace = new Place(rs.getString("Id"));
 			foundPlace.setnId(rs.getLong("n_id"));
+			foundPlace.setName(rs.getString("Name"));
 		}
 		
 		return foundPlace;
@@ -248,13 +268,15 @@ public static List<PropertyRank> getPlacesWithRanks(String Id) throws SQLExcepti
 
 		PreparedStatement ps = conn.prepareStatement(selectPlaceByIdAscOrder);
 		ps.setString(1, Id);
+		ps.setString(2, Id);
+		ps.setString(3, Id);
 		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
 		
 		List<PropertyRank> result = new ArrayList<>();
 		PropertyRank property = null;
-		
+			
 		while (rs.next()) {
-			property = new PropertyRank(rs.getString("placeId"),rs.getInt("propId"),rs.getInt("votesRank"));
+			property = new PropertyRank(Id,rs.getInt("propId"),rs.getInt("votesRank"), rs.getString("Name"));
 			result.add(property);
 		}
 		

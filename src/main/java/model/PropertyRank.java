@@ -4,9 +4,10 @@ public class PropertyRank extends AbstractEntity {
 
 	private int votesRank;
 	
-	public PropertyRank (String placeId, int propId, int votesRank){
+	public PropertyRank (String placeId, int propId, int votesRank, String name){
 		super.setGoogleId(placeId);
 		super.setId(propId);
+		super.setName(name);
 		this.votesRank = votesRank;
 	}
 

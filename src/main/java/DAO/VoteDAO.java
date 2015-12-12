@@ -17,7 +17,8 @@ import model.Vote;
  */
 public class VoteDAO {
     private static String InsertVotePropToPlace = "INSERT INTO uservotes (userId, placeId, propId, vote, fTimestamp, nPlaceId) Values(?,?,?,?,?,?)";
-    private static String selectOpenQuestion = "SELECT * FROM uservotes where is_opened = 1 and userId =? ";
+    private static String selectOpenQuestion = "SELECT uservotes.propId, properties.Name FROM uservotes,properties"+ 
+    											"WHERE uservotes.is_opened = 1 and uservotes.userId =? and uservotes.propId = properties.Id";
     private static String voteQuestion = "UPDATE uservotes set `vote`=?,`is_opened`=0 WHERE `userId`=? and `propId`=?";
     private static String GetPlacesUserVote = "SELECT placeId FROM uservotes WHERE userId = ? GROUP BY placeId";
     public static void insertNewQuestion(int propId, String placeId, int voteValue, String userId, long nPlaceId) throws SQLException {

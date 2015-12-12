@@ -74,7 +74,7 @@ public class GoogleConnectionManager {
 			if (resultsArr.size() > 0) {
 				String id = resultsArr.get(0).getAsJsonObject().get("place_id").getAsString();
 				String name = resultsArr.get(0).getAsJsonObject().get("name").getAsString();
-				System.out.println("Found id="+id);
+				//System.out.println("Found id="+id);
 				return new Place(id, name, null, null);
 			} else {
 				return null;

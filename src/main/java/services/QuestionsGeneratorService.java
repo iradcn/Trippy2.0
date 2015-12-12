@@ -2,10 +2,8 @@ package services;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 import javax.sql.DataSource;
 
@@ -14,21 +12,13 @@ import model.Property;
 import model.PropertyRank;
 import model.Vote;
 
-import org.apache.mahout.cf.taste.common.TasteException;
 import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
-import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
-import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
-import org.apache.mahout.cf.taste.impl.similarity.TanimotoCoefficientSimilarity;
 import org.apache.mahout.cf.taste.model.JDBCDataModel;
-import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
-import org.apache.mahout.cf.taste.recommender.RecommendedItem;
-import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
-import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 import org.springframework.stereotype.Service;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-
 import DAO.PlaceDAO;
+
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 /**
  * Created by nimrodoron on 11/17/15.
@@ -55,7 +45,7 @@ public class QuestionsGeneratorService {
         };
 
     };
-    public Property generateCorrelatedProperty(long placeId) throws TasteException {/*
+    public Property generateCorrelatedProperty(Place place) {/*
         UserSimilarity similarity = new TanimotoCoefficientSimilarity(dataModel);
         UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, dataModel);
         UserBasedRecommender recommender = new GenericUserBasedRecommender(dataModel, neighborhood, similarity);
@@ -66,11 +56,111 @@ public class QuestionsGeneratorService {
         }
 
         return -1;*/
-    	return null;
+    	return this.getMockProperty();
 
     }
 
-    public Vote generateThreeQuestions(Place place) {
+    private Property getMockProperty() {
+		Property prop = new Property();
+		prop.setId(3);
+		prop.setName("Hila Friendly");
+		return prop;
+	}
+	public Vote generateThreeQuestions(Place place) {
+    	//getMockStuff - getMockData()
+    	Vote vote = new Vote();
+    	Property[] propertyArr = new Property[3];
+    	propertyArr[0] = generateNewPropertyVote(place);
+    	propertyArr[1] = generatePopularProperty(place);
+    	propertyArr[2] = generateCorrelatedProperty(place);
+    	vote.setProperty(propertyArr);
+    	return vote;
+    }
+    
+    public Property generateNewPropertyVote(Place place) {    	
+    	try {
+    		int minVoteRank = 0;
+    		include = true;
+			List<PropertyRank> resultQuery = null;
+			List<PropertyRank> subResult = null;
+			
+			resultQuery = PlaceDAO.getPlacesWithRanks(place.getGoogleId());
+			for(int i=0 ; i< resultQuery.size();i++){
+				if(minVoteRank > Math.abs(resultQuery.get(i).getVotesRank())){
+					minVoteRank = Math.abs(resultQuery.get(i).getVotesRank());
+				}
+			}
+			subResult = getSubListByRank(resultQuery, minVoteRank);
+			if (subResult.size() == 0 ) {
+	    		include = false;
+				subResult = getSubListByRank(resultQuery, minVoteRank);
+			}
+
+			return getRandomProperty(subResult);
+			
+		} catch (SQLException e) {
+			System.out.println("Error in getting properties form data base");//TODO: select random place to ask about?
+			return null;
+		}
+    }
+    
+    public Property generatePopularProperty(Place place) {
+    	try {
+    		int minVoteRank = 0;
+    		include = false;
+			List<PropertyRank> resultQuery = null;
+			List<PropertyRank> subResult = null;
+			
+			resultQuery = PlaceDAO.getPlacesWithRanks(place.getGoogleId());
+			for(int i=0 ; i< resultQuery.size();i++){
+				if(minVoteRank > Math.abs(resultQuery.get(i).getVotesRank())){
+					minVoteRank = Math.abs(resultQuery.get(i).getVotesRank());
+				}
+			}
+			subResult = getSubListByRank(resultQuery, minVoteRank);
+			if (subResult.size() == 0 ) {
+	    		include = true;
+				subResult = getSubListByRank(resultQuery, minVoteRank);
+			}
+			return getRandomProperty(subResult);
+			
+		} catch (SQLException e) {
+			System.out.println("Error in getting properties form data base"); //TODO: select random place to ask about?
+			return null;
+		}
+    }
+    
+    public List<PropertyRank> getSubListByRank (List<PropertyRank> original, int minVoteRank){
+    	List<PropertyRank> result = new ArrayList<>();
+    	for(int i=0; i<original.size(); i++){
+    		//get new properties.
+    		//add to the list the properties with voteRank =  minVoteRank
+    		if(Math.abs(original.get(i).getVotesRank()) == minVoteRank){
+    			if(include){
+    				result.add(original.get(i));
+    			}
+    		}
+    		//get the popular properties.
+    		//add to the list the properties with voteRank >  minVoteRank
+    		else if(Math.abs(original.get(i).getVotesRank()) != minVoteRank){
+    			if(!include){
+    				result.add(original.get(i));
+    			}
+    		}
+    	}
+    	return result;
+    }
+    
+    public Property getRandomProperty (List<PropertyRank> original){
+    	PropertyRank propertyRank = null;
+    	Random rand = new Random();
+    	int index = rand.nextInt(original.size());
+    	propertyRank = original.get(index);
+    	return new Property(propertyRank.getId(),propertyRank.getName());
+    }
+    
+    private void getMockData(){
+    	/*
     	Property prop1 = new Property(26);
     	Property prop2 = new Property(27);
     	Property prop3 = new Property(28);
@@ -114,80 +204,6 @@ public class QuestionsGeneratorService {
 //    	Property p2A = generatePopularProperty (tmp);
 //    	Property p2B = generatePopularProperty (tmp);
 //    	Property p2C = generatePopularProperty (tmp);
-    	
-    	return null;
-    }
-    
-    public Property generateNewPropertyVote(Place place) {    	
-    	try {
-    		int minVoteRank = 0;
-    		include = true;
-			List<PropertyRank> resultQuery = null;
-			List<PropertyRank> subResult = null;
-			
-			resultQuery = PlaceDAO.getPlacesWithRanks(place.getGoogleId());
-			for(int i=0 ; i< resultQuery.size();i++){
-				if(minVoteRank > Math.abs(resultQuery.get(i).getVotesRank())){
-					minVoteRank = Math.abs(resultQuery.get(i).getVotesRank());
-				}
-			}
-			subResult = getSubListByRank(resultQuery, minVoteRank);
-			return getRandomProperty(subResult);
-			
-		} catch (SQLException e) {
-			System.out.println("Error in getting properties form data base");//TODO: select random place to ask about?
-			return null;
-		}
-    }
-    
-    public Property generatePopularProperty(Place place) {
-    	try {
-    		int minVoteRank = 0;
-    		include = false;
-			List<PropertyRank> resultQuery = null;
-			List<PropertyRank> subResult = null;
-			
-			resultQuery = PlaceDAO.getPlacesWithRanks(place.getGoogleId());
-			for(int i=0 ; i< resultQuery.size();i++){
-				if(minVoteRank > Math.abs(resultQuery.get(i).getVotesRank())){
-					minVoteRank = Math.abs(resultQuery.get(i).getVotesRank());
-				}
-			}
-			subResult = getSubListByRank(resultQuery, minVoteRank);
-			return getRandomProperty(subResult);
-			
-		} catch (SQLException e) {
-			System.out.println("Error in getting properties form data base"); //TODO: select random place to ask about?
-			return null;
-		}
-    }
-    
-    public List<PropertyRank> getSubListByRank (List<PropertyRank> original, int minVoteRank){
-    	List<PropertyRank> result = new ArrayList<>();
-    	for(int i=0; i<original.size(); i++){
-    		//get new properties.
-    		//add to the list the properties with voteRank =  minVoteRank
-    		if(Math.abs(original.get(i).getVotesRank()) == minVoteRank){
-    			if(include){
-    				result.add(original.get(i));
-    			}
-    		}
-    		//get the popular properties.
-    		//add to the list the properties with voteRank >  minVoteRank
-    		else if(Math.abs(original.get(i).getVotesRank()) != minVoteRank){
-    			if(!include){
-    				result.add(original.get(i));
-    			}
-    		}
-    	}
-    	return result;
-    }
-    
-    public Property getRandomProperty (List<PropertyRank> original){
-    	PropertyRank propertyRank = null;
-    	Random rand = new Random();
-    	int index = rand.nextInt(original.size());
-    	propertyRank = original.get(index);
-    	return new Property(propertyRank.getId());
+    	*/
     }
 }

@@ -37,7 +37,8 @@ public class QuestionManagerService {
 
 		Place placeForQuestion = getPlaceForQuestion();
 		Vote newQuestions = questionGeneratorService.generateThreeQuestions(placeForQuestion);
-
+		newQuestions.setPlaceId(placeForQuestion.getGoogleId());
+		newQuestions.setName(placeForQuestion.getName());
 		return newQuestions;
 	}
 
@@ -64,7 +65,7 @@ public class QuestionManagerService {
 		}
 	}
 	
-	private Place getPlaceForQuestion () {
+	public Place getPlaceForQuestion () {
 		try {
 			String userId = SecurityContextHolder.getContext().getAuthentication().getName();
 			Set<String> candidateCheckInPlaces = UserDAO.getUserCheckInPlaces(userId);
@@ -82,7 +83,9 @@ public class QuestionManagerService {
 		{
 
 		}
-		return null;
+		//TODO: Change to random place
+		//if no place in checkins, ask for dizingoff club
+		return new Place("ChIJUZozUX9MHRURRh_1kxgz3bQ","dizingoff club",null,null);
 	}
 	
 	public void insertNewQuestions (Vote questions) {

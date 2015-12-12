@@ -15,7 +15,12 @@ public class Property  extends AbstractEntity {
     }
 	public Property () {
 	}
-
+	public Property (int id, String name) {
+		
+		super.setId(id);
+		super.setName(name);
+		
+	}
 	public void Save() throws SQLException {
 
 		if (this.getId()<=0){
