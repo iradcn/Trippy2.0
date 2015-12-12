@@ -210,7 +210,6 @@ define([
             '<strong>Something went terribly wrong!</strong> See console log for more details.</div>');
         }
       }.bind(this)).fail(function() {
-        $('#places-map').css('height', $('#places-map').height() - 60);
         $('.alerts-row').html(
           '<div class="alert alert-danger alert-dismissable" role="alert">' +
           '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
