@@ -178,6 +178,19 @@ define([
       $(this.vote_el).find('#row3PropLabel').text(data.property[2].name);
       $('.modal').modal('show');
     },
+
+    handlePlacesResponse: function (data) {
+      if (data.places.length != 0) {
+        MyGlobal.collections.ResponsePlaces.reset(data.places);
+        this.overlayResponse();
+      } else {
+        $('.alerts-row').html(
+            '<div class="alert alert-warning alert-dismissable" role="alert">' +
+            '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
+            '<span aria-hidden="true">&times;</span></button>' +
+            '<strong>No places were found!</strong> No places matching chosen filter criterias were found.</div>');
+      }
+    },
     placesSubmit: function () {
       $('.alert-resize-map').click();
       var req_json = this.constructRequest();
@@ -189,16 +202,7 @@ define([
         data: JSON.stringify(req_json)
       }).done(function(data) {
         if (data.places) {
-          if (data.places.length != 0) {
-            MyGlobal.collections.ResponsePlaces.reset(data.places);
-            this.overlayResponse();
-          } else {
-            $('.alerts-row').html(
-              '<div class="alert alert-warning alert-dismissable" role="alert">' +
-              '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
-              '<span aria-hidden="true">&times;</span></button>' +
-              '<strong>No places were found!</strong> No places matching chosen filter criterias were found.</div>');
-          }
+          this.handlePlacesResponse(data);
         } else if (data.question) {
           this.inFlightQuestion = data.question;
           this.renderVoteModal(data.question);
@@ -362,9 +366,9 @@ define([
           url: 'vote/answer',
           dataType: 'json',
           contentType: 'application/json',
-          data: res_json
-        }).done(function() {
-          console.log("answer sent!");
+          data: JSON.stringify(res_json)
+        }).done(function(data) {
+          this.handlePlacesResponse(data)
         }.bind(this)).fail(function(){
           console.log("answer sending failed!");
         });

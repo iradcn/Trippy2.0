@@ -76,16 +76,17 @@ public class QuestionManagerService {
 				}
 			}
 
-			// Todo - Find random place or place in the area
-
 		}
 		catch (Exception Ex)
 		{
-
+			Ex.printStackTrace();
 		}
-		//TODO: Change to random place
-		//if no place in checkins, ask for dizingoff club
-		return new Place("ChIJUZozUX9MHRURRh_1kxgz3bQ","dizingoff club",null,null);
+		try {
+			return PlaceDAO.getRandomPlace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	public void insertNewQuestions (Vote questions) {

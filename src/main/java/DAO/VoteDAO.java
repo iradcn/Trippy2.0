@@ -19,7 +19,7 @@ public class VoteDAO {
     private static String InsertVotePropToPlace = "INSERT INTO uservotes (userId, placeId, propId, vote, fTimestamp, nPlaceId) Values(?,?,?,?,?,?)";
     private static String selectOpenQuestion = "SELECT uservotes.nPlaceId, uservotes.placeId, uservotes.propId, properties.Name FROM uservotes,properties "+ 
     											"WHERE uservotes.is_opened = 1 and uservotes.userId =? and uservotes.propId = properties.Id";
-    private static String voteQuestion = "UPDATE uservotes set `vote`=?,`is_opened`=0 WHERE `userId`=? and `propId`=?";
+    private static String voteQuestion = "UPDATE uservotes set `vote`=?,`is_opened`=0 WHERE `userId`=? and `placeId`=? and `propId`=?";
     private static String GetPlacesUserVote = "SELECT placeId FROM uservotes WHERE userId = ? GROUP BY placeId";
     public static void insertNewQuestion(int propId, String placeId, int voteValue, String userId, long nPlaceId) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
@@ -72,8 +72,9 @@ public class VoteDAO {
 		List<PreparedStatement> psLst = new ArrayList<>();
 		PreparedStatement ps = conn.prepareStatement(voteQuestion);
 		ps.setInt(1, voteValue);
+		ps.setString(3,placeId);
 		ps.setString(2,username);
-		ps.setInt(3, propId);
+		ps.setInt(4, propId);
 		psLst.add(ps);
 		JDBCConnection.executeUpdate(psLst, conn);
     }

@@ -3,6 +3,8 @@ package DAO;
 import java.sql.*;
 import java.util.*;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+
 import model.Category;
 import model.Location;
 import model.Place;
@@ -52,6 +54,12 @@ public class PlaceDAO {
 	private static String selectByName = "SELECT `Id` from places where TRIM(LOWER(places.name))=TRIM(LOWER(?))";
 	private static String insertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) values(?,?)";
 	private static String selectPlaceById = "SELECT * from places where Id=?";
+	private static String selectRandomPlace = "SELECT * FROM places "+
+												"WHERE places.Id not in (SELECT uservotes.placeId "+
+												"FROM uservotes "+
+												"WHERE uservotes.userId = ?) "+
+												"order by RAND() limit 1 ";
+	
 	private static String selectPlaceByIdAscOrder = 
 
 		"SELECT "+
@@ -81,20 +89,32 @@ public class PlaceDAO {
 		PreparedStatement ps = conn.prepareStatement(selectPlaceById);
 		ps.setString(1, Id);
 		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
+		return getPlaceOutOfRS(rs);
 		
+		
+	}
+	
+	private static Place getPlaceOutOfRS(ResultSet rs) throws SQLException {
 		Place foundPlace = null;
-		
 		if (rs.next()) {
 			foundPlace = new Place(rs.getString("Id"));
 			foundPlace.setnId(rs.getLong("n_id"));
 			foundPlace.setName(rs.getString("Name"));
 		}
-		
 		return foundPlace;
 		
-		
 	}
-	
+	public static Place getRandomPlace() throws SQLException {
+		
+    	Connection conn = JDBCConnection.getConnection();
+		if (conn == null)  throw new SQLException();
+		PreparedStatement ps = conn.prepareStatement(selectRandomPlace);
+		String userId = SecurityContextHolder.getContext().getAuthentication().getName();
+		ps.setString(1, userId);
+		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
+		return getPlaceOutOfRS(rs);
+	}
+
 	public static String getPlaceNameByPlaceId(String Id) throws SQLException {
 		
 		Place foundPlace = getPlace(Id);
