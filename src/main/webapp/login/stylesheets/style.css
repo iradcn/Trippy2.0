@@ -1,13 +1,4 @@
-    @media only screen
-    and (min-width : 1199px) {
-        html {
-
-            background-image: url('/login/images/compass-and-map.jpg');
-        }
-    }
-    html {
-    background-size: 100%;
-    background-repeat: no-repeat;
+html {
     background-color: khaki;
 }
 .jumbotron-container {
