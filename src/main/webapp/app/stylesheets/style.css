@@ -185,3 +185,6 @@ label {
     width:700px
 }
 
+.places-submit, .places-reset-submit {
+    width: 100%;
+}
