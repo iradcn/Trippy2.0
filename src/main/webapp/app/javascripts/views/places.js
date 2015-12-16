@@ -97,7 +97,9 @@ define([
           zoom: 14,
           minZoom: 14,
           maxZoom: 14
-        })
+        }),
+        control: [],
+        interactions: []
       });
 
       this.map = map;
