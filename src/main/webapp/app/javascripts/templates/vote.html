@@ -1,64 +1,88 @@
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-<!--
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
--->
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-xs-12">
-            <img height="400" width="700" id="placeImage" class="center-block">
-          </div>
+<div class="modal fade vote-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <img width="100%" id="placeImage" class="center-block">
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="row top-buffer">
+                            Would you say <label id="placeName"/> is..
+                        </div>
+                        <div class="middle-buffer"></div>
+
+                        <div class="row" id="row1">
+                            <div class="col-md-4">
+                                <label id="row1PropLabel"/>
+                            </div>
+                            <div class="col-md-2">
+                                <button id="btnYes1" class="btn btn-success" data-propIndex="1">Yes</button>
+                            </div>
+
+                            <div class="col-md-2">
+
+                                    <button id="btnNo1" class="btn btn-danger">No</button>
+                            </div>
+
+                                <div class="col-md-2">
+
+                                    <button id="btnIDK1" class="btn btn-warning">No Idea</button>
+                                </div>
+
+                        </div>
+                        <div class="middle-buffer"></div>
+                        <div class="row" id="row2">
+                            <div class="col-md-4">
+                                <label id="row2PropLabel"/>
+                            </div>
+                            <div class="col-md-2">
+                                <button id="btnYes2" class="btn btn-success">Yes</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button id="btnNo2" class="btn btn-danger">No</button>
+                            </div>
+                            <div class="col-md-2">
+
+                                <button id="btnIDK2" class="btn btn-warning">No Idea</button>
+                            </div>
+                        </div>
+                        <div class="middle-buffer"></div>
+                        <div class="row" id="row3">
+                            <div class="col-md-4">
+                                <label id="row3PropLabel"/>
+                            </div>
+                            <div class="col-md-2">
+                                <button id="btnYes3" class="btn btn-success">Yes</button>
+                            </div>
+
+                            <div class="col-md-2">
+
+                                <button id="btnNo3" class="btn btn-danger">No</button>
+                            </div>
+
+                            <div class="col-md-2">
+
+                                <button id="btnIDK3" class="btn btn-warning">No Idea</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="middle-buffer"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-1 col-xs-12">
+                        <button type="button" id="submitVote" class="btn btn-primary submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="row top-buffer">
-	  Would you say <label id="placeName"/> is..
-	</div>
-        <div class="row" id="row1">
-          <div class="col-md-4">
-          </div>
-          <div class="col-md-4">
-            <label id="row1PropLabel"/>
-          </div>
-          <div class="col-md-4">
-            <button id="btnYes1" class="btn btn-success" data-propIndex="1">Yes</button>
-            <button id="btnNo1" class="btn btn-danger">No</button>
-            <button id="btnIDK1" class="btn btn-warning">No Idea</button>
-          </div>
-        </div>
-        <div class="middle-buffer"></div>
-        <div class="row" id="row2">
-          <div class="col-md-4">
-          </div>
-          <div class="col-md-4">
-            <label id="row2PropLabel"/>
-          </div>
-          <div class="col-md-4">
-            <button id="btnYes2" class="btn btn-success">Yes</button>
-            <button id="btnNo2" class="btn btn-danger">No</button>
-            <button id="btnIDK2" class="btn btn-warning">No Idea</button>
-          </div>
-        </div>
-        <div class="middle-buffer"></div>
-        <div class="row" id="row3">
-          <div class="col-md-4">
-          </div>
-          <div class="col-md-4">
-            <label id="row3PropLabel"/>
-          </div>
-          <div class="col-md-4">
-            <button id="btnYes3" class="btn btn-success">Yes</button>
-            <button id="btnNo3" class="btn btn-danger">No</button>
-            <button id="btnIDK3" class="btn btn-warning">No Idea</button>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="col-md-1 col-xs-12">
-          <button type="button" id="submitVote" class="btn btn-primary submit">Submit</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
+</div>
 </div>

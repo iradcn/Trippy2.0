@@ -176,7 +176,7 @@ define([
       $(this.vote_el).find('#row1PropLabel').text(data.property[0].name);
       $(this.vote_el).find('#row2PropLabel').text(data.property[1].name);
       $(this.vote_el).find('#row3PropLabel').text(data.property[2].name);
-      $('.modal').modal('show');
+      $('.vote-modal').modal('show');
     },
 
     handlePlacesResponse: function (data) {
@@ -374,7 +374,7 @@ define([
         });
 
         this.voteAnswers = ['', '', ''];
-        $('.modal').modal('hide');
+        $('.vote-modal').modal('hide');
       }
     },
   });

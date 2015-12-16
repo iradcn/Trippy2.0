@@ -186,7 +186,7 @@ label {
     }
 }
 @media (max-width: 700px) {
-    .modal-dialog,.btn,#placeImage {
+    .btn,#placeImage {
         width: 100%;
     }
 
@@ -194,4 +194,7 @@ label {
 
 .places-submit, .places-reset-submit {
     width: 100%;
+}
+.spacer {
+    height: 5px;
 }

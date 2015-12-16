@@ -29,7 +29,8 @@ public class CategoryDAO {
 		while (rs.next() == true) {
 			int id = rs.getInt("id");
 			String name = rs.getString("name");
-			categoryMap.put(id, new Category(id, name));
+			String reprName = rs.getString("Presentation_Name");
+			categoryMap.put(id, new Category(id, name, reprName));
 
 		}
 
@@ -43,7 +44,8 @@ public class CategoryDAO {
 		while (rs.next() == true) {
 			int id = rs.getInt("id");
 			String name = rs.getString("name");
-			allCats.add(new Category(id, name));
+			String reprName = rs.getString("Presentation_Name");
+			allCats.add(new Category(id, name, reprName));
 
 		}
 		
