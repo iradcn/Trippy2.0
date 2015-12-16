@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`places` (
   UNIQUE INDEX `Id_UNIQUE` (`Id` ASC),
   UNIQUE INDEX `nId_UNIQUE` (`n_id` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT = 42923
+AUTO_INCREMENT = 53654
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`user_votes_agg_view` (`placeId` INT, `prop
 DROP VIEW IF EXISTS `trippy2`.`places_props_view` ;
 DROP TABLE IF EXISTS `trippy2`.`places_props_view`;
 USE `trippy2`;
-CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`places_props_view` AS select `trippy2`.`uservotes`.`placeId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId`,`trippy2`.`uservotes`.`nPlaceId` AS `nPlaceid`,sum(`trippy2`.`uservotes`.`vote`) AS `rank`,(case when (sum(`trippy2`.`uservotes`.`vote`) > 0) then 1 else 0 end) AS `rank_bin` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`placeId`,`trippy2`.`uservotes`.`propId` having (sum(`trippy2`.`uservotes`.`vote`) > 0);
+CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`places_props_view` AS select `trippy2`.`uservotes`.`placeId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId`,`trippy2`.`uservotes`.`nPlaceId` AS `nPlaceid`,sum(`trippy2`.`uservotes`.`vote`) AS `rank`,(case when (sum(`trippy2`.`uservotes`.`vote`) > 0) then 1 else 0 end) AS `rank_bin` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`placeId`,`trippy2`.`uservotes`.`propId`,`trippy2`.`uservotes`.`nPlaceId` having (sum(`trippy2`.`uservotes`.`vote`) > 0);
 
 -- -----------------------------------------------------
 -- View `trippy2`.`user_votes_agg_view`
@@ -205,14 +205,15 @@ CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURIT
 DROP VIEW IF EXISTS `trippy2`.`user_votes_agg_view` ;
 DROP TABLE IF EXISTS `trippy2`.`user_votes_agg_view`;
 USE `trippy2`;
-CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`user_votes_agg_view` AS select `trippy2`.`uservotes`.`placeId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId`,sum(`trippy2`.`uservotes`.`vote`) AS `votesRank` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`placeId`,`trippy2`.`uservotes`.`propId` union select `trippy2`.`places_categories_bin`.`placeId` AS `placeId`,`trippy2`.`places_categories_bin`.`categoryId` AS `propId`,`trippy2`.`places_categories_bin`.`vote` AS `votesRank` from `trippy2`.`places_categories_bin`;
+CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`user_votes_agg_view` AS select `trippy2`.`uservotes`.`nPlaceId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId`,(case when (sum(`trippy2`.`uservotes`.`vote`) > 0) then 1 else 0 end) AS `votesRank` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`nPlaceId`,`trippy2`.`uservotes`.`propId` union select `trippy2`.`places_categories_bin`.`placeId` AS `placeId`,`trippy2`.`places_categories_bin`.`categoryId` AS `propId`,`trippy2`.`places_categories_bin`.`vote` AS `votesRank` from `trippy2`.`places_categories_bin`;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+
 USE `trippy2`;
-insert into categories (`name`, `id`,`Presentation_Name`) 
+insert into categories (`name`, `id`,`Presentation_Name`)
 values("airport",1,"Airport"),
 ("amusement_park",2,"Amusement Park"),
 ("aquarium",3, "Aquarium"),

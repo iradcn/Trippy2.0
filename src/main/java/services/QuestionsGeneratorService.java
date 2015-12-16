@@ -59,7 +59,7 @@ public class QuestionsGeneratorService {
 
 			ReloadFromJDBCDataModel reloadFromJDBCDataModel = new ReloadFromJDBCDataModel(dataModel);
         	UserSimilarity similarity = new TanimotoCoefficientSimilarity(reloadFromJDBCDataModel);
-       	 	UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.8, similarity, reloadFromJDBCDataModel);
+       	 	UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.2, similarity, reloadFromJDBCDataModel);
         	UserBasedRecommender recommender = new GenericUserBasedRecommender(reloadFromJDBCDataModel, neighborhood, similarity);
 
 			List<RecommendedItem> recommendations = recommender.recommend(place.getnId(), 5);
@@ -76,7 +76,7 @@ public class QuestionsGeneratorService {
 
     private Property getMockProperty() {
 		Property prop = new Property();
-		prop.setId(3);
+		prop.setId(1500);
 		prop.setName("Hila Friendly");
 		return prop;
 	}

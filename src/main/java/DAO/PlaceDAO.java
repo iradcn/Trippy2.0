@@ -32,7 +32,8 @@ public class PlaceDAO {
 	private static String insertPlacesCategoriesBin = "INSERT INTO places_categories_bin(categoryId, placeId) "+
 													  "SELECT pc.CategoryId, p.n_id " +
 													  "FROM places_categories pc, places p "+
-												      "where p.id = pc.placeId";
+												      "where p.id = pc.placeId " +
+													  "GROUP BY pc.CategoryId, p.n_id";
 
 	private static String getPlacesByLocation = "SELECT  p.name, p.lat, p.lon, p.id, pc.CategoryId, pp.PropId, p.n_id " +
 												"FROM places p " +
@@ -72,7 +73,7 @@ public class PlaceDAO {
 		"FROM "+
 		    "uservotes AS uv,properties AS p "+
 		"WHERE "+
-		    "placeId = ? "+
+		    "placeId = ? and uv.propId = p.id "+
 		"GROUP BY uv.propId "+
 		"UNION "+ 
 		"SELECT "+ 

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import DAO.PropertyDAO;
+import DAO.VoteDAO;
 
 /**
  * Created by nimrod on 5/29/15.
@@ -49,6 +50,10 @@ public class Property  extends AbstractEntity {
 		p.getProperties().add(new Property(propId));
 		PropertyDAO.RemovePropFromPlace(p);
 
+	}
+
+	public static void AddPropToPlace(String placeId,int propId, int vote, String username, long nId) throws SQLException {
+		VoteDAO.insertNewQuestion(propId,placeId,vote, username, nId);
 	}
 
 }

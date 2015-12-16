@@ -38,6 +38,7 @@ public class QuestionManagerService {
 		Place placeForQuestion = getPlaceForQuestion();
 		Vote newQuestions = questionGeneratorService.generateThreeQuestions(placeForQuestion);
 		newQuestions.setPlaceId(placeForQuestion.getGoogleId());
+		newQuestions.setnPlaceId(placeForQuestion.getnId());
 		newQuestions.setName(placeForQuestion.getName());
 		return newQuestions;
 	}
