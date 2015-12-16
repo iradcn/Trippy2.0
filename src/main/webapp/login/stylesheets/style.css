@@ -26,3 +26,29 @@ html,body {
     color: red;
     font-size: 15px !important;
 }
+.row {
+    margin: 0 !important;
+}
+html {
+    font-size: 17px;
+}
+@media (max-width: 900px) {
+    html { font-size: 15px; }
+}
+@media (max-width: 400px) {
+    html { font-size: 14px; }
+}
+
+/* Type will scale with document */
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.5rem;
+}
+p {
+    font-size: 1.5rem;
+}
