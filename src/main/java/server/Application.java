@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 
+import services.GoogleImportService;
 import config.ConnectionConfig;
 
 @EnableWebMvcSecurity
@@ -23,6 +24,11 @@ public class Application {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        SpringApplication.run(Application.class, args);    
+        SpringApplication.run(Application.class, args); 
+		if (args[0] == "load") {
+	        GoogleImportService googleImportService = new GoogleImportService();
+			googleImportService.importData();
+		}
+
     }
 }
