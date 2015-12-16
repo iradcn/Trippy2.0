@@ -12,8 +12,17 @@ import model.Property;
 import model.PropertyRank;
 import model.Vote;
 
+import org.apache.mahout.cf.taste.common.TasteException;
 import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
+import org.apache.mahout.cf.taste.impl.model.jdbc.ReloadFromJDBCDataModel;
+import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
+import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
+import org.apache.mahout.cf.taste.impl.similarity.TanimotoCoefficientSimilarity;
 import org.apache.mahout.cf.taste.model.JDBCDataModel;
+import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
+import org.apache.mahout.cf.taste.recommender.RecommendedItem;
+import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
+import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 import org.springframework.stereotype.Service;
 
 import DAO.PlaceDAO;
@@ -41,23 +50,28 @@ public class QuestionsGeneratorService {
 
         dataModel = new MySQLJDBCDataModel(
                 dataSource, "user_votes_agg_view", "placeId",
-                "propId", "votesRankBin", "fTimestamp") {
+                "propId", "votesRank", "fTimestamp") {
         };
 
     };
-    public Property generateCorrelatedProperty(Place place) {/*
-        UserSimilarity similarity = new TanimotoCoefficientSimilarity(dataModel);
-        UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, dataModel);
-        UserBasedRecommender recommender = new GenericUserBasedRecommender(dataModel, neighborhood, similarity);
+    public Property generateCorrelatedProperty(Place place) {
+		try {
 
-        List<RecommendedItem> recommendations = recommender.recommend(placeId, 1);
-        for (RecommendedItem recommendation : recommendations) {
-            return recommendation.getItemID();
-        }
+			ReloadFromJDBCDataModel reloadFromJDBCDataModel = new ReloadFromJDBCDataModel(dataModel);
+        	UserSimilarity similarity = new TanimotoCoefficientSimilarity(reloadFromJDBCDataModel);
+       	 	UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.8, similarity, reloadFromJDBCDataModel);
+        	UserBasedRecommender recommender = new GenericUserBasedRecommender(reloadFromJDBCDataModel, neighborhood, similarity);
 
-        return -1;*/
-    	return this.getMockProperty();
+			List<RecommendedItem> recommendations = recommender.recommend(place.getnId(), 5);
+			for (RecommendedItem recommendation : recommendations) {
+				if (recommendation.getItemID() >= 24)
+					return new Property((int) recommendation.getItemID());
+			}
+		}
+		catch (Exception ex) {
 
+		}
+		return this.getMockProperty();
     }
 
     private Property getMockProperty() {
