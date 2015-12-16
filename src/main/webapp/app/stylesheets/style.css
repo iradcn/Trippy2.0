@@ -181,8 +181,17 @@ label {
 
 .close {display: none;}
 
-.modal-dialog{
-    width:700px
+@media screen and (min-width: 700px) {
+    .modal-dialog {
+
+        width: 700px
+    }
+}
+@media (max-width: 700px) {
+    .modal-dialog,.btn,#placeImage {
+        width: 100%;
+    }
+
 }
 
 .places-submit, .places-reset-submit {
