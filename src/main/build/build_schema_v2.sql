@@ -26,6 +26,7 @@ DROP TABLE IF EXISTS `trippy2`.`categories` ;
 CREATE TABLE IF NOT EXISTS `trippy2`.`categories` (
   `Id` INT(10) UNSIGNED NOT NULL,
   `Name` VARCHAR(45) NULL DEFAULT NULL,
+  `Presentation_Name` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
 ENGINE = InnoDB
