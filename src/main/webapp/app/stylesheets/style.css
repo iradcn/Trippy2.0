@@ -179,8 +179,6 @@ label {
     border-radius: 20px !important;
 }
 
-.close {display: none;}
-
 @media screen and (min-width: 700px) {
     .modal-dialog {
 

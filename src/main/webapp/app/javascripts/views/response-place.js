@@ -20,6 +20,7 @@ define([
       this.populateCategories();
       this.populateProperties();
       this.populateNewProperties();
+      $('.response-place-modal').modal();
     },
     renderName: function () {
       $('#place-name').html(this.model.attributes.name);

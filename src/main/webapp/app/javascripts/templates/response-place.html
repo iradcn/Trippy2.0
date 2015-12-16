@@ -1,31 +1,36 @@
-<div class="row response-elem-row">
-  <h3 id="place-name"></h3>
-</div>
-<div class="row response-elem-row">
-  <label>Categories:</label>
-  <ul id="response-place-categories">
-  </ul>
-</div>
-<div class="row response-elem-row">
-  <label for="response-place-properties">Properties:</label>
-  <select id="response-place-properties" size=5 class="form-control">
-  </select>
-</div>
-<div class="row response-elem-row">
-  <div class="col-xs-6 response-property-col add-property-to-place-col">
-    <label for="response-place-new-property">Choose property and add to place</label>
-    <select id="response-place-new-property" class="form-control">
-    </select>
-    <button class="btn btn-success places-new-property-submit" type="button">Add</button>
+<div class="modal fade response-place-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 id="place-name"></h4>
+      </div>
+      <div class="modal-body">
+        <div class="row response-elem-row">
+          <label>Categories:</label>
+          <ul id="response-place-categories">
+          </ul>
+        </div>
+        <div class="row response-elem-row">
+          <label for="response-place-properties">Properties:</label>
+          <select id="response-place-properties" size=5 class="form-control">
+          </select>
+        </div>
+        <div class="row response-elem-row">
+          <div class="col-xs-6 response-property-col add-property-to-place-col">
+            <label for="response-place-new-property">Choose property and add to place</label>
+            <select id="response-place-new-property" class="form-control">
+            </select>
+            <button class="btn btn-success places-new-property-submit" type="button">Add</button>
+          </div>
+          <div class="col-xs-6 response-property-col delete-property-from-place-col">
+            <label>Remove property from place</label><br>
+            <button class="btn btn-danger places-remove-property-submit" type="button" disabled="true">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-xs-6 response-property-col delete-property-from-place-col">
-    <label>Remove property from place</label><br>
-    <button class="btn btn-danger places-remove-property-submit" type="button" disabled="true">Remove</button>
-  </div>
 </div>
-
-
-
-
 
 
