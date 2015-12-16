@@ -94,7 +94,9 @@ define([
         target: 'places-map',
         view: new ol.View({
           center: ol.proj.transform([34.781813, 32.075978], 'EPSG:4326', 'EPSG:3857'),
-          zoom: 14
+          zoom: 14,
+          minZoom: 14,
+          maxZoom: 14
         })
       });
 
