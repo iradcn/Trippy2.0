@@ -29,6 +29,11 @@ public class PlaceDAO {
 			+ " (`placeid`,`categoryid`) VALUES"
 			+ "(?,?) ON DUPLICATE KEY UPDATE `PlaceId`=`PlaceId`";
 
+	private static String insertPlacesCategoriesBin = "INSERT INTO places_categories_bin(categoryId, placeId) "+
+													  "SELECT pc.CategoryId, p.n_id " +
+													  "FROM places_categories pc, places p "+
+												      "where p.id = pc.placeId";
+
 	private static String getPlacesByLocation = "SELECT  p.name, p.lat, p.lon, p.id, pc.CategoryId, pp.PropId, p.n_id " +
 												"FROM places p " +
 												     "LEFT OUTER JOIN places_categories pc ON p.id = pc.placeid " +
@@ -301,5 +306,15 @@ public static List<PropertyRank> getPlacesWithRanks(String Id) throws SQLExcepti
 		}
 		
 		return result;	
+	}
+
+	public static void SavePlacesAndCatsBin(List<Place> allPlaces) throws SQLException {
+		//perform update, if fails rollback and throw sql exception
+		Connection conn = JDBCConnection.getConnection();
+		if (conn == null)  throw new SQLException();
+		PreparedStatement insertPlaceState = conn.prepareStatement(insertPlacesCategoriesBin);
+		List<PreparedStatement> statements = new ArrayList<PreparedStatement>();
+		statements.add(insertPlaceState);
+		JDBCConnection.executeUpdate(statements, conn);
 	}
 }

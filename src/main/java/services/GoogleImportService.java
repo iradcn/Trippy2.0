@@ -54,6 +54,7 @@ public class GoogleImportService {
 			
 			
 			PlaceDAO.SavePlacesAndPlaceCats(allPlaces);
+			PlaceDAO.SavePlacesAndCatsBin(allPlaces);
         }catch(Exception e){
         	System.out.println("Error has occured:"+e.getStackTrace());
         }

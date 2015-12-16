@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`places` (
   UNIQUE INDEX `Id_UNIQUE` (`Id` ASC),
   UNIQUE INDEX `nId_UNIQUE` (`n_id` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT = 10732
+AUTO_INCREMENT = 42923
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -60,6 +60,19 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`places_categories` (
   `PlaceId` VARCHAR(200) NOT NULL,
   `CategoryId` INT(10) NOT NULL,
   INDEX `IX_CATEGORY_ID` (`CategoryId` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `trippy2`.`places_categories_bin`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `trippy2`.`places_categories_bin` ;
+
+CREATE TABLE IF NOT EXISTS `trippy2`.`places_categories_bin` (
+  `placeId` INT(11) NOT NULL,
+  `categoryId` INT(10) NOT NULL,
+  `vote` INT(1) NULL DEFAULT '1')
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -91,6 +104,7 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`properties` (
   PRIMARY KEY (`Id`),
   UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
 ENGINE = InnoDB
+AUTO_INCREMENT = 24
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -174,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`places_props_view` (`placeId` INT, `propId
 -- -----------------------------------------------------
 -- Placeholder table for view `trippy2`.`user_votes_agg_view`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `trippy2`.`user_votes_agg_view` (`placeId` INT, `propId` INT, `votesRank` INT, `max(fTimestamp)` INT);
+CREATE TABLE IF NOT EXISTS `trippy2`.`user_votes_agg_view` (`placeId` INT, `propId` INT, `votesRank` INT);
 
 -- -----------------------------------------------------
 -- View `trippy2`.`places_props_view`
@@ -190,7 +204,7 @@ CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURIT
 DROP VIEW IF EXISTS `trippy2`.`user_votes_agg_view` ;
 DROP TABLE IF EXISTS `trippy2`.`user_votes_agg_view`;
 USE `trippy2`;
-CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`user_votes_agg_view` AS select `trippy2`.`uservotes`.`placeId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId`,sum(`trippy2`.`uservotes`.`vote`) AS `votesRank`,max(`trippy2`.`uservotes`.`fTimestamp`) AS `max(fTimestamp)` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`placeId`,`trippy2`.`uservotes`.`propId`;
+CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURITY DEFINER VIEW `trippy2`.`user_votes_agg_view` AS select `trippy2`.`uservotes`.`placeId` AS `placeId`,`trippy2`.`uservotes`.`propId` AS `propId`,sum(`trippy2`.`uservotes`.`vote`) AS `votesRank` from `trippy2`.`uservotes` group by `trippy2`.`uservotes`.`placeId`,`trippy2`.`uservotes`.`propId` union select `trippy2`.`places_categories_bin`.`placeId` AS `placeId`,`trippy2`.`places_categories_bin`.`categoryId` AS `propId`,`trippy2`.`places_categories_bin`.`vote` AS `votesRank` from `trippy2`.`places_categories_bin`;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
