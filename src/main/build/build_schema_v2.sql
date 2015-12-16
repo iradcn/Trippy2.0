@@ -210,3 +210,33 @@ CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`trippy2`@`localhost` SQL SECURIT
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+USE `trippy2`;
+insert into categories (`name`, `id`,`Presentation_Name`) 
+values("airport",1,"Airport"),
+("amusement_park",2,"Amusement Park"),
+("aquarium",3, "Aquarium"),
+("art_gallery",4, "Art Gallery"),
+("bakery",5, "Bakery"),
+("bar",6, "Bar"),
+("cafe",7, "Cafe"),
+("casino",8,"Casino"),
+("clothing_store",9,"Clothing Store"),
+("convenience_store",10, "Convenience Store"),
+("department_store",11, "Department Store"),
+("food",12, "Food"),
+("grocery_or_supermarket",13, "Grocery Or Superkmarket"),
+("gym",14, "Gym"),
+("health",15, "Health"),
+("movie_theater",16, "Movie Theatre"),
+("museum",17, "Museum"),
+("night_club",18, "Night Club"),
+("park",19, "Park"),
+("restaurant",20, "Restaurant"),
+("shopping_mall",21, "Shopping Mall"),
+("spa",22, "Spa"),
+("zoo",23, "Zoo");
+
+USE `trippy2`;
+INSERT INTO properties (`name`) VALUES("Dog Friendly"),("For Students"),("For Famillies"),("Religious"),("First Date"),("Beautiful Girls");
+
