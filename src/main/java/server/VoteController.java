@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import DAO.UserDAO;
-import DAO.VoteDAO;
 import protocol_model.QuestionAndResults;
 import services.QuestionManagerService;
 import services.QuestionsGeneratorService;
+import DAO.UserDAO;
 
 @RestController
 public class VoteController {
