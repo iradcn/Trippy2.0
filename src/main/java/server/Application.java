@@ -25,10 +25,5 @@ public class Application {
             e.printStackTrace();
         }
         SpringApplication.run(Application.class, args); 
-		if (args[0] == "load") {
-	        GoogleImportService googleImportService = new GoogleImportService();
-			googleImportService.importData();
-		}
-
     }
 }

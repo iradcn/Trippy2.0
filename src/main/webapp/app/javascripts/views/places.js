@@ -169,12 +169,11 @@ define([
     renderVoteModal: function (data) {
       $.ajax({
         method: "GET",
-        url: "/app/image/" + data.placeId + ".jpg",
+        url: "/app/image/" + data.placeId + ".jpg"
       }).done(function() {
         $(this.vote_el).find('#placeImage').attr("src", "/app/image/" + data.placeId + ".jpg");
-        $(this.vote_el).find('#placeImage').show();
       }.bind(this)).fail(function() {
-        $(this.vote_el).find('#placeImage').hide();
+        $(this.vote_el).find('#placeImage').attr("src", "/common/images/no-image.png");
       }.bind(this));
       $(this.vote_el).find('#placeName').text(data.name);
       $(this.vote_el).find('#row1PropLabel').text(data.property[0].name);
