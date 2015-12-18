@@ -134,6 +134,7 @@ CREATE TABLE IF NOT EXISTS `trippy2`.`users` (
   `enabled` TINYINT(4) NULL DEFAULT '1',
   `userscol` VARCHAR(45) NULL DEFAULT NULL,
   `sent_data_counter` INT(20) UNSIGNED NULL DEFAULT '0',
+  `rel_counter` INT(20) NULL DEFAULT '0',
   PRIMARY KEY (`user_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;

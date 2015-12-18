@@ -20,6 +20,8 @@ public class UserDAO {
     private static String InsertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) VALUES (?,?)";
     private static String FindCheckIn = "SELECT place_id FROM users_check_in WHERE user_id=?";
     private static String incrementSentDataCounter = "UPDATE users set `sent_data_counter`=`sent_data_counter`+1 where `user_id`=?"; 
+    private static String incrementRelCounter = "UPDATE users set `rel_counter`=`rel_counter`+1 where `user_id`=?"; 
+    private static String decrementRelCounter = "UPDATE users set `rel_counter`=`rel_counter`-1 where `user_id`=?"; 
     private static String getSentDataCounterByUserId = "SELECT * FROM users where user_id = ?";
     
     public static void Insert(User user) throws SQLException {
@@ -84,6 +86,24 @@ public class UserDAO {
 		Connection conn = JDBCConnection.getConnection();
 		List<PreparedStatement> lst = new ArrayList<PreparedStatement>();
 		PreparedStatement stmt = conn.prepareStatement(incrementSentDataCounter);
+		stmt.setString(1, userId);
+		lst.add(stmt);
+		JDBCConnection.executeUpdate(lst, conn);
+	}
+	
+	public static void IncrementUserRelCounter (String userId) throws SQLException {
+		Connection conn = JDBCConnection.getConnection();
+		List<PreparedStatement> lst = new ArrayList<PreparedStatement>();
+		PreparedStatement stmt = conn.prepareStatement(incrementRelCounter);
+		stmt.setString(1, userId);
+		lst.add(stmt);
+		JDBCConnection.executeUpdate(lst, conn);
+	}
+	
+	public static void DecrementUserRelCounter (String userId) throws SQLException {
+		Connection conn = JDBCConnection.getConnection();
+		List<PreparedStatement> lst = new ArrayList<PreparedStatement>();
+		PreparedStatement stmt = conn.prepareStatement(decrementRelCounter);
 		stmt.setString(1, userId);
 		lst.add(stmt);
 		JDBCConnection.executeUpdate(lst, conn);

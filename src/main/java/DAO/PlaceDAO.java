@@ -86,6 +86,7 @@ public class PlaceDAO {
 		"AND p.Id NOT IN (SELECT uservotes.propId as PropId "+
 		    		"FROM uservotes WHERE uservotes.placeId=?) "+
 		"ORDER BY votesRank ASC;";
+	private static String getRankFromView = "SELECT `votesRank` FROM user_votes_agg_view WHERE `placeId` =? AND `propId` = ?";
 	
 	public static Place getPlace(String Id) throws SQLException {
 		
@@ -318,4 +319,23 @@ public static List<PropertyRank> getPlacesWithRanks(String Id) throws SQLExcepti
 		statements.add(insertPlaceState);
 		JDBCConnection.executeUpdate(statements, conn);
 	}
+	
+	public static int getPlaceRank(String placeId, int propertyId) throws SQLException {
+		Connection conn = JDBCConnection.getConnection();
+
+		PreparedStatement selectPlaces = conn.prepareStatement(getRankFromView);
+
+		selectPlaces.setString(1, placeId);
+		selectPlaces.setInt(2, propertyId);
+		
+		ResultSet rs = JDBCConnection.executeQuery(selectPlaces, conn);
+		
+		if (rs.next()) {
+			return rs.getInt("votesRank");
+		}
+		else {
+			return 0;
+		}
+	}
+	
 }
