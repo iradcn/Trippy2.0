@@ -7,6 +7,7 @@ import java.util.Random;
 
 import javax.sql.DataSource;
 
+import DAO.PropertyDAO;
 import model.Place;
 import model.Property;
 import model.PropertyRank;
@@ -23,6 +24,7 @@ import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
 import org.apache.mahout.cf.taste.similarity.UserSimilarity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import DAO.PlaceDAO;
@@ -54,9 +56,10 @@ public class QuestionsGeneratorService {
         };
 
     };
-    public Property generateCorrelatedProperty(Place place) {
+    public Property generateCorrelatedProperty(Place place, Property fProp, Property sProp) {
 		try {
 
+			// Get property from similar places
 			ReloadFromJDBCDataModel reloadFromJDBCDataModel = new ReloadFromJDBCDataModel(dataModel);
         	UserSimilarity similarity = new TanimotoCoefficientSimilarity(reloadFromJDBCDataModel);
        	 	UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.2, similarity, reloadFromJDBCDataModel);
@@ -64,14 +67,46 @@ public class QuestionsGeneratorService {
 
 			List<RecommendedItem> recommendations = recommender.recommend(place.getnId(), 5);
 			for (RecommendedItem recommendation : recommendations) {
-				if (recommendation.getItemID() >= 24)
-					return new Property((int) recommendation.getItemID());
+				if (recommendation.getItemID() >= 24 && recommendation.getValue() > 0)
+					System.out.println("Got Property by similarity");
+					return  PropertyDAO.getPropById((int)recommendation.getItemID());
 			}
-		}
-		catch (Exception ex) {
+
+			// Get one of the most popular properties in this category and the user
+			// didn't answer i don't know about this property
+			List<Property> propsCandidates = PropertyDAO.GetPopularPropertiesForCategory(place.getGoogleId(),
+					SecurityContextHolder.getContext().getAuthentication().getName());
+			if (propsCandidates != null && propsCandidates.size() > 0) {
+				System.out.println("Got Property by popular in category");
+				return propsCandidates.get(0);
+			}
+
+			// If both checks didn't match get popular property on user searches
+			Property p = PropertyDAO.GetPopularPropertyInSearch(SecurityContextHolder.getContext().getAuthentication().getName());
+			if (p != null) {
+				System.out.println("Got popular property user searched for");
+				return p;
+			}
+
+			// Get random property
+			List<Property> props = PropertyDAO.getAll();
+			for (int j=0; j<props.size(); j++) {
+				Random rand = new Random();
+				int index = rand.nextInt(props.size());
+				Property prop = props.get(index);
+				if (prop.getId() != fProp.getId() && prop.getId() != sProp.getId()) {
+					System.out.println("Got random property");
+					return props.get(index);
+				}
+			}
+
+			System.out.println("Didn't find property to ask");
+			return null;
 
 		}
-		return this.getMockProperty();
+		catch (Exception ex) {
+			return null;
+		}
     }
 
     private Property getMockProperty() {
@@ -86,7 +121,7 @@ public class QuestionsGeneratorService {
     	Property[] propertyArr = new Property[3];
     	propertyArr[0] = generateNewPropertyVote(place);
     	propertyArr[1] = generatePopularProperty(place);
-    	propertyArr[2] = generateCorrelatedProperty(place);
+    	propertyArr[2] = generateCorrelatedProperty(place, propertyArr[0], propertyArr[1]);
     	vote.setProperty(propertyArr);
     	return vote;
     }
