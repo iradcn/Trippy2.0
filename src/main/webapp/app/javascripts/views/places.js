@@ -357,13 +357,13 @@ define([
         res_json["answers"] = this.voteAnswers;
         res_json["query"] = this.constructRequest();
 
-        console.log(JSON.stringify(req_json));
+        console.log(JSON.stringify(res_json));
         $.ajax({
           method: "POST",
           url: 'vote/answer',
           dataType: 'json',
           contentType: 'application/json',
-          data: res_json
+          data: JSON.stringify(res_json)
         }).done(function() {
           console.log("answer sent!");
         }.bind(this)).fail(function(){
