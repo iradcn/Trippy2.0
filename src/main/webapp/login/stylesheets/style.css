@@ -1,18 +1,13 @@
-html {
-    background-image: url('/login/images/compass-and-map.jpg');
-    background-size: 100%;
-
+html,body {
+    background-color: khaki;
 }
 .jumbotron-container {
     width: 100%;
     height: 100%;
-    position: absolute;
 }
 .jumbotron {
-    margin-top: 150px;
-    margin-right: auto;
-    margin-left: auto;
-    width: 700px;
+    margin-top:150px;
+    width: 100%;
     opacity: 0.85;
     border-radius: 10px;
     text-align: center;
@@ -22,9 +17,39 @@ html {
 }
 .fb-button {
     cursor: pointer;
-    width: 300px;
+    width: 100%;
+}
+.fb-button img {
+    width: 100%;
 }
 .error-msg {
     color: red;
     font-size: 15px !important;
+}
+.row {
+    margin: 0 !important;
+}
+html {
+    font-size: 17px;
+}
+@media (max-width: 991px) {
+    html { font-size: 19px; }
+    .jumbotron {margin-top:50px;}
+}
+@media (max-width: 400px) {
+    html { font-size: 20px; }
+}
+
+/* Type will scale with document */
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.5rem;
+}
+p {
+    font-size: 1.5rem;
 }

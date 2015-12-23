@@ -23,6 +23,6 @@ public class Application {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        SpringApplication.run(Application.class, args);    
+        SpringApplication.run(Application.class, args); 
     }
 }

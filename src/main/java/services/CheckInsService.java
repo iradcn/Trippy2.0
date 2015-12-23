@@ -44,7 +44,7 @@ public class CheckInsService implements Runnable {
 						System.out.println("Place "+placeCandidate.getName()+ " found in DB");
 						confirmedCandidates.add(foundPlace);
 					} else {
-						System.out.println("Place "+placeCandidate.getName()+ " is not in DB");
+						//System.out.println("Place "+placeCandidate.getName()+ " is not in DB");
 					}
 				} catch (SQLException e) {
 					System.out.println("Couldnt query DB for "+placeCandidate.getName());

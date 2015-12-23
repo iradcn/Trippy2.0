@@ -12,7 +12,7 @@ public class Location {
         return radius;
     }
 
-    public void setRadius(int radius) {
+    public void setRadius(double radius) {
         this.radius = radius;
     }
 
@@ -32,7 +32,7 @@ public class Location {
         this.lat = lat;
     }
 
-    public Location(Double lat, Double lon){
+    public Location(double lat, double lon){
     	this.lat = lat;
     	this.lon = lon;
     }

@@ -3,10 +3,13 @@ package DAO;
 import java.sql.*;
 import java.util.*;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+
 import model.Category;
 import model.Location;
 import model.Place;
 import model.Property;
+import model.PropertyRank;
 import model.User;
 import protocol_model.ResultMultipleSearch;
 import protocol_model.SearchByLocation;
@@ -25,6 +28,12 @@ public class PlaceDAO {
 	private static String insertCategoriesSQL = "INSERT INTO places_categories"
 			+ " (`placeid`,`categoryid`) VALUES"
 			+ "(?,?) ON DUPLICATE KEY UPDATE `PlaceId`=`PlaceId`";
+
+	private static String insertPlacesCategoriesBin = "INSERT INTO places_categories_bin(categoryId, placeId) "+
+													  "SELECT pc.CategoryId, p.n_id " +
+													  "FROM places_categories pc, places p "+
+												      "where p.id = pc.placeId " +
+													  "GROUP BY pc.CategoryId, p.n_id";
 
 	private static String getPlacesByLocation = "SELECT  p.name, p.lat, p.lon, p.id, pc.CategoryId, pp.PropId, p.n_id " +
 												"FROM places p " +
@@ -51,6 +60,33 @@ public class PlaceDAO {
 	private static String selectByName = "SELECT `Id` from places where TRIM(LOWER(places.name))=TRIM(LOWER(?))";
 	private static String insertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) values(?,?)";
 	private static String selectPlaceById = "SELECT * from places where Id=?";
+	private static String selectRandomPlace = "SELECT * FROM places "+
+												"WHERE places.Id not in (SELECT uservotes.placeId "+
+												"FROM uservotes "+
+												"WHERE uservotes.userId = ?) "+
+												"order by RAND() limit 1 ";
+	
+	private static String selectPlaceByIdAscOrder = 
+
+		"SELECT "+
+		    "uv.propId AS propId, p.Name, SUM(uv.vote) AS votesRank "+
+		"FROM "+
+		    "uservotes AS uv,properties AS p "+
+		"WHERE "+
+		    "placeId = ? and uv.propId = p.id "+
+		"GROUP BY uv.propId "+
+		"UNION "+ 
+		"SELECT "+ 
+		    "p.Id, p.Name, 0 AS votesRank "+
+		"FROM "+
+		    "properties AS p "+
+		"WHERE p.Id NOT IN (SELECT pp.PropId "+
+		    				"FROM places_props AS pp "+
+		    				"WHERE pp.placeId = ?) "+
+		"AND p.Id NOT IN (SELECT uservotes.propId as PropId "+
+		    		"FROM uservotes WHERE uservotes.placeId=?) "+
+		"ORDER BY votesRank ASC;";
+	private static String getRankFromView = "SELECT `votesRank` FROM user_votes_agg_view WHERE `placeId` =? AND `propId` = ?";
 	
 	public static Place getPlace(String Id) throws SQLException {
 		
@@ -60,19 +96,32 @@ public class PlaceDAO {
 		PreparedStatement ps = conn.prepareStatement(selectPlaceById);
 		ps.setString(1, Id);
 		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
-		
-		Place foundPlace = null;
-		
-		if (rs.next()) {
-			foundPlace = new Place(rs.getString("Id"));
-			foundPlace.setnId(rs.getLong("n_id"));
-		}
-		
-		return foundPlace;
+		return getPlaceOutOfRS(rs);
 		
 		
 	}
 	
+	private static Place getPlaceOutOfRS(ResultSet rs) throws SQLException {
+		Place foundPlace = null;
+		if (rs.next()) {
+			foundPlace = new Place(rs.getString("Id"));
+			foundPlace.setnId(rs.getLong("n_id"));
+			foundPlace.setName(rs.getString("Name"));
+		}
+		return foundPlace;
+		
+	}
+	public static Place getRandomPlace() throws SQLException {
+		
+    	Connection conn = JDBCConnection.getConnection();
+		if (conn == null)  throw new SQLException();
+		PreparedStatement ps = conn.prepareStatement(selectRandomPlace);
+		String userId = SecurityContextHolder.getContext().getAuthentication().getName();
+		ps.setString(1, userId);
+		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
+		return getPlaceOutOfRS(rs);
+	}
+
 	public static String getPlaceNameByPlaceId(String Id) throws SQLException {
 		
 		Place foundPlace = getPlace(Id);
@@ -237,6 +286,56 @@ public class PlaceDAO {
 		List<PreparedStatement> lst = new ArrayList<>();
 		lst.add(checkInSt);
 		JDBCConnection.executeUpdate(lst, conn);
+	}
+	
+public static List<PropertyRank> getPlacesWithRanks(String Id) throws SQLException {
+		
+    	Connection conn = JDBCConnection.getConnection();
+		if (conn == null)  throw new SQLException();
+
+		PreparedStatement ps = conn.prepareStatement(selectPlaceByIdAscOrder);
+		ps.setString(1, Id);
+		ps.setString(2, Id);
+		ps.setString(3, Id);
+		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
+		
+		List<PropertyRank> result = new ArrayList<>();
+		PropertyRank property = null;
+			
+		while (rs.next()) {
+			property = new PropertyRank(Id,rs.getInt("propId"),rs.getInt("votesRank"), rs.getString("Name"));
+			result.add(property);
+		}
+		
+		return result;	
+	}
+
+	public static void SavePlacesAndCatsBin(List<Place> allPlaces) throws SQLException {
+		//perform update, if fails rollback and throw sql exception
+		Connection conn = JDBCConnection.getConnection();
+		if (conn == null)  throw new SQLException();
+		PreparedStatement insertPlaceState = conn.prepareStatement(insertPlacesCategoriesBin);
+		List<PreparedStatement> statements = new ArrayList<PreparedStatement>();
+		statements.add(insertPlaceState);
+		JDBCConnection.executeUpdate(statements, conn);
+	}
+	
+	public static int getPlaceRank(String placeId, int propertyId) throws SQLException {
+		Connection conn = JDBCConnection.getConnection();
+
+		PreparedStatement selectPlaces = conn.prepareStatement(getRankFromView);
+
+		selectPlaces.setString(1, placeId);
+		selectPlaces.setInt(2, propertyId);
+		
+		ResultSet rs = JDBCConnection.executeQuery(selectPlaces, conn);
+		
+		if (rs.next()) {
+			return rs.getInt("votesRank");
+		}
+		else {
+			return 0;
+		}
 	}
 	
 }

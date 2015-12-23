@@ -94,8 +94,12 @@ define([
         target: 'places-map',
         view: new ol.View({
           center: ol.proj.transform([34.781813, 32.075978], 'EPSG:4326', 'EPSG:3857'),
-          zoom: 14
-        })
+          zoom: 14,
+          minZoom: 14,
+          maxZoom: 17
+        }),
+        control: [],
+        interactions: []
       });
 
       this.map = map;
@@ -165,18 +169,30 @@ define([
     renderVoteModal: function (data) {
       $.ajax({
         method: "GET",
-        url: "/app/image/" + data.placeId + ".jpg",
+        url: "/app/image/" + data.placeId + ".jpg"
       }).done(function() {
         $(this.vote_el).find('#placeImage').attr("src", "/app/image/" + data.placeId + ".jpg");
-        $(this.vote_el).find('#placeImage').show();
       }.bind(this)).fail(function() {
-        $(this.vote_el).find('#placeImage').hide();
+        $(this.vote_el).find('#placeImage').attr("src", "/common/images/no-image.png");
       }.bind(this));
       $(this.vote_el).find('#placeName').text(data.name);
       $(this.vote_el).find('#row1PropLabel').text(data.property[0].name);
       $(this.vote_el).find('#row2PropLabel').text(data.property[1].name);
       $(this.vote_el).find('#row3PropLabel').text(data.property[2].name);
-      $('.modal').modal('show');
+      $('.vote-modal').modal('show');
+    },
+
+    handlePlacesResponse: function (data) {
+      if (data.places.length != 0) {
+        MyGlobal.collections.ResponsePlaces.reset(data.places);
+        this.overlayResponse();
+      } else {
+        $('.alerts-row').html(
+            '<div class="alert alert-warning alert-dismissable" role="alert">' +
+            '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
+            '<span aria-hidden="true">&times;</span></button>' +
+            '<strong>No places were found!</strong> No places matching chosen filter criterias were found.</div>');
+      }
     },
     placesSubmit: function () {
       $('.alert-resize-map').click();
@@ -189,16 +205,7 @@ define([
         data: JSON.stringify(req_json)
       }).done(function(data) {
         if (data.places) {
-          if (data.places.length != 0) {
-            MyGlobal.collections.ResponsePlaces.reset(data.places);
-            this.overlayResponse();
-          } else {
-            $('.alerts-row').html(
-              '<div class="alert alert-warning alert-dismissable" role="alert">' +
-              '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
-              '<span aria-hidden="true">&times;</span></button>' +
-              '<strong>No places were found!</strong> No places matching chosen filter criterias were found.</div>');
-          }
+          this.handlePlacesResponse(data);
         } else if (data.question) {
           this.inFlightQuestion = data.question;
           this.renderVoteModal(data.question);
@@ -210,7 +217,6 @@ define([
             '<strong>Something went terribly wrong!</strong> See console log for more details.</div>');
         }
       }.bind(this)).fail(function() {
-        $('#places-map').css('height', $('#places-map').height() - 60);
         $('.alerts-row').html(
           '<div class="alert alert-danger alert-dismissable" role="alert">' +
           '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
@@ -364,14 +370,14 @@ define([
           dataType: 'json',
           contentType: 'application/json',
           data: JSON.stringify(res_json)
-        }).done(function() {
-          console.log("answer sent!");
+        }).done(function(data) {
+          this.handlePlacesResponse(data)
         }.bind(this)).fail(function(){
           console.log("answer sending failed!");
         });
 
         this.voteAnswers = ['', '', ''];
-        $('.modal').modal('hide');
+        $('.vote-modal').modal('hide');
       }
     },
   });

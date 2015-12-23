@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import DAO.PropertyDAO;
 import org.json.simple.parser.ParseException;
 
 import DAO.PlaceDAO;
@@ -72,6 +73,7 @@ public class Place extends AbstractEntity {
     }
 
     public static List<Place> getPlacesByLocation(SearchByLocation query) throws SQLException {
+        PropertyDAO.savePropsSearch(query.getProperties());
         return (PlaceDAO.getPlacesByLocation(query));
 
     }

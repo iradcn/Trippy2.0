@@ -35,7 +35,6 @@ public class PlaceBusinessLayer {
 			questionOrResult.setQuestion(newQuestion);
 			return questionOrResult;
 		}
-		
 		newQuestion = newQuestionManager.getQuestions();
 		
 		if (newQuestion == null) {

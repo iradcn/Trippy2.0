@@ -61,20 +61,21 @@ public class PropertyController {
 			return Property.getAll();
 	}
 
-/*	@RequestMapping(value="app/AddPropToPlace", method=RequestMethod.GET)
-	public void AddPropertyToPlace(@RequestParam("propId") int propId,@RequestParam("placeId") String placeId) {
-		try {
-			Property.AddPropToPlace(placeId, propId);
-		}
-		catch (SQLException e) {
-			System.out.println(e.getMessage());
-		}
-	}*/
-
 	@RequestMapping(value="app/DelPropFromPlace", method=RequestMethod.GET)
 	public void RemovePropertyFromPlace(@RequestParam("propId") int propId,@RequestParam("placeId") String placeId) {
 		try {
 			Property.RemovePropFromPlace(placeId, propId);
+		}
+		catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@RequestMapping(value="app/addVoteToProp", method=RequestMethod.GET)
+	public void AddPropertyToPlace(@RequestParam("propId") int propId,@RequestParam("placeId") String placeId,
+								   @RequestParam("voteValue") int voteVal, @RequestParam("placenId") int placenId) {
+		try {
+			Property.AddPropToPlace(placeId, propId, voteVal, "nimrod", placenId);
 		}
 		catch (SQLException e) {
 			System.out.println(e.getMessage());

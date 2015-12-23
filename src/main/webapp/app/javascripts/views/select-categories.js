@@ -14,7 +14,7 @@ define([
     render: function () {
       $(".select-curr-categories").html("");
       this.collection.each(function (cat) {
-        $('.select-curr-categories').append( "<option value='" + cat.id + "'>" + cat.get('name') +  "</option>");
+        $('.select-curr-categories').append( "<option value='" + cat.id + "'>" + cat.get('representationName') +  "</option>");
       }, this);
     },
   });

@@ -37,7 +37,9 @@ public class QuestionManagerService {
 
 		Place placeForQuestion = getPlaceForQuestion();
 		Vote newQuestions = questionGeneratorService.generateThreeQuestions(placeForQuestion);
-
+		newQuestions.setPlaceId(placeForQuestion.getGoogleId());
+		newQuestions.setnPlaceId(placeForQuestion.getnId());
+		newQuestions.setName(placeForQuestion.getName());
 		return newQuestions;
 	}
 
@@ -64,7 +66,7 @@ public class QuestionManagerService {
 		}
 	}
 	
-	private Place getPlaceForQuestion () {
+	public Place getPlaceForQuestion () {
 		try {
 			String userId = SecurityContextHolder.getContext().getAuthentication().getName();
 			Set<String> candidateCheckInPlaces = UserDAO.getUserCheckInPlaces(userId);
@@ -75,14 +77,17 @@ public class QuestionManagerService {
 				}
 			}
 
-			// Todo - Find random place or place in the area
-
 		}
 		catch (Exception Ex)
 		{
-
+			Ex.printStackTrace();
 		}
-		return null;
+		try {
+			return PlaceDAO.getRandomPlace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	public void insertNewQuestions (Vote questions) {
