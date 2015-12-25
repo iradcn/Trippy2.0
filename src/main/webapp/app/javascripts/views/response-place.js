@@ -47,8 +47,9 @@ define([
         url: "/app/image/" + placeId + ".jpg"
       }).done(function() {
         $(this.el).find('#selectPlaceImage').attr("src", "/app/image/" + placeId + ".jpg");
+        $(this.el).find('#selectPlaceImage').height("auto");
       }.bind(this)).fail(function() {
-        $(this.el).find('#selectPlaceImage').attr("src", "/common/images/no-image.png");
+        $(this.el).find('#selectPlaceImage').height(0);
       }.bind(this));
 
     },

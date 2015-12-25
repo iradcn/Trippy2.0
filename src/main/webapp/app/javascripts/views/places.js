@@ -5,8 +5,9 @@ define([
   "text!templates/places.html",
   "text!templates/vote.html",
   "ResponsePlaceView",
+  "SingleResponsePlace",
   "bootstrap",
-], function (Backbone, $, ol, PlacesTemplate, VoteTemplate, ResponsePlaceView) {
+], function (Backbone, $, ol, PlacesTemplate, VoteTemplate, ResponsePlaceView, SingleResponsePlace) {
   var PlacesView = Backbone.View.extend({
     el: ".body-container",
     vote_el: ".dialog-container",
@@ -156,16 +157,14 @@ define([
       pointClick.on('select', function(e) {
         if (e.selected.length > 0 && e.selected[0].getGeometryName() == 'pointGeom') {
           $.ajax({
-            method: "GET",
-            url: "/app/get_place",
-            data: {'placeId': e.selected[0].get('model').attributes.googleId}
+            url: '/app/get_place?placeId='+ e.selected[0].get('model').attributes.googleId,
+            dataType: 'json',
           }).done(function(place) {
             placeView = new ResponsePlaceView({
               model: new SingleResponsePlace(place)
             });
             placeView.render();
           }.bind(this)).fail(function() {
-            alert("Bad placeId");
             placeView = new ResponsePlaceView({
               model: e.selected[0].get('model')
             });
