@@ -62,9 +62,9 @@ public class QuestionsGeneratorService {
 
 			// Get property from similar places
 			ReloadFromJDBCDataModel reloadFromJDBCDataModel = new ReloadFromJDBCDataModel(dataModel);
-        	UserSimilarity similarity = new TanimotoCoefficientSimilarity(reloadFromJDBCDataModel);
-       	 	UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.2, similarity, reloadFromJDBCDataModel);
-        	UserBasedRecommender recommender = new GenericUserBasedRecommender(reloadFromJDBCDataModel, neighborhood, similarity);
+			UserSimilarity similarity = new TanimotoCoefficientSimilarity(reloadFromJDBCDataModel);
+			UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.2, similarity, reloadFromJDBCDataModel);
+			UserBasedRecommender recommender = new GenericUserBasedRecommender(reloadFromJDBCDataModel, neighborhood, similarity);
 
 			List<RecommendedItem> recommendations = recommender.recommend(place.getnId(), 5);
 			for (RecommendedItem recommendation : recommendations) {
@@ -77,6 +77,13 @@ public class QuestionsGeneratorService {
 					}
 				}
 			}
+		}
+
+		catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		}
+
+		try {
 
 			// Get one of the most popular properties in this category and the user
 			// didn't answer i don't know about this property
@@ -115,6 +122,7 @@ public class QuestionsGeneratorService {
 
 		}
 		catch (Exception ex) {
+			System.out.println(ex.getMessage());
 			return null;
 		}
     }
