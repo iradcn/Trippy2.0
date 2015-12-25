@@ -285,34 +285,22 @@ define([
     },
     fixButtons: function(qnum) {
       inner_qnum = qnum - 1;
-      if (this.voteAnswers[inner_qnum] == 1) {
-        $('#btnYes' + qnum).removeClass('btn-success');
-        $('#btnYes' + qnum).addClass('btn-info');
-        $('#btnNo' + qnum).addClass('btn-danger');
-        $('#btnNo' + qnum).removeClass('btn-info');
-        $('#btnIDK' + qnum).addClass('btn-warning');
-        $('#btnIDK' + qnum).removeClass('btn-info');
-      } else if (this.voteAnswers[inner_qnum] == -1) {
-        $('#btnYes' + qnum).addClass('btn-success');
-        $('#btnYes' + qnum).removeClass('btn-info');
-        $('#btnNo' + qnum).removeClass('btn-danger');
-        $('#btnNo' + qnum).addClass('btn-info');
-        $('#btnIDK' + qnum).addClass('btn-warning');
-        $('#btnIDK' + qnum).removeClass('btn-info');
-      } else if (this.voteAnswers[inner_qnum] == 0) {
-        $('#btnYes' + qnum).addClass('btn-success');
-        $('#btnYes' + qnum).removeClass('btn-info');
-        $('#btnNo' + qnum).addClass('btn-danger');
-        $('#btnNo' + qnum).removeClass('btn-info');
-        $('#btnIDK' + qnum).removeClass('btn-warning');
-        $('#btnIDK' + qnum).addClass('btn-info');
-      } else if (this.voteAnswers[inner_qnum] == '') {
-        $('#btnYes' + qnum).addClass('btn-success');
-        $('#btnYes' + qnum).removeClass('btn-info');
-        $('#btnNo' + qnum).addClass('btn-danger');
-        $('#btnNo' + qnum).removeClass('btn-info');
-        $('#btnIDK' + qnum).addClass('btn-warning');
-        $('#btnIDK' + qnum).removeClass('btn-info');
+      if (this.voteAnswers[inner_qnum] === 1) {
+        $('#btnYes' + qnum).addClass('btn-selected');
+        $('#btnNo' + qnum).removeClass('btn-selected');
+        $('#btnIDK' + qnum).removeClass('btn-selected');
+      } else if (this.voteAnswers[inner_qnum] === -1) {
+        $('#btnYes' + qnum).removeClass('btn-selected');
+        $('#btnNo' + qnum).addClass('btn-selected');
+        $('#btnIDK' + qnum).removeClass('btn-selected');
+      } else if (this.voteAnswers[inner_qnum] === 0) {
+        $('#btnYes' + qnum).removeClass('btn-selected');
+        $('#btnNo' + qnum).removeClass('btn-selected');
+        $('#btnIDK' + qnum).addClass('btn-selected');
+      } else if (this.voteAnswers[inner_qnum] === '') {
+        $('#btnYes' + qnum).removeClass('btn-selected');
+        $('#btnNo' + qnum).removeClass('btn-selected');
+        $('#btnIDK' + qnum).removeClass('btn-selected');
       } else {
         alert("someone fucked up here");
       }
@@ -357,7 +345,7 @@ define([
       if (this.voteAnswers[0] === '' ||
           this.voteAnswers[1] === '' ||
           this.voteAnswers[2] === '') {
-        alert("wtf man");
+        alert("Please answer ALL questions.");
       } else {
         var res_json = this.inFlightQuestion;
         res_json["answers"] = this.voteAnswers;
@@ -377,6 +365,9 @@ define([
         });
 
         this.voteAnswers = ['', '', ''];
+        this.fixButtons(1);
+        this.fixButtons(2);
+        this.fixButtons(3);
         $('.vote-modal').modal('hide');
       }
     },
