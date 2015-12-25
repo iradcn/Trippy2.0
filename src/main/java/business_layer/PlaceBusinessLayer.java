@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 import protocol_model.QuestionAndResults;
 import protocol_model.SearchByLocation;
 import services.QuestionManagerService;
+import DAO.CategoryDAO;
+import DAO.PlaceDAO;
+import DAO.PropertyDAO;
 import DAO.UserDAO;
 
 @Service
@@ -57,6 +60,23 @@ public class PlaceBusinessLayer {
 		}
 
 		return questionOrResult;
+	}
+
+	public Place getPlace(String placeId) {
+		Vote openQuestion = newQuestionManager.getOpenQuestions();
+		Place place;
+		if (openQuestion != null) {
+			return null;
+		}
+		try {
+			place = PlaceDAO.getPlace(placeId);
+			place.setProperties(PropertyDAO.getPropertyListByPlace(placeId));
+			place.setCategories(CategoryDAO.getPlaceCategories(placeId));
+			return place;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	
