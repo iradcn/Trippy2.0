@@ -156,6 +156,14 @@ label {
 
 /* --- Voting Modal Dialog --- */
 
+.btn.thick-border {
+    border-width: thick;
+}
+
+.btn.btn-selected {
+    border-color: black;
+}
+
 .dlg-no-title .ui-dialog-titlebar {
     display: none;
 
