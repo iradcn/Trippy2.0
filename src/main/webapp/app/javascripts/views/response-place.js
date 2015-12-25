@@ -46,9 +46,9 @@ define([
         method: "GET",
         url: "/app/image/" + placeId + ".jpg"
       }).done(function() {
-        $(this.vote_el).find('#selectPlaceImage').attr("src", "/app/image/" + placeId + ".jpg");
+        $(this.el).find('#selectPlaceImage').attr("src", "/app/image/" + placeId + ".jpg");
       }.bind(this)).fail(function() {
-        $(this.vote_el).find('#selectPlaceImage').attr("src", "/common/images/no-image.png");
+        $(this.el).find('#selectPlaceImage').attr("src", "/common/images/no-image.png");
       }.bind(this));
 
     },

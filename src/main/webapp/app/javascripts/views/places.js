@@ -86,6 +86,7 @@ define([
         source: pointsVectorSource,
         style: pointsVectorStyle,
       });
+      this.pointsVectorLayer = pointsVectorLayer;
 
       var map = new ol.Map({
         layers: [raster, circlesVectorLayer, pointsVectorLayer],
@@ -164,7 +165,7 @@ define([
             });
             placeView.render();
           }.bind(this)).fail(function() {
-            //TODO: remove this!
+            alert("Bad placeId");
             placeView = new ResponsePlaceView({
               model: e.selected[0].get('model')
             });
@@ -238,23 +239,16 @@ define([
       //$('#places-map').css('height', $('#places-map').height() + 60);
     },
     resetSubmit: function () {
-      if (this.circlesVectorSource.getFeatures().length === 0) {
-        $('.places-submit').prop('disabled', true);
-      }
-
       $('#places-select-curr-categories').val('');
       $('#places-select-curr-properties').val('');
-      $('.places-reset-submit').prop('disabled', true);
-	   this.pointsVectorSource.clear();
+      this.pointsVectorSource.clear();
+      this.pointsVectorLayer.setVisible(false);
     },
     toggleApplyFilterOption: function (e) {
       if ((this.circlesVectorSource.getFeatures().length != 0) || e.feature) {
         $('.places-submit').prop('disabled', false);
       }
 
-      if ($('#places-select-curr-categories').val() || $('#places-select-curr-properties').val()) {
-        $('.places-reset-submit').prop('disabled', false);
-      }
     },
     constructRequest: function () {
       var location_circle = this.circlesVectorSource.getFeatures()[0];
