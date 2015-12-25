@@ -25,8 +25,6 @@ define([
       'click #btnIDK2': 'setIDK2',
       'click #btnIDK3': 'setIDK3',
       'click #submitVote': 'submitVote'
-
- //     'click .alert-resize-map': 'resizeMap'
     },
     initialize: function () {
       this.catView = MyGlobal.views.select_categories_view;
@@ -97,9 +95,7 @@ define([
           zoom: 14,
           minZoom: 14,
           maxZoom: 17
-        }),
-        control: [],
-        interactions: []
+        })
       });
 
       this.map = map;
