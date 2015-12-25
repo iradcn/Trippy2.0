@@ -19,6 +19,7 @@ define([
       this.renderName();
       this.populateCategories();
       this.populateProperties();
+      this.renderImage();
       this.populateNewProperties();
       $('.response-place-modal').modal();
     },
@@ -29,15 +30,27 @@ define([
       var catsArr = this.model.attributes.categories;
       _.each(catsArr, function (cat) {
         var catModel = MyGlobal.collections.categories.get(cat.id);
-        $('#response-place-categories').append("<li>" + catModel.get('name') +  "</li>");
+        $('#response-place-categories').append("<option>" + catModel.get('representationName') +  "</option>");
       });
     },
     populateProperties: function () {
       var propsArr = this.model.attributes.properties;
       _.each(propsArr, function (p) {
         var propModel = MyGlobal.collections.properties.get(p.id);
-        $('#response-place-properties').append("<option value='" + propModel.id + "'>" + propModel.get('name') +  "</option>");
+        $('#response-place-properties').append("<option>" + propModel.get('name') +  "</option>");
       });
+    },
+    renderImage: function () {
+      var placeId = this.model.attributes.googleId;
+      $.ajax({
+        method: "GET",
+        url: "/app/image/" + placeId + ".jpg"
+      }).done(function() {
+        $(this.vote_el).find('#selectPlaceImage').attr("src", "/app/image/" + placeId + ".jpg");
+      }.bind(this)).fail(function() {
+        $(this.vote_el).find('#selectPlaceImage').attr("src", "/common/images/no-image.png");
+      }.bind(this));
+
     },
     populateNewProperties: function () {
       var propsArr = this.model.attributes.properties;

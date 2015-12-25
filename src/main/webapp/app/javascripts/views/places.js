@@ -171,9 +171,9 @@ define([
         method: "GET",
         url: "/app/image/" + data.placeId + ".jpg"
       }).done(function() {
-        $(this.vote_el).find('#placeImage').attr("src", "/app/image/" + data.placeId + ".jpg");
+        $(this.vote_el).find('#votePlaceImage').attr("src", "/app/image/" + data.placeId + ".jpg");
       }.bind(this)).fail(function() {
-        $(this.vote_el).find('#placeImage').attr("src", "/common/images/no-image.png");
+        $(this.vote_el).find('#votePlaceImage').attr("src", "/common/images/no-image.png");
       }.bind(this));
       $(this.vote_el).find('#placeName').text(data.name);
       $(this.vote_el).find('#row1PropLabel').text(data.property[0].name);

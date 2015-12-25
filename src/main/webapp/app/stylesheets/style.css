@@ -194,7 +194,7 @@ label {
     }
 }
 @media (max-width: 769px) {
-    .btn,#placeImage {
+    .btn, #votePlaceImage, #selectPlaceImage {
         width: 100%;
     }
 
