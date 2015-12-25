@@ -183,6 +183,7 @@ define([
         MyGlobal.collections.ResponsePlaces.reset(data.places);
         this.overlayResponse();
       } else {
+        MyGlobal.collections.ResponsePlaces.reset(data.places);
         $('.alerts-row').html(
             '<div class="alert alert-warning alert-dismissable" role="alert">' +
             '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
@@ -205,6 +206,8 @@ define([
         } else if (data.question) {
           this.inFlightQuestion = data.question;
           this.renderVoteModal(data.question);
+        } else if (data.places.length == 0) {
+          this.pointsVectorSource.clear();
         } else {
           $('.alerts-row').html(
             '<div class="alert alert-danger alert-dismissable" role="alert">' +
