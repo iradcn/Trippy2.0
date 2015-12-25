@@ -198,11 +198,6 @@ label {
 .spacer {
     height: 5px;
 }
-.ol-zoom {
-    top: 0px;
-    position: absolute;
-    width: 100%;
-}
 @media (max-width: 769px) {
 
     .ol-zoom > button {
