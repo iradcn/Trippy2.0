@@ -5,11 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import model.Category;
 import model.Place;
 import model.Property;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
@@ -49,6 +51,10 @@ public class PropertyDAO {
                                                   "ORDER BY c DESC " +
                                                   "LIMIT 1";
 
+    private static String getPlaceProperties = 	"SELECT distinct prop.Id, prop.Name "+
+    											"FROM properties prop, places p, places_props_view ppv "+
+    											"WHERE p.Id = ppv.placeId and ppv.propId = prop.Id and p.Id = ?";
+    
     public static void Insert(Property prop) throws SQLException {
         Connection conn = JDBCConnection.getConnection();
         PreparedStatement insertState = conn.prepareStatement(insertProperty);
@@ -104,7 +110,6 @@ public class PropertyDAO {
         PreparedStatement getProp = conn.prepareStatement(GetPropertyById);
         getProp.setInt(1, id);
         ResultSet rs = JDBCConnection.executeQuery(getProp, conn);
-        List<Property> props = new ArrayList<>();
         while (rs.next()) {
             Property prop = new Property(rs.getInt("Id"));
             prop.setName(rs.getString("Name"));
@@ -176,5 +181,16 @@ public class PropertyDAO {
         return null;
     }
 
-
+    public static Set<Property> getPropertyListByPlace(String placeId) throws SQLException {
+    	Set<Property> lstProp = new HashSet<>();
+        Connection conn = JDBCConnection.getConnection();
+        PreparedStatement getProp = conn.prepareStatement(getPlaceProperties);
+        getProp.setString(1, placeId);
+        ResultSet rs = JDBCConnection.executeQuery(getProp, conn);
+        while (rs.next()) {
+            Property prop = new Property(rs.getInt("Id"), rs.getString("Name"));
+            lstProp.add(prop);
+        }
+        return lstProp;
+    }
 }

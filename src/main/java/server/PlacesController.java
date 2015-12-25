@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import protocol_model.QuestionAndResults;
@@ -49,5 +50,10 @@ public class PlacesController {
 	@RequestMapping(value="app/get_places_aggregation", method=RequestMethod.POST)
 	public List<ResultMultipleSearch> SearchAggByMultipleLocation(@RequestBody SearchByMultipleLocation searchQueryJson) throws SQLException {
 		return Place.gePlacesAggregation(searchQueryJson);
+	}
+	
+	@RequestMapping(value="app/get_place", method=RequestMethod.GET)
+	public Place getPlaceData(@RequestParam(value="placeId") String placeId) throws SQLException {
+		return placeBusinessLayer.getPlace(placeId);
 	}
 }
