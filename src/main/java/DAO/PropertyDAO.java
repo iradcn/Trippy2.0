@@ -189,6 +189,7 @@ public class PropertyDAO {
         ResultSet rs = JDBCConnection.executeQuery(getProp, conn);
         while (rs.next()) {
             Property prop = new Property(rs.getInt("Id"), rs.getString("Name"));
+            prop.setGoogleId(String.valueOf(rs.getInt("Id")));
             lstProp.add(prop);
         }
         return lstProp;
