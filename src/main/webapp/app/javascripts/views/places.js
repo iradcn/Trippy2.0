@@ -241,7 +241,6 @@ define([
       $('#places-select-curr-categories').val('');
       $('#places-select-curr-properties').val('');
       this.pointsVectorSource.clear();
-      this.pointsVectorLayer.setVisible(false);
     },
     toggleApplyFilterOption: function (e) {
       if ((this.circlesVectorSource.getFeatures().length != 0) || e.feature) {
