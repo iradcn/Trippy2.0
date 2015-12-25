@@ -2,6 +2,7 @@ package services;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -67,9 +68,14 @@ public class QuestionsGeneratorService {
 
 			List<RecommendedItem> recommendations = recommender.recommend(place.getnId(), 5);
 			for (RecommendedItem recommendation : recommendations) {
-				if (recommendation.getItemID() >= 24 && recommendation.getValue() > 0)
-					System.out.println("Got Property by similarity");
-					return  PropertyDAO.getPropById((int)recommendation.getItemID());
+				if (recommendation.getItemID() >= 24 && recommendation.getValue() > 0) {
+
+					int propId = (int) recommendation.getItemID();
+					if (propId != fProp.getId() && propId != sProp.getId()) {
+						System.out.println("Got Property by similarity");
+						return PropertyDAO.getPropById((int) recommendation.getItemID());
+					}
+				}
 			}
 
 			// Get one of the most popular properties in this category and the user
@@ -77,13 +83,17 @@ public class QuestionsGeneratorService {
 			List<Property> propsCandidates = PropertyDAO.GetPopularPropertiesForCategory(place.getGoogleId(),
 					SecurityContextHolder.getContext().getAuthentication().getName());
 			if (propsCandidates != null && propsCandidates.size() > 0) {
-				System.out.println("Got Property by popular in category");
-				return propsCandidates.get(0);
+				for (Property prop : propsCandidates) {
+					if (prop.getId() != fProp.getId() && prop.getId() != sProp.getId()) {
+						System.out.println("Got Property by popular in category");
+						return prop;
+					}
+				}
 			}
 
 			// If both checks didn't match get popular property on user searches
 			Property p = PropertyDAO.GetPopularPropertyInSearch(SecurityContextHolder.getContext().getAuthentication().getName());
-			if (p != null) {
+			if (p != null && p.getId() != fProp.getId() && p.getId() != sProp.getId()) {
 				System.out.println("Got popular property user searched for");
 				return p;
 			}
@@ -120,7 +130,7 @@ public class QuestionsGeneratorService {
     	Vote vote = new Vote();
     	Property[] propertyArr = new Property[3];
     	propertyArr[0] = generateNewPropertyVote(place);
-    	propertyArr[1] = generatePopularProperty(place);
+    	propertyArr[1] = generatePopularProperty(place, propertyArr[0]);
     	propertyArr[2] = generateCorrelatedProperty(place, propertyArr[0], propertyArr[1]);
     	vote.setProperty(propertyArr);
     	return vote;
@@ -153,7 +163,7 @@ public class QuestionsGeneratorService {
 		}
     }
     
-    public Property generatePopularProperty(Place place) {
+    public Property generatePopularProperty(Place place, Property property) {
     	try {
     		int minVoteRank = 0;
     		include = false;
@@ -170,6 +180,14 @@ public class QuestionsGeneratorService {
 			if (subResult.size() == 0 ) {
 	    		include = true;
 				subResult = getSubListByRank(resultQuery, minVoteRank);
+			}
+			Iterator<PropertyRank> iter = subResult.iterator();
+			while (iter.hasNext()) {
+				PropertyRank pr = iter.next();
+				if (pr.getId() == property.getId()) {
+					subResult.remove(pr);
+					break;
+				}
 			}
 			return getRandomProperty(subResult);
 			

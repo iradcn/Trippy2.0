@@ -167,9 +167,9 @@ define([
         method: "GET",
         url: "/app/image/" + data.placeId + ".jpg"
       }).done(function() {
-        $(this.vote_el).find('#placeImage').attr("src", "/app/image/" + data.placeId + ".jpg");
+        $(this.vote_el).find('#votePlaceImage').attr("src", "/app/image/" + data.placeId + ".jpg");
       }.bind(this)).fail(function() {
-        $(this.vote_el).find('#placeImage').attr("src", "/common/images/no-image.png");
+        $(this.vote_el).find('#votePlaceImage').attr("src", "/common/images/no-image.png");
       }.bind(this));
       $(this.vote_el).find('#placeName').text(data.name);
       $(this.vote_el).find('#row1PropLabel').text(data.property[0].name);
@@ -183,6 +183,7 @@ define([
         MyGlobal.collections.ResponsePlaces.reset(data.places);
         this.overlayResponse();
       } else {
+        this.pointsVectorSource.clear();
         $('.alerts-row').html(
             '<div class="alert alert-warning alert-dismissable" role="alert">' +
             '<button type="button" class="close alert-resize-map" data-dismiss="alert" aria-label="Close">' +
@@ -204,7 +205,7 @@ define([
           this.handlePlacesResponse(data);
         } else if (data.question) {
           this.inFlightQuestion = data.question;
-          this.renderVoteModal(data.question);
+          this.renderVoteModal(data.question)
         } else {
           $('.alerts-row').html(
             '<div class="alert alert-danger alert-dismissable" role="alert">' +
