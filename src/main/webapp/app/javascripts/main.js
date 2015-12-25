@@ -13,6 +13,7 @@ require.config({
     Category: 'models/category',
     Property: 'models/property',
     ResponsePlace: 'models/response-place',
+    SingleResponsePlace: 'models/single-response-place',
 
     // Collections
     Categories: 'collections/categories',

@@ -154,10 +154,23 @@ define([
       });
       pointClick.on('select', function(e) {
         if (e.selected.length > 0 && e.selected[0].getGeometryName() == 'pointGeom') {
-        placeView = new ResponsePlaceView({
-          model: e.selected[0].get('model')
-        });
-        placeView.render();
+          $.ajax({
+            method: "GET",
+            url: "/app/get_place",
+            data: {'placeId': e.selected[0].get('model').attributes.googleId}
+          }).done(function(place) {
+            placeView = new ResponsePlaceView({
+              model: new SingleResponsePlace(place)
+            });
+            placeView.render();
+          }.bind(this)).fail(function() {
+            //TODO: remove this!
+            placeView = new ResponsePlaceView({
+              model: e.selected[0].get('model')
+            });
+            placeView.render();
+          }.bind(this));
+
         } 
       });
       map.addInteraction(pointClick);
@@ -300,6 +313,13 @@ define([
         $('#btnIDK' + qnum).removeClass('btn-selected');
       } else {
         alert("someone fucked up here");
+      }
+      if (this.voteAnswers[0] === '' ||
+          this.voteAnswers[1] === '' ||
+          this.voteAnswers[2] === '') {
+        $('#submitVote').addClass('disabled');
+      } else {
+        $('#submitVote').removeClass('disabled');
       }
     },
     setYes1: function() {
