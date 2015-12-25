@@ -136,6 +136,8 @@ public class PlaceDAO {
 		PreparedStatement insertPlaceState = conn.prepareStatement(insertPlacesSQL);
 		PreparedStatement insertPlaceCategoryState = conn.prepareStatement(insertCategoriesSQL);
 		for (Place place : places) {
+			if (place.getCategories().size() == 0) continue;
+
 			insertPlaceState.setString(1, place.getGoogleId());
 			insertPlaceState.setString(2, place.getName());			
 			insertPlaceState.setDouble(3, place.getLoc().getLat());
