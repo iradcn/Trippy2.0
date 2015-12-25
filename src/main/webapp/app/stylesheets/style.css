@@ -176,7 +176,9 @@ label {
     width: 200px;
     height: 150px;
 }
-
+#place-name {
+    text-align: center;
+}
 .top-buffer { margin-top:20px; }
 .middle-buffer { margin-top:10px; background-color: #73AD21}
 
