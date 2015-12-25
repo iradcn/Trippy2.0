@@ -35,11 +35,12 @@ public class PlaceDAO {
 												      "where p.id = pc.placeId " +
 													  "GROUP BY pc.CategoryId, p.n_id";
 
-	private static String getPlacesByLocation = "SELECT  p.name, p.lat, p.lon, p.id, pc.CategoryId, pp.PropId, p.n_id " +
+	private static String getPlacesByLocation = "SELECT  p.name, p.lat, p.lon, p.id, pc.CategoryId, pp.PropId, p.n_id, c.Presentation_Name " +
 												"FROM places p " +
 												     "LEFT OUTER JOIN places_categories pc ON p.id = pc.placeid " +
 													 "LEFT OUTER JOIN places_props_view pp ON pp.placeId = p.ID " +
-												"WHERE "+
+												     "LEFT OUTER JOIN categories c ON pc.CategoryId = c.Id " +
+												"WHERE "+	
 													"3956 * 2 * ASIN(SQRT(POWER(SIN((? - p.lat) * PI() / 180 / 2), " +
 													"2) + COS(? * PI() / 180) * COS(p.lat * PI() / 180) * " +
 													"POWER(SIN((? - p.lon) * PI() / 180 / 2),2))) < ? " +
@@ -217,7 +218,7 @@ public class PlaceDAO {
 				newPlace.setnId(rs.getLong("n_id"));
 				places.put(newPlace.getGoogleId(), newPlace);
 			}
-			places.get(rs.getString("id")).getCategories().add(new Category(rs.getInt("Categoryid"), ""));
+			places.get(rs.getString("id")).getCategories().add(new Category(rs.getInt("Categoryid"), "", rs.getString("Presentation_Name")));
 			if (rs.getInt("PropId") != 0)
 				places.get(rs.getString("id")).getProperties().add(new Property(rs.getInt("PropId")));
 		}
