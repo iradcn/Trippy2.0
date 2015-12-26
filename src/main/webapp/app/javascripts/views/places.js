@@ -25,7 +25,10 @@ define([
       'click #btnIDK1': 'setIDK1',
       'click #btnIDK2': 'setIDK2',
       'click #btnIDK3': 'setIDK3',
-      'click #submitVote': 'submitVote'
+      'click #submitVote': 'submitVote',
+      'click #recommend1' : 'reecommend1',
+      'click #recommend2' : 'reecommend2',
+      'click #recommend3' : 'reecommend3'
     },
     initialize: function () {
       this.catView = MyGlobal.views.select_categories_view;
@@ -44,6 +47,38 @@ define([
       this.propView.render();
 
     },
+
+    reecommend1 : function() {
+      this.getRecommendedPlaceInfo('ChIJpeqp235MHRUR6hmuonFkXM8');
+    },
+
+    reecommend2 : function() {
+      this.getRecommendedPlaceInfo('ChIJf2aK2oZLHRURbyLnb_j0uUk');
+    },
+
+    reecommend3 : function() {
+      this.getRecommendedPlaceInfo('ChIJpz9FAptLHRURE7h6eDCkS_c');
+    },
+
+
+    getRecommendedPlaceInfo : function(placeId) {
+      $.ajax({
+        url: '/app/get_place?placeId='+ placeId,
+        dataType: 'json',
+      }).done(function(place) {
+        placeView = new ResponsePlaceView({
+          model: new SingleResponsePlace(place)
+        });
+        placeView.render();
+      }.bind(this)).fail(function() {
+        placeView = new ResponsePlaceView({
+          model: e.selected[0].get('model')
+        });
+        placeView.render();
+      }.bind(this));
+
+    },
+
     initMap: function () {
       // The actual map layer
       var raster = new ol.layer.Tile({

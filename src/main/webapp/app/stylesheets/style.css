@@ -179,7 +179,7 @@ label {
 #place-name {
     text-align: center;
 }
-.top-buffer { margin-top:20px; }
+.top-buffer { margin-top:40px; }
 .middle-buffer { margin-top:10px; background-color: #73AD21}
 
 .modal-content  {
@@ -207,6 +207,9 @@ label {
 .spacer {
     height: 5px;
 }
+
+.thumbnail img { min-height:50px; height:230px; }
+
 @media (max-width: 769px) {
 
     .ol-zoom > button {
