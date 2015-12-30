@@ -7,6 +7,7 @@ define([
   "ResponsePlaceView",
   "SingleResponsePlace",
   "bootstrap",
+  "select",
 ], function (Backbone, $, ol, PlacesTemplate, VoteTemplate, ResponsePlaceView, SingleResponsePlace) {
   var PlacesView = Backbone.View.extend({
     el: ".body-container",
@@ -45,7 +46,6 @@ define([
       this.initMap();
       this.catView.render();
       this.propView.render();
-
     },
 
     reecommend1 : function() {
@@ -287,12 +287,12 @@ define([
       var location_circle = this.circlesVectorSource.getFeatures()[0];
       var location_coordinates = ol.proj.transform(location_circle.getGeometry().getCenter(), 'EPSG:3857', 'EPSG:4326');
 
-      var cat_yago_ids = $('#places-select-curr-categories').val(); // array of yagoId
+      var cat_yago_ids = $('#select-curr-properties').val(); // array of yagoId
       var filtered_cats = MyGlobal.collections.categories.filter(function(c) {
         return _.contains(cat_yago_ids, c.id.toString());
       });
 
-      var prop_yago_ids = $('#places-select-curr-properties').val(); // array of yagoId
+      var prop_yago_ids = $('#select-curr-properties').val(); // array of yagoId
       var filtered_props = MyGlobal.collections.properties.filter(function(p) {
         return _.contains(prop_yago_ids, p.id + '');
       });

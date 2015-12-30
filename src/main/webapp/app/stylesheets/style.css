@@ -179,7 +179,7 @@ label {
 #place-name {
     text-align: center;
 }
-.top-buffer { margin-top:40px; }
+.top-buffer { margin-top:20px; }
 .middle-buffer { margin-top:10px; background-color: #73AD21}
 
 .modal-content  {
@@ -208,7 +208,8 @@ label {
     height: 5px;
 }
 
-.thumbnail img { min-height:50px; height:230px; }
+.thumbnail img { min-height:20px; height:100px; }
+.row > div > img { width: 100%; display: block; }
 
 @media (max-width: 769px) {
 

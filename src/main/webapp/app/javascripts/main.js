@@ -5,6 +5,8 @@ require.config({
     underscore: 'libs/underscore',
     backbone: 'libs/backbone',
     bootstrap: '/common/javascripts/libs/bootstrap.min',
+    multiselect: '/common/javascripts/libs/bootstrap-multiselect',
+    select: '/common/javascripts/libs/select2',
     text: 'libs/text',
     async: 'libs/requirejs-plugins/src/async',
     ol: 'libs/ol',
