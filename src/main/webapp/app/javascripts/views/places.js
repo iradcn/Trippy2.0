@@ -273,8 +273,14 @@ define([
       //$('#places-map').css('height', $('#places-map').height() + 60);
     },
     resetSubmit: function () {
-      $('#places-select-curr-categories').val('');
-      $('#places-select-curr-properties').val('');
+      $("#select-curr-categories").each(function () { //added a each loop here
+        $(this).select2('val', '')
+      });
+      $("#select-curr-categories").each(function () { //added a each loop here
+        $(this).select2('val', '')
+      });
+
+      $("#alerts-row-search").hide();
       this.pointsVectorSource.clear();
     },
     toggleApplyFilterOption: function (e) {
@@ -287,7 +293,7 @@ define([
       var location_circle = this.circlesVectorSource.getFeatures()[0];
       var location_coordinates = ol.proj.transform(location_circle.getGeometry().getCenter(), 'EPSG:3857', 'EPSG:4326');
 
-      var cat_yago_ids = $('#select-curr-properties').val(); // array of yagoId
+      var cat_yago_ids = $('#select-curr-categories').val(); // array of yagoId
       var filtered_cats = MyGlobal.collections.categories.filter(function(c) {
         return _.contains(cat_yago_ids, c.id.toString());
       });

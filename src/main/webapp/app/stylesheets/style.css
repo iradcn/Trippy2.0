@@ -217,3 +217,8 @@ label {
         width: 50%;
     }
 }
+
+.trippy-header {
+    margin-left: 0;
+    margin-top: 0;
+}
