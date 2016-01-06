@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import protocol_model.QuestionAndResults;
 import protocol_model.SearchByLocation;
+import services.PlaceRecommendationService;
 import services.QuestionManagerService;
 import DAO.CategoryDAO;
 import DAO.PlaceDAO;
@@ -24,6 +25,9 @@ public class PlaceBusinessLayer {
 	
 	@Autowired
 	QuestionManagerService newQuestionManager;
+	
+	@Autowired
+	PlaceRecommendationService placeRecommendationService;
 	
 	public QuestionAndResults getPlacesOrQuestion(SearchByLocation searchQueryJson) {
 		
@@ -79,5 +83,13 @@ public class PlaceBusinessLayer {
 		}
 	}
 
+	public List<Place> getPlacesRecommendation() {
+		
+		List<Place> foundPlaces = placeRecommendationService.generatePlaceRecommendation(SecurityContextHolder.getContext().getAuthentication().getName());
+		if (foundPlaces!=null)
+			return foundPlaces;
+		
+		return null;
 	
+	}
 }

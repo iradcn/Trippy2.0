@@ -61,6 +61,7 @@ public class PlaceDAO {
 	private static String selectByName = "SELECT `Id` from places where TRIM(LOWER(places.name))=TRIM(LOWER(?))";
 	private static String insertCheckIn = "INSERT INTO users_check_in (`user_id`,`place_id`) values(?,?)";
 	private static String selectPlaceById = "SELECT * from places where Id=?";
+	private static String selectPlaceByNId = "SELECT * from places where n_id=?";
 	private static String selectRandomPlace = "SELECT * FROM places "+
 												"WHERE places.Id not in (SELECT uservotes.placeId "+
 												"FROM uservotes "+
@@ -101,6 +102,21 @@ public class PlaceDAO {
 		
 		
 	}
+	
+	public static Place getPlaceByNplaceId(int Id) throws SQLException {
+		
+    	Connection conn = JDBCConnection.getConnection();
+		if (conn == null)  throw new SQLException();
+
+		PreparedStatement ps = conn.prepareStatement(selectPlaceByNId);
+		ps.setInt(1, Id);
+		ResultSet rs = JDBCConnection.executeQuery(ps, conn);
+		return getPlaceOutOfRS(rs);
+		
+		
+	}
+
+	
 	
 	private static Place getPlaceOutOfRS(ResultSet rs) throws SQLException {
 		Place foundPlace = null;

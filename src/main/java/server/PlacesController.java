@@ -56,4 +56,10 @@ public class PlacesController {
 	public Place getPlaceData(@RequestParam(value="placeId") String placeId) throws SQLException {
 		return placeBusinessLayer.getPlace(placeId);
 	}
+	
+	@RequestMapping(value="app/get_place_recommendation", method=RequestMethod.GET)
+	public List<Place> getRecommendedPlaces() throws SQLException {
+		return placeBusinessLayer.getPlacesRecommendation();
+	}
+
 }

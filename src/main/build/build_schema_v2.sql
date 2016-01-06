@@ -214,6 +214,9 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
+CREATE  OR REPLACE VIEW `user_checkins_agg_view` AS
+SELECT users_check_in.user_id,places.n_id, '1' as 'hasVisited' FROM users_check_in,places
+WHERE places.Id = users_check_in.place_id;
 
 USE `trippy2`;
 insert into categories (`name`, `id`,`Presentation_Name`)

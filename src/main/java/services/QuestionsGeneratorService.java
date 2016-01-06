@@ -41,7 +41,7 @@ public class QuestionsGeneratorService {
     //@Autowired
     DataSource dataSource;
 
-    private JDBCDataModel dataModel;
+    private final JDBCDataModel dataModel;
     private static boolean include;
     
     public QuestionsGeneratorService() {
