@@ -6,9 +6,12 @@ define([
   "text!templates/vote.html",
   "ResponsePlaceView",
   "SingleResponsePlace",
+  "text!templates/get-recommendation.html",
+    "underscore",
   "bootstrap",
-  "select",
-], function (Backbone, $, ol, PlacesTemplate, VoteTemplate, ResponsePlaceView, SingleResponsePlace) {
+  "select"
+
+], function (Backbone, $, ol, PlacesTemplate, VoteTemplate, ResponsePlaceView, SingleResponsePlace, RecommendationsTemplate,_) {
   var PlacesView = Backbone.View.extend({
     el: ".body-container",
     vote_el: ".dialog-container",
@@ -27,7 +30,7 @@ define([
       'click #btnIDK2': 'setIDK2',
       'click #btnIDK3': 'setIDK3',
       'click #submitVote': 'submitVote',
-      'click #recommend1' : 'reecommend1',
+      'click .recommend-item' : 'reecommend1',
       'click #recommend2' : 'reecommend2',
       'click #recommend3' : 'reecommend3'
     },
@@ -46,20 +49,34 @@ define([
       this.initMap();
       this.catView.render();
       this.propView.render();
-    },
+      this.populateRecommendations();
 
-    reecommend1 : function() {
-      this.getRecommendedPlaceInfo('ChIJpeqp235MHRUR6hmuonFkXM8');
     },
-
-    reecommend2 : function() {
-      this.getRecommendedPlaceInfo('ChIJf2aK2oZLHRURbyLnb_j0uUk');
+    populateRecommendations: function () {
+      $.ajax({
+        url: "/app/get_place_recommendation"
+      }).done(function(res){
+        debugger;
+        var compiledTemp = _.template(RecommendationsTemplate);
+        var urls = this.placesToImgUrl(res);
+        $('.recommendation-container').append(compiledTemp({urls:urls}))
+      }.bind(this));
     },
+    placesToImgUrl: function(places) {
 
-    reecommend3 : function() {
-      this.getRecommendedPlaceInfo('ChIJpz9FAptLHRURE7h6eDCkS_c');
+      var urls = [];
+      for (var i=0; i<places.length; i++) {
+        var newItem = {};
+        newItem.url ="app/image/"+places[i].googleId+".jpg";
+        newItem.id = places[i].googleId;
+        urls.push(newItem);
+      }
+      return urls;
+
     },
-
+    reecommend1 : function(e) {
+      this.getRecommendedPlaceInfo(e.target.id);
+    },
 
     getRecommendedPlaceInfo : function(placeId) {
       $.ajax({

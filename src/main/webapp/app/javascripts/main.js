@@ -38,6 +38,9 @@ require.config({
       deps:['underscore','jquery'],
       exports: 'Backbone'
     },
+    'jquery': {
+      exports: ['jQuery','$']
+    },
     'underscore': {
       exports: '_'
     },
@@ -46,7 +49,11 @@ require.config({
     },
     'ol':{
       exports: 'ol'
+    },
+    'select': {
+      deps:['jquery']
     }
+
   }
 });
 

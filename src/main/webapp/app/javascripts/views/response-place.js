@@ -3,7 +3,7 @@ define([
     "jquery",
     "ResponsePlace",
     "text!templates/response-place.html",
-    "bootstrap",
+    "bootstrap"
 ], function (Backbone, $, ResponsePlace, ResponsePlaceTemplate) {
   var ResponsePlaceView = Backbone.View.extend({
     el: "#response-place",
