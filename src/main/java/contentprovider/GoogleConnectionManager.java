@@ -22,7 +22,7 @@ public class GoogleConnectionManager {
 	private final String PLACES_API = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"+
 										"location=%s,%s&radius=%s&name=%s&key=%s";
 	private final String RADIUS = "5000";
-	private final String KEY = "AIzaSyDce9mYYCBRGUW5QLLDVYUXiLNl_CLc3cY";
+	private final String KEY = "AIzaSyAQ6LON9MeRE-AkI-DcD3IjOkwM-1912n4";
 	
 	public Place queryPlace(GoogleSearchableEntity googleSearchableEntity) throws IOException, URISyntaxException {
 
