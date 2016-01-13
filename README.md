@@ -1,6 +1,5 @@
 ###Prerequisites:
-Maven,Git
-
+Maven,Git, local MySQL Server
 ###Instructions:
 
 #####0. Clone Project
