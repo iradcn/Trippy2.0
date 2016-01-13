@@ -1,12 +1,9 @@
-# Databases Project, 2015b
-
 ###Prerequisites:
 Maven,Git
 
 ###Instructions:
 
-#####0. Clone Project:
-  1. *`git clone https://github.com/amirbar/Databases15bFinalProj.git`*
+#####0. Clone Project
 
 #####1. Compilation:
   From within Repository:
@@ -16,33 +13,12 @@ Maven,Git
 #####2. Build DB:
   Start your MySQL Server
   1. Run /build/add_db_user.sql on mysql client
-  2. Run /build/build_schema-local.sql on mysql client
-  3. Run /build/fill_categories-local.sql on mysql client
-  4. Run /build/fill_properties-local.sql on mysql client
+  2. Run /build/build_schema_v2.sql on mysql client
 
-  ---or---
-
-  1. use our school mysql server credentials:
-    - username, password, database: DbMysql11 
-    - the tables are already built and populated.
-
-#####3. Yago Dependencies
-  1. Make sure you have all the following Yago dependencies under /Resources:
-	1.1 yagoGeonamesOnlyData.tsv
-	1.2 yagoGeonamesTypes.tsv
-
-#####3.5. Config file
-  1. running locally (local mysql): keep as is.
-  2. runnig locally (tunneled mysql):
-    - hostname: localhost
-    - port: 3305 (or whatever else you configured)
-    - dbName, username, password: DbMysql11
-  3. running on nova:
-    - hostname: mysqlsrv.cs.tau.ac.il
-    - port: 3306
-    - dbName, username, password: DbMysql11
-   
-#####4.Run
+#####3.Run
   From within project root:
-  1. *`java -jar target/final-project-0.0.1-SNAPSHOT.jar`*
+  1. *`java -jar target/<output jar name>`*
   2. open browser, navigate to *`http://localhost:8080`*, server should be running
+
+#####4. Load Places From Google
+  1. Enter localhost:8080/app/import
